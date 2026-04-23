@@ -1,0 +1,66 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.pyo
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# ── Environment & secrets ─────────────────────────────────────────────────────
+.env
+*.env
+.env.local
+.env.*.local
+
+# ── OS generated ──────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── Editors ───────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Outputs & cache ───────────────────────────────────────────────────────────
+outputs/.instore_cache/
+outputs/.llm_cache/
+outputs/models/
+outputs/nba_results*.xlsx
+outputs/~$*.xlsx
+outputs/instore_scripts.json
+
+# ── Data (bỏ file lớn, giữ lại file demo nhỏ) ────────────────────────────────
+data/~$*.xlsx
+data/*.xlsx
+# Nếu muốn commit file data demo, xoá dòng trên và thêm exception:
+# !data/customer_data_poc_enhanced.xlsx
+
+# ── Temporary Excel lock files ────────────────────────────────────────────────
+~$*.xlsx
+~$*.docx
+
+# ── Streamlit ─────────────────────────────────────────────────────────────────
+.streamlit/secrets.toml
