@@ -2,10 +2,10 @@
 src/llm_message_generator.py
 ────────────────────────────────────────────────────────────────────────────
 LLM Message Generator — OpenAI API Integration
-Sinh nội dung marketing cá nhân hóa cho từng khách hàng trang sức
+Sinh nội dung marketing cá nhân hóa cho từng khách hàng trang sức.
 
-Cài đặt: pip install openai
-Cần:     export OPENAI_API_KEY="sk-..."
+Nội dung được sinh DỰA TRÊN KEY INSIGHT từ phân tích In-Store (Nhánh 1).
+Mỗi channel (ZNS / Email / Push / In-App / Store) có format và độ dài riêng.
 ────────────────────────────────────────────────────────────────────────────
 """
 from __future__ import annotations
@@ -17,7 +17,7 @@ import hashlib
 import pandas as pd
 from pathlib import Path
 from typing import Optional
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 
 # ── OpenAI import (graceful fallback nếu chưa cài) ───────────────────────────
 try:
@@ -29,10 +29,14 @@ except ImportError:
     print("[LLM] Sẽ dùng fallback template mode.")
 
 
-# ── Data classes ───────────────────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════════════════════
+# DATA CLASSES
+# ══════════════════════════════════════════════════════════════════════════════
+
 @dataclass
 class CustomerContext:
-    """Ngữ cảnh khách hàng để inject vào prompt."""
+    """Ngữ cảnh khách hàng — bao gồm cả thông tin instore & outbound."""
+    # ── Core profile ──
     customer_id:        str
     intent:             str          # engagement / anniversary / self_reward / gift
     confidence:         float
@@ -56,14 +60,32 @@ class CustomerContext:
     product_focus:      str
     cta:                str
 
+    # ── Giới tính: M = Nam (anh), F = Nữ (chị) ─────────────────────────
+    gender:             str = "F"
+
+    # ── Instore analysis context (từ instore_scripts.json — Nhánh 1) ──
+    key_insight:        str = ""     # ← Trường quan trọng nhất để sinh message
+    urgency_signal:     str = ""     # Tín hiệu urgency từ phân tích
+    online_insight:     str = ""     # Tóm tắt hành vi online
+    instore_intent:     str = ""     # High Purchase / Exploration / Premium / Low Intent
+    nba_strategy:       str = ""     # Chiến lược NBA
+    psychology_trigger: str = ""     # Đòn tâm lý
+    product_rec_1:      str = ""     # Sản phẩm gợi ý 1
+    product_rec_2:      str = ""     # Sản phẩm gợi ý 2
+    product_rec_3:      str = ""     # Sản phẩm gợi ý 3
+
 
 @dataclass
 class GeneratedMessage:
-    """Kết quả sinh từ LLM."""
+    """Kết quả message sinh từ LLM — có cấu trúc đầy đủ theo từng channel."""
     customer_id:    str
     channel:        str
-    subject:        Optional[str]    # chỉ dùng cho email
-    body:           str
+    # Channel-specific structured fields
+    subject:        Optional[str]    # Email: subject; Push/InApp: tiêu đề thông báo
+    greeting:       Optional[str]    # ZNS/Email/Store: câu mở đầu insight-driven
+    body:           str              # Nội dung chính
+    highlights:     list             # Danh sách điểm nổi bật (# bullets / • bullets)
+    closing:        Optional[str]    # ZNS/Email/Store: câu kết / mời tương tác
     cta_text:       str
     tone:           str              # warm / urgent / luxurious / friendly
     tokens_used:    int
@@ -71,64 +93,406 @@ class GeneratedMessage:
     raw_json:       dict
 
 
-# ── Prompt templates theo channel ─────────────────────────────────────────────
-SYSTEM_PROMPT = """Bạn là chuyên gia marketing trang sức cao cấp tại Việt Nam.
-Nhiệm vụ: sinh nội dung marketing CÁ NHÂN HÓA, ngắn gọn, tự nhiên — KHÔNG sáo rỗng.
+# ══════════════════════════════════════════════════════════════════════════════
+# SYSTEM PROMPT — dựa trên Key Insight
+# ══════════════════════════════════════════════════════════════════════════════
 
-Quy tắc bắt buộc:
-1. Viết tiếng Việt thuần túy, giọng thân thiện nhưng lịch sự
-2. KHÔNG dùng các cụm sáo: "ưu đãi không thể bỏ lỡ", "đừng bỏ lỡ", "cơ hội vàng"
-3. Độ dài: push ≤ 60 chữ, zns ≤ 100 chữ, email subject ≤ 60 chữ, email body ≤ 180 chữ, in_app ≤ 80 chữ
-4. Luôn trả lời đúng định dạng JSON được yêu cầu — không thêm markdown hay giải thích ngoài JSON
-5. Tone phải phù hợp: engagement=lãng mạn tinh tế, anniversary=ấm áp trân trọng, self_reward=tự tin vui tươi, gift=chu đáo quan tâm"""
+SYSTEM_PROMPT = """Bạn là chuyên gia marketing trang sức cao cấp PNJ tại Việt Nam.
+Nhiệm vụ: Dựa trên KEY INSIGHT về hành vi và tín hiệu của khách hàng, sinh nội dung
+marketing CÁ NHÂN HÓA — sâu sắc, thiết thực, KHÔNG sáo rỗng, KHÔNG chung chung giữa các khách.
+
+Nguyên tắc bắt buộc:
+1. Nội dung PHẢI phản ánh đúng Key Insight — mỗi khách một thông điệp KHÁC NHAU, không copy-paste
+2. Viết tiếng Việt chuẩn, giọng ấm áp lịch sự — xưng "em", gọi khách đúng theo giới tính được cung cấp: "anh" nếu Nam, "chị" nếu Nữ. TUYỆT ĐỐI không dùng "bạn" hay "anh/chị" gộp chung
+3. KHÔNG dùng: "ưu đãi không thể bỏ lỡ", "đừng bỏ lỡ", "cơ hội vàng", "flash sale"
+4. Nếu có urgency (sinh nhật gần, giỏ hàng bỏ dở) → lồng ghép khéo léo, tự nhiên vào nội dung
+5. Nếu insight liên quan đến cầu hôn → tiếp cận tế nhị, KHÔNG nói thẳng "bạn sắp cầu hôn"
+6. TUYỆT ĐỐI không dùng ký hiệu "#" (hashtag) trong bất kỳ trường nào — không làm bullet, heading
+7. ZNS highlights dùng "✦ ", email bullets dùng "▸ ", in-app dùng "✓ "
+8. Trả về ĐÚNG format JSON được yêu cầu — không thêm markdown hay giải thích ngoài JSON"""
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CHANNEL PROMPTS — Format riêng cho từng kênh
+# ══════════════════════════════════════════════════════════════════════════════
 
 CHANNEL_PROMPTS = {
-    "push": """Sinh push notification cho ứng dụng mobile.
-JSON format:
-{{"body": "...", "cta_text": "...", "tone": "..."}}
-- body: tối đa 60 chữ, tạo tò mò nhẹ, có thể dùng emoji 1 cái
-- cta_text: 2-4 chữ (VD: "Xem ngay", "Khám phá")
-- tone: một trong [warm, urgent, luxurious, friendly]""",
 
-    "zns": """Sinh tin nhắn ZNS Zalo.
-JSON format:
-{{"body": "...", "cta_text": "...", "tone": "..."}}
-- body: tối đa 100 chữ, thân mật như nhắn bạn bè, không dùng "Kính gửi"
-- cta_text: 3-5 chữ
-- tone: một trong [warm, urgent, luxurious, friendly]""",
+    "zns": """Sinh tin nhắn ZNS Zalo đầy đủ — tuân theo định dạng và giới hạn nội dung Zalo OA.
 
-    "email": """Sinh email marketing.
-JSON format:
-{{"subject": "...", "body": "...", "cta_text": "...", "tone": "..."}}
-- subject: tối đa 60 chữ, gợi tò mò, không dùng CAPS LOCK
-- body: tối đa 180 chữ, 2-3 đoạn ngắn, có thể có 1 bullet point nếu cần
-- cta_text: 3-6 chữ (VD: "Xem bộ sưu tập", "Đặt tư vấn")
-- tone: một trong [warm, urgent, luxurious, friendly]""",
-
-    "in_app": """Sinh banner/pop-up trong ứng dụng.
-JSON format:
-{{"body": "...", "cta_text": "...", "tone": "..."}}
-- body: tối đa 80 chữ, ngắn gọn súc tích vì đang trong lúc browse
-- cta_text: 2-4 chữ
-- tone: một trong [warm, urgent, luxurious, friendly]""",
-
-    "store": """Sinh script gợi ý ngắn cho nhân viên cửa hàng khi khách quét loyalty card.
-JSON format:
-{{"body": "...", "cta_text": "...", "tone": "..."}}
-- body: tối đa 80 chữ, viết như lời nhân viên nói với khách — tự nhiên, không đọc như quảng cáo
-- cta_text: hành động nhân viên nên làm (VD: "Dẫn khách xem khu Nhẫn")
-- tone: warm""",
+FORMAT JSON bắt buộc:
+{
+  "greeting": "1-2 câu mở đầu — gợi nhắc insight khách tế nhị, tự nhiên (VD: về khoảnh khắc đặc biệt, về sự quan tâm đến sản phẩm)",
+  "body": "2-3 câu chính — PNJ có gì dành cho dịp/nhu cầu này, cụ thể sản phẩm, không chung chung",
+  "highlights": ["✦ Điểm nổi bật 1 — ngắn gọn", "✦ Điểm nổi bật 2", "✦ Điểm nổi bật 3"],
+  "closing": "1-2 câu kết — đội tư vấn PNJ sẵn sàng, mời tương tác tự nhiên không ép buộc",
+  "cta_text": "3-5 chữ hành động cụ thể",
+  "tone": "warm | luxurious | friendly",
+  "subject": null
 }
+
+Quy tắc ZNS:
+- Greeting: câu hook dựa vào insight — không nói thẳng "bạn sắp cầu hôn"
+- Body: 2-3 câu rõ ràng, mỗi câu 1 ý, đề cập sản phẩm phù hợp với insight
+- Highlights: đúng 3 mục, bắt đầu bằng "✦ " (TUYỆT ĐỐI không dùng "#")
+- Closing: 1-2 câu, gợi mở liên hệ
+- Tổng toàn bộ nội dung (greeting + body + highlights + closing): 150-250 chữ""",
+
+    "email": """Sinh email marketing đầy đủ — có cấu trúc rõ ràng như email thương hiệu cao cấp thực tế.
+
+FORMAT JSON bắt buộc:
+{
+  "subject": "Tiêu đề email — dưới 60 chữ, gợi tò mò liên quan đến insight, không CAPS LOCK",
+  "greeting": "Kính gửi anh/chị,",
+  "body": "Đoạn 1 (2-3 câu): Opening hook — nhắc đến dịp/nhu cầu từ insight một cách tự nhiên và tinh tế.\\n\\nĐoạn 2 (2-3 câu): PNJ có gì phù hợp — sản phẩm cụ thể, thiết kế, đặc điểm nổi bật.\\n\\nĐoạn 3 (1-2 câu): Lý do nên hành động sớm — urgency nếu có, hoặc giá trị riêng.",
+  "highlights": ["• Điểm nổi bật 1 — cụ thể về sản phẩm/dịch vụ PNJ", "• Điểm nổi bật 2 — lý do chọn PNJ", "• Điểm nổi bật 3 — cam kết / dịch vụ thêm"],
+  "closing": "Đội ngũ tư vấn PNJ sẵn sàng hỗ trợ anh/chị chọn lựa phù hợp nhất. Liên hệ hotline 1800 545457 hoặc ghé cửa hàng PNJ gần nhất.",
+  "cta_text": "3-6 chữ — rõ ràng như 'Xem bộ sưu tập' hoặc 'Đặt tư vấn ngay'",
+  "tone": "warm | luxurious | friendly | urgent"
+}
+
+Quy tắc Email:
+- Subject: liên quan đúng insight, tạo tò mò tự nhiên
+- Body: 3 đoạn rõ ràng, cách nhau \\n\\n, tổng 120-200 chữ
+- Highlights: đúng 3 bullets với thông tin cụ thể, không chung chung
+- Closing: câu kết + thông tin liên hệ thực tế""",
+
+    "push": """Sinh push notification mobile — cực ngắn, tạo tò mò tức thì, liên quan đến insight.
+
+FORMAT JSON bắt buộc:
+{
+  "subject": "Tiêu đề thông báo — tối đa 50 chữ, có thể dùng 1 emoji duy nhất, liên quan insight",
+  "body": "Nội dung thông báo — tối đa 80 chữ, 1-2 câu, đặt câu hỏi hoặc gợi mở liên quan đến insight",
+  "highlights": [],
+  "greeting": null,
+  "closing": null,
+  "cta_text": "2-4 chữ ngắn gọn",
+  "tone": "urgent | friendly | warm"
+}
+
+Quy tắc Push:
+- Subject phải liên quan đến key insight (không generic "PNJ có ưu đãi mới")
+- Body: câu hỏi gợi mở hoặc thông tin liên quan đến nhu cầu cụ thể
+- 1 emoji tối đa trong toàn bộ thông báo (subject hoặc body, chọn 1)
+- Không quá 130 chữ tổng cộng""",
+
+    "in_app": """Sinh in-app banner — khi khách đang browse app, cần nắm sự chú ý trong 3 giây.
+
+FORMAT JSON bắt buộc:
+{
+  "subject": "Tiêu đề banner — tối đa 50 chữ, bold + emoji, liên quan trực tiếp đến insight",
+  "body": "Nội dung banner — 2-3 câu, tối đa 100 chữ, nêu rõ giá trị và sản phẩm phù hợp insight",
+  "highlights": ["Điểm nhanh 1 — lợi ích cụ thể", "Điểm nhanh 2 — điểm khác biệt PNJ"],
+  "greeting": null,
+  "closing": null,
+  "cta_text": "2-4 chữ",
+  "tone": "warm | luxurious | friendly"
+}
+
+Quy tắc In-App:
+- Subject/Tiêu đề: bold + emoji, liên quan insight (không phải "Xem ngay!")
+- Body: ngắn nhưng đủ thuyết phục để khách click — nhắc insight, nêu sản phẩm
+- 2 highlights nêu điểm khác biệt cụ thể""",
+
+    "store": """Sinh thẻ thông tin nhanh cho Tư Vấn Viên (TVV) khi khách quét loyalty card tại cửa hàng.
+
+FORMAT JSON bắt buộc:
+{
+  "subject": "⚡ Insight TVV cần biết: [tóm tắt key insight ngắn gọn cho TVV]",
+  "greeting": "Câu TVV mở đầu với khách — tự nhiên, không để lộ biết thông tin từ hệ thống. Xưng 'em', gọi khách đúng theo giới tính (anh/chị) được cung cấp.",
+  "body": "Script ngắn cho TVV (3-4 câu): nhắc insight theo cách tự nhiên → giới thiệu sản phẩm phù hợp → tạo cảm giác được phục vụ riêng. Xưng 'em', gọi khách đúng theo giới tính được cung cấp (anh/chị) — dùng nhất quán xuyên suốt script.",
+  "highlights": ["Sản phẩm ưu tiên giới thiệu: [tên SP cụ thể]", "Điểm bán hàng: [lý do phù hợp với insight]"],
+  "closing": "Hành động tiếp theo TVV nên làm sau câu mở đầu",
+  "cta_text": "Hành động TVV — VD: 'Dẫn khách xem khu Nhẫn Kim cương'",
+  "tone": "warm"
+}""",
+}
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# INTENT CONTEXT — mô tả insight theo từng intent type
+# ══════════════════════════════════════════════════════════════════════════════
 
 INTENT_CONTEXT_PROMPTS = {
-    "engagement": "Khách đang có dấu hiệu sắp cầu hôn (xem nhẫn đính hôn, tìm kiếm 'cầu hôn'). Tiếp cận tinh tế, lãng mạn — KHÔNG nói thẳng 'bạn sắp cầu hôn'.",
-    "anniversary": "Khách có xu hướng mua dịp kỷ niệm tình yêu/ngày cưới. Nhấn vào cảm xúc trân trọng, kỷ niệm ý nghĩa.",
-    "self_reward": "Khách thích tự thưởng cho bản thân. Nhấn vào sự tự tin, xứng đáng được hưởng điều tốt đẹp — không phụ thuộc vào ai.",
-    "gift": "Khách đang tìm quà tặng cho người thân. Nhấn vào việc chọn đúng quà, ý nghĩa của món quà với người nhận.",
+    "engagement":  "Insight: Khách có dấu hiệu chuẩn bị cho dịp cầu hôn/đính hôn (xem nhẫn, tìm kiếm). Tiếp cận tế nhị, lãng mạn — KHÔNG nói thẳng 'bạn sắp cầu hôn'. Nhắc đến khoảnh khắc đặc biệt, dịp ý nghĩa.",
+    "anniversary": "Insight: Khách có xu hướng mua dịp kỷ niệm tình yêu/ngày cưới. Nhấn vào cảm xúc trân trọng — mỗi năm là một trang đẹp, quà ý nghĩa ghi dấu cột mốc.",
+    "self_reward": "Insight: Khách thích tự thưởng cho bản thân. Nhấn vào sự tự tin và xứng đáng — không phụ thuộc ai, không cần dịp đặc biệt.",
+    "gift":        "Insight: Khách đang tìm quà tặng cho người thân/bạn bè. Nhấn vào việc chọn đúng quà — ý nghĩa với người nhận, dịch vụ hỗ trợ chọn quà.",
 }
 
 
-# ── Cache (tránh gọi API lặp) ─────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════════════════════
+# FALLBACK TEMPLATES — Rich content, dựa trên intent + channel + insight
+# ══════════════════════════════════════════════════════════════════════════════
+
+def _pronoun(gender: str) -> str:
+    """Trả về 'anh' cho Nam (M), 'chị' cho Nữ (F)."""
+    return "anh" if str(gender).upper() == "M" else "chị"
+
+
+def _apply_gender(d: dict, pn: str) -> dict:
+    """Thay 'anh/chị' và 'Anh/chị' trong dict bằng đại từ đúng giới tính."""
+    Pn = pn.capitalize()
+    def _fix(v: object) -> object:
+        if isinstance(v, str):
+            return v.replace("anh/chị", pn).replace("Anh/chị", Pn)
+        if isinstance(v, list):
+            return [_fix(i) for i in v]
+        return v
+    return {k: _fix(v) for k, v in d.items()}
+
+
+def _build_fallback(ctx: CustomerContext) -> dict:
+    """
+    Sinh fallback template phong phú dựa trên key_insight, urgency, channel.
+    Mỗi channel có cấu trúc riêng phù hợp thực tế.
+    """
+    pn       = _pronoun(ctx.gender)   # "anh" hoặc "chị"
+    insight  = ctx.key_insight.strip()
+    urgency  = ctx.urgency_signal.strip()
+    channel  = ctx.channel
+    product  = ctx.product_focus or ctx.preferred_type or "trang sức"
+    style    = ctx.style
+
+    # ── Xác định ngữ cảnh từ insight ─────────────────────────────────────────
+    is_proposal    = any(k in insight.lower() for k in ["cầu hôn", "đính hôn", "nhẫn"])
+    is_birthday    = any(k in insight.lower() for k in ["sinh nhật", "birthday"])
+    is_anniversary = any(k in insight.lower() for k in ["kỷ niệm", "anniversary"])
+    is_self_reward = any(k in insight.lower() for k in ["tự thưởng", "self", "bản thân"])
+    has_urgency    = bool(urgency)
+
+    # ── Chọn hook dựa trên insight ────────────────────────────────────────────
+    if is_proposal:
+        hook_greeting = "Mỗi khoảnh khắc yêu thương đều xứng đáng được trân trọng bằng một món quà đặc biệt."
+        hook_body = (
+            f"PNJ gửi đến anh/chị những thiết kế {product} tinh tuyển, "
+            "phù hợp cho dịp sinh nhật, kỷ niệm hay lời cầu hôn ý nghĩa.\n"
+            "Từng chi tiết được chế tác tỉ mỉ — để khoảnh khắc quan trọng của anh/chị thêm trọn vẹn."
+        )
+        highlights_base = [
+            "✦ Sang trọng trong thiết kế",
+            "✦ Tinh tế trong từng chi tiết",
+            "✦ Gửi trọn thành ý cho người thương",
+        ]
+        email_bullets = [
+            "• Bộ sưu tập nhẫn đính hôn & nhẫn cưới — GIA certified, vàng 18K",
+            "• Dịch vụ khắc tên & ngày đặc biệt lên sản phẩm miễn phí",
+            "• Đội tư vấn riêng — đồng hành từng bước cho dịp trọng đại",
+        ]
+        subject_email = "Dành cho khoảnh khắc chỉ có một lần — PNJ có điều muốn chia sẻ"
+        subject_push  = "💍 Khoảnh khắc đặc biệt xứng đáng được chuẩn bị kỹ"
+        body_push     = "Bộ sưu tập nhẫn đính hôn PNJ vừa cập nhật mẫu mới — xem ngay để chuẩn bị thật hoàn hảo."
+        store_subject = f"⚡ Insight TVV: Khách quan tâm {product}, có thể đang chuẩn bị dịp cầu hôn/kỷ niệm"
+        store_greeting = f"Chào anh/chị! Anh/chị đang tìm {product} — bên em vừa có đợt mẫu đặc biệt rất phù hợp cho những dịp trọng đại."
+        tone = "luxurious"
+
+    elif is_birthday:
+        hook_greeting = "Dịp sinh nhật thật sự ý nghĩa khi có một món quà được lựa chọn kỹ lưỡng."
+        hook_body = (
+            f"PNJ gửi đến anh/chị những gợi ý {product} tinh tế — "
+            "vừa đẹp vừa mang ý nghĩa riêng, phù hợp để tự thưởng hay tặng người thân nhân dịp sinh nhật."
+        )
+        highlights_base = [
+            "✦ Quà sinh nhật được cá nhân hóa theo sở thích",
+            "✦ Dịch vụ khắc tên & gói quà cao cấp miễn phí",
+            "✦ Giao hàng đúng hẹn — sẵn sàng cho ngày đặc biệt",
+        ]
+        email_bullets = [
+            f"• Bộ sưu tập {product} Birthday Collection — đa dạng mức giá",
+            "• Dịch vụ khắc tên & đóng hộp quà sang trọng không phụ phí",
+            "• Hỗ trợ giao hàng trong ngày tại TP.HCM & Hà Nội",
+        ]
+        subject_email = f"Sinh nhật sắp đến — {product} phù hợp nhất cho anh/chị"
+        subject_push  = "🎂 Dịp sinh nhật sắp đến — PNJ có gợi ý riêng cho anh/chị"
+        body_push     = f"Bộ sưu tập {product} mới nhất đang chờ — chọn ngay để kịp cho ngày đặc biệt."
+        store_subject = f"⚡ Insight TVV: Sinh nhật sắp đến — ưu tiên giới thiệu {product} và quà tặng"
+        store_greeting = f"Chào anh/chị! Bên em đang có đợt {product} mới về rất đẹp — có cả dịch vụ gói quà riêng nếu anh/chị cần nhé."
+        tone = "warm"
+
+    elif is_anniversary:
+        hook_greeting = "Mỗi kỷ niệm là một trang đẹp xứng đáng được ghi dấu theo cách riêng."
+        hook_body = (
+            f"PNJ gửi đến anh/chị những thiết kế {product} ý nghĩa — "
+            "có thể khắc tên, ngày kỷ niệm để lưu giữ cột mốc đặc biệt của hai người."
+        )
+        highlights_base = [
+            "✦ Trang sức kỷ niệm — khắc ngày tháng theo yêu cầu",
+            "✦ Chứng nhận chất lượng PNJ — bền theo năm tháng",
+            "✦ Tư vấn cá nhân hóa từng chi tiết cho đôi bạn",
+        ]
+        email_bullets = [
+            f"• Bộ sưu tập {product} kỷ niệm — thiết kế đôi, tinh tế",
+            "• Dịch vụ khắc tên + ngày kỷ niệm lên sản phẩm",
+            "• Gift box nhung cao cấp — trọn bộ quà không cần thêm gì",
+        ]
+        subject_email = "Kỷ niệm xứng đáng được ghi nhớ mãi — PNJ có điều muốn gợi ý"
+        subject_push  = "💕 Sắp đến ngày kỷ niệm — chuẩn bị một điều thật ý nghĩa"
+        body_push     = f"Bộ {product} kỷ niệm có thể khắc tên và ngày đặc biệt — đặt trước 2 ngày là có ngay."
+        store_subject = f"⚡ Insight TVV: Khách mua dịp kỷ niệm — ưu tiên {product} đôi + dịch vụ khắc tên"
+        store_greeting = f"Chào anh/chị! Bên em đang có dịch vụ khắc tên miễn phí lên {product} — rất phù hợp cho dịp kỷ niệm đặc biệt ạ."
+        tone = "warm"
+
+    elif is_self_reward:
+        hook_greeting = f"Đôi khi điều tốt nhất {pn} có thể làm là tự trân trọng chính mình."
+        hook_body = (
+            f"PNJ gửi đến anh/chị những mẫu {product} mới nhất — "
+            f"phong cách {style.lower() if style else 'tinh tế'}, phù hợp đeo hàng ngày "
+            "hay cho những dịp muốn tỏa sáng."
+        )
+        highlights_base = [
+            f"✦ Bộ sưu tập {product} mới — chưa đại trà",
+            "✦ Chất lượng vàng chuẩn PNJ — bảo hành toàn quốc",
+            "✦ Phong cách đa dạng — tìm đúng mẫu cho cá tính riêng",
+        ]
+        email_bullets = [
+            f"• New arrivals {product} tháng này — mẫu mới, chưa đại trà",
+            "• Đa dạng phong cách từ tối giản đến nổi bật — phù hợp mọi cá tính",
+            "• Bảo hành 12 tháng, đổi trả trong 7 ngày tại tất cả cửa hàng PNJ",
+        ]
+        subject_email = f"Tự thưởng cho bản thân — {product} mới vừa về tại PNJ"
+        subject_push  = "✨ Mẫu mới vừa về — phong cách phù hợp cho anh/chị"
+        body_push     = f"Bộ sưu tập {product} mới nhất của PNJ — phong cách đa dạng, xem thử để tìm mẫu ưng ý nhất."
+        store_subject = f"⚡ Insight TVV: Khách thích tự thưởng — giới thiệu {product} mới + bestseller"
+        store_greeting = f"Chào anh/chị! Bên em vừa về đợt {product} mới — mẫu đang được nhiều khách ưa chuộng lắm, để em lấy ra cho anh/chị xem thử nhé."
+        tone = "friendly"
+
+    else:
+        # Generic fallback dựa trên product focus
+        hook_greeting = f"Anh/chị đang quan tâm đến {product} — PNJ có những lựa chọn rất phù hợp dành cho anh/chị."
+        hook_body = (
+            f"Bộ sưu tập {product} mới nhất của PNJ được thiết kế với nhiều phong cách đa dạng — "
+            "từ tối giản thanh lịch đến nổi bật cá tính, phù hợp cho mọi dịp."
+        )
+        highlights_base = [
+            f"✦ Đa dạng mẫu {product} — nhiều phong cách lựa chọn",
+            "✦ Chất lượng vàng chuẩn PNJ — cam kết bảo hành",
+            "✦ Tư vấn miễn phí — đội ngũ chuyên nghiệp sẵn sàng",
+        ]
+        email_bullets = [
+            f"• Bộ sưu tập {product} đa dạng — phù hợp nhiều phong cách",
+            "• Chất lượng chuẩn PNJ — bảo hành toàn quốc",
+            "• Tư vấn miễn phí tại cửa hàng hoặc online",
+        ]
+        subject_email = f"PNJ gửi đến anh/chị — bộ sưu tập {product} phù hợp nhất"
+        subject_push  = f"💎 {product} PNJ — mẫu phù hợp với anh/chị đang chờ"
+        body_push     = f"Bộ sưu tập {product} của PNJ với nhiều phong cách — xem ngay để tìm mẫu ưng ý."
+        store_subject = f"⚡ Insight TVV: Khách quan tâm {product} — tư vấn đa dạng lựa chọn"
+        store_greeting = f"Chào anh/chị! Bên em đang có đợt {product} rất đẹp — để em giới thiệu vài mẫu phù hợp cho anh/chị nhé."
+        tone = "friendly"
+
+    # ── Urgency lồng ghép ─────────────────────────────────────────────────────
+    urgency_note = ""
+    if has_urgency:
+        if "sinh nhật" in urgency.lower():
+            urgency_note = " Dịp sinh nhật đang đến gần — đặt trước để kịp chuẩn bị."
+        elif "giỏ hàng" in urgency.lower() or "cart" in urgency.lower():
+            urgency_note = " Sản phẩm anh/chị đã chọn trước đó vẫn còn — số lượng có hạn."
+        elif "cầu hôn" in urgency.lower():
+            urgency_note = " Thời điểm lý tưởng để chuẩn bị — đội tư vấn sẵn sàng hỗ trợ riêng."
+
+    closing_base = (
+        "Đội ngũ PNJ sẵn sàng đồng hành và tư vấn lựa chọn phù hợp nhất dành riêng cho anh/chị."
+        + urgency_note
+    )
+    cta_zns   = "Khám phá ngay"
+    cta_email = "Xem bộ sưu tập"
+    cta_push  = "Mở xem ngay"
+    cta_inapp = "Xem ngay"
+    cta_store = "Tư vấn riêng"
+
+    # ── Assemble theo channel ─────────────────────────────────────────────────
+    if channel == "zns":
+        return _apply_gender({
+            "greeting":   hook_greeting,
+            "body":       hook_body,
+            "highlights": highlights_base,
+            "closing":    closing_base + "\n* Khám phá bộ sưu tập mới nhất hoặc phản hồi tin nhắn để được hỗ trợ nhanh chóng.",
+            "cta_text":   cta_zns,
+            "tone":       tone,
+            "subject":    None,
+        }, pn)
+
+    if channel == "email":
+        body_3para = (
+            f"{hook_greeting}\n\n"
+            f"{hook_body}\n\n"
+            + (f"Lưu ý: {urgency_note.strip()}" if urgency_note else
+               f"Hãy để PNJ đồng hành cùng {pn} tìm món trang sức thật phù hợp.")
+        )
+        return _apply_gender({
+            "subject":    subject_email,
+            "greeting":   f"Kính gửi {pn},",
+            "body":       body_3para,
+            "highlights": email_bullets,
+            "closing":    f"Đội ngũ tư vấn PNJ sẵn sàng hỗ trợ {pn} chọn lựa phù hợp nhất. "
+                          "Liên hệ hotline 1800 545457 hoặc ghé cửa hàng PNJ gần nhất.",
+            "cta_text":   cta_email,
+            "tone":       tone,
+        }, pn)
+
+    if channel == "push":
+        return _apply_gender({
+            "subject":    subject_push,
+            "body":       body_push + (urgency_note if urgency_note else ""),
+            "highlights": [],
+            "greeting":   None,
+            "closing":    None,
+            "cta_text":   cta_push,
+            "tone":       "urgent" if has_urgency else tone,
+        }, pn)
+
+    if channel == "in_app":
+        inapp_subject = f"💎 {product} mới — xem ngay" if not is_proposal else f"💍 Dành cho khoảnh khắc đặc biệt"
+        inapp_body = (
+            f"{hook_greeting} "
+            f"PNJ có những mẫu {product} phù hợp nhất cho {pn} — "
+            + (urgency_note.strip() if urgency_note else "khám phá ngay bộ sưu tập mới nhất.")
+        )
+        return _apply_gender({
+            "subject":    inapp_subject,
+            "body":       inapp_body,
+            "highlights": [highlights_base[0].replace("✦ ", "✓ "), highlights_base[1].replace("✦ ", "✓ ")],
+            "greeting":   None,
+            "closing":    None,
+            "cta_text":   cta_inapp,
+            "tone":       tone,
+        }, pn)
+
+    if channel == "store":
+        store_highlights = [
+            f"Sản phẩm ưu tiên: {ctx.product_rec_1 or product}",
+            f"Điểm bán hàng: {highlights_base[0].replace('✦ ', '')}",
+        ]
+        return _apply_gender({
+            "subject":    store_subject,
+            "greeting":   store_greeting,
+            "body":       (
+                f"{hook_body} "
+                f"{'Lưu ý: ' + urgency_note.strip() if urgency_note else ''} "
+                f"Dẫn {pn} xem mẫu phù hợp và hỏi thêm về dịp đặc biệt để tư vấn đúng hơn."
+            ).strip(),
+            "highlights": store_highlights,
+            "closing":    f"Sau khi khai thác thêm nhu cầu, chào mời {pn} thử sản phẩm trực tiếp.",
+            "cta_text":   cta_store,
+            "tone":       "warm",
+        }, pn)
+
+    # Generic fallback
+    return _apply_gender({
+        "subject":    subject_email,
+        "greeting":   hook_greeting,
+        "body":       hook_body,
+        "highlights": highlights_base,
+        "closing":    closing_base,
+        "cta_text":   cta_email,
+        "tone":       tone,
+    }, pn)
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CACHE (tránh gọi API lặp)
+# ══════════════════════════════════════════════════════════════════════════════
+
 class SimpleCache:
     """File-based cache đơn giản cho LLM responses."""
 
@@ -151,32 +515,14 @@ class SimpleCache:
                         encoding="utf-8")
 
 
-# ── Fallback templates (khi không có API key) ─────────────────────────────────
-FALLBACK_TEMPLATES = {
-    ("engagement", "push"):    {"body": "✨ Bộ sưu tập nhẫn mới vừa về — tinh tế và đặc biệt như khoảnh khắc bạn đang hướng tới", "cta_text": "Xem ngay", "tone": "luxurious"},
-    ("engagement", "email"):   {"subject": "Bộ sưu tập nhẫn đính hôn mới — dành cho khoảnh khắc đặc biệt", "body": "Chúng tôi hiểu rằng có những khoảnh khắc cần được đánh dấu bằng điều gì đó thật đặc biệt.\n\nBộ sưu tập nhẫn mới nhất của chúng tôi được thiết kế để kể câu chuyện của riêng bạn — tinh xảo, lâu bền và ý nghĩa.", "cta_text": "Khám phá bộ sưu tập", "tone": "luxurious"},
-    ("engagement", "zns"):     {"body": "Có những khoảnh khắc chỉ đến một lần — và xứng đáng được chuẩn bị thật kỹ 💍 Ghé xem bộ nhẫn mới nhất nhé", "cta_text": "Xem ngay", "tone": "warm"},
-    ("engagement", "in_app"):  {"body": "Bộ sưu tập nhẫn mới đang chờ bạn khám phá — mỗi chiếc đều có câu chuyện riêng", "cta_text": "Xem bộ sưu tập", "tone": "luxurious"},
-    ("anniversary", "push"):   {"body": "💝 Kỷ niệm của bạn sắp đến — tặng người ấy điều gì đó thật ý nghĩa năm nay", "cta_text": "Chọn quà ngay", "tone": "warm"},
-    ("anniversary", "email"):  {"subject": "Kỷ niệm đặc biệt xứng đáng được ghi nhớ mãi mãi", "body": "Mỗi năm trôi qua là thêm một trang đẹp trong câu chuyện của hai bạn.\n\nChúng tôi có bộ quà kỷ niệm được thiết kế để nói lên điều bạn muốn nói — từ khắc tên đến hộp quà đặc biệt, tất cả đều có thể cá nhân hóa.", "cta_text": "Xem bộ quà kỷ niệm", "tone": "warm"},
-    ("anniversary", "zns"):    {"body": "Năm nay kỷ niệm của bạn sẽ khác — một món quà được chuẩn bị thật tâm ý, khắc tên miễn phí 💕", "cta_text": "Tư vấn chọn quà", "tone": "warm"},
-    ("anniversary", "in_app"): {"body": "Sắp đến ngày đặc biệt? Để chúng tôi giúp bạn chọn món quà hoàn hảo", "cta_text": "Tư vấn ngay", "tone": "warm"},
-    ("self_reward", "push"):   {"body": "🌟 Bạn đã làm việc chăm chỉ — hôm nay xứng đáng có một điều gì đó thật đẹp cho mình", "cta_text": "Tự thưởng nào", "tone": "friendly"},
-    ("self_reward", "email"):  {"subject": "Tự thưởng cho bản thân — vì bạn xứng đáng", "body": "Đôi khi điều tốt nhất bạn có thể làm là tự chăm sóc bản thân.\n\nBộ sưu tập Self-Reward của chúng tôi được thiết kế để bạn diện mỗi ngày — không cần dịp đặc biệt, chỉ cần bạn thích.", "cta_text": "Xem bộ sưu tập", "tone": "friendly"},
-    ("self_reward", "zns"):    {"body": "Mình ơi — bao lâu rồi chưa tự thưởng gì cho bản thân chưa? 😊 Có vài món mới về, xinh lắm", "cta_text": "Xem thử đi", "tone": "friendly"},
-    ("self_reward", "in_app"): {"body": "New arrivals vừa về — mấy món này mặc hàng ngày là hợp lý lắm luôn", "cta_text": "Xem ngay", "tone": "friendly"},
-    ("gift", "push"):          {"body": "🎁 Sắp đến ngày quan trọng? Chúng tôi có gợi ý quà tặng phù hợp cho mọi đối tượng", "cta_text": "Xem gợi ý", "tone": "friendly"},
-    ("gift", "email"):         {"subject": "Gợi ý quà tặng — chọn đúng ngay lần đầu", "body": "Chọn quà cho người thân không bao giờ dễ — nhưng chúng tôi có thể giúp.\n\nTừ phong cách, ngân sách đến sở thích, đội tư vấn sẽ giúp bạn tìm đúng món quà mà người nhận sẽ trân trọng mãi.", "cta_text": "Được tư vấn miễn phí", "tone": "friendly"},
-    ("gift", "zns"):           {"body": "Tặng quà mà người nhận thật sự thích — không phải chỉ để cho có 🎁 Cho chúng tôi giúp bạn chọn nhé", "cta_text": "Tư vấn chọn quà", "tone": "friendly"},
-    ("gift", "in_app"):        {"body": "Không biết tặng gì? Gift Finder của chúng tôi sẽ giúp bạn tìm đúng món trong 2 phút", "cta_text": "Thử Gift Finder", "tone": "friendly"},
-}
+# ══════════════════════════════════════════════════════════════════════════════
+# MAIN GENERATOR CLASS
+# ══════════════════════════════════════════════════════════════════════════════
 
-
-# ── Main generator class ───────────────────────────────────────────────────────
 class LLMMessageGenerator:
     """
-    Sinh marketing message cá nhân hóa bằng OpenAI API.
-    Tự động fallback về template nếu không có API key.
+    Sinh marketing message cá nhân hóa dựa trên Key Insight từ instore analysis.
+    Tự động fallback về rich template nếu không có API key.
     """
 
     MODEL = "gpt-4o"
@@ -185,79 +531,105 @@ class LLMMessageGenerator:
                  api_key: Optional[str] = None,
                  use_cache: bool = True,
                  rate_limit_delay: float = 0.3):
-        """
-        Args:
-            api_key: OpenAI API key. Mặc định đọc từ OPENAI_API_KEY env var.
-            use_cache: Cache responses để tiết kiệm API calls.
-            rate_limit_delay: Giây chờ giữa các API calls.
-        """
-        self.api_key = api_key or os.environ.get("OPENAI_API_KEY", "")
-        self.use_cache = use_cache
+        self.api_key          = api_key or os.environ.get("OPENAI_API_KEY", "")
+        self.use_cache        = use_cache
         self.rate_limit_delay = rate_limit_delay
-        self.cache = SimpleCache() if use_cache else None
+        self.cache            = SimpleCache() if use_cache else None
 
-        # Khởi tạo OpenAI client
         if OPENAI_AVAILABLE and self.api_key:
             self.client = OpenAI(api_key=self.api_key)
-            self.mode = "llm"
+            self.mode   = "llm"
             print(f"[LLM] Mode: OpenAI API ({self.MODEL})")
         else:
             self.client = None
-            self.mode = "fallback"
+            self.mode   = "fallback"
             reason = "openai không được cài" if not OPENAI_AVAILABLE else "không có API key"
             print(f"[LLM] Mode: Fallback template ({reason})")
 
-        # Stats
-        self.stats = {"llm_calls": 0, "cache_hits": 0, "fallback_used": 0, "total_tokens": 0}
+        self.stats = {
+            "llm_calls": 0, "cache_hits": 0,
+            "fallback_used": 0, "total_tokens": 0,
+        }
 
     def _build_user_prompt(self, ctx: CustomerContext) -> str:
-        """Xây dựng user prompt từ customer context."""
-        intent_ctx = INTENT_CONTEXT_PROMPTS.get(ctx.intent, "")
-        channel_inst = CHANNEL_PROMPTS.get(ctx.channel, CHANNEL_PROMPTS["push"])
+        """Xây dựng user prompt từ customer context — Key Insight là trung tâm."""
+        channel_inst  = CHANNEL_PROMPTS.get(ctx.channel, CHANNEL_PROMPTS["zns"])
+        intent_ctx    = INTENT_CONTEXT_PROMPTS.get(ctx.intent, "")
 
-        # Thông tin khách hàng
-        customer_info = f"""THÔNG TIN KHÁCH HÀNG:
+        # ── KEY INSIGHT SECTION ───────────────────────────────────────────────
+        insight_section = f"""
+═══ KEY INSIGHT (DỰA VÀO ĐÂY ĐỂ SINH NỘI DUNG) ═══
+{ctx.key_insight if ctx.key_insight else "Không có insight cụ thể — dùng profile và intent để suy luận."}
+
+Tín hiệu urgency: {ctx.urgency_signal if ctx.urgency_signal else "Không có"}
+Hành vi online: {ctx.online_insight if ctx.online_insight else "Không có"}
+Loại khách tại cửa hàng: {ctx.instore_intent if ctx.instore_intent else "Chưa xác định"}
+Chiến lược NBA: {ctx.nba_strategy if ctx.nba_strategy else "Chưa xác định"}
+"""
+
+        # ── CUSTOMER PROFILE ──────────────────────────────────────────────────
+        _gender_label = "Nam" if ctx.gender.upper() == "M" else "Nữ"
+        _pn           = _pronoun(ctx.gender)
+        profile_section = f"""
+═══ THÔNG TIN KHÁCH HÀNG ═══
+- Giới tính: {_gender_label} — PHẢI gọi khách là "{_pn}" xuyên suốt toàn bộ nội dung (không dùng "anh/chị" gộp chung, không dùng "bạn")
 - Phân khúc: {ctx.segment_rfm_tier} | Ngân sách: {ctx.budget}
-- Phong cách: {ctx.style} | Loại ưa thích: {ctx.preferred_type} ({ctx.material})
-- Lần mua gần nhất: {ctx.recency_days} ngày trước | Tổng chi: {ctx.monetary:,.0f}đ
-- Hay dùng discount: {"Có" if ctx.avg_discount > 0.05 else "Không"} ({ctx.avg_discount*100:.0f}%)
-- Ngày sinh nhật còn: {ctx.birthday_in_days} ngày
-- Tín hiệu cầu hôn: {"Có" if ctx.sig_view_ring or ctx.sig_search_propose else "Không"}
+- Phong cách: {ctx.style} | Sản phẩm ưa thích: {ctx.preferred_type} ({ctx.material})
+- Mua gần nhất: {ctx.recency_days} ngày trước | Tổng chi tiêu: {ctx.monetary:,.0f}đ
+- Sinh nhật còn: {ctx.birthday_in_days} ngày
+- Tín hiệu xem nhẫn: {ctx.sig_view_ring} | Tín hiệu xem kim cương: {ctx.sig_view_diamond}
+- Tín hiệu tìm kiếm cầu hôn: {ctx.sig_search_propose}
 
-INTENT: {ctx.intent.upper()} (confidence: {ctx.confidence:.0%})
+Intent dự đoán (LEP): {ctx.intent.upper()} (confidence: {ctx.confidence:.0%})
 {intent_ctx}
 
-SẢN PHẨM TẬP TRUNG: {ctx.product_focus}
-KÊNH GIAO TIẾP: {ctx.channel.upper()}
+Sản phẩm tập trung: {ctx.product_focus}
+"""
 
-{channel_inst}"""
-        return customer_info
+        # ── PRODUCT RECOMMENDATIONS ───────────────────────────────────────────
+        recs = [r for r in [ctx.product_rec_1, ctx.product_rec_2, ctx.product_rec_3] if r]
+        prod_section = ""
+        if recs:
+            prod_section = f"\nSản phẩm gợi ý từ phân tích instore:\n" + "\n".join(f"  - {r}" for r in recs)
+
+        # ── CHANNEL INSTRUCTION ───────────────────────────────────────────────
+        channel_section = f"""
+═══ KÊNH GIAO TIẾP: {ctx.channel.upper()} ═══
+{channel_inst}
+"""
+
+        return (
+            "Sinh nội dung marketing cho khách hàng sau — "
+            "DỰA CHÍNH VÀO KEY INSIGHT để nội dung đúng với nhu cầu thực tế.\n"
+            + insight_section
+            + profile_section
+            + prod_section
+            + channel_section
+        )
 
     def _call_api(self, user_prompt: str) -> tuple[dict, int]:
         """Gọi OpenAI API và parse JSON response."""
-        # Check cache
         if self.use_cache and self.cache:
             cached = self.cache.get(user_prompt)
             if cached:
                 self.stats["cache_hits"] += 1
                 return cached, 0
 
-        # Rate limiting
         time.sleep(self.rate_limit_delay)
 
         response = self.client.chat.completions.create(
             model=self.MODEL,
-            max_tokens=400,
+            max_tokens=600,
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": user_prompt},
+                {"role": "user",   "content": user_prompt},
             ],
         )
 
         raw_text = response.choices[0].message.content.strip()
-        tokens = response.usage.prompt_tokens + response.usage.completion_tokens
+        tokens   = response.usage.prompt_tokens + response.usage.completion_tokens
 
-        # Parse JSON — strip markdown fences nếu có
+        # Strip markdown fences nếu có
         clean = raw_text
         if clean.startswith("```"):
             clean = "\n".join(clean.split("\n")[1:])
@@ -267,70 +639,72 @@ KÊNH GIAO TIẾP: {ctx.channel.upper()}
 
         parsed = json.loads(clean)
 
-        # Cache result
         if self.use_cache and self.cache:
             self.cache.set(user_prompt, parsed)
 
-        self.stats["llm_calls"] += 1
+        self.stats["llm_calls"]    += 1
         self.stats["total_tokens"] += tokens
         return parsed, tokens
 
-    def _fallback(self, ctx: CustomerContext) -> tuple[dict, int]:
-        """Template fallback khi không có LLM."""
-        key = (ctx.intent, ctx.channel)
-        template = FALLBACK_TEMPLATES.get(key)
+    def _parse_message(self, raw_json: dict, ctx: CustomerContext, tokens: int, source: str) -> GeneratedMessage:
+        """Parse raw LLM JSON response thành GeneratedMessage chuẩn."""
+        # Normalize highlights — đảm bảo là list[str]
+        raw_highlights = raw_json.get("highlights", [])
+        if isinstance(raw_highlights, str):
+            try:
+                raw_highlights = json.loads(raw_highlights)
+            except Exception:
+                raw_highlights = [raw_highlights] if raw_highlights else []
+        highlights = [str(h) for h in raw_highlights if h]
 
-        if template is None:
-            # Generic fallback
-            template = {
-                "body": f"Khám phá {ctx.product_focus} mới nhất — {ctx.cta}",
-                "cta_text": ctx.cta or "Xem ngay",
-                "tone": "friendly",
-            }
-
-        self.stats["fallback_used"] += 1
-        return template.copy(), 0
+        return GeneratedMessage(
+            customer_id  = ctx.customer_id,
+            channel      = ctx.channel,
+            subject      = raw_json.get("subject") or None,
+            greeting     = raw_json.get("greeting") or None,
+            body         = str(raw_json.get("body", "")).strip(),
+            highlights   = highlights,
+            closing      = raw_json.get("closing") or None,
+            cta_text     = str(raw_json.get("cta_text", ctx.cta)).strip(),
+            tone         = str(raw_json.get("tone", "warm")),
+            tokens_used  = tokens,
+            source       = source,
+            raw_json     = raw_json,
+        )
 
     def generate(self, ctx: CustomerContext) -> GeneratedMessage:
         """Sinh message cho một khách hàng."""
         tokens = 0
+        source = "fallback"
 
         try:
             if self.mode == "llm":
-                prompt = self._build_user_prompt(ctx)
+                prompt   = self._build_user_prompt(ctx)
                 raw_json, tokens = self._call_api(prompt)
-                source = "llm"
+                source   = "llm"
             else:
-                raw_json, tokens = self._fallback(ctx)
-                source = "fallback"
-        except (json.JSONDecodeError, Exception) as e:
-            print(f"[LLM] Error cho {ctx.customer_id}: {e}. Dùng fallback.")
-            raw_json, tokens = self._fallback(ctx)
-            source = "fallback_error"
+                raw_json = _build_fallback(ctx)
+                self.stats["fallback_used"] += 1
+        except (json.JSONDecodeError, Exception) as exc:
+            print(f"[LLM] Error cho {ctx.customer_id}: {exc}. Dùng fallback.")
+            raw_json = _build_fallback(ctx)
+            source   = "fallback_error"
+            self.stats["fallback_used"] += 1
 
         self.stats["total_tokens"] += tokens
-
-        return GeneratedMessage(
-            customer_id=ctx.customer_id,
-            channel=ctx.channel,
-            subject=raw_json.get("subject"),
-            body=raw_json.get("body", ""),
-            cta_text=raw_json.get("cta_text", ctx.cta),
-            tone=raw_json.get("tone", "friendly"),
-            tokens_used=tokens,
-            source=source,
-            raw_json=raw_json,
-        )
+        return self._parse_message(raw_json, ctx, tokens, source)
 
     def generate_batch(self, contexts: list[CustomerContext],
-                        verbose: bool = True) -> list[GeneratedMessage]:
+                       verbose: bool = True) -> list[GeneratedMessage]:
         """Sinh message cho nhiều khách, có progress tracking."""
         results = []
-        total = len(contexts)
+        total   = len(contexts)
 
         for i, ctx in enumerate(contexts, 1):
             if verbose:
-                print(f"  [{i:3d}/{total}] {ctx.customer_id} | {ctx.intent:12s} | {ctx.channel:8s}", end=" ")
+                print(f"  [{i:3d}/{total}] {ctx.customer_id} | insight: {ctx.key_insight[:40]}..." if ctx.key_insight
+                      else f"  [{i:3d}/{total}] {ctx.customer_id} | {ctx.intent:12s} | {ctx.channel:8s}",
+                      end=" ")
 
             msg = self.generate(ctx)
             results.append(msg)
@@ -348,23 +722,39 @@ KÊNH GIAO TIẾP: {ctx.channel.upper()}
         print(f"  Cache hits   : {self.stats['cache_hits']}")
         print(f"  Fallback     : {self.stats['fallback_used']}")
         print(f"  Total tokens : {self.stats['total_tokens']:,}")
-        if self.stats['llm_calls'] > 0:
-            est_cost = self.stats['total_tokens'] / 1_000_000 * 5.0  # ~$5/1M tokens GPT-4o (blended)
+        if self.stats["llm_calls"] > 0:
+            est_cost = self.stats["total_tokens"] / 1_000_000 * 5.0
             print(f"  Est. cost    : ~${est_cost:.4f} USD")
         print("  ──────────────────────────────────────────")
 
 
-# ── Helper: profile row → CustomerContext ─────────────────────────────────────
-def row_to_context(row: pd.Series,
-                   intent: str,
-                   confidence: float,
-                   priority: str,
-                   channel: str,
-                   product_focus: str,
-                   cta: str) -> CustomerContext:
-    """Chuyển đổi một dòng profile DataFrame thành CustomerContext."""
+# ══════════════════════════════════════════════════════════════════════════════
+# HELPER: profile row + instore context → CustomerContext
+# ══════════════════════════════════════════════════════════════════════════════
+
+def row_to_context(
+    row:            pd.Series,
+    intent:         str,
+    confidence:     float,
+    priority:       str,
+    channel:        str,
+    product_focus:  str,
+    cta:            str,
+    # Instore context fields (from instore_scripts.json)
+    key_insight:        str = "",
+    urgency_signal:     str = "",
+    online_insight:     str = "",
+    instore_intent:     str = "",
+    nba_strategy:       str = "",
+    psychology_trigger: str = "",
+    product_rec_1:      str = "",
+    product_rec_2:      str = "",
+    product_rec_3:      str = "",
+) -> CustomerContext:
+    """Chuyển đổi profile row + instore context thành CustomerContext."""
     return CustomerContext(
         customer_id        = str(row.get("c", row.get("customer_id", "unknown"))),
+        gender             = str(row.get("gender", "F")),
         intent             = intent,
         confidence         = float(confidence),
         priority           = str(priority),
@@ -378,7 +768,7 @@ def row_to_context(row: pd.Series,
         segment_rfm_tier   = str(row.get("segment_rfm_tier", "Gold-M")),
         birthday_in_days   = int(row.get("sig_birthday_in_days", 365)),
         sig_view_diamond   = int(row.get("sig_view_diamond", 0)),
-        sig_view_ring      = int(row.get("sig_view_engagement_ring", 0)),
+        sig_view_ring      = int(row.get("sig_view_engagement_ring", row.get("sig_view_ring", 0))),
         sig_search_propose = int(row.get("sig_search_propose", 0)),
         camp_engagement    = int(row.get("camp_engagement", 0)),
         camp_anniversary   = int(row.get("camp_anniversary", 0)),
@@ -386,76 +776,14 @@ def row_to_context(row: pd.Series,
         channel            = channel,
         product_focus      = product_focus,
         cta                = cta,
+        # Instore context
+        key_insight        = key_insight,
+        urgency_signal     = urgency_signal,
+        online_insight     = online_insight,
+        instore_intent     = instore_intent,
+        nba_strategy       = nba_strategy,
+        psychology_trigger = psychology_trigger,
+        product_rec_1      = product_rec_1,
+        product_rec_2      = product_rec_2,
+        product_rec_3      = product_rec_3,
     )
-
-
-# ── Standalone demo ────────────────────────────────────────────────────────────
-if __name__ == "__main__":
-    print("=" * 60)
-    print("LLM MESSAGE GENERATOR — DEMO")
-    print("=" * 60)
-
-    # Demo contexts
-    demo_contexts = [
-        CustomerContext(
-            customer_id="KH001", intent="engagement", confidence=0.81, priority="high",
-            budget="5–15 triệu", style="Trẻ trung", preferred_type="Nhẫn",
-            material="Vàng 18K", recency_days=118, monetary=40768070, avg_discount=0.05,
-            segment_rfm_tier="Gold-H", birthday_in_days=35, sig_view_diamond=0,
-            sig_view_ring=3, sig_search_propose=1, camp_engagement=6,
-            camp_anniversary=2, camp_selfreward=0,
-            channel="push", product_focus="Bộ sưu tập Engagement 2025",
-            cta="Xem nhẫn đính hôn",
-        ),
-        CustomerContext(
-            customer_id="KH002", intent="self_reward", confidence=0.73, priority="high",
-            budget="5–15 triệu", style="Trẻ trung", preferred_type="Bông tai",
-            material="Vàng 18K", recency_days=48, monetary=24861526, avg_discount=0.083,
-            segment_rfm_tier="Platinum-L", birthday_in_days=39, sig_view_diamond=0,
-            sig_view_ring=4, sig_search_propose=1, camp_engagement=0,
-            camp_anniversary=3, camp_selfreward=5,
-            channel="zns", product_focus="New Arrivals — Bông tai",
-            cta="Xem bộ sưu tập",
-        ),
-        CustomerContext(
-            customer_id="KH005", intent="anniversary", confidence=0.80, priority="high",
-            budget="5–15 triệu", style="Thanh lịch", preferred_type="Bông tai",
-            material="Vàng 14K", recency_days=29, monetary=33781078, avg_discount=0,
-            segment_rfm_tier="Silver-L", birthday_in_days=56, sig_view_diamond=0,
-            sig_view_ring=3, sig_search_propose=0, camp_engagement=1,
-            camp_anniversary=3, camp_selfreward=0,
-            channel="email", product_focus="Bộ quà kỷ niệm",
-            cta="Xem gợi ý quà",
-        ),
-        CustomerContext(
-            customer_id="KH009", intent="gift", confidence=0.64, priority="medium",
-            budget="15–30 triệu", style="Trẻ trung", preferred_type="Lắc tay",
-            material="Kim cương", recency_days=37, monetary=92862324, avg_discount=0.0375,
-            segment_rfm_tier="Silver-L", birthday_in_days=56, sig_view_diamond=0,
-            sig_view_ring=1, sig_search_propose=1, camp_engagement=1,
-            camp_anniversary=2, camp_selfreward=0,
-            channel="in_app", product_focus="Gift Guide — Lắc tay Kim cương",
-            cta="Tư vấn chọn quà",
-        ),
-    ]
-
-    gen = LLMMessageGenerator()
-
-    print("\nGenerating messages...\n")
-    messages = gen.generate_batch(demo_contexts, verbose=True)
-
-    print("\n" + "=" * 60)
-    print("GENERATED MESSAGES — FULL OUTPUT")
-    print("=" * 60)
-
-    for msg in messages:
-        print(f"\n{'─'*50}")
-        print(f"Customer : {msg.customer_id} | Channel: {msg.channel.upper()} | Source: {msg.source}")
-        print(f"Tone     : {msg.tone}")
-        if msg.subject:
-            print(f"Subject  : {msg.subject}")
-        print(f"Body     : {msg.body}")
-        print(f"CTA      : [{msg.cta_text}]")
-        print(f"Tokens   : {msg.tokens_used}")
-
-    gen.print_stats()

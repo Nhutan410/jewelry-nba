@@ -101,6 +101,9 @@ class InstoreCustomerProfile:
     # ── Online Insight Summary (sinh tự động) ────────────────────────────────
     online_insight:     str = ""     # mô tả hành vi online bằng tiếng Việt
 
+    # ── Giới tính: M = Nam (anh), F = Nữ (chị) ─────────────────────────
+    gender:             str = "F"
+
     # ── Action ───────────────────────────────────────────────────────────────
     product_focus:      str = ""
     product_recommendations: list[str] = field(default_factory=list)
@@ -310,17 +313,20 @@ dựa trên thông tin khách hàng cụ thể mà hệ thống CRM cung cấp.
 
 Quy tắc bắt buộc:
 1. Script phải TỰ NHIÊN như TVV thực sự nói — không cứng nhắc, không sáo rỗng
-2. Tích hợp thông tin cá nhân của khách vào từng bước — NHƯNG phải khéo léo, tự nhiên:
+2. Xưng "em", gọi khách đúng theo giới tính được cung cấp trong thông tin: "anh" nếu Nam, "chị" nếu Nữ. TUYỆT ĐỐI không dùng "anh/chị" gộp chung hay "bạn"
+3. Tích hợp thông tin cá nhân của khách vào từng bước — NHƯNG phải khéo léo, tự nhiên:
    - KHÔNG được nói thẳng: "Em thấy anh/chị đã xem..." hay "Hệ thống cho em biết chị đã..."
-   - THAY VÀO ĐÓ: dùng câu hỏi gợi mở ("Anh/chị đang tìm cho dịp đặc biệt nào không?"),
+   - THAY VÀO ĐÓ: dùng câu hỏi gợi mở ("Anh đang tìm cho dịp đặc biệt nào không?"),
      hoặc dùng ngữ cảnh sản phẩm ("Bộ sưu tập nhẫn đính hôn bên em vừa về mẫu rất đẹp..."),
-     hoặc dùng sở thích đã biết ("Biết anh/chị thích phong cách tối giản nên em chọn riêng 3 mẫu này")
+     hoặc dùng sở thích đã biết ("Biết chị thích phong cách tối giản nên em chọn riêng 3 mẫu này")
    - Khách KHÔNG được có cảm giác bị theo dõi hay bị đọc lịch sử duyệt web
-3. Mỗi bước tối đa 2-3 câu — ngắn gọn, actionable
+4. Mỗi bước tối đa 2-3 câu — ngắn gọn, actionable
 4. Áp dụng đúng tâm lý học theo loại intent: Scarcity/Social Proof (High Purchase),
    Narrowing (Exploration), Exclusivity (Premium), No Pressure (Low Intent)
 5. KHÔNG dùng: "ưu đãi không thể bỏ lỡ", "cơ hội vàng", "đừng bỏ lỡ"
-6. Trả về ĐÚNG format JSON — không thêm markdown hay giải thích ngoài JSON"""
+6. Trả về ĐÚNG format JSON — không thêm markdown hay giải thích ngoài JSON
+7. QUAN TRỌNG: Dùng đúng "anh" hoặc "chị" nhất quán xuyên suốt 5 bước — không trộn lẫn
+8. Trường key_insight là ghi chú NỘI BỘ cho TVV đọc — PHẢI dùng "Khách" (không dùng "anh"/"chị"), viết như nhận xét khách quan về khách hàng"""
 
 INSTORE_INTENT_CONTEXT = {
     InstoreIntentType.HIGH_PURCHASE: """Khách có tín hiệu mua rất cao (đã xem nhiều lần / có giỏ hàng online).
@@ -357,13 +363,15 @@ Giải thích:
 - goi_y: gợi ý sản phẩm cụ thể (dùng tên sản phẩm từ thông tin đã cho)
 - chot: câu chốt đơn (tích hợp tâm lý học phù hợp)
 - upsell: câu nâng hạng sản phẩm / bán thêm
-- key_insight: 1 câu tóm tắt điều TVV cần nhớ nhất về khách này
+- key_insight: 1 câu tóm tắt điều TVV cần nhớ nhất về khách này — dùng "Khách" (KHÔNG dùng "anh"/"chị"), đây là ghi chú nội bộ cho TVV, không phải lời nói trực tiếp với khách
 - product_recommendations: 2-3 sản phẩm cụ thể nên giới thiệu"""
 
 
 def _build_instore_user_prompt(profile: InstoreCustomerProfile) -> str:
     """Xây dựng prompt đầy đủ cho LLM từ hồ sơ khách."""
-    intent_ctx = INSTORE_INTENT_CONTEXT.get(profile.instore_intent, "")
+    intent_ctx   = INSTORE_INTENT_CONTEXT.get(profile.instore_intent, "")
+    gender_label = "Nam" if str(profile.gender).upper() == "M" else "Nữ"
+    pn           = "anh" if str(profile.gender).upper() == "M" else "chị"
 
     prompt = f"""LOẠI KHÁCH HÀNG: {profile.instore_intent.value}
 NBA STRATEGY: {profile.nba_strategy}
@@ -371,6 +379,7 @@ NBA STRATEGY: {profile.nba_strategy}
 {intent_ctx}
 
 ─── THÔNG TIN CRM CỦA KHÁCH ─────────────────────────────
+Giới tính        : {gender_label} — PHẢI gọi khách là "{pn}" xuyên suốt toàn bộ script (không dùng "anh/chị" gộp, không dùng "bạn")
 Phân khúc        : {profile.segment_rfm_tier}
 Ngân sách        : {profile.budget}
 Phong cách ưa thích: {profile.style}
@@ -407,38 +416,38 @@ Psychology trigger: {profile.psychology_trigger}
 
 FALLBACK_SCRIPTS: dict[InstoreIntentType, dict] = {
     InstoreIntentType.HIGH_PURCHASE: {
-        "opening": "Chào mừng anh/chị quay lại! Em thấy anh/chị đã xem sản phẩm {product_focus} online — mẫu đó bên em vẫn còn, anh/chị muốn em lấy ra xem thử không?",
-        "khai_thac": "Anh/chị đang tìm cho dịp đặc biệt nào vậy? Để em tư vấn thêm cho phù hợp nhé.",
-        "goi_y": "Đây là mẫu anh/chị xem đó — form rất đẹp và đeo hàng ngày cũng hợp lý. Tuần này có 3 cặp đã lấy mẫu này rồi.",
-        "chot": "Anh/chị thử lên tay xem — cảm giác thực tế khác hẳn ảnh online. Hàng chỉ còn số lượng có hạn thôi ạ.",
-        "upsell": "Nếu anh/chị muốn nổi bật hơn chút, bên em có phiên bản kim cương nhỏ — nhìn sang hơn mà giá chênh không nhiều.",
+        "opening": "Chào mừng {pn} quay lại! Bên em vừa cập nhật thêm mẫu {product_focus} mới — {pn} muốn em lấy ra xem thử không?",
+        "khai_thac": "{Pn} đang tìm cho dịp đặc biệt nào vậy? Để em tư vấn thêm cho phù hợp nhé.",
+        "goi_y": "Đây là mẫu {product_focus} — form rất đẹp và đeo hàng ngày cũng hợp lý. Tuần này có 3 khách đã lấy mẫu này rồi.",
+        "chot": "{Pn} thử lên tay xem — cảm giác thực tế khác hẳn ảnh online. Hàng chỉ còn số lượng có hạn thôi ạ.",
+        "upsell": "Nếu {pn} muốn nổi bật hơn chút, bên em có phiên bản kim cương nhỏ — nhìn sang hơn mà giá chênh không nhiều.",
         "key_insight": "Khách đã có ý định mua — ưu tiên cho thử ngay, hạn chế tư vấn dài.",
         "product_recommendations": ["{product_focus}", "Phiên bản nâng cấp có đính kim cương", "Phụ kiện đi kèm"],
     },
     InstoreIntentType.EXPLORATION: {
-        "opening": "Anh/chị đang tham khảo nhiều mẫu đúng không ạ? Để em giúp nhanh hơn — anh/chị đang tìm cho mình hay mua tặng?",
-        "khai_thac": "Anh/chị thích phong cách tinh tế hay nổi bật hơn? Và ngân sách anh/chị đang hướng tới khoảng bao nhiêu?",
-        "goi_y": "Dựa vào phong cách anh/chị vừa chia sẻ, em chọn ra 3 mẫu phù hợp nhất — anh/chị xem qua nhé.",
-        "chot": "Trong 3 mẫu này, anh/chị thấy mẫu nào hợp nhất để thử lên tay?",
-        "upsell": "Nếu anh/chị muốn nổi bật hơn một chút, mình có thể xem thêm phiên bản cao cấp hơn một chút.",
+        "opening": "{Pn} đang tham khảo nhiều mẫu đúng không ạ? Để em giúp nhanh hơn — {pn} đang tìm cho mình hay mua tặng?",
+        "khai_thac": "{Pn} thích phong cách tinh tế hay nổi bật hơn? Và ngân sách {pn} đang hướng tới khoảng bao nhiêu?",
+        "goi_y": "Dựa vào phong cách {pn} vừa chia sẻ, em chọn ra 3 mẫu phù hợp nhất — {pn} xem qua nhé.",
+        "chot": "Trong 3 mẫu này, {pn} thấy mẫu nào hợp nhất để thử lên tay?",
+        "upsell": "Nếu {pn} muốn nổi bật hơn một chút, bên em có thể xem thêm phiên bản cao cấp hơn một chút.",
         "key_insight": "Khách đang so sánh — cần thu hẹp lựa chọn, không nên đưa ra quá nhiều mẫu cùng lúc.",
         "product_recommendations": ["{product_focus}", "Mẫu bán chạy nhất tháng", "Mẫu bestseller phong cách nhẹ nhàng"],
     },
     InstoreIntentType.PREMIUM: {
-        "opening": "Chào mừng anh/chị! Em đã chuẩn bị một số mẫu phù hợp với phong cách của anh/chị rồi — mời anh/chị vào khu VIP để xem thoải mái hơn nhé.",
-        "khai_thac": "Anh/chị đang hướng tới phong cách nào cho bộ sưu tập lần này? Hay để em giới thiệu những mẫu mới nhất vừa về?",
-        "goi_y": "Đây là bộ {product_focus} — được làm thủ công hoàn toàn, bên em chỉ có số lượng rất hạn chế. Anh/chị là khách VIP nên em ưu tiên cho xem trước.",
-        "chot": "Bên em có dịch vụ khắc tên miễn phí và hộp quà cao cấp dành riêng cho khách VIP — anh/chị muốn em chuẩn bị không?",
-        "upsell": "Nếu anh/chị muốn hoàn thiện bộ trang sức, bên em có phiên bản matching set — đeo cùng trông rất sang.",
+        "opening": "Chào mừng {pn}! Em đã chuẩn bị một số mẫu phù hợp với phong cách của {pn} rồi — mời {pn} vào khu VIP để xem thoải mái hơn nhé.",
+        "khai_thac": "{Pn} đang hướng tới phong cách nào cho bộ sưu tập lần này? Hay để em giới thiệu những mẫu mới nhất vừa về?",
+        "goi_y": "Đây là bộ {product_focus} — được làm thủ công hoàn toàn, bên em chỉ có số lượng rất hạn chế. {Pn} là khách VIP nên em ưu tiên cho xem trước.",
+        "chot": "Bên em có dịch vụ khắc tên miễn phí và hộp quà cao cấp dành riêng cho khách VIP — {pn} muốn em chuẩn bị không?",
+        "upsell": "Nếu {pn} muốn hoàn thiện bộ trang sức, bên em có phiên bản matching set — đeo cùng trông rất sang.",
         "key_insight": "Khách Premium — ưu tiên trải nghiệm, đừng vội chốt, tạo không gian thoải mái.",
         "product_recommendations": ["{product_focus}", "Bộ trang sức cao cấp giới hạn", "Dịch vụ khắc tên & hộp quà VIP"],
     },
     InstoreIntentType.LOW_INTENT: {
-        "opening": "Anh/chị cứ thoải mái xem, có gì em hỗ trợ thêm nhé! Bên em vừa về một số mẫu mới — anh/chị thích phong cách nào?",
-        "khai_thac": "Anh/chị đang xem cho mình hay đang tìm cảm hứng ạ? Em có thể giới thiệu một vài hướng để tham khảo.",
-        "goi_y": "Để em đưa ra vài mẫu đang được yêu thích nhất gần đây — anh/chị thử lên tay xem cảm giác thế nào nhé.",
-        "chot": "Anh/chị thấy mẫu nào ưng nhất? Không cần quyết định ngay, em có thể để anh/chị giữ lại xem thêm.",
-        "upsell": "Nếu hôm nay chưa quyết định, em có thể lưu thông tin mẫu anh/chị thích để lần sau ghé em chuẩn bị sẵn.",
+        "opening": "{Pn} cứ thoải mái xem, có gì em hỗ trợ thêm nhé! Bên em vừa về một số mẫu mới — {pn} thích phong cách nào?",
+        "khai_thac": "{Pn} đang xem cho mình hay đang tìm cảm hứng ạ? Em có thể giới thiệu một vài hướng để tham khảo.",
+        "goi_y": "Để em đưa ra vài mẫu đang được yêu thích nhất gần đây — {pn} thử lên tay xem cảm giác thế nào nhé.",
+        "chot": "{Pn} thấy mẫu nào ưng nhất? Không cần quyết định ngay, em có thể để {pn} giữ lại xem thêm.",
+        "upsell": "Nếu hôm nay chưa quyết định, em có thể lưu thông tin mẫu {pn} thích để lần sau ghé em chuẩn bị sẵn.",
         "key_insight": "Khách chưa rõ nhu cầu — tạo thiện cảm, không gây áp lực, mục tiêu là khách quay lại.",
         "product_recommendations": ["New Arrivals tháng này", "{product_focus}", "Bestseller dễ đeo hàng ngày"],
     },
@@ -573,6 +582,7 @@ class InstoreScriptEngine:
 
         profile = InstoreCustomerProfile(
             customer_id        = str(row.get("customer_id", row.get("c", "unknown"))),
+            gender             = str(row.get("gender", "F")),
             segment_rfm_tier   = rfm or "N/A",
             budget             = budget,
             style              = str(row.get("style", "Trẻ trung")),
@@ -653,13 +663,21 @@ class InstoreScriptEngine:
         template = FALLBACK_SCRIPTS.get(profile.instore_intent,
                                         FALLBACK_SCRIPTS[InstoreIntentType.LOW_INTENT])
 
-        # Inject product_focus vào template
+        pn = "anh" if str(profile.gender).upper() == "M" else "chị"
+        Pn = pn.capitalize()
+
+        # Inject product_focus và pronoun vào template
         result = {}
         for key, val in template.items():
             if isinstance(val, str):
-                result[key] = val.replace("{product_focus}", profile.product_focus)
+                result[key] = (val
+                               .replace("{product_focus}", profile.product_focus)
+                               .replace("{pn}", pn)
+                               .replace("{Pn}", Pn))
             elif isinstance(val, list):
-                result[key] = [v.replace("{product_focus}", profile.product_focus) for v in val]
+                result[key] = [v.replace("{product_focus}", profile.product_focus)
+                                .replace("{pn}", pn)
+                                .replace("{Pn}", Pn) for v in val]
             else:
                 result[key] = val
 

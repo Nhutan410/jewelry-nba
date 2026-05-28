@@ -49,9 +49,11 @@ outputs/.instore_cache/
 outputs/.llm_cache/
 outputs/models/
 outputs/nba_results*.xlsx
+!outputs/nba_results_llm.xlsx
 outputs/~$*.xlsx
-# instore_scripts.json được commit để máy khác hiển thị được ngay:
-# outputs/instore_scripts.json  ← đã được track
+# File demo được commit để máy khác chạy được ngay cả 2 luồng:
+# outputs/instore_scripts.json  ← đã được track (Luồng 2 in-store)
+# outputs/nba_results_llm.xlsx  ← đã được track (Luồng 1 outbound)
 
 # ── Data (bỏ file lock Excel, giữ lại file demo) ────────────────────────────
 data/~$*.xlsx

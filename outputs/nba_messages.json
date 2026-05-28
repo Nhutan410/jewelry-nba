@@ -1,0 +1,1998 @@
+{
+  "version": "2.0",
+  "generated_at": "2026-05-28T13:56:39.764093",
+  "total_customers": 52,
+  "allowed_messages": 49,
+  "blocked_messages": 3,
+  "instore_cache_used": true,
+  "customers": [
+    {
+      "customer_id": "KH001",
+      "generated_at": "2026-05-28T13:56:39.762149",
+      "context": {
+        "key_insight": "Khách có dấu hiệu tìm kiếm sản phẩm để cầu hôn, nên tập trung vào các sản phẩm nhẫn đính hôn có phong cách trẻ trung.",
+        "urgency_signal": "Sinh nhật trước 18 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 1 lần, quay lại web 6 lần, đã mở 1 chiến dịch engagement, đã mở 4 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
+        "product_rec_1": "Nhẫn cầu hôn vàng 18K kim cương",
+        "product_rec_2": "Hộp quà tặng cao cấp",
+        "product_rec_3": "Nhẫn vàng 18K phong cách trẻ trung"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "gift_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.75
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1514,
+        "subject": null,
+        "greeting": "Chào anh, đôi khi trong cuộc sống có những khoảnh khắc khiến ta muốn dành điều đặc biệt cho người mình thương.",
+        "body": "PNJ hiểu rằng anh đang tìm kiếm món quà ý nghĩa. Anh có thể tham khảo chiếc nhẫn cầu hôn vàng 18K kim cương mang phong cách trẻ trung. Ngoài ra, hộp quà tặng cao cấp của chúng em cũng là lựa chọn hoàn hảo để tạo bất ngờ dịp sinh nhật sắp tới.",
+        "highlights": [
+          "✦ Nhẫn vàng 18K phong cách trẻ trung",
+          "✦ Hộp quà tặng cao cấp, sang trọng",
+          "✦ Dịch vụ tư vấn 1-1 tận tâm"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ luôn sẵn sàng lắng nghe anh. Hãy để chúng em giúp anh tìm kiếm món quà hoàn hảo nhất.",
+        "cta_text": "Tìm món quà ngay"
+      }
+    },
+    {
+      "customer_id": "KH002",
+      "generated_at": "2026-05-28T13:56:39.762197",
+      "context": {
+        "key_insight": "Khách có dấu hiệu chuẩn bị cầu hôn, thích phong cách trẻ trung, và thường sử dụng ưu đãi.",
+        "urgency_signal": "💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách xem trang sản phẩm 1 lần, xem nhẫn đính hôn 4 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 4 lần, đã mở 3 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
+        "product_rec_1": "Nhẫn Đính Hôn Kim Cương 18K Trẻ Trung",
+        "product_rec_2": "Bông Tai Vàng 18K Phong Cách Trẻ Trung",
+        "product_rec_3": "Bộ Sưu Tập Nhẫn 2025"
+      },
+      "delivery": {
+        "channel": "email",
+        "priority": "high",
+        "campaign_id": "eng_high_email",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.8
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly | urgent",
+        "tokens_used": 1678,
+        "subject": "Khám phá khoảnh khắc đặc biệt với nhẫn đính hôn PNJ",
+        "greeting": "Kính gửi chị,",
+        "body": "Hành trình chuẩn bị cho những khoảnh khắc ý nghĩa đôi khi bắt đầu từ những sự lựa chọn tinh tế, và PNJ thấu hiểu tâm tư của chị. Dịp đặc biệt đó có thể là một lời hứa tình yêu hay chỉ đơn thuần là một dấu ấn đẹp, mọi thứ đều xứng đáng.\n\nBộ sưu tập Nhẫn Đính Hôn 2025 với thiết kế kim cương tự nhiên, trẻ trung sẽ là sự đồng hành hoàn hảo. Không chỉ là món trang sức, mỗi chiếc nhẫn đều mang ý nghĩa gắn kết vô giá, với sự tỉ mỉ trong từng đường nét mà chắc chắn chị sẽ yêu thích.\n\nDịp sinh nhật sắp tới là lúc lý tưởng để chuẩn bị và tận hưởng sự trọn vẹn trong từng giây phút. Hãy để PNJ cùng chị biến điều đó thành hiện thực.",
+        "highlights": [
+          "• Nhẫn Đính Hôn Kim Cương 18K, thiết kế thanh lịch và trẻ trung",
+          "• Độc quyền từ PNJ với cam kết chất lượng tuyệt đối",
+          "• Dịch vụ tư vấn VIP dành riêng cho khách hàng Platinum-L"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ sẵn sàng hỗ trợ chị chọn lựa phù hợp nhất. Liên hệ hotline 1800 545457 hoặc ghé cửa hàng PNJ gần nhất.",
+        "cta_text": "Xem bộ sưu tập"
+      }
+    },
+    {
+      "customer_id": "KH003",
+      "generated_at": "2026-05-28T13:56:39.762238",
+      "context": {
+        "key_insight": "Khách thuộc phân khúc cao cấp, yêu thích phong cách tối giản, và đang có ý định tự thưởng, đặc biệt trong dịp sinh nhật sắp tới.",
+        "urgency_signal": "🎂 Sinh nhật còn 10 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 3 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 2 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 1 lần, quay lại web 3 lần, đã mở 2 chiến dịch engagement, đã mở 5 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Premium Self-Reward — thiết kế độc đáo",
+        "product_rec_1": "bông tai vàng 14K mẫu 1",
+        "product_rec_2": "bông tai vàng 14K mẫu 2",
+        "product_rec_3": "nhẫn đính hôn kim cương mẫu 1"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "selfrw_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "self_reward",
+        "confidence": 0.79
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1540,
+        "subject": null,
+        "greeting": "Chào anh, sinh nhật là dịp hoàn hảo để tự thưởng cho những thành tựu chính mình. Với sự yêu thích phong cách tối giản và đẳng cấp, chắc chắn anh sẽ tìm thấy điều đặc biệt tại PNJ.",
+        "body": "PNJ mang đến bộ sưu tập Premium Self-Reward, nơi các thiết kế độc đáo chờ anh khám phá. Đặc biệt, bộ bông tai vàng 14K sẽ là lựa chọn hoàn hảo nâng tầm phong cách cho anh. Nếu anh đang cân nhắc điều gì đặc biệt hơn, nhẫn đính hôn kim cương có thể là một món quà vừa ý nghĩa vừa tinh tế.",
+        "highlights": [
+          "✦ Thiết kế tối giản, sang trọng",
+          "✦ Chất liệu vàng 14K cao cấp",
+          "✦ Phong cách độc đáo, cá nhân hóa"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ rất sẵn sàng hỗ trợ để anh có lựa chọn ưng ý nhất. Hãy để chúng em đồng hành trong dịp đặc biệt này nhé.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH004",
+      "generated_at": "2026-05-28T13:56:39.762277",
+      "context": {
+        "key_insight": "Khách đang cân nhắc mua nhẫn cầu hôn, rất thích phong cách thanh lịch và mong muốn trải nghiệm mua sắm độc quyền.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 3 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 2 lần, đã mở 6 chiến dịch engagement, đã mở 2 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
+        "product_rec_1": "Nhẫn Đính Hôn Vàng 18K Kim Cương Thiên Nhiên",
+        "product_rec_2": "Nhẫn Đính Hôn Bạch Kim Kim Cương Round",
+        "product_rec_3": "Nhẫn Đính Hôn Vàng Hồng Kim Cương Oval"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "eng_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.85
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1562,
+        "subject": null,
+        "greeting": "Chào chị, những khoảnh khắc đáng nhớ luôn cần một sự chuẩn bị hoàn hảo. Em cảm nhận được sự quan tâm của chị đến những món trang sức đặc biệt.",
+        "body": "PNJ tự hào mang đến Bộ sưu tập Nhẫn Đính Hôn 2025, nơi mỗi chiếc nhẫn là một tác phẩm nghệ thuật. Đặc biệt, Nhẫn Đính Hôn Vàng 18K Kim Cương Thiên Nhiên với phong cách thanh lịch chắc chắn sẽ làm chị hài lòng. Chúng em cam kết đem lại trải nghiệm mua sắm độc quyền mà chị luôn tìm kiếm.",
+        "highlights": [
+          "✦ Vàng 18K kết hợp kim cương tự nhiên",
+          "✦ Thiết kế thanh lịch, tinh tế",
+          "✦ Dịch vụ tư vấn VIP dành riêng cho chị"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ rất hân hạnh được hỗ trợ chị bất kỳ lúc nào chị cần. Mời chị ghé thăm cửa hàng hoặc liên hệ để tìm hiểu thêm nhé!",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH005",
+      "generated_at": "2026-05-28T13:56:39.762314",
+      "context": {
+        "key_insight": "Khách thích phong cách thanh lịch và đang trong quá trình tìm kiếm bông tai vàng 14K trong khoảng ngân sách 5-15 triệu.",
+        "urgency_signal": "",
+        "online_insight": "Khách xem nhẫn đính hôn 3 lần, quay lại web 2 lần, đã ghé online trong tháng qua (29 ngày trước), đã mở 1 chiến dịch engagement, đã mở 3 chiến dịch kỷ niệm.",
+        "instore_intent": "Exploration",
+        "nba_strategy": "Định hướng lựa chọn",
+        "psychology_trigger": "Narrowing + Personalization",
+        "product_focus": "Gift Guide — gợi ý quà tặng theo ngân sách",
+        "product_rec_1": "Sangria Classic",
+        "product_rec_2": "Graceful Star",
+        "product_rec_3": "Elegant Loop"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "low",
+        "campaign_id": "gift_low_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.48
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1442,
+        "subject": null,
+        "greeting": "Chị vẫn luôn yêu thích những đôi bông tai thanh lịch từ PNJ, em còn nhớ lần gần đây nhất chị ghé qua tìm kiếm món quà ý nghĩa.",
+        "body": "Để giúp chị trong chuyến hành trình tìm món quà tinh tế cho người thân, PNJ đã chuẩn bị Gift Guide với những lựa chọn bông tai vàng 14K trong ngân sách từ 5-15 triệu. Những thiết kế như Sangria Classic và Graceful Star không chỉ tôn vinh vẻ đẹp thanh lịch mà còn gói trọn tâm tình chị muốn gửi gắm.",
+        "highlights": [
+          "✦ Thiết kế tinh tế, phù hợp với phong cách thanh lịch",
+          "✦ Chất liệu vàng 14K bền bỉ theo thời gian",
+          "✦ Tư vấn chọn quà nhiệt tình, chu đáo"
+        ],
+        "closing": "Đội ngũ của em luôn sẵn sàng tư vấn thêm nếu chị cần. Mời chị ghé PNJ để trải nghiệm những mẫu thiết kế tuyệt vời nhất.",
+        "cta_text": "Xem Gift Guide"
+      }
+    },
+    {
+      "customer_id": "KH006",
+      "generated_at": "2026-05-28T13:56:39.762351",
+      "context": {
+        "key_insight": "Khách có ý định cầu hôn và chịu chi, đã nghiên cứu kỹ nhẫn đính hôn. Cần chốt đơn nhanh dùng Scarcity.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 4 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 3 lần, đã mở 3 chiến dịch kỷ niệm.",
+        "instore_intent": "High Purchase",
+        "nba_strategy": "Chốt đơn nhanh",
+        "psychology_trigger": "Social Proof + Scarcity",
+        "product_focus": "Bộ sưu tập Nhẫn mới nhất",
+        "product_rec_1": "Nhẫn đính hôn Solitaire Diamond",
+        "product_rec_2": "Lắc tay vàng 14K trẻ trung",
+        "product_rec_3": "Dây chuyền vàng phong cách trẻ trung"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "low",
+        "campaign_id": "eng_low_zns",
+        "rule_status": "blocked: confidence 0.40 < threshold 0.45",
+        "predicted_intent": "engagement",
+        "confidence": 0.4
+      },
+      "content": {
+        "source": "n/a",
+        "tone": "",
+        "tokens_used": 0,
+        "subject": null,
+        "greeting": null,
+        "body": "— blocked / no action —",
+        "highlights": [],
+        "closing": null,
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH007",
+      "generated_at": "2026-05-28T13:56:39.762387",
+      "context": {
+        "key_insight": "Khách thường mua trang sức cao cấp và có khả năng tự thưởng; chưa nhấn mạnh việc dùng giảm giá.",
+        "urgency_signal": "Sinh nhật trước 15 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 2 lần, quay lại web 4 lần, đã mở 1 chiến dịch engagement, đã mở 4 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Premium Self-Reward — thiết kế độc đáo",
+        "product_rec_1": "Elegance Pearl Bông Tai",
+        "product_rec_2": "Graceful Shine Bông Tai",
+        "product_rec_3": "Timeless Beauty Nhẫn"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "selfrw_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "self_reward",
+        "confidence": 0.93
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1442,
+        "subject": null,
+        "greeting": "Chị thường thích dành tặng cho bản thân những món quà đặc biệt, và sinh nhật sắp tới là dịp tuyệt vời để thể hiện sự tự tin đó.",
+        "body": "PNJ rất hân hạnh giới thiệu bộ sưu tập Premium Self-Reward, hoàn hảo cho sự thanh lịch mà chị đang tìm kiếm. Những chiếc bông tai tinh xảo như Elegance Pearl hay Graceful Shine sẽ là lựa chọn đáng giá cho chị. Nếu muốn, chị cũng có thể xem lại Timeless Beauty nhẫn, sản phẩm đang rất được ưa chuộng.",
+        "highlights": [
+          "✦ Thiết kế độc đáo",
+          "✦ Chất liệu vàng trắng sang trọng",
+          "✦ Hoàn hảo để tự tặng"
+        ],
+        "closing": "PNJ luôn sẵn sàng tư vấn như VIP, chị hãy thoải mái liên hệ để được hỗ trợ bất kỳ lúc nào nhé!",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH008",
+      "generated_at": "2026-05-28T13:56:39.762424",
+      "context": {
+        "key_insight": "Khách thuộc phân khúc Gold-H, thích phong cách trẻ trung, hay sử dụng discount, có dấu hiệu muốn cầu hôn, sinh nhật sắp đến.",
+        "urgency_signal": "🎂 Sinh nhật còn 10 ngày! | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 2 lần, quay lại web 3 lần, đã mở 2 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
+        "product_rec_1": "Bông tai vàng trắng Luminous Elegance",
+        "product_rec_2": "Hộp quà tặng cao cấp",
+        "product_rec_3": "Nhẫn đính hôn kim cương"
+      },
+      "delivery": {
+        "channel": "email",
+        "priority": "high",
+        "campaign_id": "gift_high_email",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.75
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly | urgent",
+        "tokens_used": 1664,
+        "subject": "Chị đã sẵn sàng khám phá quà tặng hoàn hảo từ PNJ chưa?",
+        "greeting": "Kính gửi chị,",
+        "body": "Nếu chị đang muốn tìm món quà ý nghĩa nhất để tặng người thân yêu. Đặc biệt là những món quà có thể hiện cảm xúc yêu thương và gắn kết. \n\nPNJ tự hào giới thiệu bộ sưu tập bông tai vàng trắng Luminous Elegance, thiết kế trẻ trung, nổi bật và sang trọng, rất hợp phong cách của chị. Ngoài ra, hộp quà tặng cao cấp cùng nhẫn đính hôn kim cương tinh tế sẵn sàng giúp chị cá nhân hoá theo sở thích, tạo dấu ấn khó quên.\n\nChị nên lựa chọn ngay để đảm bảo món quà đến tay kịp thời cho dịp đặc biệt và tận hưởng dịch vụ tư vấn VIP từ PNJ, chỉ dành riêng cho khách hàng như chị.",
+        "highlights": [
+          "• Bông tai vàng trắng Luminous Elegance: Thiết kế trẻ trung hợp phong cách.",
+          "• Dịch vụ tư vấn VIP: Đưa ra lựa chọn phù hợp và đúng ý nhất.",
+          "• Hộp quà tặng cao cấp: Biến món quà thành một trải nghiệm đáng nhớ."
+        ],
+        "closing": "Đội ngũ tư vấn PNJ sẵn sàng hỗ trợ chị chọn lựa phù hợp nhất. Liên hệ hotline 1800 545457 hoặc ghé cửa hàng PNJ gần nhất.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH009",
+      "generated_at": "2026-05-28T13:56:39.762460",
+      "context": {
+        "key_insight": "Khách có dấu hiệu đang tìm kiếm trang sức cho dịp cầu hôn, ưu tiên độc quyền và sản phẩm dành riêng cho khách hàng cao cấp.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 3 lần, đã mở 1 chiến dịch engagement, đã mở 2 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Guide — gợi ý quà tặng theo ngân sách",
+        "product_rec_1": "Lắc tay từ bộ sưu tập Eternal Sparkle",
+        "product_rec_2": "Nhẫn kim cương phong cách trẻ trung",
+        "product_rec_3": "Bộ trang sức thiết kế riêng"
+      },
+      "delivery": {
+        "channel": "email",
+        "priority": "low",
+        "campaign_id": "gift_low_email",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.46
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly | urgent",
+        "tokens_used": 1647,
+        "subject": "Khám phá thiết kế độc quyền cho khoảnh khắc ý nghĩa",
+        "greeting": "Kính gửi chị,",
+        "body": "Những bước tìm kiếm sản phẩm hoàn hảo cho dịp trọng đại sắp tới luôn là một hành trình đầy ý nghĩa. Em hiểu giá trị một món trang sức có thể mang lại không chỉ là vật chất mà còn là tình cảm.\n\nTại PNJ, chúng em tự hào giới thiệu bộ sưu tập Eternal Sparkle với những chiếc lắc tay kim cương trẻ trung, sang trọng. Mỗi sản phẩm được thiết kế nâng niu từng chi tiết để làm nổi bật vẻ đẹp riêng biệt, đảm bảo sẽ mang đến niềm vui và hạnh phúc cho người nhận.\n\nĐể những khoảnh khắc thật hoàn hảo, việc sắp xếp lựa chọn từ bây giờ sẽ giúp chị có thêm thời gian chuẩn bị, và PNJ sẽ luôn đồng hành cùng chị trên hành trình này.",
+        "highlights": [
+          "• Bộ sưu tập Eternal Sparkle với thiết kế độc quyền từ PNJ",
+          "• Lý tưởng cho dịp trọng đại, mang lại ý nghĩa sâu sắc",
+          "• Tư vấn VIP và dịch vụ chọn quà tận tâm từ PNJ"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ sẵn sàng hỗ trợ chị chọn lựa phù hợp nhất. Liên hệ hotline 1800 545457 hoặc ghé cửa hàng PNJ gần nhất.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH010",
+      "generated_at": "2026-05-28T13:56:39.762495",
+      "context": {
+        "key_insight": "Khách thuộc phân khúc Platinum, rất chú trọng tới vẻ sang trọng. Khách có thể đang tìm quà tặng nhân dịp sinh nhật, chưa dùng discount nhiều.",
+        "urgency_signal": "🎂 Sinh nhật còn 8 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 4 lần, xem sản phẩm kim cương 5 lần, quay lại web 5 lần, đã mở 1 chiến dịch engagement, đã mở 1 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Set phổ biến — dễ chọn, ý nghĩa",
+        "product_rec_1": "Elegance Embrace",
+        "product_rec_2": "Diamond Royale Set",
+        "product_rec_3": "Sophisticated Charm Bracelet"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "medium",
+        "campaign_id": "gift_medium_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.69
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1444,
+        "subject": null,
+        "greeting": "Chị có dự định đặc biệt gì trong tuần sắp tới không nhỉ? Có lẽ sinh nhật người thân nào đó sẽ làm dịp thêm thú vị.",
+        "body": "Tại PNJ, em đã chuẩn bị sẵn những bộ gift set ý nghĩa, đặc biệt là Diamond Royale Set dành cho chị. Đây là món quà hoàn hảo để thể hiện sự sang trọng và tinh tế. Sản phẩm này không chỉ nổi bật với vẻ đẹp mà còn mang lại hạnh phúc cho người nhận.",
+        "highlights": [
+          "✦ Thiết kế tinh xảo",
+          "✦ Vẻ đẹp sang trọng",
+          "✦ Ý nghĩa độc đáo"
+        ],
+        "closing": "Nếu cần thêm thông tin, đội ngũ tư vấn PNJ luôn sẵn sàng hỗ trợ chị. Rất vui được giúp chị hoàn thành món quà ý nghĩa này.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH011",
+      "generated_at": "2026-05-28T13:56:39.762533",
+      "context": {
+        "key_insight": "Khách có tín hiệu muốn tìm sản phẩm cho dịp cầu hôn nhưng vẫn chưa chốt đơn, thiên về các sản phẩm cao cấp và không nhạy cảm với giảm giá.",
+        "urgency_signal": "Sinh nhật trước 17 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 3 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 2 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 4 lần, quay lại web 2 lần, đã mở 4 chiến dịch engagement, đã mở 2 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
+        "product_rec_1": "Bộ sưu tập Nhẫn Đính Hôn 2025",
+        "product_rec_2": "Dây chuyền Vàng 14K Thanh Lịch",
+        "product_rec_3": "Vòng tay Vàng 14K Thanh Lịch"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "eng_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.77
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1579,
+        "subject": null,
+        "greeting": "Chị đang chuẩn bị cho một khoảnh khắc thật đặc biệt, phải không? Em nhận thấy sự quan tâm của chị đến những sản phẩm tinh tế cho dịp ý nghĩa này.",
+        "body": "PNJ tự hào giới thiệu Bộ sưu tập Nhẫn Đính Hôn 2025 với kim cương tự nhiên hoàn mỹ. Đây chính là món quà tuyệt vời để thể hiện tình yêu chân thành. Em cũng không thể không nhắc đến Dây chuyền Vàng 14K Thanh Lịch, phù hợp hoàn hảo với phong cách của chị.",
+        "highlights": [
+          "✦ Thiết kế tinh xảo, sang trọng",
+          "✦ Kim cương tự nhiên, biểu tượng vĩnh cửu",
+          "✦ Hoàn hảo cho khoảnh khắc đặc biệt"
+        ],
+        "closing": "Đội ngũ tư vấn của PNJ luôn sẵn sàng hỗ trợ chị. Chị có thể ghé thăm cửa hàng hoặc kết nối với em để tìm hiểu thêm nha.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH012",
+      "generated_at": "2026-05-28T13:56:39.762568",
+      "context": {
+        "key_insight": "Khách thuộc phân khúc cao, thích phong cách tối giản, đã quan tâm tới dây chuyền nhưng chưa quyết định mua, có tiềm năng chi tiêu cao trong giới hạn 15–30 triệu.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, quay lại web 8 lần, đã mở 1 chiến dịch engagement.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Guide — gợi ý quà tặng theo ngân sách",
+        "product_rec_1": "Elegance Minimalist",
+        "product_rec_2": "Whisper Gleam",
+        "product_rec_3": "Minimalist Chic"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "low",
+        "campaign_id": "gift_low_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.48
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1431,
+        "subject": null,
+        "greeting": "Chị đang tìm kiếm một món quà thật ý nghĩa cho người thân yêu và có lẽ đã quay lại với vài lựa chọn từ PNJ.",
+        "body": "PNJ tự hào mang đến Bộ sưu tập Minimalist đầy tinh tế cho chị với phong cách tối giản mà chị yêu thích. Dây chuyền Vàng 18K trong giỏ hàng của chị là lựa chọn hoàn hảo để thể hiện sự quan tâm sâu sắc. Đặc biệt, chúng em luôn sẵn sàng tư vấn như VIP giúp chị chọn được món quà ưng ý nhất.",
+        "highlights": [
+          "✦ Thiết kế tối giản, thanh lịch",
+          "✦ Vàng 18K cao cấp, tinh tế",
+          "✦ Dịch vụ tư vấn VIP tận tâm"
+        ],
+        "closing": "Chị có thể liên hệ đội ngũ PNJ bất kỳ lúc nào để nhận thêm thông tin chi tiết. Chúng em rất mong được đồng hành cùng chị.",
+        "cta_text": "Xem ngay"
+      }
+    },
+    {
+      "customer_id": "KH013",
+      "generated_at": "2026-05-28T13:56:39.762604",
+      "context": {
+        "key_insight": "Khách có dấu hiệu mạnh về việc chuẩn bị cho một lời cầu hôn, điều này cần được ưu tiên trong tư vấn sản phẩm.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 2 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 4 lần, quay lại web 4 lần.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
+        "product_rec_1": "nhẫn đính hôn kim cương tự nhiên 2025",
+        "product_rec_2": "lắc tay vàng trắng sang trọng",
+        "product_rec_3": "khuyên tai kim cương"
+      },
+      "delivery": {
+        "channel": "push",
+        "priority": "high",
+        "campaign_id": "eng_high_push",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.73
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm",
+        "tokens_used": 1246,
+        "subject": "Khoảnh khắc ngọt ngào đang chờ 🍀",
+        "greeting": "None",
+        "body": "Chị đang chuẩn bị cho điều gì đặc biệt? Bộ sưu tập Nhẫn Đính Hôn 2025 sẵn sàng thêm phần lấp lánh cho câu chuyện của chị.",
+        "highlights": [],
+        "closing": "None",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH014",
+      "generated_at": "2026-05-28T13:56:39.762639",
+      "context": {
+        "key_insight": "Khách thuộc phân khúc Platinum, có xu hướng tìm kiếm sản phẩm kỷ niệm và đã từng dùng ưu đãi.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 3 lần, xem sản phẩm kim cương 2 lần, quay lại web 5 lần, đã mở 1 chiến dịch engagement, đã mở 4 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
+        "product_rec_1": "Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_2": "Nhẫn vàng 14K đính kim cương",
+        "product_rec_3": "Nhẫn đính hôn thiết kế riêng"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "anni_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "anniversary",
+        "confidence": 0.73
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1495,
+        "subject": null,
+        "greeting": "Chào anh, những dịp kỷ niệm luôn quan trọng, và PNJ rất trân trọng những khoảnh khắc ấy. Em thấy anh đã quan tâm đến những sản phẩm mang dấu ấn sâu sắc.",
+        "body": "Cho dịp đặc biệt sắp tới, PNJ giới thiệu Bộ Quà Kỷ Niệm cao cấp với khả năng khắc tên tinh tế và hộp quà sang trọng. Ngoài ra, Nhẫn vàng 14K đính kim cương với thiết kế tinh tế chắc chắn sẽ là món quà tuyệt vời ghi dấu tình yêu của anh.",
+        "highlights": [
+          "✦ Khắc tên theo ý muốn",
+          "✦ Hộp quà đặc biệt và sang trọng",
+          "✦ Thiết kế thời thượng, đẳng cấp"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ luôn sẵn sàng đồng hành cùng anh để lựa chọn món quà ý nghĩa. Hãy cho em biết khi nào anh cần hỗ trợ thêm nhé.",
+        "cta_text": "Xem chi tiết ngay"
+      }
+    },
+    {
+      "customer_id": "KH015",
+      "generated_at": "2026-05-28T13:56:39.762674",
+      "context": {
+        "key_insight": "Khách có khả năng mua cao với tín hiệu cầu hôn mạnh, khả năng quay lại cao và thường không bị ảnh hưởng bởi discount.",
+        "urgency_signal": "🎂 Sinh nhật còn 1 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 5 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 1 lần, đã mở 1 chiến dịch kỷ niệm.",
+        "instore_intent": "High Purchase",
+        "nba_strategy": "Chốt đơn nhanh",
+        "psychology_trigger": "Social Proof + Scarcity",
+        "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
+        "product_rec_1": "bông tai Vầng dương",
+        "product_rec_2": "hộp quà tặng cao cấp",
+        "product_rec_3": "nhẫn đính hôn tối giản"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "gift_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.82
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1500,
+        "subject": null,
+        "greeting": "Anh đang chuẩn bị cho một khoảnh khắc thật đặc biệt, có thể món quà anh chọn sẽ ghi dấu ấn khó phai.",
+        "body": "PNJ hiểu tầm quan trọng của những kỷ niệm ý nghĩa. Với những sản phẩm tinh tế và một hộp quà tặng cao cấp, chúng em tin rằng anh sẽ tìm được món quà hoàn hảo. Đừng quên, bông tai Vầng dương và nhẫn đính hôn tối giản đều là những lựa chọn tuyệt vời thể hiện phong cách và tình cảm.",
+        "highlights": [
+          "✦ Hộp quà tặng cao cấp được tuyển chọn kỹ",
+          "✦ Tư vấn 1-1 giúp anh chọn đúng quà ý nghĩa",
+          "✦ Mẫu nhẫn thiết kế tối giản, sang trọng"
+        ],
+        "closing": "Đội ngũ PNJ luôn sẵn sàng đồng hành cùng anh. Hãy nhắn tin hoặc ghé thăm để được hỗ trợ thêm anh nhé.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH016",
+      "generated_at": "2026-05-28T13:56:39.762709",
+      "context": {
+        "key_insight": "Khách rất quan tâm đến các sản phẩm kỷ niệm và đang chuẩn bị cho một dịp đặc biệt, có thể là lễ kỷ niệm hoặc sự kiện quan trọng.",
+        "urgency_signal": "🎂 Sinh nhật còn 14 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem nhẫn đính hôn 1 lần, xem sản phẩm kim cương 4 lần, quay lại web 2 lần, đã mở 3 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
+        "product_rec_1": "Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_2": "Dây chuyền Vàng 18K trẻ trung",
+        "product_rec_3": "Nhẫn vàng thiết kế riêng"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "anni_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "anniversary",
+        "confidence": 0.75
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1475,
+        "subject": null,
+        "greeting": "Chào anh, những dịp kỷ niệm đặc biệt là cơ hội tôn vinh tình cảm, ghi dấu khoảnh khắc quý giá trong cuộc sống.",
+        "body": "PNJ thấu hiểu ý nghĩa này và hiện có Bộ Quà Kỷ Niệm cao cấp với thiết kế độc đáo, hộp quà sang trọng, khắc tên theo yêu cầu. Dòng dây chuyền Vàng 18K trẻ trung cũng là lựa chọn hoàn hảo cho phong cách của anh.",
+        "highlights": [
+          "✦ Khắc tên cá nhân theo yêu cầu",
+          "✦ Hộp quà sang trọng, tinh tế",
+          "✦ Thiết kế trẻ trung, hiện đại"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ luôn sẵn sàng hỗ trợ anh lựa chọn món quà ý nghĩa nhất. Mong được cùng anh tạo nên kỷ niệm đẹp.",
+        "cta_text": "Xem ngay chi tiết"
+      }
+    },
+    {
+      "customer_id": "KH017",
+      "generated_at": "2026-05-28T13:56:39.762744",
+      "context": {
+        "key_insight": "Khách có ý định cầu hôn mạnh, thích phong cách trẻ trung và thường mua sản phẩm trong phân khúc cao cấp.",
+        "urgency_signal": "Sinh nhật trước 27 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem nhẫn đính hôn 5 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 3 lần, quay lại web 3 lần, đã mở 2 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
+        "product_rec_1": "nhẫn 'Eternal Promise'",
+        "product_rec_2": "bông tai vàng 18K thiết kế trẻ trung",
+        "product_rec_3": "nhẫn đính hôn kim cương tự nhiên"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "eng_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.73
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1544,
+        "subject": null,
+        "greeting": "Anh đang tìm kiếm một món quà đặc biệt để tạo dấu ấn trong khoảnh khắc quan trọng sắp tới phải không? Em thấy anh có sự quan tâm đặc biệt đến các sản phẩm của PNJ.",
+        "body": "Với bộ sưu tập Nhẫn Đính Hôn 2025, PNJ mang đến những lựa chọn tinh tế nhất. Đặc biệt, sản phẩm 'Eternal Promise' chắc chắn là một lời hứa ngọt ngào cho khoảnh khắc ấy. Ngoài ra, còn có bông tai vàng 18K trẻ trung để anh lựa chọn thêm.",
+        "highlights": [
+          "✦ Thiết kế bộ sưu tập trẻ trung",
+          "✦ Kim cương tự nhiên lấp lánh",
+          "✦ Lựa chọn phong phú trong ngân sách của anh"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ luôn sẵn sàng hỗ trợ anh để biến khoảnh khắc ấy thành kỷ niệm khó quên. Anh thoải mái liên hệ khi cần thêm thông tin nhé.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH018",
+      "generated_at": "2026-05-28T13:56:39.762784",
+      "context": {
+        "key_insight": "Khách đang tìm nhẫn đính hôn, có khả năng chuẩn bị cho dịp cầu hôn, ưu tiên phong cách thanh lịch và chú trọng vào ngân sách cao.",
+        "urgency_signal": "Sinh nhật trước 29 ngày — cơ hội tặng quà | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách xem nhẫn đính hôn 3 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 1 lần, quay lại web 3 lần.",
+        "instore_intent": "Exploration",
+        "nba_strategy": "Định hướng lựa chọn",
+        "psychology_trigger": "Narrowing + Personalization",
+        "product_focus": "Bộ sưu tập Nhẫn mới nhất",
+        "product_rec_1": "Elegant Diamond Ring",
+        "product_rec_2": "Classic Solitaire",
+        "product_rec_3": "Graceful Halo"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "low",
+        "campaign_id": "eng_low_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.48
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1457,
+        "subject": null,
+        "greeting": "Chị đang tìm kiếm một khoảnh khắc thật đặc biệt để ghi dấu ấn trong lòng ai đó, em hiểu rằng những điều này thật quan trọng với chị.",
+        "body": "Tại PNJ, bộ sưu tập nhẫn mới nhất của chúng em có thể mang đến những lựa chọn thật thanh lịch phù hợp với phong cách chị ưa chuộng. Các mẫu như Elegant Diamond Ring hay Classic Solitaire được thiết kế để làm tôn lên vẻ đẹp và ý nghĩa của cuộc sống.",
+        "highlights": [
+          "✦ Thiết kế tinh tế phù hợp khoảnh khắc ý nghĩa",
+          "✦ Chất liệu kim cương cao cấp tạo sự long lanh",
+          "✦ Mẫu mã thanh lịch với ngân sách hợp lý"
+        ],
+        "closing": "PNJ luôn sẵn sàng hỗ trợ chị trong việc lựa chọn món quà thật đặc biệt. Chị có bất kỳ câu hỏi nào, hãy liên hệ để được tư vấn tận tình nhé.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH019",
+      "generated_at": "2026-05-28T13:56:39.762819",
+      "context": {
+        "key_insight": "Khách thích phong cách trẻ trung, chi tiêu cao nhưng có khuynh hướng sử dụng discount; ưu tiên chăm sóc đặc biệt và sản phẩm độc quyền.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 1 lần, đã mở 3 chiến dịch engagement, đã mở 3 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
+        "product_rec_1": "Nhẫn Đính Hôn 2025 - Kim cương tự nhiên mẫu A",
+        "product_rec_2": "Nhẫn Đính Hôn 2025 - Kim cương tự nhiên mẫu B",
+        "product_rec_3": "Lắc tay vàng trắng mẫu trẻ trung"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "eng_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.83
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1519,
+        "subject": null,
+        "greeting": "Những khoảnh khắc đặc biệt trong hành trình đều đáng được ghi nhớ một cách trọn vẹn, anh nhỉ?",
+        "body": "PNJ tự hào giới thiệu các lựa chọn độc quyền cho các dịp đặc biệt trong cuộc sống của anh. Bộ sưu tập Nhẫn Đính Hôn 2025 với thiết kế kim cương tự nhiên sẽ là người bạn đồng hành tuyệt vời. Ngoài ra, chiếc lắc tay vàng trắng trẻ trung cũng là điểm nhấn hoàn hảo cho phong cách của anh.",
+        "highlights": [
+          "✦ Thiết kế trẻ trung, sang trọng",
+          "✦ Độc quyền từ bộ sưu tập 2025",
+          "✦ Kim cương tự nhiên sáng giá"
+        ],
+        "closing": "Chúng em rất mong được lắng nghe và cùng anh chọn lựa món quà ý nghĩa nhất. Đội ngũ tư vấn PNJ luôn sẵn sàng đồng hành cùng anh.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH020",
+      "generated_at": "2026-05-28T13:56:39.762855",
+      "context": {
+        "key_insight": "Khách thuộc phân khúc cao cấp, thích phong cách trẻ trung, đang tìm món quà cao cấp nhân dịp sinh nhật.",
+        "urgency_signal": "🎂 Sinh nhật còn 1 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 2 lần, xem sản phẩm kim cương 3 lần, quay lại web 1 lần, đã mở 2 chiến dịch engagement, đã mở 3 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
+        "product_rec_1": "Dây chuyền vàng trắng VIP",
+        "product_rec_2": "Bông tai vàng trắng trẻ trung",
+        "product_rec_3": "Vòng tay vàng trắng thiết kế độc quyền"
+      },
+      "delivery": {
+        "channel": "email",
+        "priority": "high",
+        "campaign_id": "gift_high_email",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.71
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly | urgent",
+        "tokens_used": 1655,
+        "subject": "Gợi ý quà tặng đặc biệt cho sinh nhật ý nghĩa",
+        "greeting": "Kính gửi chị,",
+        "body": "Sinh nhật là dịp đặc biệt để gửi tặng những món quà với thông điệp chân thành nhất. Em nhận thấy chị đang tìm kiếm một món quà cao cấp, phù hợp với phong cách trẻ trung của mình.\n\nPNJ tự hào giới thiệu đến chị bộ sản phẩm dây chuyền vàng trắng VIP, bông tai và vòng tay thiết kế độc quyền, chắc chắn là lựa chọn hoàn hảo cho dịp này. Những thiết kế tinh tế, mềm mại này không chỉ tôn vinh vẻ đẹp của người nhận mà còn thể hiện sự sang trọng.\n\nVới dịch vụ tư vấn 1-1 của PNJ, chị có thể nhanh chóng chọn lựa được món quà hoàn hảo cho người thân. Và chỉ còn 1 ngày nữa là sinh nhật đã đến, em hy vọng chị sẽ sớm hoàn thành giỏ hàng của mình.",
+        "highlights": [
+          "• Thiết kế vàng trắng trẻ trung và sang trọng từ PNJ",
+          "• Dịch vụ tư vấn quà tặng cá nhân hóa giúp chị chọn đúng sản phẩm",
+          "• Cam kết chất lượng và dịch vụ khách hàng tận tâm của PNJ"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ sẵn sàng hỗ trợ chị chọn lựa phù hợp nhất. Liên hệ hotline 1800 545457 hoặc ghé cửa hàng PNJ gần nhất.",
+        "cta_text": "Xem bộ sưu tập"
+      }
+    },
+    {
+      "customer_id": "KH021",
+      "generated_at": "2026-05-28T13:56:39.762894",
+      "context": {
+        "key_insight": "Khách quan tâm đến sản phẩm kỷ niệm và có sở thích phong cách trẻ trung, thường sử dụng ưu đãi khi mua hàng.",
+        "urgency_signal": "",
+        "online_insight": "Khách xem trang sản phẩm 3 lần, xem sản phẩm kim cương 4 lần, quay lại web 3 lần, đã mở 4 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
+        "product_rec_1": "Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_2": "Dây chuyền vàng 18K trẻ trung",
+        "product_rec_3": "Nhẫn kim cương thanh lịch"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "anni_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "anniversary",
+        "confidence": 0.78
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1466,
+        "subject": null,
+        "greeting": "Chào anh, những khoảnh khắc kỷ niệm là dịp đặc biệt để nhớ và trân trọng. Anh đã quay lại nhiều lần với những sản phẩm kỷ niệm đầy ý nghĩa, có lẽ PNJ có thể gợi ý một điều gì đó đặc biệt cho anh?",
+        "body": "PNJ hân hạnh giới thiệu Bộ Quà Kỷ Niệm cao cấp dành riêng cho những dịp trọng đại. Với phong cách trẻ trung và tinh tế, bộ sản phẩm này sẽ cùng anh lưu giữ những kỷ niệm đáng nhớ. Ngoài ra, những chiếc dây chuyền vàng 18K cũng có thể là lựa chọn hoàn hảo cho anh.",
+        "highlights": [
+          "✦ Thiết kế trẻ trung và tinh tế",
+          "✦ Khắc tên riêng, hộp quà sang trọng",
+          "✦ Phù hợp với ngân sách và phong cách của anh"
+        ],
+        "closing": "Đội ngũ tư vấn VIP của PNJ luôn sẵn sàng hỗ trợ anh bất cứ lúc nào. Anh hãy thoải mái liên hệ với chúng em nhé.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH022",
+      "generated_at": "2026-05-28T13:56:39.762931",
+      "context": {
+        "key_insight": "Khách thuộc phân khúc Platinum, thích phong cách tối giản và đang tìm kiếm món quà có thể là cho dịp đặc biệt.",
+        "urgency_signal": "🎂 Sinh nhật còn 5 ngày!",
+        "online_insight": "Khách xem nhẫn đính hôn 1 lần, xem sản phẩm kim cương 5 lần, quay lại web 1 lần, đã ghé online trong tháng qua (21 ngày trước), đã mở 1 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Set phổ biến — dễ chọn, ý nghĩa",
+        "product_rec_1": "Regal Ring",
+        "product_rec_2": "Diamond Minimalist Band",
+        "product_rec_3": "Luxury Gift Set"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "medium",
+        "campaign_id": "gift_medium_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.69
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1420,
+        "subject": null,
+        "greeting": "Chào anh, dịp sinh nhật đang đến gần là cơ hội tuyệt vời để anh tạo ra khoảnh khắc đáng nhớ bên người thân yêu.",
+        "body": "PNJ trân trọng giới thiệu các sản phẩm quà tặng nhấn mạnh sự tinh tế mà anh yêu thích. Dòng Regal Ring và Diamond Minimalist Band mang đến sự sang trọng tối giản, phù hợp với phong cách của anh. Ngoài ra, bộ Gift Set cao cấp được thiết kế để trở thành món quà ý nghĩa, chắc chắn sẽ hài lòng người nhận.",
+        "highlights": [
+          "✦ Thiết kế tối giản thời thượng",
+          "✦ Chất lượng kim cương vượt trội",
+          "✦ Tư vấn lựa chọn quà theo yêu cầu"
+        ],
+        "closing": "Anh đừng ngần ngại liên hệ để đội ngũ tư vấn PNJ hỗ trợ chi tiết hơn. Mong sớm nhận được tin từ anh!",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH023",
+      "generated_at": "2026-05-28T13:56:39.762966",
+      "context": {
+        "key_insight": "Khách có tín hiệu mua cao, thích phong cách sang trọng, nhạy cảm với hàng số lượng hạn chế; nên tập trung chốt đơn nhanh.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 1 lần, xem sản phẩm kim cương 2 lần, quay lại web 4 lần, đã mở 1 chiến dịch engagement, đã mở 7 chiến dịch kỷ niệm.",
+        "instore_intent": "High Purchase",
+        "nba_strategy": "Chốt đơn nhanh",
+        "psychology_trigger": "Social Proof + Scarcity",
+        "product_focus": "Gợi ý quà tặng kỷ niệm",
+        "product_rec_1": "Lắc tay Sophia Times",
+        "product_rec_2": "Lắc tay Natural Grace",
+        "product_rec_3": "Bông tai kim cương nhỏ"
+      },
+      "delivery": {
+        "channel": "email",
+        "priority": "low",
+        "campaign_id": "anni_low_email",
+        "rule_status": "blocked: confidence 0.42 < threshold 0.45",
+        "predicted_intent": "anniversary",
+        "confidence": 0.42
+      },
+      "content": {
+        "source": "n/a",
+        "tone": "",
+        "tokens_used": 0,
+        "subject": null,
+        "greeting": null,
+        "body": "— blocked / no action —",
+        "highlights": [],
+        "closing": null,
+        "cta_text": "Xem gợi ý"
+      }
+    },
+    {
+      "customer_id": "KH024",
+      "generated_at": "2026-05-28T13:56:39.763000",
+      "context": {
+        "key_insight": "Khách thuộc phân khúc Platinum-M, chi tiêu cao, quan tâm đến sản phẩm độc quyền và sang trọng, có dấu hiệu chuẩn bị cầu hôn.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 3 lần, đã mở 1 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
+        "product_rec_1": "Nhẫn cầu hôn vàng trắng kim cương phiên bản đặc biệt",
+        "product_rec_2": "Gift Finder hộp quà tặng cao cấp",
+        "product_rec_3": "Nhẫn sang trọng trắng vàng với kim cương"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "gift_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.77
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1485,
+        "subject": null,
+        "greeting": "Chị từng chia sẻ về những khoảnh khắc đáng nhớ trong cuộc sống, và em hiểu chị đang tìm một món quà ý nghĩa để đánh dấu dịp đặc biệt này.",
+        "body": "PNJ hân hạnh giới thiệu nhẫn cầu hôn vàng trắng kim cương phiên bản đặc biệt, thể hiện sự sang trọng tinh tế cho từng khoảnh khắc quan trọng. Với dịch vụ Gift Finder đẳng cấp, chị sẽ tìm thấy món quà hoàn hảo, thể hiện trọn vẹn tình cảm chân thành.",
+        "highlights": [
+          "✦ Vàng trắng kim cương, thiết kế độc quyền",
+          "✦ Gift Finder hộp quà tặng cao cấp",
+          "✦ Tùy chọn tư vấn riêng 1-1"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ luôn sẵn sàng hỗ trợ chị để chọn ra món quà tuyệt vời nhất. Rất mong được đồng hành cùng chị trong khoảnh khắc này!",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH025",
+      "generated_at": "2026-05-28T13:56:39.763035",
+      "context": {
+        "key_insight": "Khách có phong cách tối giản, đang cân nhắc món quà kỷ niệm, quan tâm đến kim cương và thường sử dụng ưu đãi.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 3 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 5 lần, xem sản phẩm kim cương 4 lần, quay lại web 4 lần, đã mở 6 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
+        "product_rec_1": "Dây chuyền vàng 14K Tối Giản",
+        "product_rec_2": "Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_3": "Mặt dây chuyền kim cương"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "anni_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "anniversary",
+        "confidence": 0.72
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm",
+        "tokens_used": 1513,
+        "subject": null,
+        "greeting": "Anh có bao giờ nghĩ rằng mỗi năm bên nhau là một trang đẹp của cuốn sách tình yêu? Đôi khi, một món quà kỷ niệm nhỏ bé lại ghi dấu trọn vẹn cảm xúc ấy.",
+        "body": "Tại PNJ, em thấy anh đã chọn cho mình vài sản phẩm đầy ý nghĩa. Trong số đó, Bộ Quà Kỷ Niệm cao cấp với khả năng khắc tên có lẽ là món quà đặc biệt để anh thể hiện tình cảm. Đồng thời, dây chuyền vàng 14K tối giản cũng là một lựa chọn không thể bỏ qua với sự tinh tế nhẹ nhàng.",
+        "highlights": [
+          "✦ Thiết kế tối giản, sang trọng",
+          "✦ Dịch vụ khắc tên tạo dấu ấn riêng",
+          "✦ Hộp quà đặc biệt, lưu giữ kỷ niệm"
+        ],
+        "closing": "Đội ngũ tư vấn của PNJ luôn sẵn sàng giúp anh tìm ra món quà phù hợp nhất. Đừng ngần ngại nhắn tin nếu anh cần thêm thông tin nhé.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH026",
+      "generated_at": "2026-05-28T13:56:39.763070",
+      "context": {
+        "key_insight": "Khách có nhu cầu thưởng cho bản thân, ngân sách cao và gần đến sinh nhật, có thể quan tâm đến các sản phẩm độc quyền và thiết kế sang trọng.",
+        "urgency_signal": "🎂 Sinh nhật còn 10 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 4 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 2 lần, xem nhẫn đính hôn 2 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 2 lần, quay lại web 3 lần, đã mở 1 chiến dịch engagement, đã mở 4 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Premium Self-Reward — thiết kế độc đáo",
+        "product_rec_1": "Eternal Elegance",
+        "product_rec_2": "Trinity Luxe Bracelet",
+        "product_rec_3": "Radiant Reflection Ring"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "selfrw_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "self_reward",
+        "confidence": 0.78
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1490,
+        "subject": null,
+        "greeting": "Chị thân mến, chỉ còn 10 ngày nữa là đến sinh nhật đặc biệt của chị. Em nhận thấy chị đã dành sự quan tâm đặc biệt cho những thiết kế sang trọng gần đây.",
+        "body": "Để biến dịp này thêm phần ý nghĩa, PNJ giới thiệu đến chị bộ sưu tập Premium Self-Reward — nơi mà sự tinh tế và phong cách sang trọng hòa quyện. Chắc chắn rằng, chiếc lắc tay Eternal Elegance hay nhẫn Radiant Reflection Ring sẽ là món quà hoàn hảo mà chị hoàn toàn xứng đáng.",
+        "highlights": [
+          "✦ Thiết kế độc quyền",
+          "✦ Chất liệu vàng 14K cao cấp",
+          "✦ Tôn vinh phong cách cá nhân"
+        ],
+        "closing": "Đội ngũ PNJ luôn sẵn sàng và hân hạnh được tư vấn riêng cho chị. Rất mong được đón tiếp chị tại cửa hàng hoặc qua các kênh online của chúng em.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH027",
+      "generated_at": "2026-05-28T13:56:39.763104",
+      "context": {
+        "key_insight": "Khách có dấu hiệu chuẩn bị cầu hôn, từng thêm sản phẩm vào giỏ hàng nhưng chưa mua, thích phong cách sang trọng và đã từng sử dụng ưu đãi.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 2 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 2 lần, quay lại web 3 lần, đã mở 3 chiến dịch engagement, đã mở 2 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
+        "product_rec_1": "Nhẫn Đính Hôn 2025",
+        "product_rec_2": "Dây Chuyền Kim Cương Hoàn Mỹ",
+        "product_rec_3": "Lắc Tay Kim Cương Exclusive"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "eng_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.84
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1514,
+        "subject": null,
+        "greeting": "Chị đang chuẩn bị cho một khoảnh khắc thật ý nghĩa phải không? Em thấy chị rất quan tâm đến những sản phẩm trang sức sang trọng.",
+        "body": "PNJ có bộ sưu tập Nhẫn Đính Hôn 2025 với kim cương tự nhiên, chắc chắn sẽ giúp khoảnh khắc của chị trở nên đáng nhớ hơn. Ngoài ra, chúng em cũng có Dây Chuyền Kim Cương Hoàn Mỹ thiết kế thanh lịch và tinh tế, rất phù hợp với phong cách của chị.",
+        "highlights": [
+          "✦ Thiết kế tinh xảo và sang trọng",
+          "✦ Kim cương tự nhiên đẳng cấp",
+          "✦ Phù hợp cho những dịp ý nghĩa"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ luôn sẵn sàng hỗ trợ chị tìm kiếm món trang sức hoàn hảo nhất. Chị có thể liên lạc với em khi cần nhé.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH028",
+      "generated_at": "2026-05-28T13:56:39.763142",
+      "context": {
+        "key_insight": "Khách thích phong cách trẻ trung nhưng ưu tiên trải nghiệm độc quyền, có khả năng đang tìm sản phẩm cho dịp cầu hôn hoặc kỷ niệm quan trọng.",
+        "urgency_signal": "💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách xem trang sản phẩm 1 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 5 lần, quay lại web 4 lần, đã ghé online trong tháng qua (26 ngày trước), đã mở 3 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
+        "product_rec_1": "Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_2": "Dây chuyền vàng 18K",
+        "product_rec_3": "Nhẫn kim cương độc quyền"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "anni_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "anniversary",
+        "confidence": 0.81
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1512,
+        "subject": null,
+        "greeting": "Chị có bao giờ suy nghĩ về những khoảnh khắc đặc biệt trong hành trình yêu thương, khi mà những món quà không chỉ là vật chất mà còn là dấu ấn mãi mãi?",
+        "body": "PNJ hiểu được giá trị của những cột mốc ý nghĩa này và chúng em dành riêng cho chị bộ quà kỷ niệm cao cấp, một lựa chọn hoàn hảo để ghi dấu ngày trọng đại. Bên cạnh đó, những mẫu nhẫn kim cương độc quyền kết hợp với dây chuyền vàng 18K thời thượng cũng là gợi ý lý tưởng để tạo nên một bất ngờ đầy cảm xúc.",
+        "highlights": [
+          "✦ Bộ quà kỷ niệm hợp nhu cầu",
+          "✦ Nhẫn kim cương độc quyền",
+          "✦ Dây chuyền vàng 18K trẻ trung"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ luôn sẵn sàng hỗ trợ chị tại mọi thời điểm. Chị hãy kết nối với em để chúng ta cùng tạo nên một kỷ niệm khó quên.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH029",
+      "generated_at": "2026-05-28T13:56:39.763182",
+      "context": {
+        "key_insight": "Khách có dự định mua sắm cho bản thân, có thể đang cân nhắc cầu hôn, và có tín hiệu mua hàng rất cao.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 3 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 2 lần, quay lại web 4 lần, đã mở 6 chiến dịch kỷ niệm.",
+        "instore_intent": "High Purchase",
+        "nba_strategy": "Chốt đơn nhanh",
+        "psychology_trigger": "Social Proof + Scarcity",
+        "product_focus": "Bộ sưu tập Premium Self-Reward — thiết kế độc đáo",
+        "product_rec_1": "dây chuyền vàng trắng trẻ trung",
+        "product_rec_2": "nhẫn kim cương cầu hôn",
+        "product_rec_3": "nhẫn kim cương độc đáo"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "selfrw_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "self_reward",
+        "confidence": 0.74
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1484,
+        "subject": null,
+        "greeting": "Anh đã có những khoảnh khắc đáng nhớ khi ghé thăm bộ sưu tập của PNJ. Hẳn sự tìm kiếm một món quà đặc biệt cho chính mình đang là điều anh hướng tới.",
+        "body": "PNJ xin giới thiệu bộ sưu tập Premium Self-Reward, nơi anh có thể tìm thấy những thiết kế dây chuyền vàng trắng trẻ trung, đầy phong cách. Đặc biệt, nếu anh đang muốn tỏa sáng một cách tự tin hơn, các mẫu nhẫn kim cương độc đáo chắc chắn sẽ là lựa chọn lý tưởng.",
+        "highlights": [
+          "✦ Thiết kế trẻ trung, độc đáo",
+          "✦ Chất liệu vàng trắng cao cấp",
+          "✦ Tôn vinh phong cách cá nhân"
+        ],
+        "closing": "Đội ngũ PNJ luôn sẵn sàng tư vấn nhiệt tình để anh có thể tự thưởng cho mình món trang sức thật ưng ý. Đừng ngần ngại liên hệ để được hỗ trợ thêm nhé.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH030",
+      "generated_at": "2026-05-28T13:56:39.763217",
+      "context": {
+        "key_insight": "Khách có thói quen chi tiêu cao và thường xuyên sử dụng chiết khấu, đang kỳ vọng tìm kiếm tự thưởng nhân dịp sinh nhật sắp tới.",
+        "urgency_signal": "🎂 Sinh nhật còn 12 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 5 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 4 lần, xem nhẫn đính hôn 2 lần, xem sản phẩm kim cương 5 lần, quay lại web 7 lần, đã mở 3 chiến dịch kỷ niệm.",
+        "instore_intent": "High Purchase",
+        "nba_strategy": "Chốt đơn nhanh",
+        "psychology_trigger": "Social Proof + Scarcity",
+        "product_focus": "Trending Collection — đang hot nhất tháng",
+        "product_rec_1": "Mẫu nhẫn kim cương A",
+        "product_rec_2": "Vòng tay kim cương B",
+        "product_rec_3": "Nhẫn phong cách thanh lịch C"
+      },
+      "delivery": {
+        "channel": "push",
+        "priority": "medium",
+        "campaign_id": "selfrw_medium_push",
+        "rule_status": "allowed",
+        "predicted_intent": "self_reward",
+        "confidence": 0.7
+      },
+      "content": {
+        "source": "llm",
+        "tone": "friendly",
+        "tokens_used": 1181,
+        "subject": "Thưởng cho chính mình? 🌟 Còn 12 ngày nữa!",
+        "greeting": "None",
+        "body": "Anh đã sẵn sàng tỏa sáng mùa này với sản phẩm mới nhất từ PNJ chưa? Cùng khám phá!",
+        "highlights": [],
+        "closing": "None",
+        "cta_text": "Xem ngay"
+      }
+    },
+    {
+      "customer_id": "KH031",
+      "generated_at": "2026-05-28T13:56:39.763252",
+      "context": {
+        "key_insight": "Khách thích phong cách tối giản, đang trong giai đoạn tìm kiếm và so sánh, có thể đang tìm mua quà kỷ niệm, nhưng chưa quyết định rõ sản phẩm.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 2 lần, xem sản phẩm kim cương 3 lần, quay lại web 2 lần, đã ghé online trong tháng qua (18 ngày trước), đã mở 1 chiến dịch kỷ niệm.",
+        "instore_intent": "Exploration",
+        "nba_strategy": "Định hướng lựa chọn",
+        "psychology_trigger": "Narrowing + Personalization",
+        "product_focus": "Gợi ý quà tặng kỷ niệm",
+        "product_rec_1": "sản phẩm 1",
+        "product_rec_2": "sản phẩm 2",
+        "product_rec_3": "sản phẩm 3"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "low",
+        "campaign_id": "anni_low_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "anniversary",
+        "confidence": 0.45
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1488,
+        "subject": null,
+        "greeting": "Thời gian trôi thật nhanh, mỗi kỷ niệm tình yêu đều là một dấu mốc đáng quý, phải không anh?",
+        "body": "PNJ hiểu rằng anh đang tìm một món quà đặc biệt cho dịp kỷ niệm. Những sản phẩm dây chuyền kim cương tối giản chính là lựa chọn hoàn hảo để gói ghém tình cảm chân thành. Anh có thể tham khảo những mẫu dây chuyền hiện đại, tinh tế được thiết kế riêng, phù hợp với ngân sách của anh.",
+        "highlights": [
+          "✦ Thiết kế tối giản, phù hợp mọi phong cách",
+          "✦ Chất liệu kim cương sáng bóng, vĩnh cửu",
+          "✦ Sự kết hợp hoàn hảo giữa hiện đại và truyền thống"
+        ],
+        "closing": "Đội ngũ tư vấn của em luôn sẵn sàng hỗ trợ anh. Anh đừng ngần ngại liên hệ nhé, để chúng ta cùng tìm ra món quà phù hợp nhất.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH032",
+      "generated_at": "2026-05-28T13:56:39.763287",
+      "context": {
+        "key_insight": "Khách có khả năng mua cao và yêu thích phong cách tối giản, hiện đang tìm kiếm quà tặng kỷ niệm.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 2 lần, xem sản phẩm kim cương 2 lần, quay lại web 4 lần, đã mở 1 chiến dịch engagement, đã mở 4 chiến dịch kỷ niệm.",
+        "instore_intent": "High Purchase",
+        "nba_strategy": "Chốt đơn nhanh",
+        "psychology_trigger": "Social Proof + Scarcity",
+        "product_focus": "Gợi ý quà tặng kỷ niệm",
+        "product_rec_1": "Minimal Elegance bông tai",
+        "product_rec_2": "Timeless Diamond vòng cổ",
+        "product_rec_3": "Pure White nhẫn đính hôn"
+      },
+      "delivery": {
+        "channel": "email",
+        "priority": "low",
+        "campaign_id": "anni_low_email",
+        "rule_status": "blocked: confidence 0.35 < threshold 0.45",
+        "predicted_intent": "anniversary",
+        "confidence": 0.35
+      },
+      "content": {
+        "source": "n/a",
+        "tone": "",
+        "tokens_used": 0,
+        "subject": null,
+        "greeting": null,
+        "body": "— blocked / no action —",
+        "highlights": [],
+        "closing": null,
+        "cta_text": "Xem gợi ý"
+      }
+    },
+    {
+      "customer_id": "KH033",
+      "generated_at": "2026-05-28T13:56:39.763322",
+      "context": {
+        "key_insight": "Khách thích phong cách tối giản, chi tiêu cao, không nhạy cảm với giá và thường mua sản phẩm sang trọng.",
+        "urgency_signal": "Sinh nhật trước 28 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 5 lần, xem sản phẩm kim cương 2 lần, quay lại web 5 lần, đã mở 4 chiến dịch engagement.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
+        "product_rec_1": "Nhẫn Đính Hôn Kim Cương Tự Nhiên",
+        "product_rec_2": "Lắc Tay Vàng Trắng Tối Giản",
+        "product_rec_3": "Khuyên Tai Kim Cương Tự Nhiên"
+      },
+      "delivery": {
+        "channel": "push",
+        "priority": "high",
+        "campaign_id": "eng_high_push",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.83
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm",
+        "tokens_used": 1244,
+        "subject": "Khám phá khoảnh khắc lãng mạn ✨",
+        "greeting": "None",
+        "body": "Chị đã sẵn sàng để biến một dịp đặc biệt trở nên tuyệt vời hơn với chiếc nhẫn kim cương hoàn mỹ?",
+        "highlights": [],
+        "closing": "None",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH034",
+      "generated_at": "2026-05-28T13:56:39.763359",
+      "context": {
+        "key_insight": "Khách có dấu hiệu quan tâm đến sản phẩm nhẫn đính hôn hoặc cầu hôn trong tương lai gần.",
+        "urgency_signal": "🎂 Sinh nhật còn 1 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 4 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 4 lần, quay lại web 2 lần, đã mở 3 chiến dịch engagement, đã mở 3 chiến dịch kỷ niệm.",
+        "instore_intent": "Exploration",
+        "nba_strategy": "Định hướng lựa chọn",
+        "psychology_trigger": "Narrowing + Personalization",
+        "product_focus": "Nhẫn Đôi / Couple Ring phong cách tối giản",
+        "product_rec_1": "Bông Tai Vàng Tối Giản",
+        "product_rec_2": "Bông Tai Hoop Classic",
+        "product_rec_3": "Bông Tai Nụ Vàng 14K"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "medium",
+        "campaign_id": "eng_medium_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.52
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1525,
+        "subject": null,
+        "greeting": "Chị đang chuẩn bị cho một khoảnh khắc thật đặc biệt trong cuộc đời? PNJ hân hạnh đồng hành cùng chị trên hành trình tìm kiếm điều ý nghĩa.",
+        "body": "Những chiếc nhẫn đính hôn phong cách tối giản tại PNJ không chỉ là trang sức mà còn là biểu tượng cho tình yêu bền vững. Đặc biệt, các sản phẩm nhẫn đôi của chúng em được thiết kế theo xu hướng tối giản, thật giản dị nhưng đong đầy ý nghĩa.",
+        "highlights": [
+          "✦ Nhẫn kiểu dáng tối giản, hợp xu hướng",
+          "✦ Kim cương sáng lấp lánh, hoàn mỹ",
+          "✦ Chạm khắc tinh tế, bền vững cùng thời gian"
+        ],
+        "closing": "Đội ngũ tư vấn của PNJ luôn sẵn sàng hỗ trợ chị. Nếu chị cần thêm thông tin hoặc tư vấn thêm, chị đừng ngại ngần liên hệ nhé.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH035",
+      "generated_at": "2026-05-28T13:56:39.763395",
+      "context": {
+        "key_insight": "Khách có thói quen mua sắm vào dịp kỷ niệm và thích sản phẩm có tính cá nhân hóa cao như khắc tên.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 2 lần, xem sản phẩm kim cương 3 lần, quay lại web 4 lần, đã mở 2 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
+        "product_rec_1": "Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_2": "Lắc tay kim cương",
+        "product_rec_3": "Dịch vụ khắc tên trên trang sức"
+      },
+      "delivery": {
+        "channel": "push",
+        "priority": "high",
+        "campaign_id": "anni_high_push",
+        "rule_status": "allowed",
+        "predicted_intent": "anniversary",
+        "confidence": 0.79
+      },
+      "content": {
+        "source": "llm",
+        "tone": "friendly",
+        "tokens_used": 1213,
+        "subject": "Chúc mừng kỷ niệm với món quà đặc biệt 🎁",
+        "greeting": "None",
+        "body": "Chị đã tìm thấy món quà hoàn hảo cho dịp kỷ niệm chưa? Bộ Quà Kỷ Niệm cá nhân hóa sẵn sàng bên chị!",
+        "highlights": [],
+        "closing": "None",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH036",
+      "generated_at": "2026-05-28T13:56:39.763462",
+      "context": {
+        "key_insight": "Khách thuộc phân khúc Platinum, thích phong cách sang trọng và thường không đợi discount, ưu tiên trải nghiệm mua sắm đặc biệt.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem nhẫn đính hôn 2 lần, quay lại web 2 lần, đã mở 1 chiến dịch engagement, đã mở 2 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
+        "product_rec_1": "Lắc tay kim cương sang trọng",
+        "product_rec_2": "Nhẫn đính hôn cao cấp",
+        "product_rec_3": "Hộp quà tặng cao cấp Gift Finder"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "gift_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.74
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1494,
+        "subject": null,
+        "greeting": "Thưa anh, cảm ơn anh đã ghé thăm trang web của PNJ và để lại dấu ấn độc đáo với những sản phẩm cao cấp. Khoảnh khắc anh dành thời gian chọn lựa khiến chúng em trân trọng vô cùng.",
+        "body": "Với sự tinh tế và ưu tiên dành cho món quà ý nghĩa, em xin giới thiệu dịch vụ Gift Finder của PNJ — hộp quà tặng cao cấp mang sắc thái sang trọng và thanh lịch. Đồng thời, lắc tay kim cương đẳng cấp cũng là một lựa chọn hoàn hảo để thể hiện tâm ý đặc biệt của anh dành cho người thân yêu.",
+        "highlights": [
+          "✦ Hộp quà tặng cao cấp Gift Finder",
+          "✦ Lắc tay kim cương sang trọng",
+          "✦ Dịch vụ tư vấn 1-1 độc quyền cho khách Platinum"
+        ],
+        "closing": "Đội tư vấn chuyên nghiệp của PNJ luôn sẵn sàng hỗ trợ anh tìm kiếm món quà tuyệt vời nhất. Anh có thể liên hệ bất cứ khi nào anh muốn, chúng em rất hân hạnh được đồng hành cùng anh.",
+        "cta_text": "Khám phá thêm"
+      }
+    },
+    {
+      "customer_id": "KH037",
+      "generated_at": "2026-05-28T13:56:39.763505",
+      "context": {
+        "key_insight": "Khách có dấu hiệu đang tìm nhẫn cầu hôn nhưng có thể chọn để tự thưởng, không dùng discount.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 3 sản phẩm vào giỏ hàng chưa mua, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 5 lần, quay lại web 1 lần, đã mở 6 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Premium Self-Reward — thiết kế độc đáo",
+        "product_rec_1": "Sự Lấp Lánh Thanh Lịch",
+        "product_rec_2": "Ánh Sáng Kim Cương",
+        "product_rec_3": "Quý Phái Vàng Trắng"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "selfrw_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "self_reward",
+        "confidence": 0.74
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1476,
+        "subject": null,
+        "greeting": "Chị đã từng nghĩ đến việc tự thưởng cho bản thân một món quà thật ý nghĩa chưa? Có thể là một chiếc nhẫn thể hiện sự sang trọng mà chị yêu thích.",
+        "body": "PNJ mang đến cho chị Bộ sưu tập Premium Self-Reward với những thiết kế độc đáo, phối hợp giữa vẻ đẹp kim cương và vàng trắng. Những sản phẩm này không chỉ tôn vinh sự thanh lịch mà còn là biểu tượng của sự tự tin và đẳng cấp. Đặc biệt, mỗi sản phẩm đều được thiết kế dành riêng cho khoảnh khắc quý giá của riêng chị.",
+        "highlights": [
+          "✦ Thiết kế độc đáo ấn tượng",
+          "✦ Kim cương lấp lánh, sang trọng",
+          "✦ Vàng trắng quý phái, tinh tế"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ luôn sẵn sàng giúp chị tìm hiểu thêm về những sản phẩm đặc biệt này. Hãy để em có cơ hội được hỗ trợ chị tốt nhất.",
+        "cta_text": "Xem ngay bộ sưu tập"
+      }
+    },
+    {
+      "customer_id": "KH038",
+      "generated_at": "2026-05-28T13:56:39.763545",
+      "context": {
+        "key_insight": "Khách thích phong cách trẻ trung, thường chọn sản phẩm làm quà và có dấu hiệu sẽ tặng quà cầu hôn hoặc nhân dịp đặc biệt. Ưa chuộng sự tinh tế và ưu đãi kèm theo.",
+        "urgency_signal": "🎂 Sinh nhật còn 10 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 7 lần, đã mở 2 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Set phổ biến — dễ chọn, ý nghĩa",
+        "product_rec_1": "lắc tay 'Eternal Elegance'",
+        "product_rec_2": "lắc tay 'Sophisticated Charm'",
+        "product_rec_3": "nhẫn 'Radiant Proposal'"
+      },
+      "delivery": {
+        "channel": "email",
+        "priority": "medium",
+        "campaign_id": "gift_medium_email",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.69
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly | urgent",
+        "tokens_used": 1653,
+        "subject": "Món quà tinh tế cho dịp đặc biệt sắp tới của chị",
+        "greeting": "Kính gửi chị,",
+        "body": "Sắp đến ngày sinh nhật của chị và dịp quan trọng khác mà chị đang chuẩn bị, một món quà thật sự ý nghĩa sẽ làm cho ngày đó trở nên đặc biệt hơn nữa.\n\nPNJ hân hạnh giới thiệu đến chị những mẫu lắc tay đầy tinh tế như 'Eternal Elegance' và 'Sophisticated Charm', mang đến vẻ đẹp trẻ trung mà chị yêu thích. Những thiết kế này không chỉ là món quà thể hiện sự quan tâm, mà còn lưu giữ những khoảnh khắc quý giá.\n\nVới sự kiện đặc biệt đang cận kề, chị hãy dành thời gian chọn lựa hoàn hảo nhất. PNJ luôn sẵn sàng hỗ trợ chị mỗi bước trong hành trình tìm kiếm món quà ý nghĩa.",
+        "highlights": [
+          "• Lắc tay 'Eternal Elegance' — thiết kế thanh lịch, toát lên sự trẻ trung",
+          "• Sản phẩm PNJ — chất liệu vàng trắng cao cấp, đảm bảo uy tín",
+          "• Dịch vụ gói quà tinh tế và tư vấn tận tình từ đội ngũ chuyên nghiệp"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ sẵn sàng hỗ trợ chị chọn lựa phù hợp nhất. Liên hệ hotline 1800 545457 hoặc ghé cửa hàng PNJ gần nhất.",
+        "cta_text": "Xem bộ sưu tập"
+      }
+    },
+    {
+      "customer_id": "KH039",
+      "generated_at": "2026-05-28T13:56:39.763583",
+      "context": {
+        "key_insight": "Khách có tín hiệu rõ ràng về việc chuẩn bị cầu hôn, rất quan tâm đến các mẫu nhẫn đính hôn kim cương.",
+        "urgency_signal": "🎂 Sinh nhật còn 10 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 5 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 5 lần, quay lại web 3 lần, đã mở 3 chiến dịch kỷ niệm.",
+        "instore_intent": "High Purchase",
+        "nba_strategy": "Chốt đơn nhanh",
+        "psychology_trigger": "Social Proof + Scarcity",
+        "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
+        "product_rec_1": "Nhẫn Đính Hôn Kim Cương 2025",
+        "product_rec_2": "Nhẫn Đính Hôn Classic Solitaire",
+        "product_rec_3": "Dây Chuyền Kim Cương Classic"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "eng_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.72
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm",
+        "tokens_used": 1532,
+        "subject": null,
+        "greeting": "Chào anh, khoảnh khắc bất ngờ ẩn chứa ý nghĩa lớn lao thường khiến chúng ta hồi hộp, nhất là khi những điều quan trọng đang được chuẩn bị.",
+        "body": "PNJ thấu hiểu sự tinh tế trong lựa chọn của anh với bộ sưu tập Nhẫn Đính Hôn 2025, được trau chuốt từng chi tiết để ghi dấu khoảnh khắc đáng nhớ. Với những chiếc nhẫn kim cương tự nhiên sáng bóng, mỗi sản phẩm không chỉ là trang sức mà còn là biểu tượng tình yêu anh dành cho người đặc biệt.",
+        "highlights": [
+          "✦ Thiết kế thanh lịch, vượt thời gian",
+          "✦ Kim cương tự nhiên, tỏa sáng rực rỡ",
+          "✦ Sản phẩm chất lượng cao, giá hợp lý"
+        ],
+        "closing": "PNJ luôn sẵn sàng cùng anh bước qua khoảnh khắc đặc biệt này. Hãy để đội ngũ tư vấn của chúng em hỗ trợ anh lựa chọn tuyệt vời nhất!",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH040",
+      "generated_at": "2026-05-28T13:56:39.763620",
+      "context": {
+        "key_insight": "Khách có ngân sách cao, thích phong cách trẻ trung, và có khả năng mua quà cho dịp đặc biệt gần sinh nhật.",
+        "urgency_signal": "Sinh nhật trước 30 ngày — cơ hội tặng quà",
+        "online_insight": "Khách xem nhẫn đính hôn 3 lần, xem sản phẩm kim cương 1 lần, quay lại web 1 lần, đã ghé online trong tháng qua (24 ngày trước).",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Set phổ biến — dễ chọn, ý nghĩa",
+        "product_rec_1": "Lắc tay vàng trắng trẻ trung",
+        "product_rec_2": "Nhẫn đính hôn Diamond Shimmer",
+        "product_rec_3": "Gift set kim cương VIP"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "medium",
+        "campaign_id": "gift_medium_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.7
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1448,
+        "subject": null,
+        "greeting": "Chị ơi, thêm một tuổi mới luôn là dịp thật đẹp để trao gửi những món quà ý nghĩa đến người thân yêu, phải không chị?",
+        "body": "PNJ vừa ra mắt những mẫu lắc tay vàng trắng trẻ trung và gift set kim cương được thiết kế tinh xảo. Đây có thể là lựa chọn hoàn hảo để chị thể hiện sự quan tâm cho dịp sinh nhật đặc biệt sắp tới. Chị cũng có thể muốn khám phá chiếc nhẫn đính hôn Diamond Shimmer lấp lánh mà chị đã xem qua.",
+        "highlights": [
+          "✦ Lắc tay vàng trắng - trẻ trung, tinh tế",
+          "✦ Gift set kim cương VIP - sang trọng, ý nghĩa",
+          "✦ Nhẫn đính hôn Diamond Shimmer - lấp lánh, độc đáo"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ luôn sẵn sàng hỗ trợ chị tìm ra món quà hoàn hảo nhất. Chị hãy thoải mái liên hệ khi cần thêm thông tin nhé.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH041",
+      "generated_at": "2026-05-28T13:56:39.763657",
+      "context": {
+        "key_insight": "Khách thích phong cách trẻ trung, có khả năng mua cho dịp kỷ niệm; đáng chú ý vì đã chọn nhẫn nhưng chưa mua.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem nhẫn đính hôn 2 lần, xem sản phẩm kim cương 5 lần, quay lại web 1 lần, đã mở 4 chiến dịch kỷ niệm.",
+        "instore_intent": "Exploration",
+        "nba_strategy": "Định hướng lựa chọn",
+        "psychology_trigger": "Narrowing + Personalization",
+        "product_focus": "Bộ trang sức kỷ niệm — dây chuyền + bông tai",
+        "product_rec_1": "Nhẫn IKON 14K",
+        "product_rec_2": "Nhẫn đính hôn vàng 14K",
+        "product_rec_3": "Bộ dây chuyền kỷ niệm"
+      },
+      "delivery": {
+        "channel": "push",
+        "priority": "medium",
+        "campaign_id": "anni_medium_push",
+        "rule_status": "allowed",
+        "predicted_intent": "anniversary",
+        "confidence": 0.7
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm",
+        "tokens_used": 1199,
+        "subject": "Kỷ niệm yêu thương đang chờ đợi ✨",
+        "greeting": "None",
+        "body": "Anh đã sẵn sàng tạo dấu ấn riêng vào dịp kỷ niệm sắp tới chưa? Khám phá bộ trang sức làm say đắm lòng người!",
+        "highlights": [],
+        "closing": "None",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH042",
+      "generated_at": "2026-05-28T13:56:39.763694",
+      "context": {
+        "key_insight": "Khách đang có dấu hiệu tìm kiếm trang sức cầu hôn và có thể chuẩn bị cho dịp đặc biệt.",
+        "urgency_signal": "💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách xem trang sản phẩm 2 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 4 lần, quay lại web 3 lần, đã ghé online trong tháng qua (27 ngày trước).",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
+        "product_rec_1": "Dây chuyền vàng trắng trẻ trung",
+        "product_rec_2": "Hộp quà tặng cao cấp",
+        "product_rec_3": "Mẫu nhẫn kim cương thanh lịch"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "gift_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.79
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1450,
+        "subject": null,
+        "greeting": "Anh đang tìm món quà thật ý nghĩa cho dịp đặc biệt sắp tới. Những khoảnh khắc quan trọng trong cuộc đời luôn cần sự chuẩn bị chu đáo và tinh tế.",
+        "body": "PNJ hiểu rằng anh muốn tìm một món quà đặc biệt và ý nghĩa. Chúng em mời anh khám phá các thiết kế dây chuyền vàng trắng trẻ trung và gợi ý hộp quà tặng cao cấp. Những lựa chọn này không chỉ thể hiện sự quan tâm mà còn là thông điệp yêu thương đầy ý nghĩa.",
+        "highlights": [
+          "✦ Dây chuyền vàng trắng phong cách trẻ trung",
+          "✦ Hộp quà tặng cao cấp dành riêng cho dịp đặc biệt",
+          "✦ Tư vấn 1-1 giúp anh chọn quà hoàn hảo"
+        ],
+        "closing": "Đội ngũ tư vấn tại PNJ luôn sẵn sàng đồng hành cùng anh. Hãy để chúng em giúp anh tạo nên niềm vui trọn vẹn.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH043",
+      "generated_at": "2026-05-28T13:56:39.763732",
+      "context": {
+        "key_insight": "Khách có dấu hiệu cầu hôn mạnh và đang tìm nhẫn kim cương cho dịp đặc biệt, nên tư vấn chi tiết và tạo cảm giác trải nghiệm VIP.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 3 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 3 lần, quay lại web 3 lần.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
+        "product_rec_1": "Eternal Spark",
+        "product_rec_2": "Classic Brilliance",
+        "product_rec_3": "Modern Elegance"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "gift_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.74
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1439,
+        "subject": null,
+        "greeting": "Khoảnh khắc tạo dấu ấn khó quên sẽ thêm phần hoàn hảo với món quà tinh tế từ PNJ, phải không anh?",
+        "body": "PNJ xin giới thiệu những mẫu nhẫn đính hôn kim cương, biểu tượng của sự gắn kết bền chặt. Với phong cách trẻ trung anh yêu thích, nhẫn Eternal Spark hoặc Classic Brilliance chắc chắn là lựa chọn đáng giá cho ngày trọng đại.",
+        "highlights": [
+          "✦ Kim cương lấp lánh mang đến vẻ đẹp hoàn mỹ",
+          "✦ Thiết kế trẻ trung, sang trọng",
+          "✦ Dịch vụ tư vấn VIP, giúp anh chọn lựa tự tin"
+        ],
+        "closing": "Đội ngũ tư vấn của PNJ luôn sẵn sàng hỗ trợ anh. Mời anh ghé qua PNJ để có thêm trải nghiệm mua sắm đặc biệt.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH044",
+      "generated_at": "2026-05-28T13:56:39.763775",
+      "context": {
+        "key_insight": "Khách có dấu hiệu đang chuẩn bị cho một dịp cầu hôn và thích phong cách sang trọng, ít quan tâm đến giảm giá.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 3 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 3 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 3 lần, quay lại web 4 lần, đã ghé online trong tháng qua (18 ngày trước), đã mở 5 chiến dịch engagement, đã mở 2 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
+        "product_rec_1": "Eternal Elegance Nhẫn Đính Hôn",
+        "product_rec_2": "Prestige Diamond Lắc Tay",
+        "product_rec_3": "Mystique Royale Nhẫn Đính Hôn"
+      },
+      "delivery": {
+        "channel": "email",
+        "priority": "high",
+        "campaign_id": "eng_high_email",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.77
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly | urgent",
+        "tokens_used": 1712,
+        "subject": "Khoảnh khắc đặc biệt cùng PNJ — Lựa chọn lãng mạn nhất",
+        "greeting": "Kính gửi chị,",
+        "body": "Mỗi khoảnh khắc quan trọng trong cuộc sống đều xứng đáng được ghi dấu bằng những món quà tuyệt vời. Chị đã sẵn sàng cho một chuyến hành trình đầy ý nghĩa, và em rất vinh dự khi PNJ có thể đồng hành cùng chị trong dịp này.\n\nTại PNJ, bộ sưu tập Nhẫn Đính Hôn 2025 chính là biểu tượng của tình yêu và sự bền lâu. Các thiết kế như Eternal Elegance và Mystique Royale là lựa chọn hoàn hảo với kim cương tự nhiên tỏa sáng và vẻ đẹp sang trọng mà chị yêu thích.\n\nSở hữu món quà sang trọng ngay hôm nay sẽ giúp chị có thêm thời gian chuẩn bị cho dịp ý nghĩa này mà không phải chờ đợi.",
+        "highlights": [
+          "• Eternal Elegance Nhẫn Đính Hôn – kim cương tự nhiên, thiết kế tinh xảo",
+          "• Prestige Diamond Lắc Tay – phong cách sang trọng và đẳng cấp",
+          "• Dịch vụ tư vấn VIP – hỗ trợ tận tình, lựa chọn hoàn hảo cho sự kiện đặc biệt"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ sẵn sàng hỗ trợ chị chọn lựa phù hợp nhất. Liên hệ hotline 1800 545457 hoặc ghé cửa hàng PNJ gần nhất.",
+        "cta_text": "Xem bộ sưu tập"
+      }
+    },
+    {
+      "customer_id": "KH045",
+      "generated_at": "2026-05-28T13:56:39.763814",
+      "context": {
+        "key_insight": "Khách thích phong cách tối giản, ngân sách cao, tiềm năng cao cho mua sắm tự thưởng hoặc có thể là cầu hôn.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 5 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 5 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 3 lần, quay lại web 6 lần, đã mở 4 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Trending Collection — đang hot nhất tháng",
+        "product_rec_1": "Tinh Khiết Vàng",
+        "product_rec_2": "Phúc Lộc Vàng",
+        "product_rec_3": "Duyên Quý Kim Cương"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "medium",
+        "campaign_id": "selfrw_medium_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "self_reward",
+        "confidence": 0.6
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1523,
+        "subject": null,
+        "greeting": "Chị đã từng chia sẻ với PNJ về niềm yêu thích dành cho sự tối giản cũng như những khoảnh khắc ý nghĩa trong cuộc sống. Dạo gần đây chị hay tìm hiểu về các mẫu nhẫn đính hôn và lắc tay qua cửa hàng trực tuyến của em, có đúng không?",
+        "body": "Bộ sưu tập Trending Collection của PNJ hứa hẹn sẽ làm hài lòng chị với những sản phẩm tinh tế, như lắc tay 'Tinh Khiết Vàng' vừa tối giản vừa sang trọng. Chị cũng có thể quan tâm đến chiếc nhẫn 'Duyên Quý Kim Cương', biểu tượng của sự thanh lịch và mạnh mẽ. Đây là bộ sưu tập đang rất được yêu thích trong tháng này, phù hợp cho những ai muốn tự thưởng hoặc tạo dấu ấn cá nhân.",
+        "highlights": [
+          "✦ Lắc tay vàng 18K tinh tế",
+          "✦ Nhẫn kim cương biểu tượng đẳng cấp",
+          "✦ Bộ sưu tập nổi bật nhất tháng"
+        ],
+        "closing": "Đội tư vấn PNJ luôn sẵn sàng lắng nghe và hỗ trợ chị bất kỳ lúc nào chị thấy tiện. Mời chị khám phá và chia sẻ cảm nhận với chúng em nhé!",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH046",
+      "generated_at": "2026-05-28T13:56:39.763850",
+      "context": {
+        "key_insight": "Khách thuộc phân khúc Gold-L thích phong cách trẻ trung và có budget từ 15-30 triệu; chưa quyết định mua hàng online dù đã xem nhiều lần.",
+        "urgency_signal": "🎂 Sinh nhật còn 12 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 2 lần, xem nhẫn đính hôn 2 lần, quay lại web 3 lần, đã mở 1 chiến dịch engagement.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Trending Collection — đang hot nhất tháng",
+        "product_rec_1": "Bông tai vàng 14K từ Trending Collection",
+        "product_rec_2": "Nhẫn từ bộ sưu tập đặc biệt cho khách VIP",
+        "product_rec_3": ""
+      },
+      "delivery": {
+        "channel": "push",
+        "priority": "medium",
+        "campaign_id": "selfrw_medium_push",
+        "rule_status": "allowed",
+        "predicted_intent": "self_reward",
+        "confidence": 0.64
+      },
+      "content": {
+        "source": "llm",
+        "tone": "friendly",
+        "tokens_used": 1168,
+        "subject": "🎂 Quà sinh nhật sớm cho chị đây!",
+        "greeting": "None",
+        "body": "Chị đã sẵn sàng tự thưởng với bông tai vàng hot nhất? Bộ sưu tập đang đợi chị.",
+        "highlights": [],
+        "closing": "None",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH047",
+      "generated_at": "2026-05-28T13:56:39.763889",
+      "context": {
+        "key_insight": "Khách có dấu hiệu cầu hôn mạnh và thời gian sinh nhật sắp đến, thích phong cách thanh lịch, có khả năng đầu tư cao.",
+        "urgency_signal": "Sinh nhật trước 17 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem nhẫn đính hôn 3 lần, tìm kiếm từ khoá 'cầu hôn', đã mở 4 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
+        "product_rec_1": "Nhẫn đính hôn vàng 18K thanh lịch",
+        "product_rec_2": "Dịch vụ tư vấn thiết kế nhẫn độc quyền",
+        "product_rec_3": "Hộp quà tặng cao cấp"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "gift_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.74
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1469,
+        "subject": null,
+        "greeting": "Em hy vọng với những dịch vụ tại PNJ, anh sẽ tìm thấy món quà ý nghĩa cho một dịp thật đặc biệt sắp tới.",
+        "body": "Sinh nhật cũng là dịp tốt để bất ngờ người yêu thương với món quà thanh lịch. PNJ có nhẫn đính hôn vàng 18K phù hợp với phong cách của anh. Hãy khám phá dịch vụ tư vấn thiết kế nhẫn độc quyền để tạo dấu ấn riêng biệt.",
+        "highlights": [
+          "✦ Nhẫn vàng 18K thanh lịch",
+          "✦ Dịch vụ tư vấn thiết kế độc quyền",
+          "✦ Hộp quà tặng cao cấp"
+        ],
+        "closing": "Đội ngũ tư vấn của PNJ luôn sẵn sàng đồng hành cùng anh trong mọi khoảnh khắc ý nghĩa. Rất mong đón nhận phản hồi từ anh.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH048",
+      "generated_at": "2026-05-28T13:56:39.763925",
+      "context": {
+        "key_insight": "Khách có dấu hiệu mua để tự thưởng và có thể đang xem xét nhẫn cầu hôn, thường hưởng ứng với sản phẩm thanh lịch và độc quyền.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 1 lần, quay lại web 5 lần.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Trending Collection — đang hot nhất tháng",
+        "product_rec_1": "Lắc tay vàng 14K thanh lịch",
+        "product_rec_2": "Nhẫn kim cương thiết kế độc quyền",
+        "product_rec_3": "Trang sức từ bộ sưu tập Trending Collection"
+      },
+      "delivery": {
+        "channel": "push",
+        "priority": "medium",
+        "campaign_id": "selfrw_medium_push",
+        "rule_status": "allowed",
+        "predicted_intent": "self_reward",
+        "confidence": 0.62
+      },
+      "content": {
+        "source": "llm",
+        "tone": "urgent",
+        "tokens_used": 1191,
+        "subject": "💎 Tỏa sáng với lựa chọn độc quyền",
+        "greeting": "None",
+        "body": "Chị đã sẵn sàng để tự thưởng bằng chiếc nhẫn kim cương tinh tế nhất? Khám phá ngay để không bỏ lỡ!",
+        "highlights": [],
+        "closing": "None",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH049",
+      "generated_at": "2026-05-28T13:56:39.763961",
+      "context": {
+        "key_insight": "Khách thuộc phân khúc Platinum, thường không dùng discount, có xu hướng mua sắm cho các dịp kỷ niệm.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 5 lần, quay lại web 4 lần, đã mở 2 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
+        "product_rec_1": "Bông tai kim cương Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_2": "Hộp quà đặc biệt",
+        "product_rec_3": "Khắc tên cá nhân hóa"
+      },
+      "delivery": {
+        "channel": "email",
+        "priority": "high",
+        "campaign_id": "anni_high_email",
+        "rule_status": "allowed",
+        "predicted_intent": "anniversary",
+        "confidence": 0.72
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly | urgent",
+        "tokens_used": 1727,
+        "subject": "Tinh tế và trân trọng — món quà kỷ niệm đáng nhớ dành cho chị",
+        "greeting": "Kính gửi chị,",
+        "body": "Kỷ niệm tình yêu luôn là một dịp đặc biệt, là lúc để chị cùng người thương viết tiếp những trang đẹp nhất của câu chuyện tình yêu. Như một dấu ấn trân trọng cảm xúc, PNJ hân hạnh giới thiệu những sản phẩm kim cương tinh tế, hoàn mỹ.\n\nTrong BST Bộ Quà Kỷ Niệm cao cấp, bông tai kim cương chính là món quà lý tưởng, hòa quyện giữa sự tối giản nhưng đầy sang trọng. Chị có thể lựa chọn khắc tên, đóng gói trong hộp quà đặc biệt, mang lại nét cá nhân hóa riêng biệt mà không thể tìm thấy ở đâu khác.\n\nNhững khoảnh khắc đặc biệt cần một sự chuẩn bị chu đáo. Sản phẩm đã sẵn sàng cho một sự kiện lớn lao, chị có thể yên tâm hoàn thiện giỏ hàng ngay hôm nay để món quà không chỉ là một vật kỷ niệm, mà còn là biểu tượng của tình yêu.",
+        "highlights": [
+          "• Bông tai kim cương từ Bộ Quà Kỷ Niệm cao cấp — kế thừa sự thanh lịch và tối giản, cho mọi dịp ý nghĩa.",
+          "• Khắc tên cá nhân hóa — tạo dấu ấn riêng cho món quà, lưu giữ kỷ niệm cùng người thương.",
+          "• Hộp quà đặc biệt từ PNJ — bởi mỗi món quà đều xứng đáng với sự chăm chút hoàn hảo."
+        ],
+        "closing": "Đội ngũ tư vấn PNJ sẵn sàng hỗ trợ chị chọn lựa phù hợp nhất. Liên hệ hotline 1800 545457 hoặc ghé cửa hàng PNJ gần nhất.",
+        "cta_text": "Xem bộ sưu tập"
+      }
+    },
+    {
+      "customer_id": "KH050",
+      "generated_at": "2026-05-28T13:56:39.763997",
+      "context": {
+        "key_insight": "Khách có ý định mua bông tai kim cương, phong cách tối giản, sẵn sàng chi tiêu và có tín hiệu cầu hôn.",
+        "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
+        "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 4 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 5 lần, quay lại web 7 lần, đã ghé online trong tháng qua (12 ngày trước).",
+        "instore_intent": "High Purchase",
+        "nba_strategy": "Chốt đơn nhanh",
+        "psychology_trigger": "Social Proof + Scarcity",
+        "product_focus": "Bộ sưu tập Nhẫn mới nhất",
+        "product_rec_1": "Bông tai Tinh Tế Ánh Sáng",
+        "product_rec_2": "Nhẫn đính hôn Phiên Bản Giới Hạn",
+        "product_rec_3": "Bông tai Giọt Nắng"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "low",
+        "campaign_id": "eng_low_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "engagement",
+        "confidence": 0.49
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1534,
+        "subject": null,
+        "greeting": "Chị có biết không, những khoảnh khắc đặc biệt sẽ luôn tỏa sáng hơn khi được tô điểm bởi những món trang sức tinh tế.",
+        "body": "Để chuẩn bị cho những dịp ý nghĩa sắp tới, em muốn gợi ý đến chị bộ sưu tập nhẫn đính hôn phiên bản giới hạn và bông tai kim cương tối giản mà chị yêu thích. Sự kết hợp hoàn hảo này sẽ bổ sung cho phong cách của chị, mang đến sự thuần khiết và sang trọng.",
+        "highlights": [
+          "✦ Nhẫn đính hôn – phiên bản giới hạn",
+          "✦ Bông tai Tinh Tế Ánh Sáng – phong cách tối giản",
+          "✦ Chất liệu kim cương cao cấp, bền vững"
+        ],
+        "closing": "Nếu chị cần tư vấn thêm, đội ngũ PNJ luôn sẵn sàng. Chị có thể ghé thăm cửa hàng hoặc liên hệ qua đây để được hỗ trợ nhanh nhất.",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH051",
+      "generated_at": "2026-05-28T13:56:39.764032",
+      "context": {
+        "key_insight": "Khách đang thư giãn khám phá trải nghiệm, có thể đang tìm vòng tay bạc làm quà tặng và thích phong cách đơn giản.",
+        "urgency_signal": "",
+        "online_insight": "Khách xem trang sản phẩm 1 lần, quay lại web 1 lần.",
+        "instore_intent": "Low Intent",
+        "nba_strategy": "Tạo trải nghiệm",
+        "psychology_trigger": "Experience Creation + No Pressure",
+        "product_focus": "Gift Set phổ biến — dễ chọn, ý nghĩa",
+        "product_rec_1": "Vòng tay bạc tối giản Mẫu 1",
+        "product_rec_2": "Vòng tay bạc tối giản Mẫu 2",
+        "product_rec_3": "Bộ quà tặng vòng tay bạc"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "medium",
+        "campaign_id": "gift_medium_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "gift",
+        "confidence": 0.67
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 1425,
+        "subject": null,
+        "greeting": "Chị đang tận hưởng những khoảnh khắc thư giãn, và em cảm nhận được chị đang tìm kiếm món quà ý nghĩa, đơn giản nhưng sâu sắc.",
+        "body": "PNJ hân hạnh giới thiệu những mẫu vòng tay bạc mang phong cách tối giản, hoàn hảo để làm quà tặng cho người thân yêu. Chúng tôi đề xuất bộ quà tặng vòng tay bạc đặc biệt, kết hợp hài hòa giữa đường nét thanh thoát và ý nghĩa tinh tế. Bộ sưu tập này không chỉ làm nổi bật vẻ đẹp giản đơn mà còn là món quà đầy tình cảm.",
+        "highlights": [
+          "✦ Thiết kế tối giản và sang trọng",
+          "✦ Phù hợp với mọi trang phục và dịp",
+          "✦ Dịch vụ gói quà tinh tế, sẵn sàng trao gửi yêu thương"
+        ],
+        "closing": "Đội ngũ tư vấn PNJ luôn sẵn sàng hỗ trợ chị tìm ra món quà phù hợp nhất. Mời chị truy cập website để khám phá thêm chi tiết!",
+        "cta_text": "Khám phá ngay"
+      }
+    },
+    {
+      "customer_id": "KH052",
+      "generated_at": "2026-05-28T13:56:39.764068",
+      "context": {
+        "key_insight": "Khách thường mua trang sức cao cấp và có khả năng tự thưởng; chưa nhấn mạnh việc dùng giảm giá.",
+        "urgency_signal": "Sinh nhật trước 15 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
+        "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 2 lần, quay lại web 4 lần, đã mở 1 chiến dịch engagement, đã mở 4 chiến dịch kỷ niệm.",
+        "instore_intent": "Premium",
+        "nba_strategy": "Tư vấn như VIP",
+        "psychology_trigger": "Exclusivity + White Glove Service",
+        "product_focus": "Bộ sưu tập Premium Self-Reward — thiết kế độc đáo",
+        "product_rec_1": "Elegance Pearl Bông Tai",
+        "product_rec_2": "Graceful Shine Bông Tai",
+        "product_rec_3": "Timeless Beauty Nhẫn"
+      },
+      "delivery": {
+        "channel": "zns",
+        "priority": "high",
+        "campaign_id": "selfrw_high_zns",
+        "rule_status": "allowed",
+        "predicted_intent": "self_reward",
+        "confidence": 0.93
+      },
+      "content": {
+        "source": "llm",
+        "tone": "warm | luxurious | friendly",
+        "tokens_used": 0,
+        "subject": null,
+        "greeting": "Chị thường thích dành tặng cho bản thân những món quà đặc biệt, và sinh nhật sắp tới là dịp tuyệt vời để thể hiện sự tự tin đó.",
+        "body": "PNJ rất hân hạnh giới thiệu bộ sưu tập Premium Self-Reward, hoàn hảo cho sự thanh lịch mà chị đang tìm kiếm. Những chiếc bông tai tinh xảo như Elegance Pearl hay Graceful Shine sẽ là lựa chọn đáng giá cho chị. Nếu muốn, chị cũng có thể xem lại Timeless Beauty nhẫn, sản phẩm đang rất được ưa chuộng.",
+        "highlights": [
+          "✦ Thiết kế độc đáo",
+          "✦ Chất liệu vàng trắng sang trọng",
+          "✦ Hoàn hảo để tự tặng"
+        ],
+        "closing": "PNJ luôn sẵn sàng tư vấn như VIP, chị hãy thoải mái liên hệ để được hỗ trợ bất kỳ lúc nào nhé!",
+        "cta_text": "Khám phá ngay"
+      }
+    }
+  ]
+}

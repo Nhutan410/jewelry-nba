@@ -5,3 +5,4 @@ numpy>=1.23.0
 streamlit>=1.32.0
 plotly>=5.18.0
 openai>=1.0.0
+python-dotenv>=1.0.0

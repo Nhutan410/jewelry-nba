@@ -1,12 +1,12 @@
 {
   "version": "2.0",
-  "generated_at": "2026-04-23T09:37:00.816161",
+  "generated_at": "2026-05-28T13:51:24.554162",
   "excel_path": "/Users/nguyenan/PNJ/jewelry_nba/data/customer_data_poc_enhanced.xlsx",
   "total_customers": 52,
   "customers": [
     {
       "customer_id": "KH001",
-      "processed_at": "2026-04-23T09:37:00.798125",
+      "processed_at": "2026-05-28T13:51:24.544530",
       "profile": {
         "segment_rfm_tier": "Platinum-L",
         "budget": "30 triệu trở lên",
@@ -34,26 +34,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
-        "product_rec_1": "Nhẫn đính hôn kim cương Vàng 18K",
+        "product_rec_1": "Nhẫn cầu hôn vàng 18K kim cương",
         "product_rec_2": "Hộp quà tặng cao cấp",
-        "product_rec_3": "Dịch vụ tư vấn 1-1 độc quyền",
+        "product_rec_3": "Nhẫn vàng 18K phong cách trẻ trung",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 1 lần, quay lại web 6 lần, đã mở 1 chiến dịch engagement, đã mở 4 chiến dịch kỷ niệm.",
         "urgency_signal": "Sinh nhật trước 18 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách đang tìm kiếm món quà đặc biệt có thể là cho dịp cầu hôn, ưu tiên phong cách trẻ trung, thích những sản phẩm giới hạn.",
+        "key_insight": "Khách có dấu hiệu tìm kiếm sản phẩm để cầu hôn, nên tập trung vào các sản phẩm nhẫn đính hôn có phong cách trẻ trung.",
         "script": {
-          "opening": "Chào anh/chị, em thấy phong cách trẻ trung rất hợp với những mẫu nhẫn vàng 18K bên em. Anh/chị có đang tìm món quà nào đặc biệt không ạ?",
-          "khai_thac": "Tuyệt vời, không biết dịp đặc biệt lần này có phải là sinh nhật của ai đó gần kề không ạ?",
-          "goi_y": "Em có một số mẫu nhẫn đính hôn với thiết kế kim cương rất độc đáo, em nghĩ sẽ phù hợp với phong cách mà anh/chị đang tìm kiếm.",
-          "chot": "Những mẫu nhẫn này đều có số lượng giới hạn, em muốn đảm bảo rằng anh/chị có thời gian lựa chọn thoải mái nhất.",
-          "upsell": "Ngoài ra, bên em có dịch vụ gói quà tặng cao cấp, tạo nên món quà thêm phần trang trọng, thích hợp cho những dịp đặc biệt."
+          "opening": "Chào anh, em thấy phong cách trẻ trung rất phù hợp với những thiết kế vàng 18K bên em. Anh có đang tìm một món quà đặc biệt không ạ?",
+          "khai_thac": "Hiện bên em có dịch vụ tư vấn riêng cho khách VIP, anh muốn tham khảo sản phẩm nào đầu tiên nhỉ?",
+          "goi_y": "Nhẫn cầu hôn vàng 18K đính kim cương rất nổi bật trong bộ sưu tập mới của chúng em, em nghĩ anh sẽ thích.",
+          "chot": "Anh thấy chiếc nhẫn này thế nào? Phù hợp cho dịp đặc biệt của mình chứ ạ?",
+          "upsell": "Ngoài nhẫn, bên em còn có hộp quà tặng cao cấp đi kèm để món quà trở nên hoàn hảo hơn, anh muốn xem qua không?"
         },
         "script_source": "llm",
-        "tokens_used": 1400
+        "tokens_used": 1587
       }
     },
     {
       "customer_id": "KH002",
-      "processed_at": "2026-04-23T09:37:00.798693",
+      "processed_at": "2026-05-28T13:51:24.544771",
       "profile": {
         "segment_rfm_tier": "Platinum-L",
         "budget": "30 triệu trở lên",
@@ -81,26 +81,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
-        "product_rec_1": "Nhẫn Đính Hôn 2025 - Mẫu A",
-        "product_rec_2": "Nhẫn Đính Hôn 2025 - Mẫu B",
-        "product_rec_3": "Bông Tai Vàng 18K - Mẫu C",
+        "product_rec_1": "Nhẫn Đính Hôn Kim Cương 18K Trẻ Trung",
+        "product_rec_2": "Bông Tai Vàng 18K Phong Cách Trẻ Trung",
+        "product_rec_3": "Bộ Sưu Tập Nhẫn 2025",
         "online_insight": "Khách xem trang sản phẩm 1 lần, xem nhẫn đính hôn 4 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 4 lần, đã mở 3 chiến dịch kỷ niệm.",
         "urgency_signal": "💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách Platinum, tâm lý cầu hôn mạnh, chuộng phong cách trẻ trung.",
+        "key_insight": "Khách có dấu hiệu chuẩn bị cầu hôn, thích phong cách trẻ trung, và thường sử dụng ưu đãi.",
         "script": {
-          "opening": "Chào anh/chị! Hôm nay em có một bộ sưu tập nhẫn đính hôn mới về, thiết kế trẻ trung và tinh tế rất hợp gu của anh/chị, để em giới thiệu qua nhé.",
-          "khai_thac": "Em có thể hỏi thử anh/chị đang tìm món nào để đánh dấu một dịp đặc biệt không ạ?",
-          "goi_y": "Đây là mẫu nhẫn đính hôn từ Bộ sưu tập Nhẫn Đính Hôn 2025 với kim cương tự nhiên, phong cách trẻ trung rất nổi bật.",
-          "chot": "Với sự độc quyền của bộ sưu tập này, em tin rằng anh/chị sẽ tìm thấy một món rất riêng để thể hiện tình cảm của mình.",
-          "upsell": "Và ngoài nhẫn này, bộ bông tai vàng 18K cũng là lựa chọn tuyệt vời để kết hợp thành bộ đôi hoàn hảo."
+          "opening": "Chào chị, em thật sự rất vui khi thấy chị hôm nay! Bộ sưu tập nhẫn đính hôn 2025 của bên em vừa về, có những mẫu thiết kế rất độc đáo, chắc chắn sẽ phù hợp với những ai có phong cách trẻ trung như chị.",
+          "khai_thac": "Chị đang tìm kiếm trang sức cho dịp đặc biệt nào không ạ? Em có thể gợi ý thêm một số mẫu để chị tham khảo.",
+          "goi_y": "Em có một mẫu nhẫn đính hôn kim cương tự nhiên mà em nghĩ chị sẽ thích, bởi vì nó thực sự tỏa sáng với phong cách trẻ trung và tinh tế.",
+          "chot": "Chị cảm thấy mẫu nhẫn này thế nào? Em tin rằng nó sẽ là món trang sức hoàn hảo để kỷ niệm một dịp ý nghĩa.",
+          "upsell": "Ngoài nhẫn đính hôn, bên em cũng có một số bộ sưu tập bông tai vàng 18K rất hợp với phong cách của chị. Chị có muốn xem thêm không ạ?"
         },
         "script_source": "llm",
-        "tokens_used": 1327
+        "tokens_used": 1582
       }
     },
     {
       "customer_id": "KH003",
-      "processed_at": "2026-04-23T09:37:00.799174",
+      "processed_at": "2026-05-28T13:51:24.544967",
       "profile": {
         "segment_rfm_tier": "Gold-M",
         "budget": "15–30 triệu",
@@ -128,26 +128,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Premium Self-Reward — thiết kế độc đáo",
-        "product_rec_1": "bông tai vàng 14K tối giản",
-        "product_rec_2": "nhẫn đính hôn kim cương tối giản",
-        "product_rec_3": "khuyên tai Premium Self-Reward",
+        "product_rec_1": "bông tai vàng 14K mẫu 1",
+        "product_rec_2": "bông tai vàng 14K mẫu 2",
+        "product_rec_3": "nhẫn đính hôn kim cương mẫu 1",
         "online_insight": "Khách đã thêm 3 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 2 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 1 lần, quay lại web 3 lần, đã mở 2 chiến dịch engagement, đã mở 5 chiến dịch kỷ niệm.",
         "urgency_signal": "🎂 Sinh nhật còn 10 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng premium, thích phong cách tối giản, đang tự thưởng và có dấu hiệu cầu hôn.",
+        "key_insight": "Khách thuộc phân khúc cao cấp, yêu thích phong cách tối giản, và đang có ý định tự thưởng, đặc biệt trong dịp sinh nhật sắp tới.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay anh/chị có muốn thử trải nghiệm một số thiết kế tối giản nhưng vô cùng độc đáo từ bộ sưu tập Premium Self-Reward bên em không?",
-          "khai_thac": "Anh/chị có đang tìm một món quà đặc biệt cho bản thân hay dịp gì đặc biệt sắp tới không?",
-          "goi_y": "Để em giới thiệu anh/chị mẫu bông tai vàng 14K mà em tin chắc sẽ làm hài lòng anh/chị, rất phù hợp với phong cách tối giản của mình.",
-          "chot": "Nếu anh/chị yêu thích, bên em có thể chuẩn bị ngay bộ sản phẩm dành riêng cho anh/chị trong không gian VIP này.",
-          "upsell": "Ngoài ra, em có một vài lựa chọn nhẫn đính hôn bằng kim cương đang là xu hướng, anh/chị có muốn ngắm qua không?"
+          "opening": "Chào anh, hôm nay em rất vui được tư vấn cho anh. Bên em vừa có bộ sưu tập bông tai vàng 14K với thiết kế rất tối giản, chắc chắn anh sẽ thích.",
+          "khai_thac": "Anh có đang tìm kiếm món đồ gì cho dịp đặc biệt nào sắp tới không ạ? Em thấy cũng gần kỷ niệm sinh nhật của anh.",
+          "goi_y": "Dạ, với phong cách đơn giản và tinh tế, em gợi ý anh xem qua mẫu bông tai Vàng 14K này. Thiết kế này rất hợp với gu của anh.",
+          "chot": "Em nghĩ thiết kế này không chỉ phù hợp phong cách mà còn rất đáng để anh tự thưởng cho bản thân nhân dịp đặc biệt sắp tới.",
+          "upsell": "Ngoài ra, ở đây cũng có vài mẫu nhẫn đính hôn trong bộ sưu tập Premium Self-Reward mà em nghĩ anh sẽ yêu thích. Anh có muốn xem thử không?"
         },
         "script_source": "llm",
-        "tokens_used": 1374
+        "tokens_used": 1617
       }
     },
     {
       "customer_id": "KH004",
-      "processed_at": "2026-04-23T09:37:00.799632",
+      "processed_at": "2026-05-28T13:51:24.545153",
       "profile": {
         "segment_rfm_tier": "Gold-H",
         "budget": "15–30 triệu",
@@ -175,26 +175,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
-        "product_rec_1": "Nhẫn Đính Hôn 2025 - Vàng 18K Kim Cương Tự Nhiên",
-        "product_rec_2": "Nhẫn Đính Hôn Solitaire - Vàng 18K",
-        "product_rec_3": "Nhẫn Đính Hôn Halo Vàng",
+        "product_rec_1": "Nhẫn Đính Hôn Vàng 18K Kim Cương Thiên Nhiên",
+        "product_rec_2": "Nhẫn Đính Hôn Bạch Kim Kim Cương Round",
+        "product_rec_3": "Nhẫn Đính Hôn Vàng Hồng Kim Cương Oval",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 3 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 2 lần, đã mở 6 chiến dịch engagement, đã mở 2 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách có dấu hiệu chuẩn bị cầu hôn và ưu tiên sản phẩm thanh lịch.",
+        "key_insight": "Khách đang cân nhắc mua nhẫn cầu hôn, rất thích phong cách thanh lịch và mong muốn trải nghiệm mua sắm độc quyền.",
         "script": {
-          "opening": "Chào anh/chị, em đã chuẩn bị một vài thiết kế nhẫn vàng 18K rất thanh lịch mới về, có lẽ anh/chị sẽ thích.",
-          "khai_thac": "Không biết anh/chị có sự kiện đặc biệt nào sắp tới cần chọn nhẫn không ạ?",
-          "goi_y": "Em nghĩ bộ sưu tập Nhẫn Đính Hôn 2025 với kim cương tự nhiên sẽ khiến anh/chị hài lòng.",
-          "chot": "Anh/chị cảm thấy thế nào về chiếc nhẫn này? Nếu cần chỉnh sửa gì thêm cho hoàn hảo hơn, bên em hoàn toàn có thể đáp ứng.",
-          "upsell": "Nếu anh/chị muốn, em có thể sắp xếp một buổi trải nghiệm riêng để anh/chị có thể xem thêm các thiết kế đặc biệt chỉ có tại cửa hàng."
+          "opening": "Chào chị! Em thấy ngay từ đầu cửa tiệm, chị đã mang đến một vẻ thanh lịch rất riêng. Bộ sưu tập Nhẫn Đính Hôn 2025 với kim cương tự nhiên bên em vừa về những mẫu mới tuyệt đẹp, rất hợp với phong cách của chị.",
+          "khai_thac": "Chị đang tìm nhẫn cho dịp đặc biệt nào không? Em rất sẵn lòng tư vấn những thiết kế độc quyền dành riêng cho chị.",
+          "goi_y": "Với ngân sách 15-30 triệu, em giới thiệu chị xem thử chiếc nhẫn Vàng 18K trong bộ sưu tập kim cương tự nhiên. Mẫu mã lẫn thiết kế đều rất tinh tế và thanh lịch.",
+          "chot": "Mẫu nhẫn này là một trong những sản phẩm được rất nhiều khách hàng VIP lựa chọn bởi sự độc đáo và đẳng cấp. Chị cảm thấy thế nào về thiết kế này?",
+          "upsell": "Nếu chị quan tâm đến sự sang trọng và đẳng cấp hơn, em có một vài mẫu giới hạn trong bộ sưu tập mà chắc chắn sẽ khiến chị hài lòng."
         },
         "script_source": "llm",
-        "tokens_used": 1354
+        "tokens_used": 1637
       }
     },
     {
       "customer_id": "KH005",
-      "processed_at": "2026-04-23T09:37:00.799996",
+      "processed_at": "2026-05-28T13:51:24.545336",
       "profile": {
         "segment_rfm_tier": "Silver-L",
         "budget": "5–15 triệu",
@@ -222,26 +222,26 @@
         "nba_strategy": "Định hướng lựa chọn",
         "psychology_trigger": "Narrowing + Personalization",
         "product_focus": "Gift Guide — gợi ý quà tặng theo ngân sách",
-        "product_rec_1": "Bông tai Serenity",
-        "product_rec_2": "Bông tai Elegance",
-        "product_rec_3": "Bông tai Graceful",
+        "product_rec_1": "Sangria Classic",
+        "product_rec_2": "Graceful Star",
+        "product_rec_3": "Elegant Loop",
         "online_insight": "Khách xem nhẫn đính hôn 3 lần, quay lại web 2 lần, đã ghé online trong tháng qua (29 ngày trước), đã mở 1 chiến dịch engagement, đã mở 3 chiến dịch kỷ niệm.",
         "urgency_signal": "",
-        "key_insight": "Khách thích phong cách thanh lịch, có ngân sách từ 5–15 triệu, đang trong giai đoạn tìm hiểu và dễ bị thu hút bởi sự tinh tế và hài hòa.",
+        "key_insight": "Khách thích phong cách thanh lịch và đang trong quá trình tìm kiếm bông tai vàng 14K trong khoảng ngân sách 5-15 triệu.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay bên em vừa về một số mẫu bông tai vàng 14K rất thanh lịch, không biết anh/chị có dịp đặc biệt nào muốn thêm chút phong cách không ạ?",
-          "khai_thac": "Anh/chị có ấn tượng với mẫu bông tai hay trang sức nào gần đây không? Em có thể gợi ý thêm cho phù hợp với phong cách anh/chị thích.",
-          "goi_y": "Em nghĩ anh/chị có thể thích những mẫu như Bông tai 'Serenity' hoặc 'Elegance', rất phù hợp với gu thanh lịch và nằm trong khoảng ngân sách mình đang tìm.",
-          "chot": "Nếu anh/chị thấy phù hợp, mình có thể chọn ra 2-3 mẫu để thử xem sao ạ? Thoải mái lựa chọn theo ý mình thích nhé.",
-          "upsell": "Anh/chị có muốn tham khảo thêm một số mẫu dây chuyền vàng 14K để phối hợp cùng tạo thành bộ hoàn chỉnh không? Rất nhiều khách bên em thấy sự kết hợp này cực kỳ hoàn hảo."
+          "opening": "Chào chị, hôm nay bên em vừa trưng bày bộ sưu tập bông tai vàng 14K mới, nhìn rất thanh lịch. Chị đang tìm món quà gì cho dịp đặc biệt không hay mình chỉ thích sưu tầm thôi ạ?",
+          "khai_thac": "Chị có ý tưởng cụ thể nào mình đang cân nhắc không, hoặc phong cách nào chị thấy hợp nhất với mình vậy?",
+          "goi_y": "Em có vài mẫu bông tai rất hợp với phong cách thanh lịch của chị: mẫu 'Sangria Classic', 'Graceful Star' và 'Elegant Loop', chị thử xem nhé.",
+          "chot": "Trong ba mẫu này, chị thấy mẫu nào nổi bật nhất không? Em nghĩ màu sắc và thiết kế của 'Graceful Star' rất hợp với gu của chị đấy.",
+          "upsell": "Nếu chị thích kiểu dáng này, bên em còn có dây chuyền cùng phong cách, trông sẽ rất hoàn hảo khi kết hợp với bông tai đấy chị."
         },
         "script_source": "llm",
-        "tokens_used": 1349
+        "tokens_used": 1536
       }
     },
     {
       "customer_id": "KH006",
-      "processed_at": "2026-04-23T09:37:00.800363",
+      "processed_at": "2026-05-28T13:51:24.545534",
       "profile": {
         "segment_rfm_tier": "Platinum-H",
         "budget": "30 triệu trở lên",
@@ -269,26 +269,26 @@
         "nba_strategy": "Chốt đơn nhanh",
         "psychology_trigger": "Social Proof + Scarcity",
         "product_focus": "Bộ sưu tập Nhẫn mới nhất",
-        "product_rec_1": "Nhẫn vàng 14K trẻ trung",
-        "product_rec_2": "Lắc tay vàng 14K",
-        "product_rec_3": "Set nhẫn và lắc tay cùng bộ",
+        "product_rec_1": "Nhẫn đính hôn Solitaire Diamond",
+        "product_rec_2": "Lắc tay vàng 14K trẻ trung",
+        "product_rec_3": "Dây chuyền vàng phong cách trẻ trung",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 4 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 3 lần, đã mở 3 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng có thói quen trở lại nhiều lần, có dấu hiệu cầu hôn, cần chốt đơn nhanh.",
+        "key_insight": "Khách có ý định cầu hôn và chịu chi, đã nghiên cứu kỹ nhẫn đính hôn. Cần chốt đơn nhanh dùng Scarcity.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay cửa hàng bên em có bộ sưu tập nhẫn mới về, phong cách rất trẻ trung. Anh/chị có muốn mình xem qua không ạ?",
-          "khai_thac": "Ngoài nhẫn, anh/chị có đang tìm một món trang sức đặc biệt nào đó để hoàn thiện bộ sưu tập cá nhân không nhỉ?",
-          "goi_y": "Em có mẫu nhẫn vàng 14K thế này, được rất nhiều khách hàng ưa thích trong các mùa gần đây. Anh/chị thử xem nhé.",
-          "chot": "Mẫu này đang được yêu thích và chỉ còn vài chiếc, anh/chị thấy sao nếu mình quyết định ngay hôm nay?",
-          "upsell": "Ngoài ra, nếu anh/chị quan tâm thêm, em có lắc tay cùng bộ để mình có thể tạo thành một set kết hợp hoàn hảo đấy ạ."
+          "opening": "Chào anh! Hôm nay anh tìm món trang sức ưng ý nào không? Bên em vừa có bộ sưu tập lắc tay vàng 14K rất trẻ trung, nhiều anh chị yêu thích lắm.",
+          "khai_thac": "Anh đang chuẩn bị cho dịp đặc biệt nào, có thể chia sẻ để em tư vấn chi tiết hơn không?",
+          "goi_y": "Bộ sưu tập nhẫn mới nhất bên em đang rất hot, nhiều khách hàng đã chọn nhẫn này để cầu hôn. Anh có muốn xem qua chiếc nhẫn kiểu này không?",
+          "chot": "Mẫu này hiện còn rất ít, em nghĩ anh sẽ rất hài lòng vì đây là một trong những lựa chọn hàng đầu.",
+          "upsell": "Ngoài ra, em thấy nhiều khách thường kết hợp với một dây chuyền trẻ trung để tạo phong cách đồng bộ. Anh có muốn tham khảo không?"
         },
         "script_source": "llm",
-        "tokens_used": 1331
+        "tokens_used": 1552
       }
     },
     {
       "customer_id": "KH007",
-      "processed_at": "2026-04-23T09:37:00.800707",
+      "processed_at": "2026-05-28T13:51:24.545717",
       "profile": {
         "segment_rfm_tier": "Silver-H",
         "budget": "> 30 triệu",
@@ -316,26 +316,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Premium Self-Reward — thiết kế độc đáo",
-        "product_rec_1": "Bông tai vàng trắng thiết kế độc quyền",
-        "product_rec_2": "Bông tai nguyên bản Thanh lịch",
-        "product_rec_3": "Nhẫn đính hôn tinh tế",
+        "product_rec_1": "Elegance Pearl Bông Tai",
+        "product_rec_2": "Graceful Shine Bông Tai",
+        "product_rec_3": "Timeless Beauty Nhẫn",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 2 lần, quay lại web 4 lần, đã mở 1 chiến dịch engagement, đã mở 4 chiến dịch kỷ niệm.",
         "urgency_signal": "Sinh nhật trước 15 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách hàng cao cấp, ưu tiên trải nghiệm độc quyền và đang tìm sản phẩm tự thưởng.",
+        "key_insight": "Khách thường mua trang sức cao cấp và có khả năng tự thưởng; chưa nhấn mạnh việc dùng giảm giá.",
         "script": {
-          "opening": "Chào chị, mời chị vào tham quan! Hôm nay bên em vừa giới thiệu thêm nhiều mẫu thiết kế tinh tế, đặc biệt là bộ sưu tập dành riêng cho khách hàng yêu thích phong cách thanh lịch như chị.",
-          "khai_thac": "Chị đang có dịp đặc biệt nào sắp tới không ạ? Hay hôm nay chị muốn tìm một món quà tự thưởng cho chính mình?",
-          "goi_y": "Em có vài mẫu bông tai vàng trắng rất độc đáo trong bộ sưu tập Premium Self-Reward. Chị có muốn xem qua không ạ?",
-          "chot": "Những mẫu này thực sự rất hợp với phong cách của chị. Nếu chị thấy ưng ý, em có thể sắp xếp một trải nghiệm mua sắm riêng biệt ngay lập tức.",
-          "upsell": "Ngoài ra, bên em còn có dịch vụ khắc tên hoặc ngày đặc biệt lên sản phẩm, chị có muốn thử không? Điều này làm cho món trang sức càng thêm phần ý nghĩa."
+          "opening": "Chào chị, em rất vui được đón tiếp chị hôm nay. Em vừa nhớ đến bộ sưu tập bông tai vàng trắng mới rất hợp với phong cách thanh lịch của chị, không biết chị đã biết đến chưa?",
+          "khai_thac": "Chị đang tìm món trang sức đặc biệt cho dịp nào không? Em thấy bộ này sẽ rất phù hợp nếu chị muốn tự thưởng cho bản thân.",
+          "goi_y": "Em nghĩ bông tai 'Elegance Pearl', từ bộ sưu tập Premium Self-Reward, sẽ là lựa chọn hoàn hảo. Nó không chỉ tôn lên nét đẹp tự nhiên mà còn mang một thiết kế rất tinh tế.",
+          "chot": "Nếu chị cảm thấy ưng ý, em sẽ sắp xếp một không gian tư vấn riêng tư để chị có thể trải nghiệm kỹ hơn trước khi quyết định.",
+          "upsell": "Bên cạnh đó, em có thể giới thiệu thêm vài mẫu nhẫn đính hôn tuyệt đẹp mà chị có thể thích, nhất là vì sinh nhật chị cũng sắp đến."
         },
         "script_source": "llm",
-        "tokens_used": 1360
+        "tokens_used": 1570
       }
     },
     {
       "customer_id": "KH008",
-      "processed_at": "2026-04-23T09:37:00.801030",
+      "processed_at": "2026-05-28T13:51:24.545899",
       "profile": {
         "segment_rfm_tier": "Gold-H",
         "budget": "15–30 triệu",
@@ -363,26 +363,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
-        "product_rec_1": "Bông tai vàng trắng hiện đại",
-        "product_rec_2": "Nhẫn kim cương lấp lánh",
-        "product_rec_3": "Gift Finder — hộp quà tặng cao cấp",
+        "product_rec_1": "Bông tai vàng trắng Luminous Elegance",
+        "product_rec_2": "Hộp quà tặng cao cấp",
+        "product_rec_3": "Nhẫn đính hôn kim cương",
         "online_insight": "Khách xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 2 lần, quay lại web 3 lần, đã mở 2 chiến dịch kỷ niệm.",
         "urgency_signal": "🎂 Sinh nhật còn 10 ngày! | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng có dấu hiệu quan tâm đến sản phẩm kim cương, khả năng cao đang chuẩn bị cho dịp cầu hôn hoặc sinh nhật.",
+        "key_insight": "Khách thuộc phân khúc Gold-H, thích phong cách trẻ trung, hay sử dụng discount, có dấu hiệu muốn cầu hôn, sinh nhật sắp đến.",
         "script": {
-          "opening": "Chào anh/chị! Hôm nay cửa hàng em vừa về bộ sưu tập bông tai vàng trắng rất phong cách trẻ trung, không biết anh/chị đã có dịp chiêm ngưỡng chưa?",
-          "khai_thac": "Anh/chị đang tìm kiếm món quà đặc biệt cho dịp sắp tới hay có dịp gì đặc biệt đang chờ đợi không ạ?",
-          "goi_y": "Em nghĩ chiếc bông tai với thiết kế hiện đại này sẽ rất hợp với phong cách trẻ trung mà anh/chị yêu thích.",
-          "chot": "Sản phẩm này chỉ có một vài chiếc trong bộ sưu tập giới hạn, nên thật sự là một lựa chọn độc đáo dành cho khách VIP như anh/chị.",
-          "upsell": "Ngoài ra, em nghĩ anh/chị có thể kết hợp với nhẫn kim cương để tạo nên một bộ đôi hoàn hảo cho những dịp đặc biệt."
+          "opening": "Chào chị, hôm nay bên em vừa có thêm một bộ sưu tập bông tai vàng trắng độc đáo. Không biết chị có thời gian để em giới thiệu một số mẫu không?",
+          "khai_thac": "Nhân dịp đặc biệt sắp tới, chị có đang tìm kiếm món quà ý nghĩa nào không? Em có thể tư vấn thêm cho chị.",
+          "goi_y": "Em nghĩ chị sẽ thích mẫu bông tai vàng trắng Luminous Elegance này – rất trẻ trung và hiện đại, hợp với phong cách của chị.",
+          "chot": "Chị thấy mẫu này có phù hợp làm món quà dành cho dịp đặc biệt sắp tới không ạ? Với chương trình tư vấn 1-1 và hộp quà tặng cao cấp, món quà sẽ thêm phần đặc biệt.",
+          "upsell": "Ngoài ra, em cũng có những lựa chọn nhẫn đính hôn rất tinh tế, nếu chị có ý định tìm kiếm thêm một sản phẩm kết hợp hoàn hảo."
         },
         "script_source": "llm",
-        "tokens_used": 1338
+        "tokens_used": 1569
       }
     },
     {
       "customer_id": "KH009",
-      "processed_at": "2026-04-23T09:37:00.801339",
+      "processed_at": "2026-05-28T13:51:24.546166",
       "profile": {
         "segment_rfm_tier": "Silver-L",
         "budget": "15–30 triệu",
@@ -410,26 +410,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Guide — gợi ý quà tặng theo ngân sách",
-        "product_rec_1": "Lắc tay kim cương trẻ trung",
-        "product_rec_2": "Nhẫn đính hôn đặc biệt",
-        "product_rec_3": "Hoa tai kim cương đi kèm",
+        "product_rec_1": "Lắc tay từ bộ sưu tập Eternal Sparkle",
+        "product_rec_2": "Nhẫn kim cương phong cách trẻ trung",
+        "product_rec_3": "Bộ trang sức thiết kế riêng",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 3 lần, đã mở 1 chiến dịch engagement, đã mở 2 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách ưa thích phong cách trẻ trung và có dấu hiệu cao về việc tìm kiếm sản phẩm cầu hôn.",
+        "key_insight": "Khách có dấu hiệu đang tìm kiếm trang sức cho dịp cầu hôn, ưu tiên độc quyền và sản phẩm dành riêng cho khách hàng cao cấp.",
         "script": {
-          "opening": "Chào anh/chị! Hôm nay bên em có vài mẫu lắc tay kim cương mới rất phù hợp với phong cách trẻ trung mà anh/chị thích. Mời anh/chị tham khảo thử nhé.",
-          "khai_thac": "Anh/chị đang tìm một món quà đặc biệt, hay có dịp gì quan trọng sắp tới không?",
-          "goi_y": "Em nghĩ chiếc lắc tay kim cương này sẽ là lựa chọn hoàn hảo. Nó rất hợp với phong cách của anh/chị đấy!",
-          "chot": "Chiếc này thuộc bộ sưu tập giới hạn chỉ dành riêng cho khách VIP như anh/chị thôi. Mình cảm thấy sao về lựa chọn này?",
-          "upsell": "Ngoài ra, em có thể giới thiệu thêm đôi hoa tai rất hợp với lắc tay này, tạo nên một bộ hoàn chỉnh và đẳng cấp."
+          "opening": "Chào chị, em thấy bữa nay chị diện phong cách trẻ trung thật hợp. Bên em vừa có bộ sưu tập lắc tay kim cương mới, chắc chị sẽ ưng lắm.",
+          "khai_thac": "Chị định tìm trang sức đặc biệt cho dịp nào không, hay chỉ là để tự thưởng cho bản thân sau những nỗ lực gần đây?",
+          "goi_y": "Em có vài mẫu lắc tay từ bộ sưu tập 'Eternal Sparkle' vừa về, cực kỳ độc quyền cho những khách hàng VIP như chị. Chị muốn xem thử không?",
+          "chot": "Mẫu này em thấy rất hợp với phong cách mà chị vẫn thường chọn, thêm nữa là hàng giới hạn dành riêng cho khách hàng đặc biệt như chị.",
+          "upsell": "Nếu chị thích, bên em có thể thiết kế một bộ trang sức đồng bộ với lắc tay này, khác biệt và độc đáo chỉ dành riêng cho chị."
         },
         "script_source": "llm",
-        "tokens_used": 1343
+        "tokens_used": 1575
       }
     },
     {
       "customer_id": "KH010",
-      "processed_at": "2026-04-23T09:37:00.801653",
+      "processed_at": "2026-05-28T13:51:24.546442",
       "profile": {
         "segment_rfm_tier": "Platinum-H",
         "budget": "30 triệu trở lên",
@@ -457,26 +457,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Set phổ biến — dễ chọn, ý nghĩa",
-        "product_rec_1": "Lắc tay vàng trắng Sapphire",
-        "product_rec_2": "Nhẫn đính hôn kim cương",
-        "product_rec_3": "Bộ trang sức kim cương Elegance",
+        "product_rec_1": "Elegance Embrace",
+        "product_rec_2": "Diamond Royale Set",
+        "product_rec_3": "Sophisticated Charm Bracelet",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 4 lần, xem sản phẩm kim cương 5 lần, quay lại web 5 lần, đã mở 1 chiến dịch engagement, đã mở 1 chiến dịch kỷ niệm.",
         "urgency_signal": "🎂 Sinh nhật còn 8 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách hàng thích phong cách sang trọng, mua theo mùa tiệc, và có nhu cầu quà tặng ý nghĩa trong ngân sách rộng.",
+        "key_insight": "Khách thuộc phân khúc Platinum, rất chú trọng tới vẻ sang trọng. Khách có thể đang tìm quà tặng nhân dịp sinh nhật, chưa dùng discount nhiều.",
         "script": {
-          "opening": "Chào chị, hôm nay là một ngày tuyệt vời để khám phá các mẫu trang sức đặc biệt! Không biết chị có dịp gì đặc biệt sắp tới không ạ?",
-          "khai_thac": "Chị thích phong cách sang trọng với vàng trắng, em có sẵn một vài mẫu lắc tay rất hợp ý chị. Chị có muốn xem thử không?",
-          "goi_y": "Ngoài lắc tay, em cũng thấy bộ sưu tập nhẫn đính hôn mới về rất ấn tượng. Chị có muốn em giới thiệu vài mẫu nổi bật không?",
-          "chot": "Mẫu lắc tay này có thiết kế độc quyền, rất hiếm có. Em nghĩ nó sẽ là món quà tuyệt vời cho dịp đặc biệt mà chị đang chuẩn bị.",
-          "upsell": "Nếu chị thích thêm một chút lấp lánh, em có thể cho chị xem luôn một số mẫu kim cương phối cùng, tăng thêm sức hút cho bộ trang sức."
+          "opening": "Em chào chị! Không biết hôm nay chị có mong muốn tìm gì đặc biệt không? Bên em vừa có một bộ sưu tập lắc tay vàng trắng rất phù hợp với phong cách sang trọng đó ạ.",
+          "khai_thac": "Chị đang tìm kiếm món quà cho dịp đặc biệt nào không ạ, hay có phong cách thiết kế nào chị đang thích không?",
+          "goi_y": "Chị thử xem qua chiếc lắc tay 'Elegance Embrace' này nhé, thiết kế tinh tế và rất độc quyền cho phân khúc khách hàng Platinum bên em.",
+          "chot": "Nếu chị thích chiếc này, em sẽ đặt giữ cho chị, đảm bảo còn hàng khi chị cần. Mình có tiếp tục khám phá thêm gì khác không chị?",
+          "upsell": "Chị ơi, bên em có một set trang sức kết hợp kim cương rất quý phái, nếu chị đang tìm thứ gì đó thật nổi bật cho sự kiện nào gần đây."
         },
         "script_source": "llm",
-        "tokens_used": 1364
+        "tokens_used": 1564
       }
     },
     {
       "customer_id": "KH011",
-      "processed_at": "2026-04-23T09:37:00.801965",
+      "processed_at": "2026-05-28T13:51:24.546662",
       "profile": {
         "segment_rfm_tier": "Platinum-H",
         "budget": "30 triệu trở lên",
@@ -504,26 +504,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
-        "product_rec_1": "nhẫn đính hôn kim cương mẫu A",
-        "product_rec_2": "nhẫn đính hôn kim cương mẫu B",
-        "product_rec_3": "dây chuyền vàng 14K phong cách thanh lịch",
+        "product_rec_1": "Bộ sưu tập Nhẫn Đính Hôn 2025",
+        "product_rec_2": "Dây chuyền Vàng 14K Thanh Lịch",
+        "product_rec_3": "Vòng tay Vàng 14K Thanh Lịch",
         "online_insight": "Khách đã thêm 3 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 2 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 4 lần, quay lại web 2 lần, đã mở 4 chiến dịch engagement, đã mở 2 chiến dịch kỷ niệm.",
         "urgency_signal": "Sinh nhật trước 17 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách đang tìm kiếm nhẫn đính hôn và có ngân sách cao, ưu tiên trải nghiệm riêng tư.",
+        "key_insight": "Khách có tín hiệu muốn tìm sản phẩm cho dịp cầu hôn nhưng vẫn chưa chốt đơn, thiên về các sản phẩm cao cấp và không nhạy cảm với giảm giá.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay em có cơ hội giới thiệu bộ sưu tập nhẫn đính hôn kim cương tự nhiên 2025 mới về, rất riêng và tinh tế.",
-          "khai_thac": "Không biết anh/chị đang tìm kiếm món trang sức đặc biệt cho dịp nào đặc biệt không ạ? Em rất vui được tư vấn chi tiết.",
-          "goi_y": "Với phong cách thanh lịch của anh/chị, em nghĩ mẫu nhẫn đính hôn từ bộ sưu tập của chúng em sẽ rất phù hợp.",
-          "chot": "Trong khoang không gian riêng cho VIP này, anh/chị có muốn thử mẫu nhẫn với ánh sáng hoàn hảo nhất không? Cảm giác trên tay sẽ khác biệt rất nhiều.",
-          "upsell": "Nếu anh/chị quan tâm, chúng em còn có bộ dây chuyền vàng 14K phù hợp để kết hợp hoàn hảo với phong cách thanh lịch mà anh/chị hay lựa chọn."
+          "opening": "Chị ơi, hôm nay bên em vừa có bộ sưu tập nhẫn đính hôn 2025 với những viên kim cương tự nhiên lấp lánh, rất phù hợp với phong cách thanh lịch của chị. Chị có thích em tư vấn một mẫu không ạ?",
+          "khai_thac": "Em thấy dây chuyền vàng 14K là lựa chọn rất tuyệt để thêm phần sang trọng nữa, không biết chị đã có dịp nào đặc biệt đang chuẩn bị không ạ?",
+          "goi_y": "Em có thể gợi ý chị một mẫu nhẫn đính hôn với viên kim cương đặc biệt phù hợp cho dịp cầu hôn, chị nghĩ sao về việc kết hợp với dây chuyền chị thích?",
+          "chot": "Để em chuẩn bị cho chị một không gian riêng để xem kỹ hơn mẫu nhẫn và dây chuyền nhé, chị cứ thư giãn và thoải mái thử nghiệm.",
+          "upsell": "Ngoài nhẫn, bên em có vòng tay vàng 14K đi kèm bộ trang sức rất thanh lịch, có thể làm quà sinh nhật cho chị luôn đấy ạ."
         },
         "script_source": "llm",
-        "tokens_used": 1401
+        "tokens_used": 1663
       }
     },
     {
       "customer_id": "KH012",
-      "processed_at": "2026-04-23T09:37:00.802424",
+      "processed_at": "2026-05-28T13:51:24.546855",
       "profile": {
         "segment_rfm_tier": "Gold-H",
         "budget": "15–30 triệu",
@@ -551,26 +551,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Guide — gợi ý quà tặng theo ngân sách",
-        "product_rec_1": "Dây chuyền Rose Gold Minimal",
-        "product_rec_2": "Dây chuyền Vàng 18K Classic",
-        "product_rec_3": "Hoa tai Vàng 18K Minimal",
+        "product_rec_1": "Elegance Minimalist",
+        "product_rec_2": "Whisper Gleam",
+        "product_rec_3": "Minimalist Chic",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, quay lại web 8 lần, đã mở 1 chiến dịch engagement.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách hàng VIP, thích sự tối giản, dịch vụ tư vấn như VIP rất quan trọng.",
+        "key_insight": "Khách thuộc phân khúc cao, thích phong cách tối giản, đã quan tâm tới dây chuyền nhưng chưa quyết định mua, có tiềm năng chi tiêu cao trong giới hạn 15–30 triệu.",
         "script": {
-          "opening": "Chào chị! Hôm nay bên em vừa có một bộ sưu tập dây chuyền vàng 18K rất tinh tế, chắc hẳn chị sẽ tìm thấy một chiếc phù hợp với phong cách tối giản mà chị yêu thích.",
-          "khai_thac": "Chị đang tìm một món quà đặc biệt hay muốn tự thưởng cho bản thân ạ?",
-          "goi_y": "Em có một số mẫu như dây chuyền Rose Gold Minimal, thanh lịch và nổi bật, chắc chắn sẽ làm chị hài lòng.",
-          "chot": "Dây chuyền này em sẽ đặt riêng cho chị để có trải nghiệm tốt nhất vì sản phẩm này hiện đang rất được khách hàng của em yêu thích.",
-          "upsell": "Chị cũng có thể ngắm thêm đôi hoa tai nhỏ xinh đi kèm, sẽ tạo nên bộ trang sức hoàn hảo phong cách tối giản đấy ạ."
+          "opening": "Chào chị, hôm nay bên em có một bộ sưu tập dây chuyền vàng 18K mới về rất đặc biệt, em nghĩ sẽ hợp với phong cách tối giản mà chị yêu thích.",
+          "khai_thac": "Em thấy chị thường ưa chuộng phong cách tối giản, chị đang tìm một món quà hay dịp đặc biệt nào không ạ?",
+          "goi_y": "Em có một vài mẫu dây chuyền từ bộ sưu tập cao cấp, như chiếc 'Elegance Minimalist' và 'Whisper Gleam'. Em nghĩ chúng sẽ rất hợp với gu của chị.",
+          "chot": "Nếu chị thấy mẫu này phù hợp, mình có thể cùng trải nghiệm cách nó tỏa sáng dưới ánh sáng tự nhiên nhé, cảm giác rất đặc biệt ạ.",
+          "upsell": "Với phong cách độc đáo của chị, em nghĩ một đôi hoa tai nhỏ nhắn đi kèm sẽ làm set đồ hoàn hảo và độc nhất thêm phần đặc biệt."
         },
         "script_source": "llm",
-        "tokens_used": 1287
+        "tokens_used": 1526
       }
     },
     {
       "customer_id": "KH013",
-      "processed_at": "2026-04-23T09:37:00.802849",
+      "processed_at": "2026-05-28T13:51:24.547039",
       "profile": {
         "segment_rfm_tier": "Silver-H",
         "budget": "5–15 triệu",
@@ -598,26 +598,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
-        "product_rec_1": "Nhẫn Đính Hôn BEST COLLECTION",
-        "product_rec_2": "Lắc Tay Vàng Trắng Elegance",
-        "product_rec_3": "Nhẫn Kim Cương Elegant",
+        "product_rec_1": "nhẫn đính hôn kim cương tự nhiên 2025",
+        "product_rec_2": "lắc tay vàng trắng sang trọng",
+        "product_rec_3": "khuyên tai kim cương",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 2 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 4 lần, quay lại web 4 lần.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng đang cân nhắc cầu hôn, yêu thích phong cách sang trọng.",
+        "key_insight": "Khách có dấu hiệu mạnh về việc chuẩn bị cho một lời cầu hôn, điều này cần được ưu tiên trong tư vấn sản phẩm.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay em có cơ hội mời anh/chị ngắm nhìn một số thiết kế mới từ bộ sưu tập Nhẫn Đính Hôn 2025 bên em, chắc chắn sẽ làm anh/chị hài lòng.",
-          "khai_thac": "Anh/chị đang tìm kiếm một món quà đặc biệt để kỷ niệm dịp trọng đại nào gần đây không ạ?",
-          "goi_y": "Với phong cách sang trọng, em nghĩ chiếc nhẫn kim cương tự nhiên này có thể là lựa chọn hoàn hảo cho anh/chị.",
-          "chot": "Nếu anh/chị yêu thích một mẫu cụ thể, em có thể giới thiệu dịch vụ đặt trước để anh/chị trải nghiệm cách phục vụ riêng tư nhất tại cửa hàng.",
-          "upsell": "Ngoài ra, anh/chị có thể cân nhắc kết hợp với chiếc lắc tay vàng trắng để tạo nên bộ đôi hoàn hảo cho phong cách sang trọng của mình."
+          "opening": "Chào chị, em là [Tên TVV]. Hôm nay em có một bộ sưu tập nhẫn đính hôn với những thiết kế kim cương tự nhiên rất đặc biệt. Chị có muốn xem qua không?",
+          "khai_thac": "Chị đang tìm kiếm một món trang sức cho dịp đặc biệt nào đó phải không? Em thấy phong cách sang trọng dường như rất hợp với gu của chị.",
+          "goi_y": "Em có một chiếc nhẫn đính hôn từ bộ sưu tập 2025 mà em nghĩ sẽ rất phù hợp với chị. Thiết kế này kết hợp giữa sự tinh tế và sang trọng, rất hợp với những phụ kiện lắc tay vàng trắng mà chị yêu thích.",
+          "chot": "Nếu chị thấy hài lòng với sản phẩm này, em có thể giúp chị hoàn tất thủ tục ngay. Đây là một thiết kế đặc biệt chỉ dành cho khách VIP của chúng em.",
+          "upsell": "Chị có muốn kết hợp với một đôi khuyên tai kim cương để tạo nên một bộ trang sức hoàn hảo không? Đây là một sự kết hợp đặc biệt chỉ dành riêng cho khách như chị."
         },
         "script_source": "llm",
-        "tokens_used": 1348
+        "tokens_used": 1611
       }
     },
     {
       "customer_id": "KH014",
-      "processed_at": "2026-04-23T09:37:00.803234",
+      "processed_at": "2026-05-28T13:51:24.547230",
       "profile": {
         "segment_rfm_tier": "Platinum-M",
         "budget": "30 triệu trở lên",
@@ -645,26 +645,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
-        "product_rec_1": "Nhẫn vàng 14K thanh lịch",
-        "product_rec_2": "Nhẫn đính hôn với khắc tên",
-        "product_rec_3": "Bộ sản phẩm kim cương độc quyền",
+        "product_rec_1": "Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_2": "Nhẫn vàng 14K đính kim cương",
+        "product_rec_3": "Nhẫn đính hôn thiết kế riêng",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 3 lần, xem sản phẩm kim cương 2 lần, quay lại web 5 lần, đã mở 1 chiến dịch engagement, đã mở 4 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách yêu thích phong cách thanh lịch và đang trong giai đoạn tìm quà kỷ niệm.",
+        "key_insight": "Khách thuộc phân khúc Platinum, có xu hướng tìm kiếm sản phẩm kỷ niệm và đã từng dùng ưu đãi.",
         "script": {
-          "opening": "Chào anh/chị! Hôm nay em có dịp giới thiệu đến anh/chị bộ sưu tập nhẫn vàng 14K thanh lịch vừa về, đúng kiểu anh/chị thích.",
-          "khai_thac": "Anh/chị đang tìm món quà đặc biệt nào cho dịp kỷ niệm sắp tới không ạ?",
-          "goi_y": "Em có một chiếc nhẫn đính hôn tuyệt đẹp đi kèm bộ quà kỷ niệm cao cấp có thể khắc tên riêng của anh/chị.",
-          "chot": "Em có thể sắp xếp cho anh/chị một không gian riêng để anh/chị cảm nhận và lựa chọn mẫu đặc biệt này.",
-          "upsell": "Ngoài ra, bộ sản phẩm kim cương độc quyền bên em cũng phù hợp cho một dịp kỷ niệm quan trọng."
+          "opening": "Chào anh, hôm nay em có một số mẫu nhẫn vàng 14K thiết kế thanh lịch rất phù hợp với phong cách của anh, anh có đang tìm một món quà kỷ niệm đặc biệt không ạ?",
+          "khai_thac": "Em có thể thấy anh có sự quan tâm đến nhẫn đính hôn và kim cương, không biết anh có ý định tặng một món quà đặc biệt cho dịp ý nghĩa nào không?",
+          "goi_y": "Em đề xuất cho anh Bộ Quà Kỷ Niệm cao cấp, ở đây em có thể khắc tên theo yêu cầu và hộp quà được thiết kế rất tỉ mỉ, chắc chắn phù hợp cho những dịp quan trọng.",
+          "chot": "Với ngân sách của mình, anh sẽ tận hưởng trải nghiệm mua sắm VIP, em sẽ hỗ trợ anh mọi thứ từ đóng gói đến gửi tặng, anh thấy thế nào?",
+          "upsell": "Ngoài ra, nếu anh muốn một chút khác biệt, em có thể giới thiệu thêm mẫu nhẫn có điểm nhấn kim cương hoặc thiết kế riêng tùy ý anh."
         },
         "script_source": "llm",
-        "tokens_used": 1329
+        "tokens_used": 1607
       }
     },
     {
       "customer_id": "KH015",
-      "processed_at": "2026-04-23T09:37:00.803597",
+      "processed_at": "2026-05-28T13:51:24.547502",
       "profile": {
         "segment_rfm_tier": "Silver-H",
         "budget": "5–15 triệu",
@@ -692,26 +692,26 @@
         "nba_strategy": "Chốt đơn nhanh",
         "psychology_trigger": "Social Proof + Scarcity",
         "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
-        "product_rec_1": "Bông Tai Vàng 18K Elegant",
-        "product_rec_2": "Nhẫn Đính Hôn Glitz",
-        "product_rec_3": "Hộp Quà Tặng Cao Cấp",
+        "product_rec_1": "bông tai Vầng dương",
+        "product_rec_2": "hộp quà tặng cao cấp",
+        "product_rec_3": "nhẫn đính hôn tối giản",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 5 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 1 lần, đã mở 1 chiến dịch kỷ niệm.",
         "urgency_signal": "🎂 Sinh nhật còn 1 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách có dấu hiệu cầu hôn mạnh, ưu tiên sản phẩm bông tai vàng 18K với phong cách tối giản.",
+        "key_insight": "Khách có khả năng mua cao với tín hiệu cầu hôn mạnh, khả năng quay lại cao và thường không bị ảnh hưởng bởi discount.",
         "script": {
-          "opening": "Chào anh chị! Hôm nay bộ sưu tập bông tai vàng 18K của chúng em về mẫu độc đáo lắm, chắc chắn hợp với màu sắc tối giản mà anh chị yêu thích.",
-          "khai_thac": "Anh chị đang tìm kiếm món quà cho dịp đặc biệt nào không?",
-          "goi_y": "Dạo này, khách hàng bên em rất thích mẫu nhẫn bông tai với thiết kế tinh tế như 'Bông Tai Vàng 18K Elegant'. Số lượng có hạn, nhưng hiện nay vẫn còn hàng.",
-          "chot": "Nếu anh chị ưng ý mẫu bông tai này, mình có thể hoàn tất đơn ở đây để giữ hàng ngay cho anh.",
-          "upsell": "Ngoài ra, anh chị có muốn xem qua bộ quà tặng cao cấp kèm theo không? Đây là sản phẩm đặc biệt chúng em chỉ dành cho các dịp như thế này."
+          "opening": "Chào anh! Em mới có vài mẫu bông tai vàng 18K tối giản vừa về, phong cách mà anh thích. Em có thể giúp anh tìm hiểu thêm không?",
+          "khai_thac": "Anh đang tìm món quà đặc biệt hay dịp nào đặc biệt sắp tới không ạ?",
+          "goi_y": "Nhiều khách hàng của bên em rất yêu thích bộ bông tai 'Vầng dương' này lắm, vì thiết kế đơn giản và sang trọng. Anh có muốn xem thêm mẫu này không?",
+          "chot": "Đây thực sự là lựa chọn hàng đầu cho nhiều vị khách tìm kiếm sự hoàn hảo. Bộ sưu tập này số lượng có hạn thôi anh ạ.",
+          "upsell": "Ngoài ra, mình cũng có bộ hộp quà tặng cao cấp đi kèm, sẽ làm món quà của anh thêm phần ấn tượng và đặc biệt."
         },
         "script_source": "llm",
-        "tokens_used": 1360
+        "tokens_used": 1567
       }
     },
     {
       "customer_id": "KH016",
-      "processed_at": "2026-04-23T09:37:00.803956",
+      "processed_at": "2026-05-28T13:51:24.547946",
       "profile": {
         "segment_rfm_tier": "Gold-H",
         "budget": "15–30 triệu",
@@ -740,25 +740,25 @@
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
         "product_rec_1": "Bộ Quà Kỷ Niệm cao cấp",
-        "product_rec_2": "Dây chuyền vàng 18K trẻ trung",
-        "product_rec_3": "Nhẫn với điểm nhấn kim cương",
+        "product_rec_2": "Dây chuyền Vàng 18K trẻ trung",
+        "product_rec_3": "Nhẫn vàng thiết kế riêng",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem nhẫn đính hôn 1 lần, xem sản phẩm kim cương 4 lần, quay lại web 2 lần, đã mở 3 chiến dịch kỷ niệm.",
         "urgency_signal": "🎂 Sinh nhật còn 14 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khánh hàng VIP, thích phong cách trẻ trung và trang sức vàng 18K, quan tâm đến trải nghiệm độc quyền.",
+        "key_insight": "Khách rất quan tâm đến các sản phẩm kỷ niệm và đang chuẩn bị cho một dịp đặc biệt, có thể là lễ kỷ niệm hoặc sự kiện quan trọng.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay em rất hân hạnh được phục vụ một khách hàng VIP như anh/chị. Em thấy bộ sưu tập dây chuyền vàng 18K mới về lại rất phù hợp với phong cách trẻ trung của anh/chị đấy.",
-          "khai_thac": "Anh/chị đang tìm món quà đặc biệt nào cho dịp này không? Em có thể gợi ý vài lựa chọn tinh tế theo phong cách anh/chị thích.",
-          "goi_y": "Bên em có Bộ Quà Kỷ Niệm cao cấp với lựa chọn khắc tên và kèm theo hộp quà đặc biệt. Anh/chị có muốn xem qua không?",
-          "chot": "Anh/chị thấy món quà này có làm hài lòng không ạ? Chúng ta có thể sắp xếp một buổi giao hàng đặc biệt ngay để kịp cho dịp quan trọng sắp tới của anh/chị.",
-          "upsell": "Ngoài ra, nếu anh/chị đang cân nhắc nâng cấp món quà, bộ sản phẩm kỷ niệm với kim cương sẽ tạo điểm nhấn thật độc đáo mà em nghĩ anh/chị sẽ rất thích."
+          "opening": "Chào anh, hôm nay em rất vui khi được chào đón anh đến với cửa hàng. Em đang có mấy mẫu dây chuyền vàng 18K thiết kế trẻ trung, đúng chất anh thích, mới về tuần này. Anh muốn tham khảo không ạ?",
+          "khai_thac": "Anh đang tìm một món quà đặc biệt cho dịp nào không? Anh muốn tìm theo kiểu dáng hay chất liệu nhất định nào không ạ?",
+          "goi_y": "Theo em thì bộ quà kỷ niệm cao cấp với dịch vụ khắc tên riêng và hộp quà đặc biệt này rất phù hợp. Anh thấy sao về ý tưởng này ạ?",
+          "chot": "Em nghĩ bộ quà kỷ niệm này sẽ tạo ấn tượng mạnh cho dịp đặc biệt sắp tới của anh. Anh có đồng ý chốt mẫu này không?",
+          "upsell": "Nếu anh muốn thêm phần độc đáo, mình có thể kết hợp với một chiếc nhẫn vàng. Mẫu nhẫn này được thiết kế riêng cho khách hàng VIP như anh."
         },
         "script_source": "llm",
-        "tokens_used": 1411
+        "tokens_used": 1598
       }
     },
     {
       "customer_id": "KH017",
-      "processed_at": "2026-04-23T09:37:00.804316",
+      "processed_at": "2026-05-28T13:51:24.548212",
       "profile": {
         "segment_rfm_tier": "Gold-M",
         "budget": "15–30 triệu",
@@ -786,26 +786,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
-        "product_rec_1": "Nhẫn đính hôn kim cương tự nhiên mã X",
-        "product_rec_2": "Bông tai vàng 18K phong cách trẻ trung mã Y",
-        "product_rec_3": "Nhẫn đính hôn vàng trắng mã Z",
+        "product_rec_1": "nhẫn 'Eternal Promise'",
+        "product_rec_2": "bông tai vàng 18K thiết kế trẻ trung",
+        "product_rec_3": "nhẫn đính hôn kim cương tự nhiên",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem nhẫn đính hôn 5 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 3 lần, quay lại web 3 lần, đã mở 2 chiến dịch kỷ niệm.",
         "urgency_signal": "Sinh nhật trước 27 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng có tín hiệu chuẩn bị cầu hôn và thích phong cách trẻ trung.",
+        "key_insight": "Khách có ý định cầu hôn mạnh, thích phong cách trẻ trung và thường mua sản phẩm trong phân khúc cao cấp.",
         "script": {
-          "opening": "Chào anh chị, hôm nay bọn em vừa trưng bày bộ sưu tập nhẫn đính hôn 2025 với những thiết kế rất phù hợp cho phong cách trẻ trung của anh chị. Em có thể giúp gì để anh chị có một trải nghiệm thật đặc biệt hôm nay không?",
-          "khai_thac": "Em cảm nhận có thể anh chị đang tìm kiếm một món quà đặc biệt cho dịp quan trọng. Không biết anh chị có thể chia sẻ thêm về dịp này không ạ?",
-          "goi_y": "Em xin gợi ý vài mẫu nhẫn đính hôn kim cương tự nhiên vừa về của bọn em, phù hợp với phong cách trẻ trung mà anh chị yêu thích. Mời anh chị chiêm ngưỡng thử ạ.",
-          "chot": "Chiếc nhẫn này rõ ràng rất hợp với phong cách của anh chị, và em nghĩ nó sẽ làm dịp của anh chị thêm phần trọn vẹn. Anh chị thấy thế nào ạ?",
-          "upsell": "Với dịp đặc biệt sắp tới, anh chị có muốn kèm theo một đôi bông tai vàng 18K để hoàn thiện bộ phụ kiện không ạ? Em sẽ dành thời gian để lựa chọn những mẫu phù hợp nhất cho anh chị."
+          "opening": "Chào anh! Hôm nay em có dịp giới thiệu một số mẫu nhẫn đính hôn từ bộ sưu tập kim cương tự nhiên 2025 của cửa hàng. Anh đang tìm kiếm món đồ đặc biệt nào trong dịp đặc biệt sắp tới không ạ?",
+          "khai_thac": "Bên cạnh nhẫn đính hôn, em thấy phong cách trẻ trung của anh rất hợp với dòng sản phẩm bông tai vàng 18K nữa. Anh có thường xuyên thay đổi phụ kiện không?",
+          "goi_y": "Anh thử xem qua mẫu nhẫn 'Eternal Promise' trong bộ sưu tập 2025 này nhé, thiết kế rất độc đáo và chỉ có sẵn cho khách hàng VIP như anh thôi.",
+          "chot": "Nếu anh thích, em sẽ giữ lại mẫu này cho anh xem chi tiết hơn. Dòng này hiện chỉ còn vài chiếc, đảm bảo độc quyền cho khách hàng như anh.",
+          "upsell": "Ngoài ra, em có thể giới thiệu thêm vài mẫu bông tai vàng 18K với phong cách trẻ trung, chắc chắn sẽ phù hợp làm quà tặng sinh nhật cho người thân yêu hoặc chính anh."
         },
         "script_source": "llm",
-        "tokens_used": 1445
+        "tokens_used": 1633
       }
     },
     {
       "customer_id": "KH018",
-      "processed_at": "2026-04-23T09:37:00.804967",
+      "processed_at": "2026-05-28T13:51:24.548412",
       "profile": {
         "segment_rfm_tier": "Platinum-L",
         "budget": "30 triệu trở lên",
@@ -833,26 +833,26 @@
         "nba_strategy": "Định hướng lựa chọn",
         "psychology_trigger": "Narrowing + Personalization",
         "product_focus": "Bộ sưu tập Nhẫn mới nhất",
-        "product_rec_1": "Emerald Elegance",
-        "product_rec_2": "Solitaire Classic",
-        "product_rec_3": "Radiant Grace",
+        "product_rec_1": "Elegant Diamond Ring",
+        "product_rec_2": "Classic Solitaire",
+        "product_rec_3": "Graceful Halo",
         "online_insight": "Khách xem nhẫn đính hôn 3 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 1 lần, quay lại web 3 lần.",
         "urgency_signal": "Sinh nhật trước 29 ngày — cơ hội tặng quà | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách thuộc phân khúc Platinum-L đang cân nhắc nhẫn đính hôn có thể hướng tới phong cách thanh lịch và ngân sách khá thoải mái.",
+        "key_insight": "Khách đang tìm nhẫn đính hôn, có khả năng chuẩn bị cho dịp cầu hôn, ưu tiên phong cách thanh lịch và chú trọng vào ngân sách cao.",
         "script": {
-          "opening": "Chào anh chị! Hôm nay bên em vừa về bộ sưu tập nhẫn kim cương mới nhất, nếu anh chị thích phong cách thanh lịch thì chắc chắn sẽ có lựa chọn tuyệt vời đấy.",
-          "khai_thac": "Anh chị đang quan tâm đến dịp đặc biệt nào không, có thể là cầu hôn hay một kỷ niệm quan trọng?",
-          "goi_y": "Dựa trên phong cách thanh lịch mà anh chị ưa thích, em có thể giới thiệu mẫu nhẫn Emerald Elegance, Solitaire Classic và Radiant Grace, cả ba đều rất phù hợp.",
-          "chot": "Nếu em thấy mẫu nào hợp ý anh chị, mình có thể thử ngay để cảm nhận sự đặc biệt của mỗi chiếc nhẫn.",
-          "upsell": "Ngoài những chiếc nhẫn, anh chị có thể cân nhắc thêm một dây chuyền kim cương nhỏ xinh, hợp với set để làm quà cho dịp đặc biệt sắp tới."
+          "opening": "Chào chị, em có thể giúp chị tìm một chiếc nhẫn phù hợp với phong cách thanh lịch mà chị yêu thích không? Bên em vừa có bộ sưu tập nhẫn mới rất đẹp, chắc chắn có mẫu phù hợp nhu cầu của chị.",
+          "khai_thac": "Chị đang tìm một chiếc nhẫn cho dịp đặc biệt nào không? Em có thể giúp chị tìm ra 3 mẫu hoàn hảo nhất.",
+          "goi_y": "Em nghĩ chị có thể thích các mẫu nhẫn từ bộ sưu tập mới của chúng mình như 'Elegant Diamond Ring', 'Classic Solitaire', hoặc 'Graceful Halo', rất phù hợp với ngân sách từ 30 triệu trở lên của chị.",
+          "chot": "Chị có thấy mẫu nào trong ba chiếc nhẫn này thực sự hấp dẫn để mình xem xét thêm không?",
+          "upsell": "Mình có thể phối thêm dây chuyền hoặc hoa tai nhỏ cùng bộ, giúp bộ trang sức càng thêm hoàn hảo cho dịp quan trọng của chị."
         },
         "script_source": "llm",
-        "tokens_used": 1319
+        "tokens_used": 1539
       }
     },
     {
       "customer_id": "KH019",
-      "processed_at": "2026-04-23T09:37:00.805513",
+      "processed_at": "2026-05-28T13:51:24.548602",
       "profile": {
         "segment_rfm_tier": "Platinum-H",
         "budget": "30 triệu trở lên",
@@ -880,26 +880,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
-        "product_rec_1": "Nhẫn Đính Hôn Kim Cương Tự Nhiên",
-        "product_rec_2": "Lắc Tay Vàng Trắng Độc Quyền",
-        "product_rec_3": "Nhẫn Đính Hôn Kiểu Trẻ Trung",
+        "product_rec_1": "Nhẫn Đính Hôn 2025 - Kim cương tự nhiên mẫu A",
+        "product_rec_2": "Nhẫn Đính Hôn 2025 - Kim cương tự nhiên mẫu B",
+        "product_rec_3": "Lắc tay vàng trắng mẫu trẻ trung",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 1 lần, đã mở 3 chiến dịch engagement, đã mở 3 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng có dấu hiệu chuẩn bị cầu hôn, yêu thích phong cách trẻ trung và chuộng dịch vụ độc quyền.",
+        "key_insight": "Khách thích phong cách trẻ trung, chi tiêu cao nhưng có khuynh hướng sử dụng discount; ưu tiên chăm sóc đặc biệt và sản phẩm độc quyền.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay em đã chuẩn bị vài thiết kế mới từ bộ sưu tập Nhẫn Đính Hôn 2025 đặc biệt cho anh/chị. Không biết anh/chị có thích phong cách nào không?",
-          "khai_thac": "Em thấy màu vàng trắng rất hợp với phong cách trẻ trung của anh/chị. Anh/chị đang tìm một món trang sức cho dịp ý nghĩa nào đó không?",
-          "goi_y": "Nếu anh/chị đang tìm kiếm một chiếc nhẫn cầu hôn, có một mẫu mới với kim cương tự nhiên, thiết kế tinh tế rất phù hợp cho chính anh/chị.",
-          "chot": "Chiếc nhẫn này được tạo ra với số lượng rất giới hạn cho khách hàng đặc biệt như anh/chị. Em nghĩ sẽ rất hoàn hảo cho lời cầu hôn của anh/chị.",
-          "upsell": "Ngoài ra, em có thể giới thiệu thêm một chiếc lắc tay vàng trắng độc quyền đi kèm để làm món quà ý nghĩa hơn?"
+          "opening": "Chào anh! Em thấy hôm nay mình có rất nhiều mẫu lắc tay phong cách trẻ trung, phù hợp với anh. Có dịp đặc biệt nào không anh?",
+          "khai_thac": "Anh đã nghĩ đến việc thêm một món trang sức đặc biệt vào bộ sưu tập của mình chưa? Có gì em giúp anh tìm một sự lựa chọn ưng ý nhé.",
+          "goi_y": "Em có thể giới thiệu với anh bộ sưu tập Nhẫn Đính Hôn 2025 — với các mẫu kim cương tự nhiên đang rất được yêu thích.",
+          "chot": "Anh thử nhìn kỹ hơn một chút vào chiếc nhẫn này nhé, thiết kế dành riêng cho khách hàng premium như anh, nổi bật và rất độc đáo.",
+          "upsell": "Ngoài ra, em còn có một số lắc tay vàng trắng mới với thiết kế trẻ trung. Nếu quan tâm, em có thể mang ra cho anh xem ngay."
         },
         "script_source": "llm",
-        "tokens_used": 1378
+        "tokens_used": 1580
       }
     },
     {
       "customer_id": "KH020",
-      "processed_at": "2026-04-23T09:37:00.805999",
+      "processed_at": "2026-05-28T13:51:24.548785",
       "profile": {
         "segment_rfm_tier": "Gold-L",
         "budget": "15–30 triệu",
@@ -927,26 +927,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
-        "product_rec_1": "Dây chuyền vàng trắng Elegant",
-        "product_rec_2": "Gift Finder Hộp quà",
-        "product_rec_3": "Nhẫn đính hôn Diamond Classic",
+        "product_rec_1": "Dây chuyền vàng trắng VIP",
+        "product_rec_2": "Bông tai vàng trắng trẻ trung",
+        "product_rec_3": "Vòng tay vàng trắng thiết kế độc quyền",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 2 lần, xem sản phẩm kim cương 3 lần, quay lại web 1 lần, đã mở 2 chiến dịch engagement, đã mở 3 chiến dịch kỷ niệm.",
         "urgency_signal": "🎂 Sinh nhật còn 1 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách sẵn sàng chi tiêu cho trải nghiệm cao cấp và giá trị, đặc biệt thích cảm giác độc quyền.",
+        "key_insight": "Khách thuộc phân khúc cao cấp, thích phong cách trẻ trung, đang tìm món quà cao cấp nhân dịp sinh nhật.",
         "script": {
-          "opening": "Chào chị, hôm nay em có một bộ sưu tập dây chuyền vàng trắng mới về, thanh lịch và rất trẻ trung, em nghĩ hợp với phong cách của chị lắm.",
-          "khai_thac": "Chị đang tìm món quà đặc biệt nào không ạ? Em có thể giúp chị chọn món quà ý nghĩa nhất.",
-          "goi_y": "Em vừa chuẩn bị một số mẫu dây chuyền từ Gift Finder, phù hợp cho dịp đặc biệt, chị có muốn xem ngay?",
-          "chot": "Những chiếc dây chuyền này sẽ là điểm nhấn hoàn hảo cho tủ đồ của chị. Chị nghĩ sao nếu mình chọn món này để làm quà?",
-          "upsell": "Nếu chị thích, em có thể tư vấn thêm vài mẫu nhẫn đính hôn mới nhất vừa về, rất phù hợp để kết hợp với dây chuyền này."
+          "opening": "Chào chị, chúc mừng sinh nhật sớm nhé! Hôm nay chị muốn xem những mẫu trẻ trung nào cho bộ sưu tập của mình không?",
+          "khai_thac": "Chị thích phong cách vàng trắng trẻ trung, không biết chị đang tìm dây chuyền cho dịp đặc biệt hay món quà tặng ai đó?",
+          "goi_y": "Để em giới thiệu chị mẫu dây chuyền vàng trắng thiết kế độc quyền bên em, vừa về rất đẹp và hợp phong cách chị thích.",
+          "chot": "Nếu chị thấy phù hợp, em có thể giúp chị gói lại thành một hộp quà tặng cao cấp, chắc chắn người nhận sẽ rất ấn tượng.",
+          "upsell": "Chị có muốn xem thêm đôi bông tai hoặc vòng tay đi kèm để tăng thêm phần nổi bật cho bộ trang sức không?"
         },
         "script_source": "llm",
-        "tokens_used": 1342
+        "tokens_used": 1551
       }
     },
     {
       "customer_id": "KH021",
-      "processed_at": "2026-04-23T09:37:00.806329",
+      "processed_at": "2026-05-28T13:51:24.548965",
       "profile": {
         "segment_rfm_tier": "Platinum-L",
         "budget": "30 triệu trở lên",
@@ -974,26 +974,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
-        "product_rec_1": "Dây chuyền vàng 18K phong cách trẻ trung",
-        "product_rec_2": "Bộ Quà Kỷ Niệm cao cấp",
-        "product_rec_3": "Mặt dây chuyền kim cương",
+        "product_rec_1": "Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_2": "Dây chuyền vàng 18K trẻ trung",
+        "product_rec_3": "Nhẫn kim cương thanh lịch",
         "online_insight": "Khách xem trang sản phẩm 3 lần, xem sản phẩm kim cương 4 lần, quay lại web 3 lần, đã mở 4 chiến dịch kỷ niệm.",
         "urgency_signal": "",
-        "key_insight": "Khách hàng ưu tiên sự độc đáo và trẻ trung cho một dịp kỷ niệm đặc biệt.",
+        "key_insight": "Khách quan tâm đến sản phẩm kỷ niệm và có sở thích phong cách trẻ trung, thường sử dụng ưu đãi khi mua hàng.",
         "script": {
-          "opening": "Chào mừng chị đã đến! Em có cảm giác hôm nay chị đang tìm một thứ gì đó rất đặc biệt phải không ạ? Đợt này bên em có bộ sưu tập dây chuyền vàng 18K mới, rất phù hợp với phong cách trẻ trung mà chị yêu thích.",
-          "khai_thac": "Chị đang có kế hoạch cho một dịp đặc biệt nào sắp tới không? Em có thể giúp chị tìm một món quà ý nghĩa.",
-          "goi_y": "Nếu chị quan tâm đến dây chuyền, em nghĩ bộ Quà Kỷ Niệm cao cấp với khả năng khắc tên riêng sẽ làm chị thích thú đó.",
-          "chot": "Chị thấy thiết kế này có đáp ứng được mong đợi về sự đặc biệt mà chị đang tìm kiếm cho dịp sắp tới không ạ?",
-          "upsell": "Ngoài ra, bên em còn có các sản phẩm kết hợp với kim cương, tạo thêm nét độc đáo và sang trọng cho bộ trang sức của chị."
+          "opening": "Chào anh! Em thấy anh có gu trẻ trung, em có vài mẫu dây chuyền vàng 18K mới về, rất hợp phong cách này. Anh đang tìm món quà đặc biệt nào không?",
+          "khai_thac": "Anh thường chọn trang sức theo dịp hay theo cảm hứng riêng? Em có thể giúp anh chọn một món thật sự ý nghĩa.",
+          "goi_y": "Bên em có Bộ Quà Kỷ Niệm cao cấp, đang được khách hàng Platinum yêu thích. Bộ này có thể khắc tên và đi kèm hộp quà đặc biệt.",
+          "chot": "Mẫu này thực sự rất hợp với không khí kỷ niệm và phong cách anh thích, mình gói lại để anh xem thử nhé?",
+          "upsell": "Ngoài ra, anh có thể tham khảo thêm vài mẫu nhẫn kim cương, sẽ làm nổi bật bộ trang sức anh chọn hơn đấy."
         },
         "script_source": "llm",
-        "tokens_used": 1325
+        "tokens_used": 1518
       }
     },
     {
       "customer_id": "KH022",
-      "processed_at": "2026-04-23T09:37:00.806662",
+      "processed_at": "2026-05-28T13:51:24.549144",
       "profile": {
         "segment_rfm_tier": "Platinum-L",
         "budget": "30 triệu trở lên",
@@ -1021,26 +1021,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Set phổ biến — dễ chọn, ý nghĩa",
-        "product_rec_1": "Infinity Diamond Ring",
-        "product_rec_2": "Eternity Diamond Ring",
-        "product_rec_3": "Trinity Gift Set",
+        "product_rec_1": "Regal Ring",
+        "product_rec_2": "Diamond Minimalist Band",
+        "product_rec_3": "Luxury Gift Set",
         "online_insight": "Khách xem nhẫn đính hôn 1 lần, xem sản phẩm kim cương 5 lần, quay lại web 1 lần, đã ghé online trong tháng qua (21 ngày trước), đã mở 1 chiến dịch kỷ niệm.",
         "urgency_signal": "🎂 Sinh nhật còn 5 ngày!",
-        "key_insight": "Khách thuộc phân khúc Platinum, thích phong cách tối giản và đang có thể tìm quà cho dịp đặc biệt.",
+        "key_insight": "Khách thuộc phân khúc Platinum, thích phong cách tối giản và đang tìm kiếm món quà có thể là cho dịp đặc biệt.",
         "script": {
-          "opening": "Chào anh/chị, em là Linh, rất hân hạnh được phục vụ anh/chị hôm nay. Bên em vừa có một bộ sưu tập nhẫn kim cương mới về, rất tối giản và tinh tế. Anh/chị có muốn xem qua không ạ?",
-          "khai_thac": "Nhìn phong cách của anh/chị, em đoán anh/chị có thể đang tìm một món quà đặc biệt cho dịp quan trọng phải không ạ?",
-          "goi_y": "Em có sẵn vài mẫu nhẫn kim cương tối giản cực kỳ sang trọng, rất hợp với lựa chọn của những khách hàng tinh tế như anh/chị. Dòng Infinity và Eternity bên em được nhiều người yêu thích lắm ạ.",
-          "chot": "Anh/chị thấy mẫu nào phù hợp nhất với điều mình đang tìm kiếm? Bọn em luôn đảm bảo dịch vụ đổi trả linh hoạt cho khách hàng thân thiết của mình.",
-          "upsell": "Nếu mình thích sự đồng bộ, bên em còn dòng trang sức cùng bộ với nhẫn này đấy ạ. Rất hiếm có khách hàng được giới thiệu trọn bộ như vậy!"
+          "opening": "Chào anh, hôm nay em có dịp chào đón anh đến với bộ sưu tập nhẫn kim cương tối giản mới nhất của chúng em. Anh có đang tìm kiếm món quà đặc biệt nào không?",
+          "khai_thac": "Với phong cách tối giản, anh có thích một chiếc nhẫn kiểu thanh lịch cho một dịp đặc biệt sắp tới không?",
+          "goi_y": "Em có một vài mẫu độc quyền dành riêng cho khách VIP như anh, như chiếc 'Regal Ring', 'Diamond Minimalist Band'. Anh có muốn xem thử không?",
+          "chot": "Khi đeo lên tay, anh sẽ thấy sự khác biệt của thiết kế riêng cho anh. Em thấy nó rất phù hợp với tiêu chí mà anh đang tìm kiếm.",
+          "upsell": "Ngoài ra, em có một bộ quà tặng kèm hộp trang sức rất xinh, đặc biệt dành cho khách hàng thân thiết của chúng em. Anh có muốn thêm vào không?"
         },
         "script_source": "llm",
-        "tokens_used": 1351
+        "tokens_used": 1520
       }
     },
     {
       "customer_id": "KH023",
-      "processed_at": "2026-04-23T09:37:00.807005",
+      "processed_at": "2026-05-28T13:51:24.549330",
       "profile": {
         "segment_rfm_tier": "Platinum-L",
         "budget": "30 triệu trở lên",
@@ -1068,26 +1068,26 @@
         "nba_strategy": "Chốt đơn nhanh",
         "psychology_trigger": "Social Proof + Scarcity",
         "product_focus": "Gợi ý quà tặng kỷ niệm",
-        "product_rec_1": "Lắc tay vàng 14K mã SP01",
-        "product_rec_2": "Nhẫn đính hôn kim cương mã NDH02",
-        "product_rec_3": "Trang sức kim cương mã TS03",
+        "product_rec_1": "Lắc tay Sophia Times",
+        "product_rec_2": "Lắc tay Natural Grace",
+        "product_rec_3": "Bông tai kim cương nhỏ",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 1 lần, xem sản phẩm kim cương 2 lần, quay lại web 4 lần, đã mở 1 chiến dịch engagement, đã mở 7 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách thích phong cách sang trọng, đã có giỏ hàng online, cần chốt đơn nhanh chóng.",
+        "key_insight": "Khách có tín hiệu mua cao, thích phong cách sang trọng, nhạy cảm với hàng số lượng hạn chế; nên tập trung chốt đơn nhanh.",
         "script": {
-          "opening": "Chào anh chị! Gần đây bên em vừa về một bộ sưu tập lắc tay vàng 14K rất sang trọng, mẫu mà nhiều khách hàng yêu thích trong thời gian qua.",
-          "khai_thac": "Anh chị đang tìm món trang sức cho dịp gì đặc biệt không? Để em giới thiệu những mẫu phù hợp nhất.",
-          "goi_y": "Đối với phong cách sang trọng, em nghĩ mẫu lắc tay này sẽ thu hút anh chị. Nó đang rất hot và số lượng cũng khá hạn chế.",
-          "chot": "Mẫu này đang được rất nhiều người chọn vì thiết kế độc đáo và tinh tế. Em thấy gần đây hàng không còn nhiều, anh chị có muốn cân nhắc lấy ngay cho dịp đặc biệt sắp tới này không?",
-          "upsell": "Ngoài lắc tay, bên em còn có vài mẫu nhẫn đính hôn và trang sức kim cương tuyệt đẹp, anh chị có muốn xem thêm không?"
+          "opening": "Chị chào chị! Bộ sưu tập lắc tay vàng 14K bên em đang rất được ưa chuộng, không biết chị có dịp đặc biệt nào sắp tới mà cần tìm không ạ?",
+          "khai_thac": "Chị thích kiểu dáng nào nhỉ? Em thấy chị có phong cách rất sang trọng, nên chắc chắn sẽ có mẫu hợp.",
+          "goi_y": "Em đề xuất mẫu lắc tay Sophia Times và Natural Grace, cả hai đều đang có số lượng hạn chế vì sự yêu thích từ nhiều khách hàng.",
+          "chot": "Không biết chị có muốn xem thử lắc tay này không? Rất nhiều người đã chọn và ưng ngay khi nhìn thấy.",
+          "upsell": "Ngoài ra, em có thể giới thiệu thêm một đôi bông tai kim cương nhỏ để chị có set trang sức hoàn chỉnh hơn."
         },
         "script_source": "llm",
-        "tokens_used": 1347
+        "tokens_used": 1533
       }
     },
     {
       "customer_id": "KH024",
-      "processed_at": "2026-04-23T09:37:00.807315",
+      "processed_at": "2026-05-28T13:51:24.549510",
       "profile": {
         "segment_rfm_tier": "Platinum-M",
         "budget": "30 triệu trở lên",
@@ -1115,26 +1115,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
-        "product_rec_1": "Nhẫn Elegance vàng trắng",
-        "product_rec_2": "Hộp quà tặng cao cấp",
-        "product_rec_3": "Nhẫn Timeless Beauty vàng trắng",
+        "product_rec_1": "Nhẫn cầu hôn vàng trắng kim cương phiên bản đặc biệt",
+        "product_rec_2": "Gift Finder hộp quà tặng cao cấp",
+        "product_rec_3": "Nhẫn sang trọng trắng vàng với kim cương",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 3 lần, đã mở 1 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách đang chuẩn bị cho sự kiện cầu hôn, ưa thích phong cách sang trọng, ngân sách rộng rãi.",
+        "key_insight": "Khách thuộc phân khúc Platinum-M, chi tiêu cao, quan tâm đến sản phẩm độc quyền và sang trọng, có dấu hiệu chuẩn bị cầu hôn.",
         "script": {
-          "opening": "Chào mừng anh/chị đã đến với cửa hàng. Bên em vừa về bộ sưu tập nhẫn đính hôn rất tinh tế trong vàng trắng, chắc chắn anh/chị sẽ thấy thú vị.",
-          "khai_thac": "Anh/chị đang tìm món quà đặc biệt cho dịp quan trọng nào phải không ạ?",
-          "goi_y": "Em nghĩ mẫu nhẫn vàng trắng 'Elegance' này sẽ rất phù hợp với phong cách sang trọng mà anh/chị yêu thích.",
-          "chot": "Để đảm bảo chiếc nhẫn hoàn hảo nhất cho anh/chị, mình có thể tiến hành điều chỉnh vừa chuẩn trong không gian riêng tư ngay tại đây.",
-          "upsell": "Nếu anh/chị quan tâm, bên em cũng có bộ hộp quà tặng cao cấp, là lựa chọn hoàn hảo để tạo một ấn tượng đặc biệt trong ngày quan trọng ấy."
+          "opening": "Chào chị, hôm nay em rất vui được đón chị. Bộ sưu tập nhẫn vàng trắng sang trọng bên em vừa về, chắc chắn sẽ khiến chị hài lòng.",
+          "khai_thac": "Chị đang tìm kiếm một món quà đặc biệt, có dịp gì đặc biệt sắp tới không chị?",
+          "goi_y": "Với phong cách sang trọng của chị, em nghĩ chiếc nhẫn cầu hôn vàng trắng với kim cương từ Gift Finder sẽ rất phù hợp ạ.",
+          "chot": "Sản phẩm này là phiên bản độc quyền cho khách hàng VIP như chị, em đảm bảo chị sẽ thấy hài lòng từ thiết kế đến độ tinh xảo.",
+          "upsell": "Chị có muốn em sắp xếp thêm hộp quà tặng cao cấp để món quà thêm phần hoàn hảo không ạ?"
         },
         "script_source": "llm",
-        "tokens_used": 1330
+        "tokens_used": 1553
       }
     },
     {
       "customer_id": "KH025",
-      "processed_at": "2026-04-23T09:37:00.807626",
+      "processed_at": "2026-05-28T13:51:24.549701",
       "profile": {
         "segment_rfm_tier": "Gold-L",
         "budget": "15–30 triệu",
@@ -1162,26 +1162,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
-        "product_rec_1": "Bộ Quà Kỷ Niệm cao cấp",
-        "product_rec_2": "Dây chuyền vàng 14K phong cách tối giản",
-        "product_rec_3": "Nhẫn đính hôn bạch kim trong bộ sưu tập kim cương",
+        "product_rec_1": "Dây chuyền vàng 14K Tối Giản",
+        "product_rec_2": "Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_3": "Mặt dây chuyền kim cương",
         "online_insight": "Khách đã thêm 3 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 5 lần, xem sản phẩm kim cương 4 lần, quay lại web 4 lần, đã mở 6 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách hàng yêu thích phong cách tối giản và có khả năng cao tìm quà cho kỷ niệm.",
+        "key_insight": "Khách có phong cách tối giản, đang cân nhắc món quà kỷ niệm, quan tâm đến kim cương và thường sử dụng ưu đãi.",
         "script": {
-          "opening": "Chào anh/chị, em rất vui được đón tiếp anh/chị hôm nay. Em có nhiều mẫu dây chuyền vàng 14K phong cách tối giản mà nhiều khách VIP của cửa hàng rất ưa thích. Anh/chị có dịp đặc biệt nào trong thời gian tới không ạ?",
-          "khai_thac": "Những mẫu dây chuyền tối giản thường được ưa chuộng bởi các khách hàng muốn tìm sự tinh tế mà vẫn nổi bật. Anh/chị có ý định tìm kiếm món quà gì cho ai không ạ?",
-          "goi_y": "Em xin giới thiệu với anh/chị Bộ Quà Kỷ Niệm cao cấp của chúng em, có thể khắc tên và đi kèm hộp quà đặc biệt. Rất thích hợp cho những dịp đáng nhớ.",
-          "chot": "Em có thể chuẩn bị những mẫu này để anh/chị xem xét kỹ hơn. Chúng ta có nhiều lựa chọn tuyệt vời dành riêng cho khách hàng đặc biệt như anh/chị.",
-          "upsell": "Ngoài ra, em thấy những chiếc nhẫn đính hôn trong bộ sưu tập kim cương mới về cũng rất hợp cho lễ kỷ niệm. Anh/chị có muốn tham khảo thêm không?"
+          "opening": "Chào anh! Em rất vui được gặp anh hôm nay. Em vừa chuẩn bị một vài mẫu dây chuyền tối giản vàng 14K rất phù hợp với phong cách của anh, mời anh xem qua nhé!",
+          "khai_thac": "Anh đang tìm sản phẩm cho một dịp đặc biệt nào không, hay chỉ muốn tặng một món quà ý nghĩa?",
+          "goi_y": "Dạ, đây là Bộ Quà Kỷ Niệm cao cấp bên em, có dịch vụ khắc tên và hộp quà đặc biệt, chắc chắn sẽ tạo ấn tượng mạnh.",
+          "chot": "Nếu anh ưng ý, em sẵn sàng hoàn tất quy trình đặt hàng ngay để đảm bảo anh có trải nghiệm tốt nhất và sớm sở hữu món quà độc quyền này.",
+          "upsell": "Nhân tiện, em có thể đề xuất thêm một vài món nữ trang kim cương bên em, rất tinh tế và phù hợp làm quà kèm theo đấy ạ."
         },
         "script_source": "llm",
-        "tokens_used": 1419
+        "tokens_used": 1579
       }
     },
     {
       "customer_id": "KH026",
-      "processed_at": "2026-04-23T09:37:00.807931",
+      "processed_at": "2026-05-28T13:51:24.549884",
       "profile": {
         "segment_rfm_tier": "Platinum-H",
         "budget": "30 triệu trở lên",
@@ -1209,26 +1209,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Premium Self-Reward — thiết kế độc đáo",
-        "product_rec_1": "Lắc tay Vàng 14K Sang Trọng",
-        "product_rec_2": "Nhẫn Đính Hôn Kim Cương",
-        "product_rec_3": "Lắc tay thiết kế Premium",
+        "product_rec_1": "Eternal Elegance",
+        "product_rec_2": "Trinity Luxe Bracelet",
+        "product_rec_3": "Radiant Reflection Ring",
         "online_insight": "Khách đã thêm 4 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 2 lần, xem nhẫn đính hôn 2 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 2 lần, quay lại web 3 lần, đã mở 1 chiến dịch engagement, đã mở 4 chiến dịch kỷ niệm.",
         "urgency_signal": "🎂 Sinh nhật còn 10 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng đang có dấu hiệu tự thưởng hoặc chuẩn bị cho dịp cầu hôn, thích phong cách sang trọng.",
+        "key_insight": "Khách có nhu cầu thưởng cho bản thân, ngân sách cao và gần đến sinh nhật, có thể quan tâm đến các sản phẩm độc quyền và thiết kế sang trọng.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay cửa hàng vừa nhận về bộ sưu tập lắc tay vàng 14K nổi bật cho mùa này, em nghĩ phong cách sang trọng sẽ làm anh/chị thích thú.",
-          "khai_thac": "Anh/chị đang tìm kiếm một món trang sức để tự thưởng cho mình hay có dịp đặc biệt nào khác không ạ?",
-          "goi_y": "Em có thể giới thiệu cho anh/chị bộ sưu tập Premium Self-Reward với những thiết kế độc đáo. Anh/chị nghĩ sao về mẫu nổi bật này?",
-          "chot": "Bộ sưu tập này rất được ưa chuộng trong hàng ngũ khách VIP của chúng tôi, nếu anh/chị thích thì em sẽ sắp xếp trải nghiệm dùng thử ngay.",
-          "upsell": "Nếu anh/chị muốn làm cho món quà thêm phần đặc biệt, em cũng có nhẫn đính hôn kim cương với kiểu dáng tinh tế có thể xem qua."
+          "opening": "Chào chị, em rất vui khi được đón tiếp chị hôm nay. Em có thấy rằng bộ sưu tập lắc tay vàng 14K bên em vừa về những mẫu thiết kế rất sang trọng, em nghĩ sẽ rất hợp với phong cách của chị.",
+          "khai_thac": "Không biết chị có đang tìm kiếm một món quà tự thưởng cho mình nhân dịp đặc biệt gì không ạ? Hay chị đang có một ý tưởng cụ thể nào trong tâm trí?",
+          "goi_y": "Em xin giới thiệu với chị bộ sưu tập Premium Self-Reward, trong đó chiếc lắc tay 'Eternal Elegance' đang là một trong những thiết kế độc đáo được nhiều chị em yêu thích.",
+          "chot": "Chiếc lắc tay này không chỉ đẹp mà còn rất phù hợp để tạo dấu ấn riêng, chị có muốn thử qua không ạ?",
+          "upsell": "Ngoài lắc tay, bên em còn có những mẫu nhẫn đính hôn mới với thiết kế độc quyền. Nếu chị đang có dịp đặc biệt, em sẵn sàng giới thiệu cùng chị."
         },
         "script_source": "llm",
-        "tokens_used": 1385
+        "tokens_used": 1618
       }
     },
     {
       "customer_id": "KH027",
-      "processed_at": "2026-04-23T09:37:00.808238",
+      "processed_at": "2026-05-28T13:51:24.550049",
       "profile": {
         "segment_rfm_tier": "Gold-H",
         "budget": "15–30 triệu",
@@ -1256,26 +1256,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
-        "product_rec_1": "Dây chuyền kim cương Luxura",
-        "product_rec_2": "Nhẫn Đính Hôn 2025 với kim cương tự nhiên",
-        "product_rec_3": "Bông tai kim cương Sparkle",
+        "product_rec_1": "Nhẫn Đính Hôn 2025",
+        "product_rec_2": "Dây Chuyền Kim Cương Hoàn Mỹ",
+        "product_rec_3": "Lắc Tay Kim Cương Exclusive",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 2 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 2 lần, quay lại web 3 lần, đã mở 3 chiến dịch engagement, đã mở 2 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hứng thú với dòng sản phẩm độc quyền và đang xem các lựa chọn cho cầu hôn.",
+        "key_insight": "Khách có dấu hiệu chuẩn bị cầu hôn, từng thêm sản phẩm vào giỏ hàng nhưng chưa mua, thích phong cách sang trọng và đã từng sử dụng ưu đãi.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay em có một vài mẫu dây chuyền kim cương sang trọng vừa về, không biết anh/chị có dịp gì đặc biệt sắp tới không?",
-          "khai_thac": "Anh/chị có muốn tìm một thứ gì đó thật ý nghĩa và độc quyền cho khoảnh khắc trọng đại không?",
-          "goi_y": "Em nghĩ bộ sưu tập Nhẫn Đính Hôn 2025 với kim cương tự nhiên sẽ là lựa chọn hoàn hảo, nhẹ nhàng và vô cùng sang trọng.",
-          "chot": "Anh/chị cảm thấy mẫu này phù hợp với phong cách mình thích không? Nếu ưng ý, em có thể giữ riêng cho anh/chị mẫu này.",
-          "upsell": "Ngoài ra, để thêm phần đặc biệt, anh/chị có muốn em giúp chọn một đôi bông tai kim cương đi kèm không ạ?"
+          "opening": "Chào chị, rất vui được gặp chị hôm nay. Bên em vừa về một bộ sưu tập kim cương tự nhiên rất đẳng cấp, chắc chắn hợp với phong cách sang trọng của chị.",
+          "khai_thac": "Em có thể giúp chị tìm kiếm một món trang sức để tạo ấn tượng đặc biệt không? Có dịp nào đặc biệt mà chị đang chuẩn bị không ạ?",
+          "goi_y": "Em nghĩ bộ sưu tập Nhẫn Đính Hôn 2025 với thiết kế tinh tế sẽ rất phù hợp nếu chị đang nghĩ về một sự kiện quan trọng.",
+          "chot": "Mẫu nhẫn này thực sự rất đặc sắc và em có thể giữ cho chị một chiếc độc quyền để chị xem xét thêm nhé.",
+          "upsell": "Ngoài nhẫn, em có thể giới thiệu dòng dây chuyền kim cương cùng bộ, chắc chắn sẽ làm bộ trang phục thêm phần hoàn hảo."
         },
         "script_source": "llm",
-        "tokens_used": 1354
+        "tokens_used": 1580
       }
     },
     {
       "customer_id": "KH028",
-      "processed_at": "2026-04-23T09:37:00.808540",
+      "processed_at": "2026-05-28T13:51:24.550212",
       "profile": {
         "segment_rfm_tier": "Silver-L",
         "budget": "15–30 triệu",
@@ -1303,26 +1303,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
-        "product_rec_1": "Dây chuyền Vàng 18K Khắc Tên",
-        "product_rec_2": "Bộ Quà Kỷ Niệm Cao Cấp",
-        "product_rec_3": "Hộp Quà Đặc Biệt",
+        "product_rec_1": "Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_2": "Dây chuyền vàng 18K",
+        "product_rec_3": "Nhẫn kim cương độc quyền",
         "online_insight": "Khách xem trang sản phẩm 1 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 5 lần, quay lại web 4 lần, đã ghé online trong tháng qua (26 ngày trước), đã mở 3 chiến dịch kỷ niệm.",
         "urgency_signal": "💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách muốn sản phẩm trẻ trung, độc quyền cho kỷ niệm đáng nhớ, rất có thể là sự kiện cầu hôn.",
+        "key_insight": "Khách thích phong cách trẻ trung nhưng ưu tiên trải nghiệm độc quyền, có khả năng đang tìm sản phẩm cho dịp cầu hôn hoặc kỷ niệm quan trọng.",
         "script": {
-          "opening": "Anh/chị thích phong cách trẻ trung, không biết có đang tìm kiếm món quà nào đặc biệt không ạ?",
-          "khai_thac": "Gần tới kỷ niệm nào đáng nhớ mà anh/chị muốn đánh dấu bằng một trang sức hẳn nhiên rồi đúng không?",
-          "goi_y": "Trong bộ Sưu tập Quà Kỷ Niệm cao cấp, em có mẫu dây chuyền vàng 18K với lựa chọn khắc tên riêng rất đặc biệt.",
-          "chot": "Mẫu này không chỉ mang nét trẻ trung mà còn độc quyền cho các khách hàng VIP của chúng em.",
-          "upsell": "Ngoài ra, bộ quà này đi kèm một hộp quà đặc biệt, tạo nên một trải nghiệm hoàn hảo, anh/chị không thể tìm thấy ở bất cứ đâu khác."
+          "opening": "Chào chị, rất vui khi gặp chị hôm nay! Bộ sưu tập dây chuyền vàng 18K bên em vừa về mẫu mới, phong cách trẻ trung chị ưa thích, chắc chắn chị sẽ ưng ý.",
+          "khai_thac": "Không biết chị đang tìm kiếm món trang sức cho dịp kỷ niệm đặc biệt nào không? Em có thể giúp chị tìm lựa chọn hoàn hảo.",
+          "goi_y": "Dạ, nếu chị quan tâm, bên em có dòng sản phẩm Bộ Quà Kỷ Niệm cao cấp, có thể khắc tên và kèm hộp quà đặc biệt, rất phù hợp cho những dịp trọng đại.",
+          "chot": "Em cảm nhận là mẫu này rất hợp với phong cách của chị và cũng đặc biệt dành riêng cho khách VIP như chị. Chị có muốn thử ngay không ạ?",
+          "upsell": "Để món quà thêm phần ý nghĩa, chị có muốn em giới thiệu thêm một mẫu nhẫn độc quyền từ bộ sưu tập kim cương không? Đây là bộ sưu tập riêng cho khách VIP, cực kỳ quý phái."
         },
         "script_source": "llm",
-        "tokens_used": 1333
+        "tokens_used": 1606
       }
     },
     {
       "customer_id": "KH029",
-      "processed_at": "2026-04-23T09:37:00.809069",
+      "processed_at": "2026-05-28T13:51:24.550386",
       "profile": {
         "segment_rfm_tier": "Silver-H",
         "budget": "5–15 triệu",
@@ -1350,26 +1350,26 @@
         "nba_strategy": "Chốt đơn nhanh",
         "psychology_trigger": "Social Proof + Scarcity",
         "product_focus": "Bộ sưu tập Premium Self-Reward — thiết kế độc đáo",
-        "product_rec_1": "dây chuyền 'Tinh Tế Lucasta'",
-        "product_rec_2": "dây chuyền 'Thanh Lịch Odelia'",
-        "product_rec_3": "dây chuyền 'Trẻ Trung Selene'",
+        "product_rec_1": "dây chuyền vàng trắng trẻ trung",
+        "product_rec_2": "nhẫn kim cương cầu hôn",
+        "product_rec_3": "nhẫn kim cương độc đáo",
         "online_insight": "Khách đã thêm 3 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 2 lần, quay lại web 4 lần, đã mở 6 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Đây là cơ hội tốt để chị ấy tự thưởng cho mình với bộ sưu tập Premium Self-Reward.",
+        "key_insight": "Khách có dự định mua sắm cho bản thân, có thể đang cân nhắc cầu hôn, và có tín hiệu mua hàng rất cao.",
         "script": {
-          "opening": "Chào chị, hôm nay bên em có nhiều mẫu mới rất đẹp, đặc biệt là bộ sưu tập trang sức vàng trắng trẻ trung. Chị có đang tìm kiếm mẫu nào đặc biệt không ạ?",
-          "khai_thac": "Chị có dự định tự thưởng hay chọn quà cho dịp gì đặc biệt gần đây không? Bên em thấy nhiều khách hàng cũng yêu thích phong cách tương tự và đã có nhiều lựa chọn ưng ý.",
-          "goi_y": "Giờ em có 3 mẫu dây chuyền vàng trắng trẻ trung từ bộ sưu tập Premium Self-Reward, khá nhiều người chọn nhanh trước khi hết hàng: dây chuyền 'Tinh Tế Lucasta', 'Thanh Lịch Odelia', và 'Trẻ Trung Selene'.",
-          "chot": "Em thấy mẫu 'Tinh Tế Lucasta' đã được rất nhiều khách hàng ưa chuộng, chị có muốn thử ngay để không bỏ lỡ cơ hội sở hữu không ạ?",
-          "upsell": "Nếu chị ưng ý với dây chuyền, em có thể giới thiệu thêm nhẫn từ bộ sưu tập cùng phong cách rất hợp với chị."
+          "opening": "Chào anh, hôm nay bên em có bộ sưu tập Premium Self-Reward cực kỳ ấn tượng, thiết kế rất trẻ trung. Anh có muốn xem thử không ạ?",
+          "khai_thac": "Em thấy bộ sưu tập này đang được rất nhiều người yêu thích. Anh đang tìm kiếm món đồ cho dịp nào đặc biệt chứ ạ?",
+          "goi_y": "Em nghĩ mẫu dây chuyền vàng trắng trong bộ sưu tập này sẽ rất hợp với phong cách trẻ trung của anh. Bên cạnh đó, em có một mẫu nhẫn cầu hôn đang rất được quan tâm.",
+          "chot": "Mẫu dây chuyền này hiện chỉ còn vài chiếc thôi anh ạ. Rất nhiều khách đã lựa chọn nhanh chóng vì sức hút của nó.",
+          "upsell": "Ngoài chiếc dây chuyền, em thấy có nhẫn kim cương độc đáo có thể là điểm nhấn tuyệt vời cho bộ phụ kiện của anh."
         },
         "script_source": "llm",
-        "tokens_used": 1404
+        "tokens_used": 1575
       }
     },
     {
       "customer_id": "KH030",
-      "processed_at": "2026-04-23T09:37:00.809408",
+      "processed_at": "2026-05-28T13:51:24.550546",
       "profile": {
         "segment_rfm_tier": "Silver-M",
         "budget": "< 5 triệu",
@@ -1397,26 +1397,26 @@
         "nba_strategy": "Chốt đơn nhanh",
         "psychology_trigger": "Social Proof + Scarcity",
         "product_focus": "Trending Collection — đang hot nhất tháng",
-        "product_rec_1": "Classic Elegance",
-        "product_rec_2": "Shimmering Diamond",
-        "product_rec_3": "Sophisticated Charm",
+        "product_rec_1": "Mẫu nhẫn kim cương A",
+        "product_rec_2": "Vòng tay kim cương B",
+        "product_rec_3": "Nhẫn phong cách thanh lịch C",
         "online_insight": "Khách đã thêm 5 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 4 lần, xem nhẫn đính hôn 2 lần, xem sản phẩm kim cương 5 lần, quay lại web 7 lần, đã mở 3 chiến dịch kỷ niệm.",
         "urgency_signal": "🎂 Sinh nhật còn 12 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách có xu hướng tự thưởng, thích phong cách thanh lịch, đã xem nhiều nhưng chưa mua.",
+        "key_insight": "Khách có thói quen chi tiêu cao và thường xuyên sử dụng chiết khấu, đang kỳ vọng tìm kiếm tự thưởng nhân dịp sinh nhật sắp tới.",
         "script": {
-          "opening": "Chào chị, hôm nay bên em vừa nhập về bộ sưu tập nhẫn kim cương mới rất hợp với phong cách thanh lịch mà chị tìm kiếm. Mời chị xem qua!",
-          "khai_thac": "Dịp đặc biệt nào sắp tới mà chị muốn tự thưởng một chiếc nhẫn mới không?",
-          "goi_y": "Với thiết kế tinh tế, đây là ba mẫu nhẫn đang được nhiều khách hàng yêu thích: 'Classic Elegance', 'Shimmering Diamond' và 'Sophisticated Charm'.",
-          "chot": "Các mẫu này thực sự rất được săn đón, hiện số lượng có hạn. Chị chọn ngay một mẫu ưng ý nhất nhé?",
-          "upsell": "Chị có muốn xem thêm vòng cổ kim cương có thiết kế thanh lịch để kết hợp cùng nhẫn không?"
+          "opening": "Chào anh! Bộ sưu tập nhẫn đính hôn bên em vừa về nhiều mẫu rất đẹp, anh có hứng thú tìm hiểu chút không?",
+          "khai_thac": "Anh đang tìm nhẫn cho dịp nào đặc biệt hay chỉ là muốn tự thưởng cho mình một món quà?",
+          "goi_y": "Bên em có mẫu nhẫn kim cương trong Trending Collection này đang được rất nhiều khách hàng ưa chuộng, em có thể giới thiệu cho anh xem qua nhé?",
+          "chot": "Mẫu này hiện chỉ còn vài chiếc thôi, em thấy rất hợp với phong cách thanh lịch anh thích.",
+          "upsell": "Ngoài nhẫn, bên em cũng có vòng tay kim cương đang rất được yêu thích, anh muốn xem thêm không?"
         },
         "script_source": "llm",
-        "tokens_used": 1290
+        "tokens_used": 1515
       }
     },
     {
       "customer_id": "KH031",
-      "processed_at": "2026-04-23T09:37:00.809725",
+      "processed_at": "2026-05-28T13:51:24.550710",
       "profile": {
         "segment_rfm_tier": "Silver-L",
         "budget": "15–30 triệu",
@@ -1444,26 +1444,26 @@
         "nba_strategy": "Định hướng lựa chọn",
         "psychology_trigger": "Narrowing + Personalization",
         "product_focus": "Gợi ý quà tặng kỷ niệm",
-        "product_rec_1": "Tinh Tế",
-        "product_rec_2": "Sắc Sảo",
-        "product_rec_3": "Thanh Lịch",
+        "product_rec_1": "sản phẩm 1",
+        "product_rec_2": "sản phẩm 2",
+        "product_rec_3": "sản phẩm 3",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 2 lần, xem sản phẩm kim cương 3 lần, quay lại web 2 lần, đã ghé online trong tháng qua (18 ngày trước), đã mở 1 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách hàng chuộng phong cách tối giản, đang tìm kiếm dây chuyền kim cương trong ngân sách 15-30 triệu.",
+        "key_insight": "Khách thích phong cách tối giản, đang trong giai đoạn tìm kiếm và so sánh, có thể đang tìm mua quà kỷ niệm, nhưng chưa quyết định rõ sản phẩm.",
         "script": {
-          "opening": "Chào anh/chị, em rất vui được chào đón anh/chị hôm nay. Em nghĩ với phong cách tối giản và tinh tế, bộ sưu tập dây chuyền kim cương mới nhất bên em chắc chắn sẽ khiến anh/chị hài lòng.",
-          "khai_thac": "Anh/chị đang tìm món quà đặc biệt cho dịp nào không, hay là đang cân nhắc cho chính mình một sự lựa chọn xứng đáng?",
-          "goi_y": "Dựa trên phong cách tối giản, em đã chọn sẵn ba mẫu dây chuyền kim cương rất hợp mệnh anh/chị: đây là mẫu 'Tinh Tế', 'Sắc Sảo' và 'Thanh Lịch'. Mỗi mẫu mang một vẻ đẹp riêng, vừa đủ nổi bật lại vẫn giữ được nét đơn giản.",
-          "chot": "Ba mẫu này đều có sẵn và em thấy rất nhiều khách hàng đã chọn lựa với sự hài lòng cao. Anh/chị thấy mẫu nào phù hợp nhất?",
-          "upsell": "Ngoài những mẫu dây chuyền, bên em còn có những chiếc nhẫn đơn giản nhưng tinh tế, rất hợp để kết hợp cùng dây chuyền này. Anh/chị có muốn thử không ạ?"
+          "opening": "Chào anh, em thấy anh đang tìm những mẫu thiết kế tối giản mà lại sang trọng. Dạo này bên em có vài mẫu mới rất phù hợp, anh có dịp đặc biệt gì sắp tới không?",
+          "khai_thac": "Anh có đang tìm một món quà kỷ niệm không? Bên em có vài mẫu dây chuyền kim cương được yêu thích gần đây, phù hợp với ngân sách khoảng 15-30 triệu của anh.",
+          "goi_y": "Em nghĩ bộ sưu tập dây chuyền kim cương tối giản này sẽ hợp với phong cách anh thích. Có 3 mẫu nổi bật là sản phẩm 1, sản phẩm 2 và sản phẩm 3, anh thấy thế nào?",
+          "chot": "Nếu anh thích một trong những mẫu này, anh có muốn thử qua để trải nghiệm không? Em tin nó sẽ làm dịp kỷ niệm của anh thêm phần ý nghĩa.",
+          "upsell": "Ngoài dây chuyền, nếu anh muốn tặng thêm một món nhỏ như nhẫn kim cương để tạo thành bộ đôi hoàn thiện, em có thể giới thiệu một vài tùy chọn nữa."
         },
         "script_source": "llm",
-        "tokens_used": 1402
+        "tokens_used": 1608
       }
     },
     {
       "customer_id": "KH032",
-      "processed_at": "2026-04-23T09:37:00.810036",
+      "processed_at": "2026-05-28T13:51:24.550874",
       "profile": {
         "segment_rfm_tier": "Silver-H",
         "budget": "15–30 triệu",
@@ -1491,26 +1491,26 @@
         "nba_strategy": "Chốt đơn nhanh",
         "psychology_trigger": "Social Proof + Scarcity",
         "product_focus": "Gợi ý quà tặng kỷ niệm",
-        "product_rec_1": "Elegance Hoàn Mỹ",
-        "product_rec_2": "Tối Giản Đánh Bóng",
-        "product_rec_3": "Kim Cương Thanh Khiết",
+        "product_rec_1": "Minimal Elegance bông tai",
+        "product_rec_2": "Timeless Diamond vòng cổ",
+        "product_rec_3": "Pure White nhẫn đính hôn",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 2 lần, xem sản phẩm kim cương 2 lần, quay lại web 4 lần, đã mở 1 chiến dịch engagement, đã mở 4 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách rất quan tâm đến thiết kế tối giản và đang tìm sản phẩm bông tai vàng trắng cho dịp kỷ niệm.",
+        "key_insight": "Khách có khả năng mua cao và yêu thích phong cách tối giản, hiện đang tìm kiếm quà tặng kỷ niệm.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay bên em vừa có bộ sưu tập bông tai vàng trắng tối giản mới về, rất được ưa chuộng. Anh/chị có muốn xem qua không ạ?",
-          "khai_thac": "Anh/chị đang tìm trang sức cho dịp đặc biệt nào sắp tới không, hay là muốn tự thưởng cho mình một món thật đẹp?",
-          "goi_y": "Em có sẵn mẫu 'Elegance Hoàn Mỹ' và 'Tối Giản Đánh Bóng' được rất nhiều khách hàng yêu thích từ bộ sưu tập mới. Anh/chị có muốn thử không ạ?",
-          "chot": "Sản phẩm này là một trong những lựa chọn ưu tiên của nhiều khách hàng, mà số lượng có hạn, anh/chị thấy mình có thể cân nhắc không?",
-          "upsell": "Nếu bông tai đã khiến anh/chị ưng ý, em cũng có nhẫn đính hôn vàng trắng kết hợp cực đẹp, anh/chị thử xem sao ạ?"
+          "opening": "Chào chị! Bộ sưu tập bông tai vàng trắng bên em vừa về hàng những mẫu rất xinh, phong cách tối giản rất được ưa chuộng, chị có hứng thú xem qua không?",
+          "khai_thac": "Chị đang kiếm một món quà cho dịp kỷ niệm nào đặc biệt không ạ?",
+          "goi_y": "Bên em có mẫu bông tai vàng trắng tên 'Minimal Elegance' siêu nổi, rất nhiều chị đã chọn cho kỷ niệm của mình.",
+          "chot": "Sản phẩm này hiện chỉ còn vài chiếc tại cửa hàng, chị thấy sao nếu mình chọn ngay hôm nay?",
+          "upsell": "Ngoài ra, nếu chị có hứng thú thì có thể xem thêm vòng cổ 'Timeless Diamond', phối cùng rất hợp đấy chị."
         },
         "script_source": "llm",
-        "tokens_used": 1352
+        "tokens_used": 1521
       }
     },
     {
       "customer_id": "KH033",
-      "processed_at": "2026-04-23T09:37:00.810340",
+      "processed_at": "2026-05-28T13:51:24.551034",
       "profile": {
         "segment_rfm_tier": "Platinum-L",
         "budget": "30 triệu trở lên",
@@ -1539,25 +1539,25 @@
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
         "product_rec_1": "Nhẫn Đính Hôn Kim Cương Tự Nhiên",
-        "product_rec_2": "Lắc Tay Vàng Trắng",
-        "product_rec_3": "Bông Tai Kim Cương",
+        "product_rec_2": "Lắc Tay Vàng Trắng Tối Giản",
+        "product_rec_3": "Khuyên Tai Kim Cương Tự Nhiên",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 5 lần, xem sản phẩm kim cương 2 lần, quay lại web 5 lần, đã mở 4 chiến dịch engagement.",
         "urgency_signal": "Sinh nhật trước 28 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách hàng có phong cách tối giản, thích trải nghiệm độc quyền.",
+        "key_insight": "Khách thích phong cách tối giản, chi tiêu cao, không nhạy cảm với giá và thường mua sản phẩm sang trọng.",
         "script": {
-          "opening": "Chào anh/chị! Hôm nay em rất vui được gặp anh/chị tại cửa hàng. Em có vài mẫu trang sức mới được thiết kế theo phong cách tối giản rất hợp với gu của anh/chị.",
-          "khai_thac": "Anh/chị đang tìm món quà đặc biệt cho ai đó hay tự thưởng cho mình nhân dịp nào không ạ?",
-          "goi_y": "Em muốn giới thiệu anh/chị bộ sưu tập Nhẫn Đính Hôn 2025 với kim cương tự nhiên, rất độc quyền cho khách hàng VIP.",
-          "chot": "Mẫu nhẫn này đang nhận được phản hồi rất tốt từ các khách hàng VIP của bên em. Anh/chị có muốn thử lên tay cảm nhận sự khác biệt không ạ?",
-          "upsell": "Ngoài ra, em có bộ lắc tay vàng trắng phù hợp với phong cách của anh/chị, tạo nên một bộ đôi hoàn hảo."
+          "opening": "Chị ơi, em chào chị! Không biết chị có đang tìm món trang sức gì cho một dịp đặc biệt không? Em đang có một bộ sưu tập nhẫn đính hôn mới về, rất hợp với phong cách tối giản và sang trọng.",
+          "khai_thac": "Chị thích lắc tay vàng trắng phải không ạ? Em có vài mẫu độc quyền riêng cho khách hàng Platinum, chắc chắn chị sẽ ưng ý.",
+          "goi_y": "Em nghĩ bộ sưu tập Nhẫn Đính Hôn 2025 với kim cương tự nhiên đúng là hợp với phong cách của chị. Mẫu này đặc biệt và chỉ có số lượng giới hạn thôi chị ạ.",
+          "chot": "Chị thấy mẫu này thế nào? Nếu chị thích em có thể giữ sản phẩm lại cho chị để đảm bảo chị là người sở hữu sớm nhất.",
+          "upsell": "Ngoài ra, em có thể giới thiệu thêm vài mẫu khuyên tai kim cương rất hợp để phối cùng lắc tay vàng trắng, chị muốn xem thử không?"
         },
         "script_source": "llm",
-        "tokens_used": 1341
+        "tokens_used": 1600
       }
     },
     {
       "customer_id": "KH034",
-      "processed_at": "2026-04-23T09:37:00.810644",
+      "processed_at": "2026-05-28T13:51:24.551197",
       "profile": {
         "segment_rfm_tier": "Gold-H",
         "budget": "15–30 triệu",
@@ -1585,26 +1585,26 @@
         "nba_strategy": "Định hướng lựa chọn",
         "psychology_trigger": "Narrowing + Personalization",
         "product_focus": "Nhẫn Đôi / Couple Ring phong cách tối giản",
-        "product_rec_1": "Bông Tai Horizon",
-        "product_rec_2": "Bông Tai Simple Twist",
-        "product_rec_3": "Bông Tai Minimal Pearl",
+        "product_rec_1": "Bông Tai Vàng Tối Giản",
+        "product_rec_2": "Bông Tai Hoop Classic",
+        "product_rec_3": "Bông Tai Nụ Vàng 14K",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 4 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 4 lần, quay lại web 2 lần, đã mở 3 chiến dịch engagement, đã mở 3 chiến dịch kỷ niệm.",
         "urgency_signal": "🎂 Sinh nhật còn 1 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách thích phong cách tối giản và đang chuẩn bị cho một dịp đặc biệt, khả năng cao là cầu hôn.",
+        "key_insight": "Khách có dấu hiệu quan tâm đến sản phẩm nhẫn đính hôn hoặc cầu hôn trong tương lai gần.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay là một ngày đẹp trời đúng không ạ? Không biết anh/chị có đang tìm kiếm món quà đặc biệt cho ai đó không nhỉ?",
-          "khai_thac": "Em để ý rằng bông tai vàng 14K phong cách tối giản đang được nhiều người yêu thích, anh/chị có quan tâm loại này không?",
-          "goi_y": "Em có ba lựa chọn bông tai này khá hợp với phong cách của anh/chị: Bông Tai Horizon, Bông Tai Simple Twist và Bông Tai Minimal Pearl. Để em giới thiệu thêm cho anh/chị nhé!",
-          "chot": "Với thiết kế tối giản và tinh tế của Bông Tai Horizon, em nghĩ đây là lựa chọn hoàn hảo cho anh/chị. Anh/chị thấy thế nào?",
-          "upsell": "Nếu anh/chị muốn bộ đôi hoàn hảo, nhẫn đôi từ bộ sưu tập Couple Ring mới về của bên em cũng rất hợp nếu anh/chị có dịp cầu hôn đặc biệt."
+          "opening": "Chào chị, em thấy bộ sưu tập bông tai vàng 14K bên em có vài mẫu cực kỳ tối giản, không biết chị đã xem qua chưa?",
+          "khai_thac": "Chị đang tìm một món trang sức cho dịp đặc biệt nào không, hay chỉ đơn giản là thêm vào bộ sưu tập cá nhân?",
+          "goi_y": "Nếu chị thích phong cách tối giản, em có thể giới thiệu cho chị vài mẫu bông tai cực kỳ tinh tế, như bộ 'Bông Tai Vàng Tối Giản', 'Bông Tai Hoop Classic', và 'Bông Tai Nụ Vàng 14K'.",
+          "chot": "Chị có thích mẫu nào trong 3 lựa chọn vừa rồi không, em thấy chúng rất hợp với phong cách của chị!",
+          "upsell": "Ngoài bông tai, nếu chị đang nghĩ đến một món trang sức đặc biệt hơn, nhẫn đôi phong cách tối giản bên em cũng là một gợi ý thú vị."
         },
         "script_source": "llm",
-        "tokens_used": 1389
+        "tokens_used": 1599
       }
     },
     {
       "customer_id": "KH035",
-      "processed_at": "2026-04-23T09:37:00.810972",
+      "processed_at": "2026-05-28T13:51:24.551358",
       "profile": {
         "segment_rfm_tier": "Gold-H",
         "budget": "15–30 triệu",
@@ -1632,26 +1632,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
-        "product_rec_1": "lắc tay kim cương khắc tên",
-        "product_rec_2": "bộ nhẫn đính hôn thanh lịch",
-        "product_rec_3": "hộp quà cao cấp khắc tên",
+        "product_rec_1": "Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_2": "Lắc tay kim cương",
+        "product_rec_3": "Dịch vụ khắc tên trên trang sức",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 2 lần, xem sản phẩm kim cương 3 lần, quay lại web 4 lần, đã mở 2 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách chuộng thanh lịch, đang tìm món quà kỷ niệm, ưu tiên sản phẩm kim cương.",
+        "key_insight": "Khách có thói quen mua sắm vào dịp kỷ niệm và thích sản phẩm có tính cá nhân hóa cao như khắc tên.",
         "script": {
-          "opening": "Xin chào anh/chị, hôm nay em đang có một bộ sưu tập lắc tay kim cương rất đặc biệt mà em nghĩ chắc chắn anh/chị sẽ thích.",
-          "khai_thac": "Anh/chị có đang chuẩn bị một dịp kỷ niệm nào đặc biệt không để em tìm giúp sản phẩm phù hợp nhất?",
-          "goi_y": "Mẫu lắc tay kim cương này rất thanh lịch và là một phần trong Bộ Quà Kỷ Niệm cao cấp của chúng em, kèm dịch vụ khắc tên và hộp quà riêng.",
-          "chot": "Sản phẩm này đang rất hot với những khách hàng VIP, em có thể chuẩn bị ngay để anh/chị trải nghiệm thêm được không?",
-          "upsell": "Nếu anh/chị yêu thích phong cách của chiếc lắc tay, em có thể giới thiệu thêm bộ nhẫn đính hôn thanh lịch, đang có ưu đãi đặc biệt cho khách VIP."
+          "opening": "Em chào chị, không biết chị đang tìm món trang sức nào cho dịp đặc biệt không? Bên em có bộ sưu tập lắc tay kim cương rất phù hợp với phong cách thanh lịch.",
+          "khai_thac": "Chị có muốn em tư vấn thêm một chút về chiếc lắc tay có thể khắc tên để làm món quà kỷ niệm độc đáo không?",
+          "goi_y": "Em có bộ quà kỷ niệm cao cấp với khắc tên và cả hộp quà đặc biệt, hoàn hảo cho những dịp kỷ niệm. Đảm bảo chị sẽ ưng ý.",
+          "chot": "Chiếc lắc tay này được thiết kế độc quyền cho khách VIP như chị, mình chọn mẫu nào nhé?",
+          "upsell": "Ngoài lắc tay, nếu chị có hứng thú, bên em còn dịch vụ thêm chiếc nhẫn đính hôn vào bộ quà kỷ niệm, cũng rất đẹp và ý nghĩa."
         },
         "script_source": "llm",
-        "tokens_used": 0
+        "tokens_used": 1568
       }
     },
     {
       "customer_id": "KH036",
-      "processed_at": "2026-04-23T09:37:00.811278",
+      "processed_at": "2026-05-28T13:51:24.551519",
       "profile": {
         "segment_rfm_tier": "Platinum-M",
         "budget": "30 triệu trở lên",
@@ -1679,26 +1679,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
-        "product_rec_1": "Lắc tay kim cương Platinum Supreme",
-        "product_rec_2": "Hộp quà Gift Finder",
-        "product_rec_3": "Nhẫn đính hôn phiên bản giới hạn",
+        "product_rec_1": "Lắc tay kim cương sang trọng",
+        "product_rec_2": "Nhẫn đính hôn cao cấp",
+        "product_rec_3": "Hộp quà tặng cao cấp Gift Finder",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem nhẫn đính hôn 2 lần, quay lại web 2 lần, đã mở 1 chiến dịch engagement, đã mở 2 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách ưa thích sự sang trọng độc quyền, xem trọng trải nghiệm cá nhân hóa.",
+        "key_insight": "Khách thuộc phân khúc Platinum, thích phong cách sang trọng và thường không đợi discount, ưu tiên trải nghiệm mua sắm đặc biệt.",
         "script": {
-          "opening": "Chào anh/chị! Em vừa nhìn thấy bộ sưu tập lắc tay kim cương mới về, có thể anh/chị sẽ thích đấy ạ. Anh/chị thích phong cách nào hơn, nhẹ nhàng hay nổi bật?",
-          "khai_thac": "Anh/chị đang tìm món quà nào đặc biệt cho ai không, hay đang dự định tặng chính mình chút gì đó tinh tế?",
-          "goi_y": "Em có mẫu lắc tay kim cương Platinum Supreme và hộp quà Gift Finder tuyệt đẹp, sẽ là lựa chọn hoàn hảo đấy ạ!",
-          "chot": "Mẫu này là độc quyền dành riêng cho khách VIP như anh/chị, em tin là sự lựa chọn tinh tế hoàn mỹ.",
-          "upsell": "Ngoài ra, em có nhẫn đính hôn phiên bản giới hạn, nếu anh/chị đang nghĩ đến một dấu ấn khác biệt."
+          "opening": "Chào anh! Hôm nay em muốn giới thiệu với anh một số mẫu lắc tay kim cương mới nhất bên em, rất phù hợp với phong cách sang trọng anh yêu thích.",
+          "khai_thac": "Anh tìm gì cho dịp đặc biệt nào không? Hay anh muốn chọn một món quà tinh tế cho người mình yêu mến?",
+          "goi_y": "Em có bộ Gift Finder với hộp quà tặng cao cấp mà anh có thể xem qua. Ngoài ra còn có mẫu nhẫn đính hôn đang được nhiều khách yêu thích.",
+          "chot": "Anh thấy mẫu lắc tay kim cương nào phù hợp để em gói lại cho anh một cách đặc biệt không?",
+          "upsell": "Anh có muốn nâng cấp với một chiếc nhẫn đính hôn có thể kết hợp hoàn hảo cùng lắc tay không? Bên em hiện có một số mẫu độc quyền cho khách VIP mà anh có thể quan tâm."
         },
         "script_source": "llm",
-        "tokens_used": 1319
+        "tokens_used": 1546
       }
     },
     {
       "customer_id": "KH037",
-      "processed_at": "2026-04-23T09:37:00.811667",
+      "processed_at": "2026-05-28T13:51:24.551678",
       "profile": {
         "segment_rfm_tier": "Gold-H",
         "budget": "15–30 triệu",
@@ -1726,26 +1726,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Premium Self-Reward — thiết kế độc đáo",
-        "product_rec_1": "NH001",
-        "product_rec_2": "NN039",
-        "product_rec_3": "Vòng cổ Premium Matching",
+        "product_rec_1": "Sự Lấp Lánh Thanh Lịch",
+        "product_rec_2": "Ánh Sáng Kim Cương",
+        "product_rec_3": "Quý Phái Vàng Trắng",
         "online_insight": "Khách đã thêm 3 sản phẩm vào giỏ hàng chưa mua, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 5 lần, quay lại web 1 lần, đã mở 6 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng đang hướng tới một sự tự thưởng cao cấp, với sở thích sang trọng và đặc biệt đang cân nhắc cầu hôn.",
+        "key_insight": "Khách có dấu hiệu đang tìm nhẫn cầu hôn nhưng có thể chọn để tự thưởng, không dùng discount.",
         "script": {
-          "opening": "Chào anh/chị, em đoán hôm nay anh/chị muốn tìm một món trang sức thật đặc biệt cho ngày trọng đại sắp tới, đúng không ạ? Em rất vui được tư vấn cho anh/chị, đặc biệt những mẫu trong bộ sưu tập Self-Reward Premium mới nhất.",
-          "khai_thac": "Anh/chị thường thích những mẫu thiết kế nào để tôn lên phong cách sang trọng của mình? Em có thể giúp chọn những mẫu nhẫn vàng trắng rất hợp gu của anh/chị.",
-          "goi_y": "Những mẫu nhẫn vàng trắng của bên em có vài thiết kế rất độc đáo, như chiếc NH001, hoặc mẫu NN039, đều rất tinh tế và sang trọng, phù hợp với phong cách anh/chị thích.",
-          "chot": "Nếu anh/chị cảm thấy thích một mẫu nào đó, em có thể giới thiệu thêm về ý nghĩa của từng viên kim cương thiết kế riêng cho khách VIP như anh/chị.",
-          "upsell": "Để hoàn thiện hơn cho trải nghiệm, anh/chị có thể xem thêm bộ vòng cổ Premium Matching với nhẫn, được thiết kế đồng bộ, em tin anh/chị sẽ rất hài lòng."
+          "opening": "Chào chị, bộ sưu tập nhẫn vàng trắng bên em vừa có thêm một vài thiết kế độc quyền rất sang trọng, em nghĩ chị sẽ thích.",
+          "khai_thac": "Chị đang tìm mẫu nhẫn cho dịp đặc biệt nào hay muốn tự thưởng cho mình một trang sức mới?",
+          "goi_y": "Dựa trên sở thích sang trọng của chị, các mẫu nhẫn từ bộ sưu tập Premium Self-Reward như 'Sự Lấp Lánh Thanh Lịch' đều được rất nhiều khách hàng yêu thích.",
+          "chot": "Em thấy chiếc này thật sự tỏa sáng, rất phù hợp với phong cách của chị. Chị có muốn em giúp thử không?",
+          "upsell": "Nếu chị thích sự kết hợp, em có thể giới thiệu thêm vòng cổ cùng dòng thiết kế để tạo thành một bộ hoàn hảo."
         },
         "script_source": "llm",
-        "tokens_used": 1388
+        "tokens_used": 1536
       }
     },
     {
       "customer_id": "KH038",
-      "processed_at": "2026-04-23T09:37:00.811964",
+      "processed_at": "2026-05-28T13:51:24.551842",
       "profile": {
         "segment_rfm_tier": "Silver-H",
         "budget": "> 30 triệu",
@@ -1773,26 +1773,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Set phổ biến — dễ chọn, ý nghĩa",
-        "product_rec_1": "Lắc tay vàng trắng trẻ trung A",
-        "product_rec_2": "Gift set ý nghĩa B",
-        "product_rec_3": "Lắc tay độc quyền C cho khách VIP",
+        "product_rec_1": "lắc tay 'Eternal Elegance'",
+        "product_rec_2": "lắc tay 'Sophisticated Charm'",
+        "product_rec_3": "nhẫn 'Radiant Proposal'",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, tìm kiếm từ khoá 'cầu hôn', quay lại web 7 lần, đã mở 2 chiến dịch kỷ niệm.",
         "urgency_signal": "🎂 Sinh nhật còn 10 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng rất giá trị, yêu thích lắc tay vàng trắng, đang chuẩn bị một món quà đặc biệt.",
+        "key_insight": "Khách thích phong cách trẻ trung, thường chọn sản phẩm làm quà và có dấu hiệu sẽ tặng quà cầu hôn hoặc nhân dịp đặc biệt. Ưa chuộng sự tinh tế và ưu đãi kèm theo.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay em có một số mẫu lắc tay vàng trắng trẻ trung mới về, rất hợp với phong cách của anh/chị. Mời anh/chị tham quan nhé.",
-          "khai_thac": "Anh/chị đang tìm trang sức cho dịp đặc biệt hay muốn tự thưởng cho bản thân ạ?",
-          "goi_y": "Ngoài các mẫu lắc tay, bên em cũng có gift set rất ý nghĩa. Anh/chị có muốn tham khảo không?",
-          "chot": "Đây là những mẫu lắc tay mà chỉ những khách hàng VIP như anh/chị có thể sở hữu. Anh/chị thấy thế nào ạ?",
-          "upsell": "Nếu anh/chị muốn tặng quà cho dịp sinh nhật sắp tới, em sẽ gói quà đặc biệt nhất để anh/chị làm quà tặng, có ưng ý không ạ?"
+          "opening": "Chào chị, hôm nay chị đang tìm kiếm món trang sức nào đặc biệt không? Em có bộ sưu tập lắc tay vàng trắng rất hợp với phong cách trẻ trung mà chị thích.",
+          "khai_thac": "Em để ý gần đây có nhiều khách tìm lắc tay để làm quà tặng sự kiện quan trọng. Chị có dịp đặc biệt nào sắp tới không, như một buổi tiệc hoặc kỷ niệm?",
+          "goi_y": "Với ngân sách của chị, em gợi ý lắc tay 'Eternal Elegance' và 'Sophisticated Charm'. Cả hai đều rất được yêu thích trong mùa này.",
+          "chot": "Nếu chị ưng ý, em có thể giúp chị hoàn tất đơn hàng ngay tại đây để bộ trang sức này trở thành món quà hoàn hảo cho dịp sắp tới.",
+          "upsell": "Chọn thêm một chiếc nhẫn cùng bộ để tạo sự đồng điệu cho bộ trang sức này, chị thấy sao?"
         },
         "script_source": "llm",
-        "tokens_used": 1327
+        "tokens_used": 1584
       }
     },
     {
       "customer_id": "KH039",
-      "processed_at": "2026-04-23T09:37:00.812245",
+      "processed_at": "2026-05-28T13:51:24.552004",
       "profile": {
         "segment_rfm_tier": "Silver-M",
         "budget": "< 5 triệu",
@@ -1820,26 +1820,26 @@
         "nba_strategy": "Chốt đơn nhanh",
         "psychology_trigger": "Social Proof + Scarcity",
         "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
-        "product_rec_1": "Nhẫn Kim Cương Duyên Dáng",
-        "product_rec_2": "Dây Chuyền Sát Cánh",
-        "product_rec_3": "Nhẫn Kim Cương Thanh Tú",
+        "product_rec_1": "Nhẫn Đính Hôn Kim Cương 2025",
+        "product_rec_2": "Nhẫn Đính Hôn Classic Solitaire",
+        "product_rec_3": "Dây Chuyền Kim Cương Classic",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 5 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 5 lần, quay lại web 3 lần, đã mở 3 chiến dịch kỷ niệm.",
         "urgency_signal": "🎂 Sinh nhật còn 10 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách đang có ý định cầu hôn, rất thích phong cách thanh lịch và có tín hiệu ngỏ ý mua nhanh.",
+        "key_insight": "Khách có tín hiệu rõ ràng về việc chuẩn bị cầu hôn, rất quan tâm đến các mẫu nhẫn đính hôn kim cương.",
         "script": {
-          "opening": "Chào anh/chị, bộ sưu tập nhẫn đính hôn kim cương tự nhiên bên em vừa về hàng rất đẹp, nếu anh/chị thích phong cách thanh lịch thì rất đáng để xem qua ạ.",
-          "khai_thac": "Anh/chị đang tìm kiếm món quà cho dịp đặc biệt nào không, có thể chia sẻ thêm với em không ạ?",
-          "goi_y": "Em thấy nhẫn 'Kim Cương Duyên Dáng' đang được rất nhiều khách yêu thích, mẫu này thanh lịch và tinh tế lắm, anh/chị nghĩ sao ạ?",
-          "chot": "Nhẫn này là lô cuối cùng của đợt về hàng, anh/chị có muốn xem thử và mình chốt đơn ngay tại cửa hàng cho tiện không ạ?",
-          "upsell": "Ngoài ra, em có thể gợi ý thêm dây chuyền 'Sát Cánh' để đi kèm, rất hợp phong cách với nhẫn này, nhìn là mê ngay ạ."
+          "opening": "Chào anh! Bộ sưu tập nhẫn đính hôn vừa về bên em có mấy mẫu rất hot, đặc biệt là kim cương tự nhiên. Em có thể giúp anh chọn vài mẫu không?",
+          "khai_thac": "Anh đang tìm nhẫn cho dịp đặc biệt nào không anh? Biết đâu em có thể gợi ý cho anh vài lựa chọn phù hợp hơn.",
+          "goi_y": "Nhiều khách hàng của bên em rất thích mẫu nhẫn đính hôn kim cương này vì thiết kế thanh lịch và sang trọng. Anh có muốn xem thử không?",
+          "chot": "Mẫu này thường hết hàng khá nhanh do được nhiều người chọn. Em giúp anh giữ một chiếc nhé?",
+          "upsell": "Ngoài nhẫn, bên em có sẵn vài mẫu dây chuyền kim cương cũng rất hợp với những dịp kỷ niệm đặc biệt. Anh muốn xem qua không?"
         },
         "script_source": "llm",
-        "tokens_used": 1385
+        "tokens_used": 1586
       }
     },
     {
       "customer_id": "KH040",
-      "processed_at": "2026-04-23T09:37:00.812795",
+      "processed_at": "2026-05-28T13:51:24.552171",
       "profile": {
         "segment_rfm_tier": "Silver-H",
         "budget": "> 30 triệu",
@@ -1868,25 +1868,25 @@
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Set phổ biến — dễ chọn, ý nghĩa",
         "product_rec_1": "Lắc tay vàng trắng trẻ trung",
-        "product_rec_2": "Gift Set độc quyền",
-        "product_rec_3": "Nhẫn đính hôn kim cương",
+        "product_rec_2": "Nhẫn đính hôn Diamond Shimmer",
+        "product_rec_3": "Gift set kim cương VIP",
         "online_insight": "Khách xem nhẫn đính hôn 3 lần, xem sản phẩm kim cương 1 lần, quay lại web 1 lần, đã ghé online trong tháng qua (24 ngày trước).",
         "urgency_signal": "Sinh nhật trước 30 ngày — cơ hội tặng quà",
-        "key_insight": "Khách hàng chi tiêu cao, ưu tiên sự trẻ trung và sang trọng trong lựa chọn trang sức.",
+        "key_insight": "Khách có ngân sách cao, thích phong cách trẻ trung, và có khả năng mua quà cho dịp đặc biệt gần sinh nhật.",
         "script": {
-          "opening": "Chào anh/chị! Hôm nay em có dịp giới thiệu một số mẫu lắc tay vàng trắng trẻ trung rất phù hợp với phong cách của anh/chị.",
-          "khai_thac": "Hiện tại anh/chị có đang tìm kiếm món quà nào đặc biệt, có thể cho dịp sinh nhật hoặc một ngày kỷ niệm sắp tới không?",
-          "goi_y": "Em muốn gợi ý bộ Gift Set độc quyền tại cửa hàng mình, rất ý nghĩa và phù hợp làm quà tặng sang trọng.",
-          "chot": "Với bộ sản phẩm này, em đảm bảo sẽ mang đến một trải nghiệm đẳng cấp, anh/chị cảm thấy như thế nào ạ?",
-          "upsell": "Ngoài lắc tay, mình có thích thử thêm nhẫn đính hôn hoặc trang sức kim cương để tạo sự kết hợp ấn tượng hơn không anh/chị?"
+          "opening": "Chào chị, em thấy hôm nay trời đẹp, không khí thật tuyệt để ngắm những món trang sức đặc biệt. Chị có muốn xem qua bộ sưu tập lắc tay vàng trắng trẻ trung bên em không?",
+          "khai_thac": "Dịp đặc biệt nào đang tới mà chị đang nghĩ đến một món quà ý nghĩa? Hay chị đang muốn tìm một món trang sức dành tặng cho chính mình trong ngày sinh nhật tới?",
+          "goi_y": "Có một bộ lắc tay vàng trắng rất hợp với phong cách trẻ trung mà chị thích, bên em chỉ dành riêng cho những khách hàng thân thiết như chị.",
+          "chot": "Chị thấy mẫu này thế nào? Em có thể để riêng mẫu này cho chị, đảm bảo chỉ chị mới có phiên bản độc quyền này.",
+          "upsell": "Ngoài ra, em có bộ gift set kim cương rất độc đáo, chỉ dành riêng cho khách VIP như chị. Chị có muốn xem thử không?"
         },
         "script_source": "llm",
-        "tokens_used": 1289
+        "tokens_used": 1529
       }
     },
     {
       "customer_id": "KH041",
-      "processed_at": "2026-04-23T09:37:00.813109",
+      "processed_at": "2026-05-28T13:51:24.552332",
       "profile": {
         "segment_rfm_tier": "Silver-M",
         "budget": "5–15 triệu",
@@ -1914,26 +1914,26 @@
         "nba_strategy": "Định hướng lựa chọn",
         "psychology_trigger": "Narrowing + Personalization",
         "product_focus": "Bộ trang sức kỷ niệm — dây chuyền + bông tai",
-        "product_rec_1": "nhẫn đính hôn vàng 14K Lux Modern",
-        "product_rec_2": "nhẫn kim cương Sparkle Shine",
-        "product_rec_3": "nhẫn kỷ niệm vàng 14K Elegant",
+        "product_rec_1": "Nhẫn IKON 14K",
+        "product_rec_2": "Nhẫn đính hôn vàng 14K",
+        "product_rec_3": "Bộ dây chuyền kỷ niệm",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem nhẫn đính hôn 2 lần, xem sản phẩm kim cương 5 lần, quay lại web 1 lần, đã mở 4 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách ưa thích trang sức trẻ trung, có thể đang tìm nhẫn cho dịp kỷ niệm.",
+        "key_insight": "Khách thích phong cách trẻ trung, có khả năng mua cho dịp kỷ niệm; đáng chú ý vì đã chọn nhẫn nhưng chưa mua.",
         "script": {
-          "opening": "Chào anh/chị, em có thể giúp gì cho anh/chị hôm nay không? Bên em vừa về bộ sưu tập nhẫn mới từ vàng 14K mang phong cách trẻ trung, rất hợp cho dịp đặc biệt.",
-          "khai_thac": "Anh/chị có đang tìm nhẫn cho sự kiện quan trọng nào không, như kỷ niệm chẳng hạn?",
-          "goi_y": "Em nghĩ anh/chị sẽ thích nhẫn đính hôn vàng 14K Lux Modern và chiếc nhẫn kim cương Sparkle Shine, cả hai đều rất hút mắt.",
-          "chot": "Trong ba mẫu này, anh/chị cảm thấy mẫu nào hợp nhất với phong cách của mình?",
-          "upsell": "Nếu anh/chị muốn tạo điểm nhấn thêm, dây chuyền và bông tai từ bộ trang sức kỷ niệm bên em cũng rất hoàn hảo để kết hợp."
+          "opening": "Chào anh! Nhìn anh trẻ trung thế này, chắc cũng đang muốn tìm một chiếc nhẫn hợp gu đúng không? Bên em vừa có vài mẫu nhẫn vàng 14K mới về, chắc chắn anh sẽ thích.",
+          "khai_thac": "Nhân dịp nào đặc biệt mà anh muốn chọn trang sức hay chỉ đơn giản là muốn tự thưởng cho bản thân chút thú vui?",
+          "goi_y": "Theo phong cách trẻ trung, em nghĩ anh sẽ quan tâm đến thiết kế nhẫn IKON 14K. Dòng này rất hợp để làm kỷ niệm đấy!",
+          "chot": "Anh nghĩ chiếc IKON này thế nào? Nó hợp với phong cách anh đang tìm và mình có thể thử xem có vừa ý không.",
+          "upsell": "Nếu anh thấy chiếc nhẫn ưng rồi, em có thể gợi ý thêm bộ dây chuyền kỷ niệm mới ra mắt, kết hợp dùng cực kỳ ấn tượng."
         },
         "script_source": "llm",
-        "tokens_used": 1338
+        "tokens_used": 1556
       }
     },
     {
       "customer_id": "KH042",
-      "processed_at": "2026-04-23T09:37:00.813395",
+      "processed_at": "2026-05-28T13:51:24.552497",
       "profile": {
         "segment_rfm_tier": "Gold-M",
         "budget": "15–30 triệu",
@@ -1961,26 +1961,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
-        "product_rec_1": "Dây chuyền Kim cương Lấp Lánh",
-        "product_rec_2": "Bộ vòng cổ kim cương Hòa Quyện",
-        "product_rec_3": "Dây chuyền Vàng trắng Elegant Twist",
+        "product_rec_1": "Dây chuyền vàng trắng trẻ trung",
+        "product_rec_2": "Hộp quà tặng cao cấp",
+        "product_rec_3": "Mẫu nhẫn kim cương thanh lịch",
         "online_insight": "Khách xem trang sản phẩm 2 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 4 lần, quay lại web 3 lần, đã ghé online trong tháng qua (27 ngày trước).",
         "urgency_signal": "💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng có dấu hiệu cầu hôn mạnh, ưa thích phong cách trẻ trung.",
+        "key_insight": "Khách đang có dấu hiệu tìm kiếm trang sức cầu hôn và có thể chuẩn bị cho dịp đặc biệt.",
         "script": {
-          "opening": "Dạ, em xin chào anh/chị! Bên em vừa có một bộ sưu tập dây chuyền vàng trắng mới rất hợp với phong cách trẻ trung mà anh/chị ưa thích.",
-          "khai_thac": "Không biết anh/chị đang tìm một món quà đặc biệt cho ai không ạ? Em thấy nhiều khách hàng của bên em chọn kim cương cho những dịp hết sức quan trọng.",
-          "goi_y": "Nếu anh/chị quan tâm, em xin giới thiệu chiếc 'Dây chuyền Kim cương Lấp Lánh', rất tinh tế và nổi bật cho một lời cầu hôn hoàn hảo.",
-          "chot": "Em thấy chiếc này là lựa chọn tuyệt vời cho một khoảnh khắc đáng nhớ. Anh/chị nghĩ sao?",
-          "upsell": "Ngoài ra, bên em có hộp quà tặng cao cấp đi kèm để tạo nên một trải nghiệm trọn vẹn hơn. Anh/chị có muốn xem qua không?"
+          "opening": "Chào anh, em có một bộ sưu tập độc quyền mới về rất hợp với anh. Mời anh xem thử những mẫu trang sức trẻ trung từ vàng trắng mà em nghĩ anh sẽ thích.",
+          "khai_thac": "Anh đang tìm kiếm một món quà đặc biệt hay chuẩn bị cho dịp quan trọng nào không ạ?",
+          "goi_y": "Em có một chiếc dây chuyền vàng trắng rất tinh tế và hộp quà tặng cao cấp đi kèm. Mẫu này được rất nhiều khách hàng VIP của bên em yêu thích.",
+          "chot": "Anh có thích thử qua dây chuyền em vừa giới thiệu không? Đây là một trong những mẫu được thiết kế riêng cho khách VIP như anh.",
+          "upsell": "Ngoài dây chuyền, em thấy bên em còn có một số mẫu kim cương vừa về, nếu anh muốn có thêm lựa chọn trang sức cùng tông để làm quà tặng, em có thể đưa anh xem ngay."
         },
         "script_source": "llm",
-        "tokens_used": 1330
+        "tokens_used": 1535
       }
     },
     {
       "customer_id": "KH043",
-      "processed_at": "2026-04-23T09:37:00.813685",
+      "processed_at": "2026-05-28T13:51:24.552658",
       "profile": {
         "segment_rfm_tier": "Gold-M",
         "budget": "15–30 triệu",
@@ -2009,25 +2009,25 @@
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
         "product_rec_1": "Eternal Spark",
-        "product_rec_2": "Lustrous Harmony",
-        "product_rec_3": "Radiant Elegance",
+        "product_rec_2": "Classic Brilliance",
+        "product_rec_3": "Modern Elegance",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 3 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 3 lần, quay lại web 3 lần.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách chuộng phong cách trẻ trung và có ý định mua nhẫn cầu hôn.",
+        "key_insight": "Khách có dấu hiệu cầu hôn mạnh và đang tìm nhẫn kim cương cho dịp đặc biệt, nên tư vấn chi tiết và tạo cảm giác trải nghiệm VIP.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay bên em vừa về một lô nhẫn kim cương tuyệt đẹp, nếu anh/chị thích phong cách trẻ trung thì mình cùng xem thử nhé?",
-          "khai_thac": "Anh/chị đang tìm một món quà đặc biệt, có dịp gì quan trọng không ạ?",
-          "goi_y": "Em có một chiếc nhẫn đính hôn rất phù hợp với tiêu chí của anh/chị, tên là ‘Eternal Spark'.",
-          "chot": "Chiếc nhẫn này không chỉ tinh tế mà còn độc quyền chỉ dành cho khách VIP như anh/chị.",
-          "upsell": "Ngoài chiếc nhẫn, bên em có dịch vụ đóng gói quà tặng cao cấp đi kèm, tạo điểm nhấn hoàn hảo cho món quà."
+          "opening": "Chào anh, hôm nay em xin giới thiệu với anh bộ sưu tập nhẫn kim cương mới về, rất trẻ trung và đặc biệt chỉ có cho khách VIP.",
+          "khai_thac": "Em thấy anh có phong cách rất trẻ, anh đang tìm nhẫn cho một dịp đặc biệt nào sắp tới không?",
+          "goi_y": "Em có 3 mẫu nhẫn kim cương trắng trẻ trung để giới thiệu với anh đây, như mẫu 'Eternal Spark' hay 'Classic Brilliance', anh thử xem nhé?",
+          "chot": "Nếu anh thấy ưng ý mẫu nào, em có thể hỗ trợ ngay để anh có trải nghiệm mua sắm ưng ý nhất.",
+          "upsell": "Bên em có dịch vụ hộp quà tặng cao cấp đi kèm với nhẫn, tạo dấu ấn đặc biệt cho người nhận, em có thể giới thiệu thêm nếu anh quan tâm."
         },
         "script_source": "llm",
-        "tokens_used": 1303
+        "tokens_used": 1545
       }
     },
     {
       "customer_id": "KH044",
-      "processed_at": "2026-04-23T09:37:00.813963",
+      "processed_at": "2026-05-28T13:51:24.552819",
       "profile": {
         "segment_rfm_tier": "Gold-M",
         "budget": "15–30 triệu",
@@ -2055,26 +2055,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Nhẫn Đính Hôn 2025 — kim cương tự nhiên",
-        "product_rec_1": "Nhẫn Đính Hôn Diamond Dream",
-        "product_rec_2": "Lắc Tay Kim Cương Elegance",
-        "product_rec_3": "Bông Tai Kim Cương Classic",
+        "product_rec_1": "Eternal Elegance Nhẫn Đính Hôn",
+        "product_rec_2": "Prestige Diamond Lắc Tay",
+        "product_rec_3": "Mystique Royale Nhẫn Đính Hôn",
         "online_insight": "Khách đã thêm 3 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 3 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 3 lần, quay lại web 4 lần, đã ghé online trong tháng qua (18 ngày trước), đã mở 5 chiến dịch engagement, đã mở 2 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng đang có dấu hiệu muốn tìm một món trang sức đặc biệt cho dịp cầu hôn.",
+        "key_insight": "Khách có dấu hiệu đang chuẩn bị cho một dịp cầu hôn và thích phong cách sang trọng, ít quan tâm đến giảm giá.",
         "script": {
-          "opening": "Chào anh/chị! Em có thể giúp gì cho mình hôm nay? Bên em mới về bộ sưu tập nhẫn đính hôn 2025 với thiết kế kim cương rất đẹp.",
-          "khai_thac": "Anh/chị đang tìm một món quà cho dịp quan trọng nào không? Hoặc mình đang muốn khám phá thêm loại nào đặc biệt?",
-          "goi_y": "Em nghĩ chiếc lắc tay kim cương này sẽ rất hợp với phong cách sang trọng mà anh/chị yêu thích.",
-          "chot": "Chiếc lắc tay này là phiên bản giới hạn, đảm bảo độc quyền cho những khách hàng VIP như anh/chị.",
-          "upsell": "Ngoài ra, em có thể đề xuất thêm một đôi bông tai kim cương đi kèm để hoàn thiện bộ sưu tập."
+          "opening": "Chào chị, em thấy hôm nay chị đến vào đúng dịp bộ sưu tập Nhẫn Đính Hôn 2025 của bên em vừa về thêm vài mẫu mới, cực kỳ phù hợp với phong cách sang trọng.",
+          "khai_thac": "Chị có đang tìm kiếm món quà đặc biệt cho dịp sắp tới không ạ? Kim cương tự nhiên sẽ là lựa chọn tuyệt vời.",
+          "goi_y": "Em có vài mẫu nhẫn đính hôn mới nhất, ví dụ như chiếc 'Eternal Elegance' kim cương tự nhiên rất được lòng khách VIP, chắc chắn làm hài lòng chị.",
+          "chot": "Chị có muốn thử cảm giác riêng biệt từ bộ sưu tập này không? Đã có vài mẫu được đặt trước khá nhanh chóng.",
+          "upsell": "Ngoài ra, em nghĩ một chiếc lắc tay kim cương lấp lánh sẽ rất hợp với nhẫn, hoàn thiện bộ trang sức của chị."
         },
         "script_source": "llm",
-        "tokens_used": 1351
+        "tokens_used": 1603
       }
     },
     {
       "customer_id": "KH045",
-      "processed_at": "2026-04-23T09:37:00.814233",
+      "processed_at": "2026-05-28T13:51:24.552985",
       "profile": {
         "segment_rfm_tier": "Platinum-M",
         "budget": "30 triệu trở lên",
@@ -2102,26 +2102,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Trending Collection — đang hot nhất tháng",
-        "product_rec_1": "Lắc tay Eclipse",
-        "product_rec_2": "Nhẫn đính hôn kim cương",
-        "product_rec_3": "Lắc tay Minimalist",
+        "product_rec_1": "Tinh Khiết Vàng",
+        "product_rec_2": "Phúc Lộc Vàng",
+        "product_rec_3": "Duyên Quý Kim Cương",
         "online_insight": "Khách đã thêm 5 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 5 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 3 lần, quay lại web 6 lần, đã mở 4 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách Platinum yêu thích phong cách tối giản, có dấu hiệu tự thưởng và quan tâm đến nhẫn đính hôn.",
+        "key_insight": "Khách thích phong cách tối giản, ngân sách cao, tiềm năng cao cho mua sắm tự thưởng hoặc có thể là cầu hôn.",
         "script": {
-          "opening": "Chào anh/chị, hôm nay em khá háo hức giới thiệu bộ sưu tập lắc tay vàng 18K mới về, rất tối giản và sang trọng. Anh/chị có dự định tìm món quà cho bản thân hay dịp đặc biệt nào không ạ?",
-          "khai_thac": "Không biết anh/chị thiên về trang sức theo phong cách tối giản? Em có vài mẫu nhập khẩu riêng chỉ dành cho khách Platinum.",
-          "goi_y": "Em nghĩ anh/chị sẽ thích mẫu lắc 'Eclipse' trong bộ Trending Collection, rất hợp với phong cách thanh lịch của anh/chị.",
-          "chot": "Nếu thấy ưng ý, anh/chị có muốn thử mẫu 'Eclipse' để xem có phù hợp với ý tưởng quà tự thưởng không ạ?",
-          "upsell": "Ngoài ra, em còn mẫu nhẫn đính hôn kim cương đang được các khách ưa chuộng nhất tháng này, anh/chị muốn thử không ạ?"
+          "opening": "Chào chị! Bộ sưu tập lắc tay vàng 18K mới về, phong cách tối giản mà em nhớ chị thích. Chị có muốn xem qua không?",
+          "khai_thac": "Em thấy hôm nay trông chị thật rạng rỡ. Chị đang tìm món nào đặc biệt để tự thưởng cho mình hay có dịp gì đặc biệt không ạ?",
+          "goi_y": "Bên em có vài mẫu lắc tay rất hợp với phong cách của chị, như chiếc 'Tinh Khiết Vàng' và 'Phúc Lộc Vàng'. Chị muốn thử không?",
+          "chot": "Chị thấy mẫu này thế nào? Em thấy nó rất phù hợp với vẻ đẹp tự nhiên của chị đấy.",
+          "upsell": "Ngoài ra, bên em cũng có bộ sưu tập nhẫn đính hôn mới rất đẹp, chị muốn xem qua để có thêm lựa chọn cho tương lai không?"
         },
         "script_source": "llm",
-        "tokens_used": 1361
+        "tokens_used": 1557
       }
     },
     {
       "customer_id": "KH046",
-      "processed_at": "2026-04-23T09:37:00.814512",
+      "processed_at": "2026-05-28T13:51:24.553146",
       "profile": {
         "segment_rfm_tier": "Gold-L",
         "budget": "15–30 triệu",
@@ -2149,26 +2149,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Trending Collection — đang hot nhất tháng",
-        "product_rec_1": "Bông tai Vàng 14K trẻ trung 1",
-        "product_rec_2": "Bông tai Vàng 14K trẻ trung 2",
-        "product_rec_3": "Nhẫn vàng tinh tế",
+        "product_rec_1": "Bông tai vàng 14K từ Trending Collection",
+        "product_rec_2": "Nhẫn từ bộ sưu tập đặc biệt cho khách VIP",
+        "product_rec_3": "",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 2 lần, xem nhẫn đính hôn 2 lần, quay lại web 3 lần, đã mở 1 chiến dịch engagement.",
         "urgency_signal": "🎂 Sinh nhật còn 12 ngày! | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách hàng có thói quen tự thưởng bản thân, đang tìm bông tai vàng 14K, thích phong cách trẻ trung.",
+        "key_insight": "Khách thuộc phân khúc Gold-L thích phong cách trẻ trung và có budget từ 15-30 triệu; chưa quyết định mua hàng online dù đã xem nhiều lần.",
         "script": {
-          "opening": "Chào anh/chị ạ, hôm nay bên em vừa về một vài mẫu trong Bộ sưu tập đang hot nhất tháng. Anh/chị có muốn tham khảo qua không?",
-          "khai_thac": "Anh/chị đang tìm kiếm bông tai để tự thưởng cho một dịp gì đó đặc biệt không ạ?",
-          "goi_y": "Em có thấy vài mẫu bông tai Vàng 14K khá trẻ trung, đúng phong cách anh/chị thích, chắc chắn sẽ làm anh/chị ưng ý.",
-          "chot": "Nếu anh/chị thấy ưng mẫu này, em có thể giữ riêng cho anh/chị để đảm bảo có sản phẩm trước cả khi có người khác muốn sở hữu.",
-          "upsell": "Ngoài mẫu bông tai này, bên em có thêm bộ nhẫn vàng rất tinh tế, chắc chắn làm đẹp cho bàn tay của anh/chị luôn."
+          "opening": "Chị ơi, hôm nay có chút thời gian ghé thăm cửa hàng bên em, thật là một vinh hạnh cho bọn em. Chị thích phong cách trẻ trung thì chắc chắn bộ sưu tập tháng này sẽ làm chị hài lòng đấy!",
+          "khai_thac": "Hôm nay chị đang muốn tìm kiếm món trang sức nào cho dịp đặc biệt không ạ? Em có một số mẫu bông tai vàng 14K rất hợp với phong cách của chị.",
+          "goi_y": "Em nghĩ chị sẽ thích đôi bông tai từ Trending Collection — hiện đang hot nhất tháng, thiết kế rất tươi mới và trẻ trung.",
+          "chot": "Em có thể giữ đôi bông tai này riêng cho chị để chị cân nhắc thêm? Nhưng em nghĩ mẫu này sẽ làm chị thực sự hài lòng.",
+          "upsell": "Ngoài bông tai, chị có muốn xem qua bộ sưu tập nhẫn xu hướng, chỉ dành riêng cho khách VIP trong mùa này không? Chắc chắn, sẽ là một điểm nhấn tuyệt vời khi kết hợp."
         },
         "script_source": "llm",
-        "tokens_used": 1326
+        "tokens_used": 1574
       }
     },
     {
       "customer_id": "KH047",
-      "processed_at": "2026-04-23T09:37:00.814787",
+      "processed_at": "2026-05-28T13:51:24.553307",
       "profile": {
         "segment_rfm_tier": "Gold-H",
         "budget": "15–30 triệu",
@@ -2196,26 +2196,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Gift Finder — hộp quà tặng cao cấp, tư vấn 1-1",
-        "product_rec_1": "Nhẫn vàng 18K thanh lịch",
-        "product_rec_2": "Nhẫn pha lê đính đá quý",
+        "product_rec_1": "Nhẫn đính hôn vàng 18K thanh lịch",
+        "product_rec_2": "Dịch vụ tư vấn thiết kế nhẫn độc quyền",
         "product_rec_3": "Hộp quà tặng cao cấp",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem nhẫn đính hôn 3 lần, tìm kiếm từ khoá 'cầu hôn', đã mở 4 chiến dịch kỷ niệm.",
         "urgency_signal": "Sinh nhật trước 17 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách là người chú trọng đến sự thanh lịch và độc quyền trong lựa chọn trang sức.",
+        "key_insight": "Khách có dấu hiệu cầu hôn mạnh và thời gian sinh nhật sắp đến, thích phong cách thanh lịch, có khả năng đầu tư cao.",
         "script": {
-          "opening": "Chào anh chị, hôm nay em có sẵn một bộ sưu tập nhẫn vàng 18K thanh lịch, đặc biệt dành riêng để tạo ấn tượng tuyệt đẹp mà anh chị có thể thích.",
-          "khai_thac": "Anh chị đang tìm kiếm một món quà nhân một dịp đặc biệt nào không ạ?",
-          "goi_y": "Nếu anh chị muốn tạo dấu ấn khó quên, nhẫn pha lê đính đá quý của chúng em hiện rất được lựa chọn bởi những vị khách đặc biệt.",
-          "chot": "Đây là mẫu rất được quan tâm, em có thể sắp xếp một buổi tư vấn riêng ngay tại showroom để anh chị có thể trực quan hơn.",
-          "upsell": "Ngoài ra, anh chị có thể cân nhắc thêm một hộp quà tặng cao cấp để món quà thêm phần ý nghĩa."
+          "opening": "Chào anh, hôm nay bên em vừa về một bộ sưu tập nhẫn vàng 18K mới, rất thanh lịch, em nghĩ sẽ hợp với anh.",
+          "khai_thac": "Anh đang tìm nhẫn cho dịp đặc biệt nào không? Hay là mình chọn quà sinh nhật cũng được, vì hình như thời gian cũng không còn nhiều?",
+          "goi_y": "Em có một chiếc nhẫn đính hôn vàng 18K em thấy rất hợp với phong cách thanh lịch của anh. Hay mình thử xem qua nhé?",
+          "chot": "Anh nghĩ mẫu nhẫn này có đúng ý anh không? Nếu thích, em có thể chuẩn bị bao gói hộp quà cao cấp ngay cho anh.",
+          "upsell": "Nếu anh muốn ấn tượng hơn, bên em có dịch vụ tư vấn 1-1 để thiết kế một chiếc nhẫn độc quyền theo ý của anh."
         },
         "script_source": "llm",
-        "tokens_used": 1327
+        "tokens_used": 1561
       }
     },
     {
       "customer_id": "KH048",
-      "processed_at": "2026-04-23T09:37:00.815072",
+      "processed_at": "2026-05-28T13:51:24.553469",
       "profile": {
         "segment_rfm_tier": "Silver-L",
         "budget": "15–30 triệu",
@@ -2243,26 +2243,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Trending Collection — đang hot nhất tháng",
-        "product_rec_1": "Lắc tay vàng 14K thiết kế thanh lịch",
-        "product_rec_2": "Nhẫn kim cương VIP",
-        "product_rec_3": "Bộ sưu tập Trend tháng này",
+        "product_rec_1": "Lắc tay vàng 14K thanh lịch",
+        "product_rec_2": "Nhẫn kim cương thiết kế độc quyền",
+        "product_rec_3": "Trang sức từ bộ sưu tập Trending Collection",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 1 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 1 lần, quay lại web 5 lần.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng đang cân nhắc một món tự thưởng, yêu thích phong cách thanh lịch, có dấu hiệu muốn cầu hôn.",
+        "key_insight": "Khách có dấu hiệu mua để tự thưởng và có thể đang xem xét nhẫn cầu hôn, thường hưởng ứng với sản phẩm thanh lịch và độc quyền.",
         "script": {
-          "opening": "Chào anh chị, em thấy anh chị có vẻ quan tâm đến những thiết kế thanh lịch, không biết hôm nay mình đang tìm cho dịp đặc biệt nào không?",
-          "khai_thac": "Bên em vừa có bộ sưu tập lắc tay vàng 14K rất được lòng khách hàng VIP, anh chị có muốn xem qua không?",
-          "goi_y": "Dịp đặc biệt như thế này thì em nghĩ lắc tay vàng 14K thiết kế riêng là lựa chọn hoàn hảo. Cũng tiện, bên em có vài mẫu nhẫn kim cương rất độc quyền cho khách như anh chị.",
-          "chot": "Anh chị thấy thiết kế nào hợp ý nhất để em chuẩn bị gói lại cho sang trọng nhé?",
-          "upsell": "Nhân tiện, nếu anh chị đang cân nhắc một món độc quyền hơn, bộ sưu tập Trend hiện nay có vài sản phẩm rất hot, em có thể giới thiệu thêm."
+          "opening": "Dạ, em chào chị. Em có bộ sưu tập mới nhất với những mẫu trang sức thanh lịch rất hợp với phong cách của chị, chị có muốn xem qua không ạ?",
+          "khai_thac": "Chị có đang tìm món trang sức nào cho dịp đặc biệt sắp tới không hay là tự thưởng cho bản thân một món quà ạ?",
+          "goi_y": "Để em giới thiệu cho chị mẫu lắc tay vàng 14K mới về của bên em, thiết kế rất sang trọng và tao nhã.",
+          "chot": "Mẫu này là một trong những sản phẩm độc quyền cho khách hàng VIP của cửa hàng bên em. Chị có muốn em giữ lại mẫu này cho đến khi chị quyết định không ạ?",
+          "upsell": "Ngoài chiếc lắc tay, em có thể giới thiệu thêm nhẫn kim cương đang được nhiều khách hàng ưa chuộng, chị muốn xem qua không ạ?"
         },
         "script_source": "llm",
-        "tokens_used": 1344
+        "tokens_used": 1562
       }
     },
     {
       "customer_id": "KH049",
-      "processed_at": "2026-04-23T09:37:00.815348",
+      "processed_at": "2026-05-28T13:51:24.553630",
       "profile": {
         "segment_rfm_tier": "Platinum-H",
         "budget": "30 triệu trở lên",
@@ -2290,26 +2290,26 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ Quà Kỷ Niệm cao cấp (khắc tên, hộp quà đặc biệt)",
-        "product_rec_1": "Bông tai kim cương tối giản",
-        "product_rec_2": "Bộ Quà Kỷ Niệm cao cấp",
-        "product_rec_3": "Vòng cổ kim cương tối giản",
+        "product_rec_1": "Bông tai kim cương Bộ Quà Kỷ Niệm cao cấp",
+        "product_rec_2": "Hộp quà đặc biệt",
+        "product_rec_3": "Khắc tên cá nhân hóa",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 5 lần, quay lại web 4 lần, đã mở 2 chiến dịch kỷ niệm.",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách là VIP, thích phong cách tối giản, có dấu hiệu chuẩn bị kỷ niệm hoặc cầu hôn.",
+        "key_insight": "Khách thuộc phân khúc Platinum, thường không dùng discount, có xu hướng mua sắm cho các dịp kỷ niệm.",
         "script": {
-          "opening": "Chào anh/chị! Em mời anh/chị khám phá bộ sưu tập bông tai kim cương mới về với thiết kế tối giản rất tinh tế nhé.",
-          "khai_thac": "Không biết dịp này anh/chị đang tìm món quà đặc biệt nào không ạ? Ví dụ như kỷ niệm hay một sự kiện đặc biệt nào đó trong gia đình?",
-          "goi_y": "Bên em vừa có Bộ Quà Kỷ Niệm cao cấp, có thể khắc tên riêng và tặng kèm hộp quà đặc biệt, rất phù hợp cho những dịp kỷ niệm đáng nhớ.",
-          "chot": "Được thiết kế riêng cho khách hàng như anh/chị, bộ sản phẩm này sẽ mang lại một trải nghiệm đúng chuẩn VIP cả về chất lượng lẫn dịch vụ.",
-          "upsell": "Ngoài các mẫu bông tai, anh/chị có thể tham khảo thêm một số vòng cổ cùng phong cách tối giản để hoàn thiện bộ sưu tập của mình."
+          "opening": "Chào chị, dạo này phong cách tối giản đang rất thịnh hành, em có vài mẫu bông tai kim cương riêng biệt dành cho khách VIP nhà mình. Chị muốn xem thử qua không?",
+          "khai_thac": "Không biết thời gian này chị có dịp gì đặc biệt không, như kỷ niệm hay dịp gì khác mà em có thể hỗ trợ chị nè?",
+          "goi_y": "Đối với dòng bông tai kim cương, em có Bộ Quà Kỷ Niệm cao cấp, với thiết kế tinh tế và đặc biệt có thể khắc tên. Chắc chắn chị sẽ thích.",
+          "chot": "Sản phẩm này bên em đang làm riêng cho khách Platinum như chị đấy ạ. Mình đặt trước để giữ riêng cho chị nhé?",
+          "upsell": "Em nghĩ với một món quà kỷ niệm ý nghĩa như vậy, chị có muốn thêm hộp quà đặc biệt để làm tăng phần trang trọng không?"
         },
         "script_source": "llm",
-        "tokens_used": 1359
+        "tokens_used": 1569
       }
     },
     {
       "customer_id": "KH050",
-      "processed_at": "2026-04-23T09:37:00.815609",
+      "processed_at": "2026-05-28T13:51:24.553793",
       "profile": {
         "segment_rfm_tier": "Platinum-L",
         "budget": "30 triệu trở lên",
@@ -2337,26 +2337,26 @@
         "nba_strategy": "Chốt đơn nhanh",
         "psychology_trigger": "Social Proof + Scarcity",
         "product_focus": "Bộ sưu tập Nhẫn mới nhất",
-        "product_rec_1": "Bông tai kim cương tối giản mẫu L1",
-        "product_rec_2": "Nhẫn kim cương Engagement Collection",
-        "product_rec_3": "Bộ sưu tập nhẫn Exclusive Edition",
+        "product_rec_1": "Bông tai Tinh Tế Ánh Sáng",
+        "product_rec_2": "Nhẫn đính hôn Phiên Bản Giới Hạn",
+        "product_rec_3": "Bông tai Giọt Nắng",
         "online_insight": "Khách đã thêm 1 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 4 lần, xem nhẫn đính hôn 1 lần, tìm kiếm từ khoá 'cầu hôn', xem sản phẩm kim cương 5 lần, quay lại web 7 lần, đã ghé online trong tháng qua (12 ngày trước).",
         "urgency_signal": "🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay | 💍 Dấu hiệu cầu hôn mạnh",
-        "key_insight": "Khách hàng đang rất hứng thú với bông tai kim cương phong cách tối giản và có dấu hiệu muốn mua cho dịp cầu hôn.",
+        "key_insight": "Khách có ý định mua bông tai kim cương, phong cách tối giản, sẵn sàng chi tiêu và có tín hiệu cầu hôn.",
         "script": {
-          "opening": "Em chào anh/chị, hôm nay cửa hàng bên em có bộ sưu tập nhẫn mới rất đẹp. Anh/chị có hứng thú với bông tai kim cương hay nhẫn dành cho dịp đặc biệt nào không?",
-          "khai_thac": "Anh/chị tìm một thiết kế nào đó để dành tặng cho mình hay là một món quà ý nghĩa cho ai đặc biệt không?",
-          "goi_y": "Bông tai kim cương phong cách tối giản đang rất được yêu thích mùa này, mẫu này em để ý rất phù hợp với phong cách của anh/chị.",
-          "chot": "Sản phẩm này chỉ còn số lượng rất hạn chế vì sự yêu thích của rất nhiều khách, anh/chị có muốn mình xem xét chốt ngay không?",
-          "upsell": "Ngoài ra, bộ sưu tập nhẫn bên em vừa mới ra mắt, rất nhiều khách hàng cũng quan tâm vì tính độc đáo của nó."
+          "opening": "Chào chị, em rất vui được gặp chị hôm nay. Bộ sưu tập bông tai kim cương mới của bên em đang được rất nhiều khách hàng yêu thích đó chị.",
+          "khai_thac": "Chị có đang tìm một món trang sức đặc biệt cho dịp nào không? Hay là mình muốn tìm kiểu dáng tối giản để kết hợp hàng ngày?",
+          "goi_y": "Em có thấy mẫu bông tai 'Tinh Tế Ánh Sáng' rất phù hợp với phong cách tối giản mà chị yêu thích.",
+          "chot": "Mẫu này hiện chỉ còn lại rất ít vì nhiều khách đang chọn, em thấy chị nên quyết định sớm để không bỏ lỡ cơ hội.",
+          "upsell": "Ở đây em có chiếc nhẫn đính hôn phiên bản giới hạn mới về, nếu chị quan tâm em có thể giới thiệu thêm một chút."
         },
         "script_source": "llm",
-        "tokens_used": 1360
+        "tokens_used": 1560
       }
     },
     {
       "customer_id": "KH051",
-      "processed_at": "2026-04-23T09:37:00.815867",
+      "processed_at": "2026-05-28T13:51:24.553958",
       "profile": {
         "segment_rfm_tier": "Silver",
         "budget": "< 5 triệu",
@@ -2384,26 +2384,26 @@
         "nba_strategy": "Tạo trải nghiệm",
         "psychology_trigger": "Experience Creation + No Pressure",
         "product_focus": "Gift Set phổ biến — dễ chọn, ý nghĩa",
-        "product_rec_1": "Vòng tay bạc Minimalist",
-        "product_rec_2": "Bộ vòng tay và hoa tai bạc",
-        "product_rec_3": "Vòng tay bạc Infinity",
+        "product_rec_1": "Vòng tay bạc tối giản Mẫu 1",
+        "product_rec_2": "Vòng tay bạc tối giản Mẫu 2",
+        "product_rec_3": "Bộ quà tặng vòng tay bạc",
         "online_insight": "Khách xem trang sản phẩm 1 lần, quay lại web 1 lần.",
         "urgency_signal": "",
-        "key_insight": "Khách thích phong cách đơn giản, có thể đang tìm quà tặng.",
+        "key_insight": "Khách đang thư giãn khám phá trải nghiệm, có thể đang tìm vòng tay bạc làm quà tặng và thích phong cách đơn giản.",
         "script": {
-          "opening": "Chào anh/chị! Em có thể giúp gì trong việc tìm kiếm món quà trang sức phù hợp với phong cách đơn giản không ạ?",
-          "khai_thac": "Anh/chị có đang tìm một món quà đặc biệt cho ai đó hay chỉ muốn khám phá vài mẫu đẹp mắt cho chính mình?",
-          "goi_y": "Nếu anh/chị yêu thích sự tinh tế, bộ vòng tay bạc bên em có vài mẫu rất nhẹ nhàng, phù hợp để làm quà tặng.",
-          "chot": "Anh/chị thoải mái thử và cảm nhận sản phẩm nhé, không vội, cứ khám phá thêm các lựa chọn trước khi quyết định.",
-          "upsell": "Trong cùng tầm giá, bên em có set vòng tay kèm hoa tai rất tinh tế, cũng rất được ưa chuộng."
+          "opening": "Chào chị, hôm nay vòng tay bên em có mẫu mới rất đẹp, chị có hứng thú xem thử không?",
+          "khai_thac": "Chị đang tìm thứ gì đặc biệt cho bản thân hay tặng quà cho ai đó ạ?",
+          "goi_y": "Để em giới thiệu một vài mẫu vòng tay bạc với thiết kế đơn giản, rất hợp phong cách của chị.",
+          "chot": "Chị có thể thử chiếc vòng này và cảm nhận chất liệu trực tiếp, không cần vội vàng quyết định đâu ạ.",
+          "upsell": "Nếu chị thích phong cách này, em có thể đề xuất thêm một vài bộ quà tặng đi cùng để lựa chọn thêm."
         },
         "script_source": "llm",
-        "tokens_used": 1220
+        "tokens_used": 1429
       }
     },
     {
       "customer_id": "KH052",
-      "processed_at": "2026-04-23T09:37:00.816112",
+      "processed_at": "2026-05-28T13:51:24.554119",
       "profile": {
         "segment_rfm_tier": "Silver-H",
         "budget": "> 30 triệu",
@@ -2431,18 +2431,18 @@
         "nba_strategy": "Tư vấn như VIP",
         "psychology_trigger": "Exclusivity + White Glove Service",
         "product_focus": "Bộ sưu tập Premium Self-Reward — thiết kế độc đáo",
-        "product_rec_1": "Bông tai vàng trắng thiết kế độc quyền",
-        "product_rec_2": "Bông tai nguyên bản Thanh lịch",
-        "product_rec_3": "Nhẫn đính hôn tinh tế",
+        "product_rec_1": "Elegance Pearl Bông Tai",
+        "product_rec_2": "Graceful Shine Bông Tai",
+        "product_rec_3": "Timeless Beauty Nhẫn",
         "online_insight": "Khách đã thêm 2 sản phẩm vào giỏ hàng chưa mua, xem trang sản phẩm 3 lần, xem nhẫn đính hôn 2 lần, quay lại web 4 lần, đã mở 1 chiến dịch engagement, đã mở 4 chiến dịch kỷ niệm.",
         "urgency_signal": "Sinh nhật trước 15 ngày — cơ hội tặng quà | 🛒 Đã chọn online nhưng chưa mua — cơ hội chốt ngay",
-        "key_insight": "Khách hàng cao cấp, ưu tiên trải nghiệm độc quyền và đang tìm sản phẩm tự thưởng.",
+        "key_insight": "Khách thường mua trang sức cao cấp và có khả năng tự thưởng; chưa nhấn mạnh việc dùng giảm giá.",
         "script": {
-          "opening": "Chào chị, mời chị vào tham quan! Hôm nay bên em vừa giới thiệu thêm nhiều mẫu thiết kế tinh tế, đặc biệt là bộ sưu tập dành riêng cho khách hàng yêu thích phong cách thanh lịch như chị.",
-          "khai_thac": "Chị đang có dịp đặc biệt nào sắp tới không ạ? Hay hôm nay chị muốn tìm một món quà tự thưởng cho chính mình?",
-          "goi_y": "Em có vài mẫu bông tai vàng trắng rất độc đáo trong bộ sưu tập Premium Self-Reward. Chị có muốn xem qua không ạ?",
-          "chot": "Những mẫu này thực sự rất hợp với phong cách của chị. Nếu chị thấy ưng ý, em có thể sắp xếp một trải nghiệm mua sắm riêng biệt ngay lập tức.",
-          "upsell": "Ngoài ra, bên em còn có dịch vụ khắc tên hoặc ngày đặc biệt lên sản phẩm, chị có muốn thử không? Điều này làm cho món trang sức càng thêm phần ý nghĩa."
+          "opening": "Chào chị, em rất vui được đón tiếp chị hôm nay. Em vừa nhớ đến bộ sưu tập bông tai vàng trắng mới rất hợp với phong cách thanh lịch của chị, không biết chị đã biết đến chưa?",
+          "khai_thac": "Chị đang tìm món trang sức đặc biệt cho dịp nào không? Em thấy bộ này sẽ rất phù hợp nếu chị muốn tự thưởng cho bản thân.",
+          "goi_y": "Em nghĩ bông tai 'Elegance Pearl', từ bộ sưu tập Premium Self-Reward, sẽ là lựa chọn hoàn hảo. Nó không chỉ tôn lên nét đẹp tự nhiên mà còn mang một thiết kế rất tinh tế.",
+          "chot": "Nếu chị cảm thấy ưng ý, em sẽ sắp xếp một không gian tư vấn riêng tư để chị có thể trải nghiệm kỹ hơn trước khi quyết định.",
+          "upsell": "Bên cạnh đó, em có thể giới thiệu thêm vài mẫu nhẫn đính hôn tuyệt đẹp mà chị có thể thích, nhất là vì sinh nhật chị cũng sắp đến."
         },
         "script_source": "llm",
         "tokens_used": 0
