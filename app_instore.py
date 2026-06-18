@@ -18,6 +18,7 @@ Chạy:
 from __future__ import annotations
 
 import io
+import hmac
 import json
 import os
 import sys
@@ -107,6 +108,141 @@ SCRIPT_STEPS = [
     ("chot",      "4. Chốt đơn"),
     ("upsell",    "5. Upsell / Bán thêm"),
 ]
+
+OFFER_GROUP_COLORS = {
+    "Discount":   "#ef4444",
+    "Gift":       "#d4af37",
+    "Bundle":     "#3b82f6",
+    "Financing":  "#22c55e",
+    "Experience": "#a855f7",
+}
+
+OFFER_GROUP_ICONS = {
+    "Discount":   "🏷️",
+    "Gift":       "🎁",
+    "Bundle":     "🧩",
+    "Financing":  "💳",
+    "Experience": "👑",
+}
+
+OFFER_PROGRAMS = [
+    {
+        "id": "birthday_voucher",
+        "name": "Voucher sinh nhật",
+        "group": "Discount",
+        "objective": "Kích hoạt nhu cầu mua theo dịp cá nhân đang đến gần.",
+    },
+    {
+        "id": "anniversary_voucher",
+        "name": "Voucher kỷ niệm cưới",
+        "group": "Discount",
+        "objective": "Chuyển đổi nhóm đang mua cho cột mốc tình cảm.",
+    },
+    {
+        "id": "new_customer_voucher",
+        "name": "Voucher khách hàng mới",
+        "group": "Discount",
+        "objective": "Giảm rào cản thử mua lần đầu hoặc quay lại sau thời gian dài.",
+    },
+    {
+        "id": "premium_gift_box",
+        "name": "Tặng hộp quà cao cấp",
+        "group": "Gift",
+        "objective": "Tăng cảm nhận trân trọng mà không giảm giá sản phẩm.",
+    },
+    {
+        "id": "free_charm",
+        "name": "Tặng charm",
+        "group": "Gift",
+        "objective": "Cá nhân hóa món trang sức, hợp nhóm trẻ/self-reward/gift.",
+    },
+    {
+        "id": "engraving_service",
+        "name": "Tặng dịch vụ khắc tên",
+        "group": "Gift",
+        "objective": "Biến sản phẩm thành kỷ vật cho cầu hôn, cưới, sinh nhật.",
+    },
+    {
+        "id": "ring_cleaning",
+        "name": "Mua nhẫn tặng vệ sinh miễn phí",
+        "group": "Gift",
+        "objective": "Tăng yên tâm hậu mãi cho khách đang cân nhắc nhẫn.",
+    },
+    {
+        "id": "jewelry_combo",
+        "name": "Combo trang sức",
+        "group": "Bundle",
+        "objective": "Tăng basket size bằng bộ phối hợp dễ quyết định.",
+    },
+    {
+        "id": "wedding_combo",
+        "name": "Combo cưới",
+        "group": "Bundle",
+        "objective": "Gói trọn nhu cầu nhẫn, khắc tên, hộp quà cho dịp cưới/cầu hôn.",
+    },
+    {
+        "id": "add_on_deal",
+        "name": "Mua kèm ưu đãi",
+        "group": "Bundle",
+        "objective": "Tạo cú hích cuối cho khách đã chọn sản phẩm hoặc nhạy ưu đãi.",
+    },
+    {
+        "id": "zero_interest",
+        "name": "Trả góp 0%",
+        "group": "Financing",
+        "objective": "Giảm áp lực thanh toán cho đơn giá trị cao/kim cương.",
+    },
+    {
+        "id": "trade_in",
+        "name": "Thu đổi trang sức",
+        "group": "Experience",
+        "objective": "Kích hoạt khách cũ nâng cấp tài sản đã sở hữu.",
+    },
+    {
+        "id": "diamond_upgrade",
+        "name": "Nâng cấp kim cương",
+        "group": "Experience",
+        "objective": "Upsell nhóm quan tâm kim cương bằng câu chuyện nâng tầm.",
+    },
+    {
+        "id": "double_points",
+        "name": "Nhân đôi điểm thưởng",
+        "group": "Experience",
+        "objective": "Thưởng lòng trung thành, hợp khách có lịch sử mua/ưu đãi.",
+    },
+    {
+        "id": "vip_day",
+        "name": "Thành viên VIP Day",
+        "group": "Experience",
+        "objective": "Tạo cảm giác được ưu tiên cho Gold/Platinum.",
+    },
+    {
+        "id": "referral",
+        "name": "Giới thiệu bạn bè",
+        "group": "Experience",
+        "objective": "Khai thác advocacy từ khách hài lòng/high-value.",
+    },
+    {
+        "id": "vip_private_event",
+        "name": "Event riêng cho VIP",
+        "group": "Experience",
+        "objective": "Giữ chân khách giá trị cao bằng trải nghiệm riêng tư.",
+    },
+    {
+        "id": "early_access",
+        "name": "Early Access Collection",
+        "group": "Experience",
+        "objective": "Cho khách cao cấp hoặc trend-seeker xem BST trước.",
+    },
+    {
+        "id": "mystery_gift",
+        "name": "Mystery Gift",
+        "group": "Gift",
+        "objective": "Tạo tò mò cho nhóm đang khám phá hoặc cần cú hích nhẹ.",
+    },
+]
+
+OFFER_PROGRAM_BY_ID = {offer["id"]: offer for offer in OFFER_PROGRAMS}
 
 # ── Walk-in form options ───────────────────────────────────────────────────────
 _WALKIN_GENDER     = ["Nữ", "Nam"]
@@ -2281,32 +2417,24 @@ def _regenerate_outbound_messages(api_key: str) -> tuple[bool, str]:
 
 def render_sidebar(df: Optional[pd.DataFrame]) -> dict:
     """
-    Render sidebar with API key input and data filters.
+    Render sidebar with generation controls and data filters.
 
     Returns dict with keys:
-        api_key  (str): OpenAI API key entered by user (may be empty)
+        api_key  (str): OpenAI API key loaded from environment (may be empty)
         search   (str): text search query
         intents  (list[str]): selected intent types
         priority (list[str]): selected priority levels
     """
     st.sidebar.markdown("## 💎 PNJ In-Store NBA")
     st.sidebar.caption("Nhánh 2 · Sales Script Engine")
+    st.sidebar.caption(f"Đang đăng nhập: {st.session_state.get('auth_username', '')}")
+    if st.sidebar.button("Đăng xuất", use_container_width=True, key="logout_btn"):
+        st.session_state.authenticated = False
+        st.session_state.pop("auth_username", None)
+        st.rerun()
     st.sidebar.divider()
 
-    # ── OpenAI API Key ──────────────────────────────────────────────────────
-    # Reads OPENAI_API_KEY env var as default; user can override in the field.
-    st.sidebar.markdown("### 🔑 OpenAI API Key")
-    env_key = os.environ.get("OPENAI_API_KEY", "")
-    api_key = st.sidebar.text_input(
-        "API Key",
-        value=env_key,
-        type="password",
-        placeholder="sk-...",
-        help=(
-            "Nhập OpenAI API Key để sinh script bằng GPT-4o.\n"
-            "Nếu để trống, hệ thống dùng Fallback Template (không cần API)."
-        ),
-    ).strip()
+    api_key = os.environ.get("OPENAI_API_KEY", "").strip()
 
     if api_key:
         st.sidebar.success("✅ GPT-4o mode (gpt-4o)")
@@ -2325,7 +2453,7 @@ def render_sidebar(df: Optional[pd.DataFrame]) -> dict:
         help=(
             "Sinh tin nhắn mới dựa trên Key Insight từ instore_scripts.json.\n"
             + ("GPT-4o sẽ tạo nội dung độc đáo cho từng khách." if api_key
-               else "Thêm API Key để dùng GPT-4o thay vì template.")
+               else "Ứng dụng đang dùng template theo cấu hình hiện tại.")
         ),
         key="sidebar_regen_btn",
     )
@@ -2419,6 +2547,706 @@ def apply_filters(df: pd.DataFrame, filters: dict) -> pd.DataFrame:
         out = out[out["priority"].str.lower().isin(prio_sel)]
 
     return out.reset_index(drop=True)
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# AUTHENTICATION
+# ══════════════════════════════════════════════════════════════════════════════
+
+def _auth_config() -> tuple[str, str]:
+    """Read required login credentials from environment variables."""
+    username = os.environ.get("AUTH_USERNAME", "").strip()
+    password = os.environ.get("AUTH_PASSWORD", "")
+
+    if not username or not password:
+        st.error(
+            "Thiếu cấu hình đăng nhập. Hãy đặt AUTH_USERNAME và AUTH_PASSWORD "
+            "trong file .env hoặc biến môi trường trước khi chạy app."
+        )
+        st.stop()
+
+    return username, password
+
+
+def render_login_gate() -> None:
+    """Stop rendering the app until the user logs in successfully."""
+    if st.session_state.get("authenticated"):
+        return
+
+    expected_username, expected_password = _auth_config()
+
+    left, center, right = st.columns([1, 1.1, 1])
+    with center:
+        st.markdown(
+            """
+            <div style="height:12vh"></div>
+            <div style="background:#111827;border:1px solid #263244;border-radius:8px;
+                        padding:22px 22px 18px;margin-bottom:14px">
+                <div style="color:#f8fafc;font-size:24px;font-weight:800;margin-bottom:6px">
+                    Đăng nhập
+                </div>
+                <div style="color:#94a3b8;font-size:13px;line-height:1.5">
+                    Nhập tài khoản được cấp để vào dashboard.
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        with st.form("login_form", clear_on_submit=False):
+            username = st.text_input("Username", placeholder="Username")
+            password = st.text_input("Password", type="password", placeholder="Password")
+            submitted = st.form_submit_button("Đăng nhập", use_container_width=True)
+
+        if submitted:
+            user_ok = hmac.compare_digest(username.strip(), expected_username)
+            password_ok = hmac.compare_digest(password, expected_password)
+            if user_ok and password_ok:
+                st.session_state.authenticated = True
+                st.session_state.auth_username = expected_username
+                st.rerun()
+
+            st.error("Username hoặc password không đúng.")
+
+    st.stop()
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TAB NEXT BEST OFFER — TỐI ƯU ƯU ĐÃI THEO TỆP KHÁCH
+# ══════════════════════════════════════════════════════════════════════════════
+
+def _safe_float(value, default: float = 0.0) -> float:
+    """Convert scalar-like values to float without leaking NaN into scoring."""
+    try:
+        out = float(value)
+        if pd.isna(out):
+            return default
+        return out
+    except (TypeError, ValueError):
+        return default
+
+
+def _safe_int(value, default: int = 0) -> int:
+    """Convert scalar-like values to int for offer scoring."""
+    return int(_safe_float(value, default))
+
+
+def _text_has(text: str, keywords: list[str]) -> bool:
+    """Case-insensitive contains-any helper for Vietnamese/English signals."""
+    haystack = str(text or "").lower()
+    return any(k.lower() in haystack for k in keywords)
+
+
+def _budget_rank(budget: str) -> int:
+    """Normalize free-form budget text into a simple ordinal rank."""
+    text = str(budget or "").lower()
+    if any(k in text for k in ["30", "trên", "tro len", "trở lên"]):
+        return 4
+    if "15" in text and "30" in text:
+        return 3
+    if "5" in text and "15" in text:
+        return 2
+    if "5" in text or "<" in text or "dưới" in text:
+        return 1
+    return 0
+
+
+def _customer_offer_signals(row: pd.Series) -> dict:
+    """Build normalized boolean/numeric signals used by all offer rules."""
+    tier = str(row.get("segment_rfm_tier", ""))
+    lep_intent = str(row.get("lep_intent", ""))
+    intent = str(row.get("instore_intent", ""))
+    key_text = " ".join([
+        str(row.get("key_insight", "")),
+        str(row.get("online_insight", "")),
+        str(row.get("urgency_signal", "")),
+        str(row.get("product_focus", "")),
+        str(row.get("product_rec_1", "")),
+        str(row.get("product_rec_2", "")),
+        str(row.get("product_rec_3", "")),
+    ])
+    preferred_type = str(row.get("preferred_type", ""))
+    material = str(row.get("material", ""))
+    monetary = _safe_float(row.get("monetary", 0))
+    recency_days = _safe_int(row.get("recency_days", 365))
+    avg_discount = _safe_float(row.get("avg_discount_pct", row.get("avg_discount", 0)))
+    add_to_cart = _safe_int(row.get("add_to_cart", 0))
+    web_pdp_views = _safe_int(row.get("web_pdp_views", 0))
+    visit_count = _safe_int(row.get("visit_count", 0))
+    birthday_in_days = _safe_int(row.get("birthday_in_days", 365))
+    sig_ring = _safe_int(row.get("sig_view_ring", 0))
+    sig_diamond = _safe_int(row.get("sig_view_diamond", 0))
+    sig_propose = _safe_int(row.get("sig_search_propose", 0))
+    confidence = _safe_float(row.get("confidence", 0))
+    budget_rank = _budget_rank(str(row.get("budget", "")))
+
+    is_premium = (
+        "Platinum" in tier
+        or "Gold" in tier
+        or monetary >= 50_000_000
+        or intent == "Premium"
+    )
+    is_high_purchase = (
+        intent == "High Purchase"
+        or add_to_cart > 0
+        or (web_pdp_views >= 5 and confidence >= 0.70)
+    )
+    is_engagement = (
+        lep_intent in ["engagement", "anniversary"]
+        or sig_ring > 0
+        or sig_propose > 0
+        or _text_has(key_text, ["cầu hôn", "đính hôn", "kỷ niệm", "cưới"])
+    )
+    is_gift = (
+        lep_intent == "gift"
+        or _text_has(key_text, ["quà", "gift", "tặng", "sinh nhật"])
+    )
+    is_self_reward = (
+        lep_intent == "self_reward"
+        or _text_has(key_text, ["tự thưởng", "self"])
+    )
+    is_diamond = (
+        sig_diamond > 0
+        or _text_has(material, ["kim cương", "diamond"])
+        or _text_has(key_text, ["kim cương", "diamond"])
+    )
+    is_price_sensitive = avg_discount >= 8 or _text_has(key_text, ["ưu đãi", "discount", "voucher"])
+    is_new_or_reactivation = (
+        intent == "Low Intent"
+        or (monetary <= 10_000_000 and recency_days >= 90)
+        or (recency_days >= 150 and confidence < 0.65)
+    )
+
+    return {
+        "tier": tier,
+        "lep_intent": lep_intent,
+        "intent": intent,
+        "key_text": key_text,
+        "preferred_type": preferred_type,
+        "material": material,
+        "monetary": monetary,
+        "recency_days": recency_days,
+        "avg_discount": avg_discount,
+        "add_to_cart": add_to_cart,
+        "web_pdp_views": web_pdp_views,
+        "visit_count": visit_count,
+        "birthday_in_days": birthday_in_days,
+        "sig_ring": sig_ring,
+        "sig_diamond": sig_diamond,
+        "sig_propose": sig_propose,
+        "confidence": confidence,
+        "budget_rank": budget_rank,
+        "is_premium": is_premium,
+        "is_high_purchase": is_high_purchase,
+        "is_engagement": is_engagement,
+        "is_gift": is_gift,
+        "is_self_reward": is_self_reward,
+        "is_diamond": is_diamond,
+        "is_price_sensitive": is_price_sensitive,
+        "is_new_or_reactivation": is_new_or_reactivation,
+    }
+
+
+def _score_offer(program_id: str, s: dict) -> tuple[float, list[str], str]:
+    """
+    Return score, evidence list, and TVV-facing rationale for one offer.
+
+    Scores are intentionally explainable rules: the UI can show exactly which
+    customer signals caused an offer to win.
+    """
+    score = 18.0
+    reasons: list[str] = []
+    guardrail = ""
+
+    def add(points: float, reason: str) -> None:
+        nonlocal score
+        score += points
+        reasons.append(reason)
+
+    def dampen(points: float, reason: str) -> None:
+        nonlocal score, guardrail
+        score -= points
+        guardrail = reason
+
+    if program_id == "birthday_voucher":
+        if s["birthday_in_days"] <= 14:
+            add(62, f"Sinh nhật còn {s['birthday_in_days']} ngày, cần ưu đãi theo dịp ngay.")
+        elif s["birthday_in_days"] <= 30:
+            add(50, f"Sinh nhật còn {s['birthday_in_days']} ngày, đủ gần để kích hoạt mua quà.")
+        elif s["birthday_in_days"] <= 60:
+            add(34, f"Sinh nhật còn {s['birthday_in_days']} ngày, nên gieo ý tưởng sớm.")
+        if s["is_gift"] or s["is_self_reward"]:
+            add(18, "Nhu cầu gift/self-reward hợp ưu đãi cá nhân.")
+        if s["is_premium"]:
+            dampen(10, "Khách VIP nên ưu tiên quà/trải nghiệm trước khi giảm giá trực tiếp.")
+
+    elif program_id == "anniversary_voucher":
+        if s["lep_intent"] == "anniversary":
+            add(46, "LEP dự đoán nhu cầu kỷ niệm.")
+        if s["is_engagement"]:
+            add(32, "Có tín hiệu cầu hôn/kỷ niệm từ hành vi xem nhẫn hoặc nội dung insight.")
+        if s["birthday_in_days"] <= 45:
+            add(10, "Có dịp cá nhân gần, dễ gắn voucher vào câu chuyện kỷ niệm.")
+        if s["is_premium"]:
+            dampen(8, "Với khách cao cấp, voucher nên đi kèm dịch vụ riêng để giữ cảm giác sang.")
+
+    elif program_id == "new_customer_voucher":
+        if s["is_new_or_reactivation"]:
+            add(48, "Khách mới/ít tín hiệu hoặc lâu chưa mua, cần giảm rào cản thử mua.")
+        if s["avg_discount"] >= 8:
+            add(22, f"Lịch sử dùng ưu đãi khoảng {s['avg_discount']:.1f}%, nhạy với discount.")
+        if s["is_high_purchase"]:
+            add(8, "Có ý định mua, voucher nhỏ có thể tạo cú chốt.")
+        if s["is_premium"]:
+            dampen(18, "Không nên dùng voucher khách mới làm offer chính cho Gold/Platinum.")
+
+    elif program_id == "premium_gift_box":
+        if s["is_gift"]:
+            add(42, "Khách có nhu cầu mua quà, hộp quà làm tăng giá trị cảm xúc.")
+        if s["birthday_in_days"] <= 30:
+            add(28, "Dịp sinh nhật gần, packaging cao cấp giúp món quà trọn vẹn.")
+        if s["is_premium"]:
+            add(22, "Khách VIP hợp quà tặng sang trọng hơn giảm giá trực tiếp.")
+
+    elif program_id == "free_charm":
+        if s["is_self_reward"]:
+            add(32, "Khách tự thưởng thường phản hồi tốt với cá nhân hóa nhỏ.")
+        if s["is_gift"]:
+            add(26, "Charm giúp quà tặng có câu chuyện riêng.")
+        if _text_has(s["key_text"] + s["preferred_type"], ["vòng", "lắc", "dây chuyền", "trẻ trung"]):
+            add(20, "Phong cách/sản phẩm phù hợp charm.")
+
+    elif program_id == "engraving_service":
+        if s["is_engagement"]:
+            add(54, "Cầu hôn/cưới/kỷ niệm cần dấu ấn cá nhân như tên hoặc ngày đặc biệt.")
+        if s["is_gift"]:
+            add(24, "Khắc tên làm quà tặng cá nhân hơn mà không cần giảm giá.")
+        if _text_has(s["preferred_type"], ["nhẫn", "vòng", "dây chuyền"]):
+            add(12, "Loại sản phẩm dễ gắn dịch vụ khắc tên.")
+
+    elif program_id == "ring_cleaning":
+        if _text_has(s["preferred_type"], ["nhẫn"]) or s["sig_ring"] > 0:
+            add(42, "Khách đang quan tâm nhẫn, hậu mãi vệ sinh miễn phí giảm lo ngại sau mua.")
+        if s["is_high_purchase"]:
+            add(16, "Khách đã gần chốt, service hậu mãi là cú hích ít ảnh hưởng margin.")
+        if s["is_engagement"]:
+            add(14, "Nhẫn cầu hôn/cưới cần được chăm sóc lâu dài.")
+
+    elif program_id == "jewelry_combo":
+        if s["is_high_purchase"]:
+            add(24, "Khách có intent mua cao, có thể mở rộng sang set phối hợp.")
+        if s["is_self_reward"] or s["is_gift"]:
+            add(28, "Tự thưởng/mua quà hợp combo hoàn chỉnh, dễ ra quyết định.")
+        if s["budget_rank"] >= 3 or s["monetary"] >= 25_000_000:
+            add(16, "Ngân sách/giá trị lịch sử đủ để đề xuất combo.")
+
+    elif program_id == "wedding_combo":
+        if s["is_engagement"]:
+            add(58, "Tín hiệu cầu hôn/cưới rất mạnh, combo cưới giải quyết trọn bộ nhu cầu.")
+        if _text_has(s["preferred_type"], ["nhẫn"]) or s["sig_ring"] > 0:
+            add(18, "Khách đang xem nhẫn, phù hợp bundle nhẫn + dịch vụ đi kèm.")
+        if s["budget_rank"] >= 2:
+            add(10, "Ngân sách đủ để gợi ý combo thay vì một món lẻ.")
+
+    elif program_id == "add_on_deal":
+        if s["add_to_cart"] > 0:
+            add(38, f"Đã thêm {s['add_to_cart']} sản phẩm vào giỏ, mua kèm là cú chốt tự nhiên.")
+        if s["is_price_sensitive"]:
+            add(30, "Khách có tín hiệu nhạy ưu đãi, mua kèm giúp tăng giá trị cảm nhận.")
+        if s["is_high_purchase"]:
+            add(16, "Intent mua cao, add-on deal tăng basket size.")
+
+    elif program_id == "zero_interest":
+        if s["budget_rank"] >= 4 or s["monetary"] >= 50_000_000:
+            add(40, "Đơn/khả năng chi tiêu cao, trả góp 0% giảm áp lực thanh toán.")
+        if s["is_diamond"]:
+            add(32, "Kim cương thường có ticket size cao, financing giúp dễ nâng cấp.")
+        if s["is_high_purchase"]:
+            add(12, "Khách gần mua, cần tháo gỡ rào cản thanh toán.")
+        if s["budget_rank"] <= 1 and s["monetary"] < 15_000_000:
+            dampen(12, "Ticket size có thể chưa đủ lớn để financing là offer chính.")
+
+    elif program_id == "trade_in":
+        if s["monetary"] >= 25_000_000 and s["recency_days"] >= 60:
+            add(36, "Khách đã từng chi tiêu tốt và có thể quay lại bằng câu chuyện thu đổi.")
+        if s["is_premium"]:
+            add(22, "Khách cao cấp hợp offer nâng cấp tài sản hơn discount.")
+        if s["recency_days"] >= 120:
+            add(18, f"Mua gần nhất {s['recency_days']} ngày trước, thu đổi là lý do quay lại.")
+
+    elif program_id == "diamond_upgrade":
+        if s["is_diamond"]:
+            add(52, "Có tín hiệu quan tâm kim cương, nâng cấp là upsell đúng ngữ cảnh.")
+        if s["is_premium"]:
+            add(24, "Gold/Platinum phù hợp câu chuyện nâng tầm thay vì giảm giá.")
+        if s["budget_rank"] >= 3:
+            add(12, "Ngân sách đủ để cân nhắc nâng cấp viên/thiết kế.")
+
+    elif program_id == "double_points":
+        if s["is_price_sensitive"]:
+            add(34, "Khách thích ưu đãi, điểm thưởng giữ được cảm giác value mà không giảm giá sản phẩm.")
+        if s["monetary"] >= 20_000_000:
+            add(22, "Khách có lịch sử mua đủ tốt để điểm thưởng tạo động lực quay lại.")
+        if s["is_premium"]:
+            add(14, "Điểm thưởng hợp loyalty cho khách hạng cao.")
+
+    elif program_id == "vip_day":
+        if s["is_premium"]:
+            add(58, "Khách Gold/Platinum hoặc high-value, VIP Day khớp kỳ vọng được ưu tiên.")
+        if s["visit_count"] >= 3:
+            add(12, "Khách quay lại nhiều lần, nên mời vào dịp chăm sóc riêng.")
+        if s["is_price_sensitive"]:
+            add(8, "Có thể lồng ưu đãi trong ngày VIP thay vì giảm đại trà.")
+
+    elif program_id == "referral":
+        if s["is_premium"] and s["confidence"] >= 0.70:
+            add(34, "Khách high-value có intent rõ, phù hợp mời giới thiệu sau trải nghiệm tốt.")
+        if s["is_gift"] or s["is_engagement"]:
+            add(16, "Dịp quà/cưới thường có người thân, dễ mở rộng referral.")
+        if s["monetary"] >= 50_000_000:
+            add(12, "Khách chi tiêu cao có khả năng ảnh hưởng trong nhóm tương tự.")
+
+    elif program_id == "vip_private_event":
+        if s["is_premium"]:
+            add(62, "Khách VIP nên được nuôi dưỡng bằng event riêng tư, không phải ưu đãi đại trà.")
+        if s["is_diamond"] or s["budget_rank"] >= 4:
+            add(16, "Quan tâm sản phẩm giá trị cao, event giúp tư vấn sâu hơn.")
+        if s["recency_days"] > 90:
+            add(10, "Event là lý do mềm để mời khách quay lại.")
+
+    elif program_id == "early_access":
+        if s["is_premium"]:
+            add(42, "Khách hạng cao hợp đặc quyền xem bộ sưu tập trước.")
+        if _text_has(s["key_text"] + s["preferred_type"], ["trẻ trung", "mới", "collection", "bộ sưu tập"]):
+            add(24, "Khách có tín hiệu thích mẫu mới/trend.")
+        if s["visit_count"] >= 3:
+            add(10, "Tần suất quay lại tốt, early access dễ kích hoạt tương tác.")
+
+    elif program_id == "mystery_gift":
+        if s["intent"] in ["Exploration", "Low Intent"]:
+            add(30, "Khách đang khám phá/chưa rõ nhu cầu, quà bí mật tạo tò mò không gây áp lực.")
+        if s["is_price_sensitive"]:
+            add(18, "Có tín hiệu thích ưu đãi, mystery gift tạo value nhưng không phá giá.")
+        if s["birthday_in_days"] <= 45 or s["is_gift"]:
+            add(16, "Dịp quà/sinh nhật hợp yếu tố bất ngờ.")
+
+    if not reasons:
+        reasons.append("Offer có độ phù hợp nền nhưng chưa có tín hiệu thật mạnh trong dữ liệu.")
+
+    raw_score = score
+    score = max(5.0, min(98.0, 38.0 + (raw_score - 18.0) * 0.58))
+    top_reason = reasons[0]
+    if guardrail:
+        top_reason = f"{top_reason} Guardrail: {guardrail}"
+    return score, reasons[:4], top_reason
+
+
+def build_next_best_offers(row: pd.Series) -> list[dict]:
+    """Rank every offer program for one customer."""
+    signals = _customer_offer_signals(row)
+    ranked = []
+    for offer in OFFER_PROGRAMS:
+        score, reasons, rationale = _score_offer(offer["id"], signals)
+        ranked.append({
+            **offer,
+            "score": round(score, 1),
+            "reasons": reasons,
+            "rationale": rationale,
+        })
+    ranked.sort(key=lambda x: x["score"], reverse=True)
+    return ranked
+
+
+def build_nbo_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    """Build one-row-per-customer Next Best Offer summary."""
+    rows = []
+    for _, row in df.iterrows():
+        ranked = build_next_best_offers(row)
+        best = ranked[0]
+        alternatives = ranked[1:4]
+        rows.append({
+            "customer_id": row.get("customer_id", ""),
+            "segment_rfm_tier": row.get("segment_rfm_tier", ""),
+            "instore_intent": row.get("instore_intent", ""),
+            "lep_intent": row.get("lep_intent", ""),
+            "monetary": _safe_float(row.get("monetary", 0)),
+            "budget": row.get("budget", ""),
+            "avg_discount_pct": _safe_float(row.get("avg_discount_pct", 0)),
+            "birthday_in_days": _safe_int(row.get("birthday_in_days", 365)),
+            "add_to_cart": _safe_int(row.get("add_to_cart", 0)),
+            "next_best_offer": best["name"],
+            "offer_group": best["group"],
+            "offer_score": best["score"],
+            "why": " | ".join(best["reasons"]),
+            "alternative_1": alternatives[0]["name"],
+            "alternative_2": alternatives[1]["name"],
+            "alternative_3": alternatives[2]["name"],
+        })
+    return pd.DataFrame(rows)
+
+
+def _offer_group_badge(group: str) -> str:
+    color = OFFER_GROUP_COLORS.get(group, "#64748b")
+    icon = OFFER_GROUP_ICONS.get(group, "")
+    return (
+        f'<span style="background:{color}22;color:{color};border:1px solid {color}66;'
+        f'border-radius:20px;padding:3px 10px;font-size:12px;font-weight:700">'
+        f'{icon} {group}</span>'
+    )
+
+
+def _render_offer_rank_card(offer: dict, rank: int) -> None:
+    """Render one ranked offer card."""
+    color = OFFER_GROUP_COLORS.get(offer["group"], "#64748b")
+    reasons_html = "".join(
+        f"<li style='margin-bottom:4px'>{reason}</li>"
+        for reason in offer.get("reasons", [])
+    )
+    st.markdown(
+        f"""
+        <div style="background:#111827;border:1px solid {color}88;border-radius:10px;
+                    padding:14px 16px;margin-bottom:12px">
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px">
+                <span style="color:{color};font-weight:800;font-size:13px">#{rank}</span>
+                <span style="color:#f1f5f9;font-weight:700;font-size:15px">{offer['name']}</span>
+                {_offer_group_badge(offer['group'])}
+                <span style="margin-left:auto;color:{color};font-size:22px;font-weight:800">
+                    {offer['score']:.0f}
+                </span>
+            </div>
+            <div style="color:#94a3b8;font-size:12px;line-height:1.6;margin-bottom:8px">
+                {offer['objective']}
+            </div>
+            <ul style="margin:0;padding-left:18px;color:#cbd5e1;font-size:12.5px;line-height:1.65">
+                {reasons_html}
+            </ul>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_tab_next_best_offer(df: pd.DataFrame, filters: dict) -> None:
+    """Tab: optimize and explain the best offer for each customer."""
+    st.markdown("## 🎁 AI Next Best Offer")
+    st.caption(
+        "Chọn đúng ưu đãi cho từng tệp khách hàng bằng tín hiệu CRM, hành vi online, "
+        "intent LEP và guardrail thương hiệu."
+    )
+
+    if df.empty:
+        st.info("Chưa có dữ liệu phân tích. Hãy chạy pipeline trước để tạo Next Best Offer.")
+        return
+
+    df_filtered = apply_filters(df, filters)
+    if df_filtered.empty:
+        st.warning("Không có khách nào khớp với bộ lọc hiện tại.")
+        return
+
+    nbo_df = build_nbo_dataframe(df_filtered)
+
+    # KPI summary
+    c1, c2, c3, c4 = st.columns(4)
+    premium_exp = (
+        (nbo_df["segment_rfm_tier"].astype(str).str.contains("Gold|Platinum", regex=True))
+        & (nbo_df["offer_group"] == "Experience")
+    ).sum()
+    price_sensitive = (nbo_df["avg_discount_pct"] >= 8).sum()
+    metrics = [
+        (c1, len(nbo_df), "Khách được tối ưu"),
+        (c2, f"{nbo_df['offer_score'].mean():.0f}", "Điểm phù hợp TB"),
+        (c3, premium_exp, "VIP nhận Experience"),
+        (c4, price_sensitive, "Nhạy ưu đãi"),
+    ]
+    for col, val, label in metrics:
+        with col:
+            st.markdown(
+                f'<div class="kpi-card">'
+                f'<div class="kpi-value">{val}</div>'
+                f'<div class="kpi-label">{label}</div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    tab_overview, tab_customer, tab_library = st.tabs([
+        "📊 Tổng quan offer",
+        "👤 Chi tiết khách",
+        "📚 Logic & thư viện",
+    ])
+
+    with tab_overview:
+        col_chart, col_table = st.columns([1, 2])
+        with col_chart:
+            group_counts = nbo_df["offer_group"].value_counts().reset_index()
+            group_counts.columns = ["offer_group", "count"]
+            fig = go.Figure(go.Bar(
+                x=group_counts["count"],
+                y=[
+                    f"{OFFER_GROUP_ICONS.get(g, '')} {g}"
+                    for g in group_counts["offer_group"]
+                ],
+                orientation="h",
+                marker_color=[
+                    OFFER_GROUP_COLORS.get(g, "#64748b")
+                    for g in group_counts["offer_group"]
+                ],
+                text=group_counts["count"],
+                textposition="outside",
+            ))
+            fig.update_layout(
+                plot_bgcolor="rgba(0,0,0,0)",
+                paper_bgcolor="rgba(0,0,0,0)",
+                font=dict(color="#e2e8f0"),
+                xaxis=dict(gridcolor="rgba(255,255,255,0.06)"),
+                margin=dict(t=8, b=8, l=8, r=8),
+                height=260,
+                showlegend=False,
+            )
+            st.plotly_chart(fig, use_container_width=True)
+
+        with col_table:
+            group_filter = st.multiselect(
+                "Nhóm ưu đãi",
+                options=list(OFFER_GROUP_COLORS.keys()),
+                default=list(OFFER_GROUP_COLORS.keys()),
+                format_func=lambda g: f"{OFFER_GROUP_ICONS.get(g, '')} {g}",
+                key="nbo_group_filter",
+            )
+            min_score = st.slider(
+                "Điểm phù hợp tối thiểu",
+                min_value=0,
+                max_value=100,
+                value=50,
+                step=5,
+                key="nbo_min_score",
+            )
+            view = nbo_df[
+                nbo_df["offer_group"].isin(group_filter)
+                & (nbo_df["offer_score"] >= min_score)
+            ].sort_values(["offer_score", "monetary"], ascending=[False, False])
+
+            display_cols = [
+                "customer_id", "segment_rfm_tier", "instore_intent",
+                "next_best_offer", "offer_group", "offer_score", "why",
+            ]
+            st.dataframe(
+                view[display_cols],
+                use_container_width=True,
+                height=360,
+                column_config={
+                    "customer_id": "Khách",
+                    "segment_rfm_tier": "Phân khúc",
+                    "instore_intent": "Intent",
+                    "next_best_offer": "AI Next Best Offer",
+                    "offer_group": "Nhóm",
+                    "offer_score": st.column_config.ProgressColumn(
+                        "Score",
+                        min_value=0,
+                        max_value=100,
+                        format="%d",
+                    ),
+                    "why": "Vì sao",
+                },
+            )
+
+            csv = view.to_csv(index=False).encode("utf-8-sig")
+            st.download_button(
+                "📥 Xuất Next Best Offer CSV",
+                data=csv,
+                file_name="ai_next_best_offer.csv",
+                mime="text/csv",
+                key="nbo_export_csv",
+            )
+
+    with tab_customer:
+        customer_ids = sorted(nbo_df["customer_id"].astype(str).tolist())
+        selected_id = st.selectbox(
+            "Chọn khách để xem offer reasoning",
+            options=customer_ids,
+            format_func=lambda cid: (
+                lambda r: (
+                    f"{cid} — {r['next_best_offer']} "
+                    f"({r['offer_group']}, {r['offer_score']:.0f})"
+                )
+            )(nbo_df[nbo_df["customer_id"].astype(str) == cid].iloc[0]),
+            key="nbo_customer_select",
+        )
+        row = df_filtered[df_filtered["customer_id"].astype(str) == selected_id].iloc[0]
+        ranked = build_next_best_offers(row)
+        signals = _customer_offer_signals(row)
+
+        col_left, col_right = st.columns([1, 1])
+        with col_left:
+            st.markdown("**Insight khách hàng**")
+            insight_items = [
+                ("Phân khúc", signals["tier"]),
+                ("Intent in-store", signals["intent"]),
+                ("LEP intent", signals["lep_intent"]),
+                ("Tổng chi tiêu", format_vnd(signals["monetary"]) + " đ"),
+                ("Nhạy ưu đãi", "Có" if signals["is_price_sensitive"] else "Không rõ"),
+                ("Dịp sinh nhật", f"Còn {signals['birthday_in_days']} ngày"),
+                ("Tín hiệu cầu hôn/cưới", "Có" if signals["is_engagement"] else "Không rõ"),
+                ("Tín hiệu kim cương", "Có" if signals["is_diamond"] else "Không rõ"),
+            ]
+            for label, value in insight_items:
+                st.markdown(
+                    f"<div style='display:flex;justify-content:space-between;"
+                    f"padding:5px 0;border-bottom:1px solid #1e2330'>"
+                    f"<span style='color:#64748b;font-size:13px'>{label}</span>"
+                    f"<span style='color:#e2e8f0;font-size:13px;font-weight:600'>{value}</span>"
+                    f"</div>",
+                    unsafe_allow_html=True,
+                )
+
+            key = str(row.get("key_insight", "")).strip()
+            if key:
+                st.markdown(
+                    f'<div class="box-key">💡 <strong>Key Insight:</strong> {key}</div>',
+                    unsafe_allow_html=True,
+                )
+
+        with col_right:
+            st.markdown("**Top offer được đề xuất**")
+            for i, offer in enumerate(ranked[:5], 1):
+                _render_offer_rank_card(offer, i)
+
+        st.divider()
+        render_script_card(row, key_prefix="nbo")
+
+    with tab_library:
+        st.markdown("### Nền tảng logic")
+        research_points = [
+            ("Cá nhân hóa đúng thời điểm", "Offer được chọn từ tín hiệu cá nhân: dịp gần, hành vi xem sản phẩm, giỏ hàng, tier, lịch sử ưu đãi và intent."),
+            ("Giữ cảm nhận cao cấp", "Khách Gold/Platinum được ưu tiên Gift/Experience vì quà và đặc quyền giữ giá trị thương hiệu tốt hơn giảm giá đại trà."),
+            ("Tách rào cản mua", "Discount dùng cho price-sensitive/new/reactivation; Bundle cho khách đã chọn sản phẩm; Financing cho kim cương/high-ticket."),
+            ("Giải thích được", "Mỗi offer thắng phải có evidence cụ thể để TVV hiểu vì sao nên dùng và biết cách nói với khách."),
+        ]
+        for title, body in research_points:
+            st.markdown(
+                f'<div style="background:#111827;border:1px solid #263244;border-radius:8px;'
+                f'padding:12px 14px;margin-bottom:8px">'
+                f'<div style="color:#d4af37;font-size:13px;font-weight:700">{title}</div>'
+                f'<div style="color:#94a3b8;font-size:12.5px;line-height:1.65;margin-top:4px">{body}</div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+
+        st.markdown("### Thư viện chương trình")
+        for group in OFFER_GROUP_COLORS:
+            items = [o for o in OFFER_PROGRAMS if o["group"] == group]
+            color = OFFER_GROUP_COLORS[group]
+            icon = OFFER_GROUP_ICONS[group]
+            with st.expander(f"{icon} {group} — {len(items)} chương trình", expanded=True):
+                for offer in items:
+                    st.markdown(
+                        f"<div style='padding:6px 0;border-bottom:1px solid #1e2330'>"
+                        f"<span style='color:{color};font-weight:700'>{offer['name']}</span>"
+                        f"<br><span style='color:#94a3b8;font-size:12px'>{offer['objective']}</span>"
+                        f"</div>",
+                        unsafe_allow_html=True,
+                    )
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -3022,6 +3850,8 @@ def render_cache_banner(cache: Optional[dict], status: dict) -> bool:
 # ══════════════════════════════════════════════════════════════════════════════
 
 def main() -> None:
+    render_login_gate()
+
     # ── Header ────────────────────────────────────────────────────────────────
     st.markdown("# 💎 PNJ · In-Store NBA Dashboard")
     st.divider()
@@ -3036,7 +3866,7 @@ def main() -> None:
     status      = get_cache_status(cache, excel_ids)
     df_analysis = cache_to_dataframe(cache) if cache else pd.DataFrame()
 
-    # ── Sidebar (rendered first so api_key is available before banner) ────────
+    # ── Sidebar (rendered first so env configuration is available before banner)
     sidebar = render_sidebar(df_analysis if not df_analysis.empty else None)
     api_key = sidebar.pop("api_key", "")   # extract key; remainder = filters
     filters = sidebar
@@ -3045,11 +3875,6 @@ def main() -> None:
     should_update = render_cache_banner(cache, status)
 
     if should_update:
-        if not api_key:
-            st.info(
-                "💡 Tip: Nhập **OpenAI API Key** ở sidebar để sinh script bằng GPT-4o.  \n"
-                "Nếu không có key, hệ thống vẫn chạy với Fallback Template."
-            )
         with st.spinner("⏳ Đang chạy pipeline... Vui lòng chờ."):
             try:
                 cache = run_pipeline_and_update_cache(
@@ -3073,9 +3898,10 @@ def main() -> None:
         df_analysis = cache_to_dataframe(cache)
 
     # ── Tabs ──────────────────────────────────────────────────────────────────
-    tab_raw, tab_analysis, tab_customer, tab_walkin, tab_guide = st.tabs([
+    tab_raw, tab_analysis, tab_offer, tab_customer, tab_walkin, tab_guide = st.tabs([
         "📂 Dữ liệu gốc",
         "🎯 Kết quả phân tích",
+        "🎁 AI Next Best Offer",
         "👤 Tra cứu khách",
         "👁️ Khách Mới",
         "📖 Hướng dẫn phân loại",
@@ -3086,6 +3912,9 @@ def main() -> None:
 
     with tab_analysis:
         render_tab_analysis(df_analysis, filters)
+
+    with tab_offer:
+        render_tab_next_best_offer(df_analysis, filters)
 
     with tab_customer:
         render_tab_customer(df_analysis)

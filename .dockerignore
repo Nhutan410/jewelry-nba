@@ -1,0 +1,16 @@
+.git/
+.claude/
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+*.env
+.streamlit/secrets.toml
+outputs/.instore_cache/
+outputs/.llm_cache/
+outputs/models/
+data/~$*.xlsx
+outputs/~$*.xlsx

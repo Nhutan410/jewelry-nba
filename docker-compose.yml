@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    image: jewelry-nba:latest
+    container_name: jewelry-nba
+    env_file:
+      - .env
+    environment:
+      PORT: 8501
+    ports:
+      - "8501:8501"
