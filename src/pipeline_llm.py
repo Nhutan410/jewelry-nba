@@ -199,8 +199,8 @@ def main():
     df_purch    = sheets["purchases"]
     df_ml       = sheets.get("ml_predictions", pd.DataFrame())
 
-    # Merge gender từ sheet profiles (profiles_enhanced không có cột gender)
-    if "profiles" in sheets:
+    # Merge gender từ sheet profiles chỉ khi profiles_enhanced chưa có cột gender
+    if "profiles" in sheets and "gender" not in df_profiles.columns:
         df_gender = sheets["profiles"][["customer_id", "gender"]].copy()
         df_profiles = df_profiles.merge(df_gender, on="customer_id", how="left")
         df_profiles["gender"] = df_profiles["gender"].fillna("F")

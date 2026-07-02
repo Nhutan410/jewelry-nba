@@ -73,7 +73,7 @@ def run(incremental: bool = False, api_key: str = "") -> None:
     df_profiles = sheets["profiles_enhanced"]
     df_ml       = sheets.get("ml_predictions", pd.DataFrame())
 
-    if "profiles" in sheets:
+    if "profiles" in sheets and "gender" not in df_profiles.columns:
         df_gender   = sheets["profiles"][["customer_id", "gender"]].copy()
         df_profiles = df_profiles.merge(df_gender, on="customer_id", how="left")
         df_profiles["gender"] = df_profiles["gender"].fillna("F")

@@ -34,6 +34,8 @@ from typing import Optional
 from dataclasses import dataclass, field, asdict
 from enum import Enum
 
+from src.product_recommender import ProductRecommender, canonical_gender, recommendation_label
+
 # ── OpenAI import (graceful fallback) ─────────────────────────────────────────
 try:
     from openai import OpenAI
@@ -47,6 +49,18 @@ except ImportError:
 # ══════════════════════════════════════════════════════════════════════════════
 # 1. Enums & Dataclasses
 # ══════════════════════════════════════════════════════════════════════════════
+
+def _gender_label(value: str) -> str:
+    gender = canonical_gender(value)
+    if gender == "male":
+        return "Nam"
+    if gender == "female":
+        return "Nữ"
+    return "Chưa rõ"
+
+
+def _customer_pronoun(value: str) -> str:
+    return "anh" if canonical_gender(value) == "male" else "chị"
 
 class InstoreIntentType(str, Enum):
     """4 loại intent tại cửa hàng."""
@@ -101,12 +115,13 @@ class InstoreCustomerProfile:
     # ── Online Insight Summary (sinh tự động) ────────────────────────────────
     online_insight:     str = ""     # mô tả hành vi online bằng tiếng Việt
 
-    # ── Giới tính: M = Nam (anh), F = Nữ (chị) ─────────────────────────
+    # ── Giới tính: nhận M/F hoặc Nam/Nữ; dùng để gọi anh/chị ───────────
     gender:             str = "F"
 
     # ── Action ───────────────────────────────────────────────────────────────
     product_focus:      str = ""
     product_recommendations: list[str] = field(default_factory=list)
+    product_recommendation_details: list[dict] = field(default_factory=list)
     psychology_trigger: str = ""
 
 
@@ -129,6 +144,7 @@ class InStoreSalesScript:
     product_recommendations: list[str]
     key_insight:        str          # 1 câu tóm tắt insight quan trọng nhất
     urgency_signal:     str          # tín hiệu khẩn cấp nếu có (sinh nhật sắp đến...)
+    product_recommendation_details: list[dict] = field(default_factory=list)
     tokens_used:        int = 0
     source:             str = "fallback"
     raw_json:           dict = field(default_factory=dict)
@@ -370,8 +386,17 @@ Giải thích:
 def _build_instore_user_prompt(profile: InstoreCustomerProfile) -> str:
     """Xây dựng prompt đầy đủ cho LLM từ hồ sơ khách."""
     intent_ctx   = INSTORE_INTENT_CONTEXT.get(profile.instore_intent, "")
-    gender_label = "Nam" if str(profile.gender).upper() == "M" else "Nữ"
-    pn           = "anh" if str(profile.gender).upper() == "M" else "chị"
+    gender_label = _gender_label(profile.gender)
+    pn           = _customer_pronoun(profile.gender)
+    real_products = []
+    for idx, rec in enumerate(profile.product_recommendation_details[:5], 1):
+        evidence = rec.get("evidence") or rec.get("selling_points") or []
+        evidence_text = "; ".join(str(e) for e in evidence[:3])
+        real_products.append(
+            f"{idx}. {rec.get('name', '')} | SKU: {rec.get('sku', '')} | "
+            f"Giá: {rec.get('price_text', '')} | Lý do: {evidence_text}"
+        )
+    product_catalog_section = "\n".join(real_products) if real_products else profile.product_focus
 
     prompt = f"""LOẠI KHÁCH HÀNG: {profile.instore_intent.value}
 NBA STRATEGY: {profile.nba_strategy}
@@ -399,12 +424,16 @@ Priority         : {profile.priority}
 ─── SẢN PHẨM TẬP TRUNG ──────────────────────────────────
 {profile.product_focus}
 
+─── SẢN PHẨM THẬT TỪ CATALOG PNJ ĐÃ ĐƯỢC LỌC/CHẤM ĐIỂM ──
+{product_catalog_section}
+
 ─── TÍN HIỆU KHẨN CẤP ──────────────────────────────────
 {profile.urgency_signal if profile.urgency_signal else "Không có"}
 
 ─── YÊU CẦU ─────────────────────────────────────────────
 Sinh Sales Script 5 bước cho TVV dùng ngay khi khách bước vào.
 Psychology trigger: {profile.psychology_trigger}
+Nếu phần "SẢN PHẨM THẬT TỪ CATALOG PNJ" có dữ liệu, chỉ dùng đúng tên/SKU các sản phẩm đó trong product_recommendations và trong bước gợi ý. Không tự bịa tên sản phẩm.
 
 {INSTORE_JSON_FORMAT}"""
     return prompt
@@ -541,6 +570,11 @@ class InstoreScriptEngine:
         self.use_cache = use_cache
         self.rate_limit_delay = rate_limit_delay
         self.cache = InstoreCache() if use_cache else None
+        try:
+            self.product_recommender = ProductRecommender()
+        except Exception as exc:
+            self.product_recommender = None
+            print(f"[InStore] Product recommender unavailable: {exc}")
 
         if OPENAI_AVAILABLE and self.api_key:
             self.client = OpenAI(api_key=self.api_key)
@@ -614,6 +648,29 @@ class InstoreScriptEngine:
 
         profile.online_insight    = build_online_insight(profile)
         profile.urgency_signal    = build_urgency_signal(profile)
+        if self.product_recommender:
+            recs = self.product_recommender.recommend_for_profile({
+                "customer_id": profile.customer_id,
+                "gender": profile.gender,
+                "segment_rfm_tier": profile.segment_rfm_tier,
+                "budget": profile.budget,
+                "style": profile.style,
+                "preferred_type": profile.preferred_type,
+                "material": profile.material,
+                "lep_intent": profile.lep_intent,
+                "priority": profile.priority,
+                "monetary": profile.monetary,
+                "recency_days": profile.recency_days,
+                "add_to_cart": profile.add_to_cart,
+                "wishlist": profile.wishlist,
+                "sig_view_ring": profile.sig_view_ring,
+                "sig_view_diamond": profile.sig_view_diamond,
+                "sig_search_propose": profile.sig_search_propose,
+                "birthday_in_days": profile.birthday_in_days,
+            }, top_n=60)
+            if recs:
+                profile.product_recommendation_details = recs
+                profile.product_recommendations = [recommendation_label(rec) for rec in recs[:3]]
         return profile
 
     def _call_llm(self, profile: InstoreCustomerProfile) -> tuple[dict, int]:
@@ -663,7 +720,7 @@ class InstoreScriptEngine:
         template = FALLBACK_SCRIPTS.get(profile.instore_intent,
                                         FALLBACK_SCRIPTS[InstoreIntentType.LOW_INTENT])
 
-        pn = "anh" if str(profile.gender).upper() == "M" else "chị"
+        pn = _customer_pronoun(profile.gender)
         Pn = pn.capitalize()
 
         # Inject product_focus và pronoun vào template
@@ -703,6 +760,11 @@ class InstoreScriptEngine:
 
         self.stats["total_tokens"] += tokens
 
+        product_recs = profile.product_recommendations or raw_json.get(
+            "product_recommendations",
+            [profile.product_focus],
+        )
+
         return InStoreSalesScript(
             customer_id          = profile.customer_id,
             instore_intent       = profile.instore_intent,
@@ -714,8 +776,8 @@ class InstoreScriptEngine:
             chot                 = raw_json.get("chot",     ""),
             upsell               = raw_json.get("upsell",   ""),
             key_insight          = raw_json.get("key_insight", ""),
-            product_recommendations = raw_json.get("product_recommendations",
-                                                     profile.product_recommendations or [profile.product_focus]),
+            product_recommendations = product_recs,
+            product_recommendation_details = profile.product_recommendation_details,
             urgency_signal       = profile.urgency_signal,
             tokens_used          = tokens,
             source               = source,
@@ -842,6 +904,10 @@ class InstoreScriptEngine:
                                          if len(script.product_recommendations) > 1 else ""),
                 "product_rec_3":        (script.product_recommendations[2]
                                          if len(script.product_recommendations) > 2 else ""),
+                "product_recommendation_details": json.dumps(
+                    script.product_recommendation_details,
+                    ensure_ascii=False,
+                ),
 
                 # ── Sales Script 5 bước ───────────────────────────
                 "script_opening":       script.opening,

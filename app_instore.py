@@ -17,6 +17,7 @@ Chạy:
 """
 from __future__ import annotations
 
+import html
 import io
 import hmac
 import json
@@ -47,6 +48,7 @@ from src.instore_script_engine import (
     InstoreScriptEngine, InstoreIntentType,
     PSYCHOLOGY_TRIGGER_MAP,
 )
+from src.product_recommender import ProductRecommender, recommendation_label
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -244,6 +246,24 @@ OFFER_PROGRAMS = [
 
 OFFER_PROGRAM_BY_ID = {offer["id"]: offer for offer in OFFER_PROGRAMS}
 
+RFM_PRIORITY_ORDER = [
+    "Platinum-H",
+    "Platinum-M",
+    "Platinum-L",
+    "Gold-H",
+    "Gold-M",
+    "Gold-L",
+    "Silver-H",
+    "Silver-M",
+    "Silver-L",
+    "Silver",
+]
+
+RFM_PRIORITY_RANK = {
+    segment.lower().replace(" ", "-"): rank
+    for rank, segment in enumerate(RFM_PRIORITY_ORDER)
+}
+
 # ── Walk-in form options ───────────────────────────────────────────────────────
 _WALKIN_GENDER     = ["Nữ", "Nam"]
 _WALKIN_AGE        = ["18–25 tuổi", "26–35 tuổi", "36–45 tuổi", "46+ tuổi"]
@@ -275,6 +295,17 @@ _WALKIN_OCCASION   = [
     "Kỷ niệm tình yêu / hôn nhân",
     "Cầu hôn / Đính hôn",
 ]
+_WALKIN_RECIPIENT_AUDIENCE = ["Chưa rõ", "Người lớn", "Trẻ em"]
+_WALKIN_RECIPIENT_GENDER   = ["Chưa rõ", "Nữ", "Nam", "Unisex / chưa quan trọng"]
+
+# ── Recipient (beneficiary) form options — dùng trong render_script_card ──────
+_RCPT_GENDER_OPTS    = ["Chưa rõ", "Nữ", "Nam", "Unisex / chưa quan trọng"]
+_RCPT_AUDIENCE_OPTS  = ["Chưa rõ", "Người lớn", "Trẻ em"]
+_RCPT_PRODUCT_OPTS   = ["Chưa rõ", "Nhẫn", "Dây chuyền", "Bông tai", "Vòng tay / Lắc", "Mặt dây", "Lắc chân"]
+_RCPT_MATERIAL_OPTS  = ["Chưa rõ", "Vàng 24K", "Vàng 18K", "Vàng 14K", "Vàng trắng 18K", "Vàng trắng 14K", "Vàng Ý", "Bạc", "Kim cương", "Ngọc trai"]
+_RCPT_STYLE_OPTS     = ["Chưa rõ", "Tối giản / Nhẹ nhàng", "Trẻ trung / Năng động", "Thanh lịch / Công sở", "Nổi bật / Cá tính"]
+_RCPT_PURPOSE_OPTS   = ["Chưa rõ", "Mua tặng người thân", "Mua tặng bạn bè / người thân", "Quà cầu hôn / đính hôn", "Mua cho bản thân"]
+_RCPT_OCCASION_OPTS  = ["Chưa hỏi được", "Không có dịp cụ thể", "Sinh nhật (sắp đến)", "Kỷ niệm tình yêu / hôn nhân", "Cầu hôn / Đính hôn"]
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -288,7 +319,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.markdown("""
+GLOBAL_STYLES = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -363,6 +394,15 @@ hr { border-color: #2d3748; }
     font-weight: 600;
     margin: 8px 0;
 }
+.empty-script-note {
+    background: #1f1b12;
+    border: 1px solid #a16207;
+    border-radius: 8px;
+    color: #fde68a;
+    padding: 10px 12px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
 
 /* Intent badge */
 .intent-badge {
@@ -409,7 +449,12 @@ p, li { color: #cbd5e1 !important; }
 
 /* Outbound message card — inline styles handle per-channel theming */
 </style>
-""", unsafe_allow_html=True)
+"""
+
+
+def inject_global_styles() -> None:
+    """Inject CSS on every Streamlit rerun, including after login reruns."""
+    st.markdown(GLOBAL_STYLES, unsafe_allow_html=True)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -435,11 +480,251 @@ def save_cache(cache: dict) -> None:
     )
 
 
+@st.cache_resource(show_spinner=False)
+def get_product_recommender() -> ProductRecommender:
+    """Load real PNJ catalog once per Streamlit session."""
+    return ProductRecommender()
+
+
+def _coerce_product_details(value) -> list[dict]:
+    """Accept list/dict/JSON string from cache, DataFrame, or Excel export."""
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return [item for item in value if isinstance(item, dict)]
+    if isinstance(value, dict):
+        return [value]
+    text = str(value).strip()
+    if not text or text in ["nan", "None", "[]"]:
+        return []
+    try:
+        parsed = json.loads(text)
+    except Exception:
+        return []
+    if isinstance(parsed, list):
+        return [item for item in parsed if isinstance(item, dict)]
+    if isinstance(parsed, dict):
+        return [parsed]
+    return []
+
+
+def _render_product_recommendations(
+    title: str,
+    details: list[dict],
+    fallback_products: list[str],
+) -> list[str]:
+    """Render top 3 product cards plus an expandable scored product list."""
+    labels: list[str] = []
+    if details:
+        filtered_count = details[0].get("filtered_count", len(details))
+        st.markdown(f"**📦 {title}**")
+        st.caption(
+            f"Hiển thị 3 sản phẩm điểm cao nhất trên {filtered_count} sản phẩm đã qua bộ lọc cứng."
+        )
+
+        top_recs = details[:3]
+        top_cols = st.columns(len(top_recs) or 1)
+        for idx, (col, rec) in enumerate(zip(top_cols, top_recs), 1):
+            labels.append(recommendation_label(rec))
+            with col:
+                _render_top_product_card(rec, idx)
+
+        remaining = details[3:]
+        if remaining:
+            with st.expander(f"Xem thêm {len(remaining)} sản phẩm đã được lọc và chấm điểm", expanded=False):
+                st.caption("Danh sách đã được sort theo điểm tổng, có ảnh, điểm và lý do chính.")
+                for start in range(0, len(remaining), 3):
+                    row_cols = st.columns(3)
+                    for col, rec in zip(row_cols, remaining[start:start + 3]):
+                        with col:
+                            _render_compact_product_card(rec)
+        return labels
+
+    labels = [p for p in fallback_products if p]
+    if labels:
+        st.markdown(f"**📦 {title}**")
+        for prod in labels:
+            st.markdown(f"- {prod}")
+    return labels
+
+
+def _score_color(score: float) -> str:
+    if score >= 85:
+        return "#22c55e"
+    if score >= 70:
+        return "#f59e0b"
+    return "#94a3b8"
+
+
+def _render_score_breakdown(rec: dict) -> None:
+    breakdown = rec.get("score_breakdown") or {}
+    if not isinstance(breakdown, dict) or not breakdown:
+        return
+    label_map = {
+        "budget": "Ngân sách",
+        "category": "Loại SP",
+        "occasion": "Dịp mua",
+        "material_stone": "Chất liệu/đá",
+        "recipient_profile": "Tệp người thụ hưởng",
+        "style": "Style",
+        "segment_value": "Phân khúc",
+        "popularity": "Bán chạy",
+    }
+    weight_map = {
+        "budget": 25,
+        "category": 20,
+        "occasion": 15,
+        "material_stone": 15,
+        "recipient_profile": 8,
+        "style": 6,
+        "segment_value": 7,
+        "popularity": 4,
+    }
+    for key in ["budget", "category", "occasion", "material_stone", "recipient_profile", "style", "segment_value", "popularity"]:
+        if key not in breakdown:
+            continue
+        value = float(breakdown.get(key) or 0)
+        max_value = weight_map[key]
+        pct = 0 if max_value <= 0 else min(100, max(0, value / max_value * 100))
+        st.markdown(
+            f"""
+            <div style="margin:4px 0 2px 0">
+              <div style="display:flex;justify-content:space-between;color:#94a3b8;font-size:11px">
+                <span>{label_map[key]}</span><span>{value:g}/{max_value}</span>
+              </div>
+              <div style="height:5px;background:#1f2937;border-radius:99px;overflow:hidden">
+                <div style="width:{pct:.0f}%;height:5px;background:#d4af37"></div>
+              </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+
+def _render_top_product_card(rec: dict, rank: int) -> None:
+    score = float(rec.get("score") or 0)
+    color = _score_color(score)
+    image_url = str(rec.get("image_url") or "").strip()
+    name = html.escape(str(rec.get("name") or "Sản phẩm PNJ"))
+    sku = html.escape(str(rec.get("sku") or ""))
+    price = html.escape(str(rec.get("price_text") or ""))
+    if image_url:
+        st.image(image_url, width="stretch")
+    st.markdown(
+        f"""
+        <div style="border:1px solid {color}66;background:#0f172a;border-radius:8px;padding:10px;min-height:250px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <span style="color:#d4af37;font-weight:800">#{rank}</span>
+            <span style="color:{color};font-weight:800;font-size:16px">{score:.1f}/100</span>
+          </div>
+          <div style="color:#f8fafc;font-size:13px;font-weight:700;line-height:1.35">{name}</div>
+          <div style="color:#94a3b8;font-size:11px;margin-top:4px">{sku}</div>
+          <div style="color:#fde68a;font-size:13px;font-weight:700;margin-top:6px">{price}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    for reason in (rec.get("evidence") or [])[:3]:
+        st.markdown(f"- {reason}")
+    _render_score_breakdown(rec)
+    url = str(rec.get("url") or "").strip()
+    if url:
+        st.link_button("Mở sản phẩm", url, use_container_width=True)
+
+
+def _render_compact_product_card(rec: dict) -> None:
+    score = float(rec.get("score") or 0)
+    color = _score_color(score)
+    image_url = str(rec.get("image_url") or "").strip()
+    name = html.escape(str(rec.get("name") or "Sản phẩm PNJ"))
+    sku = html.escape(str(rec.get("sku") or ""))
+    price = html.escape(str(rec.get("price_text") or ""))
+    if image_url:
+        st.image(image_url, width=120)
+    st.markdown(
+        f"""
+        <div style="border:1px solid #334155;background:#111827;border-radius:8px;padding:9px;margin-bottom:10px">
+          <div style="display:flex;justify-content:space-between;gap:8px">
+            <span style="color:#94a3b8;font-size:11px">{sku}</span>
+            <span style="color:{color};font-weight:800;font-size:12px">{score:.1f}</span>
+          </div>
+          <div style="color:#e5e7eb;font-size:12px;font-weight:700;line-height:1.35;margin-top:4px">{name}</div>
+          <div style="color:#fde68a;font-size:12px;font-weight:700;margin-top:5px">{price}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    reasons = rec.get("evidence") or []
+    if reasons:
+        st.caption(reasons[0])
+    url = str(rec.get("url") or "").strip()
+    if url:
+        st.link_button("Mở", url, use_container_width=True)
+
+
 def get_excel_customer_ids(excel_path: Path) -> list[str]:
     """Get list of customer IDs from Excel profiles sheet."""
     df = pd.read_excel(excel_path, sheet_name="profiles_enhanced")
     id_col = "c" if "c" in df.columns else "customer_id"
     return df[id_col].astype(str).tolist()
+
+
+def _is_blank_value(value) -> bool:
+    if value is None:
+        return True
+    try:
+        if pd.isna(value):
+            return True
+    except (TypeError, ValueError):
+        pass
+    return str(value).strip() in {"", "-", "_", "—", "nan", "None"}
+
+
+def _safe_int_value(value, default: int = 0) -> int:
+    if _is_blank_value(value):
+        return default
+    try:
+        return int(float(value))
+    except (TypeError, ValueError):
+        return default
+
+
+def _first_valid_value(*values):
+    for value in values:
+        if not _is_blank_value(value):
+            return value
+    return None
+
+
+def _format_age(value) -> str:
+    age = _safe_int_value(value)
+    return f"{age} tuổi" if age > 0 else "Chưa có dữ liệu"
+
+
+@st.cache_data(show_spinner=False)
+def load_profile_lookup(path: str) -> dict[str, dict]:
+    """Load source profile fields used to backfill older cache files."""
+    try:
+        sheets = pd.read_excel(path, sheet_name=None)
+        df = sheets.get("profiles_enhanced", pd.DataFrame()).copy()
+        if df.empty:
+            return {}
+        id_col = "c" if "c" in df.columns else "customer_id"
+        if id_col not in df.columns:
+            return {}
+        df["customer_id"] = df[id_col].astype(str)
+        lookup: dict[str, dict] = {}
+        for _, row in df.iterrows():
+            cid = str(row.get("customer_id", ""))
+            if not cid:
+                continue
+            lookup[cid] = {
+                "age": row.get("age"),
+                "gender": row.get("gender"),
+            }
+        return lookup
+    except Exception:
+        return {}
 
 
 @st.cache_data(show_spinner=False)
@@ -548,8 +833,8 @@ def run_pipeline_and_update_cache(
     df_profiles = sheets["profiles_enhanced"]
     df_ml       = sheets.get("ml_predictions", pd.DataFrame())
 
-    # Merge gender từ sheet profiles (profiles_enhanced không có cột gender)
-    if "profiles" in sheets:
+    # Merge gender từ sheet profiles chỉ khi profiles_enhanced chưa có cột gender
+    if "profiles" in sheets and "gender" not in df_profiles.columns:
         df_gender = sheets["profiles"][["customer_id", "gender"]].copy()
         df_profiles = df_profiles.merge(df_gender, on="customer_id", how="left")
         df_profiles["gender"] = df_profiles["gender"].fillna("F")
@@ -604,6 +889,8 @@ def run_pipeline_and_update_cache(
                 "style":            str(row.get("style", "")),
                 "preferred_type":   str(row.get("preferred_type", "")),
                 "material":         str(row.get("material", "")),
+                "gender":           str(profile_dict.get("gender", "") or row.get("gender", "")),
+                "age":              _safe_int_value(_first_valid_value(profile_dict.get("age"), row.get("age"))),
                 "recency_days":     int(row.get("recency_days", 0)),
                 "monetary":         float(row.get("monetary", 0)),
                 "avg_discount_pct": float(row.get("avg_discount_pct", 0)),
@@ -628,6 +915,9 @@ def run_pipeline_and_update_cache(
                 "product_rec_1":       str(row.get("product_rec_1", "")),
                 "product_rec_2":       str(row.get("product_rec_2", "")),
                 "product_rec_3":       str(row.get("product_rec_3", "")),
+                "product_recommendation_details": _coerce_product_details(
+                    row.get("product_recommendation_details", "")
+                ),
                 "online_insight":      str(row.get("online_insight", "")),
                 "urgency_signal":      str(row.get("urgency_signal", "")),
                 "key_insight":         str(row.get("key_insight", "")),
@@ -667,11 +957,13 @@ def run_pipeline_and_update_cache(
 def cache_to_dataframe(cache: dict) -> pd.DataFrame:
     """Flatten cache customers list into a display DataFrame."""
     rows = []
+    profile_lookup = load_profile_lookup(str(DATA_PATH)) if DATA_PATH.exists() else {}
     for c in cache.get("customers", []):
         p  = c.get("profile", {})
         lp = c.get("lep", {})
         ins = c.get("instore", {})
         sc  = ins.get("script", {})
+        source_profile = profile_lookup.get(str(c.get("customer_id", "")), {})
         rows.append({
             "customer_id":         c["customer_id"],
             "processed_at":        c.get("processed_at", ""),
@@ -681,6 +973,8 @@ def cache_to_dataframe(cache: dict) -> pd.DataFrame:
             "style":               p.get("style", ""),
             "preferred_type":      p.get("preferred_type", ""),
             "material":            p.get("material", ""),
+            "gender":              _first_valid_value(p.get("gender"), source_profile.get("gender"), ""),
+            "age":                 _safe_int_value(_first_valid_value(p.get("age"), source_profile.get("age"))),
             "recency_days":        p.get("recency_days", 0),
             "monetary":            p.get("monetary", 0),
             "avg_discount_pct":    p.get("avg_discount_pct", 0),
@@ -703,6 +997,7 @@ def cache_to_dataframe(cache: dict) -> pd.DataFrame:
             "product_rec_1":       ins.get("product_rec_1", ""),
             "product_rec_2":       ins.get("product_rec_2", ""),
             "product_rec_3":       ins.get("product_rec_3", ""),
+            "product_recommendation_details": ins.get("product_recommendation_details", []),
             "online_insight":      ins.get("online_insight", ""),
             "urgency_signal":      ins.get("urgency_signal", ""),
             "key_insight":         ins.get("key_insight", ""),
@@ -1169,8 +1464,12 @@ def render_script_card(row: pd.Series, key_prefix: str = "card", msg_data: Optio
 
     with col_p:
         st.markdown("**📋 Thông tin khách hàng**")
+        _gender_raw = str(row.get("gender", "")).strip().upper()
+        _gender_display = "Nam" if _gender_raw in {"M", "MALE", "NAM"} else ("Nữ" if _gender_raw in {"F", "FEMALE", "NU", "NỮ"} else (str(row.get("gender", "")) or "—"))
         profile_items = [
             ("Phân khúc",       row.get("segment_rfm_tier", "")),
+            ("Giới tính",       _gender_display),
+            ("Tuổi",            _format_age(row.get("age"))),
             ("Ngân sách",       row.get("budget", "")),
             ("Phong cách",      row.get("style", "")),
             ("Loại trang sức",  row.get("preferred_type", "")),
@@ -1243,10 +1542,14 @@ def render_script_card(row: pd.Series, key_prefix: str = "card", msg_data: Optio
         for i in [1, 2, 3]
         if str(row.get(f"product_rec_{i}", "")).strip()
     ]
-    if prods:
-        st.markdown("**📦 Sản phẩm gợi ý cho TVV**")
-        for prod in prods:
-            st.markdown(f"- {prod}")
+    try:
+        product_details = get_product_recommender().recommend_for_profile(row.to_dict(), top_n=60)
+    except Exception:
+        product_details = _coerce_product_details(row.get("product_recommendation_details", []))
+    prods = _render_product_recommendations("Sản phẩm gợi ý cho TVV", product_details, prods)
+
+    # ── Recipient / beneficiary form — TVV điền khi khách mua tặng người khác ─
+    _render_recipient_form(row, key_prefix)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -1264,10 +1567,15 @@ def render_script_card(row: pd.Series, key_prefix: str = "card", msg_data: Optio
         "chot":      "script_chot",
         "upsell":    "script_upsell",
     }
+    nested_script = row.get("script", {})
+    if not isinstance(nested_script, dict):
+        nested_script = {}
+    rendered_steps = 0
     for key_name, label in SCRIPT_STEPS:
         col_key = script_col_map[key_name]
-        content = str(row.get(col_key, "")).strip()
+        content = str(row.get(col_key, "") or nested_script.get(key_name, "")).strip()
         if content:
+            rendered_steps += 1
             st.markdown(
                 f'<div class="step-block">'
                 f'<div class="step-label">{label}</div>'
@@ -1275,6 +1583,14 @@ def render_script_card(row: pd.Series, key_prefix: str = "card", msg_data: Optio
                 f'</div>',
                 unsafe_allow_html=True,
             )
+    if rendered_steps == 0:
+        st.markdown(
+            '<div class="empty-script-note">'
+            'Chưa có nội dung Sales Script trong dữ liệu hiện tại. '
+            'Hãy chạy lại phân tích để sinh script 5 bước cho khách này.'
+            '</div>',
+            unsafe_allow_html=True,
+        )
 
     # ── Download button ────────────────────────────────────────────────────────
     cid = str(row.get("customer_id", ""))
@@ -1291,11 +1607,11 @@ def render_script_card(row: pd.Series, key_prefix: str = "card", msg_data: Optio
         *[f"  {i+1}. {p}" for i, p in enumerate(prods)],
         "",
         "SCRIPT 5 BƯỚC:",
-        f"1. Opening   : {row.get('script_opening', '')}",
-        f"2. Khai thác : {row.get('script_khai_thac', '')}",
-        f"3. Gợi ý     : {row.get('script_goi_y', '')}",
-        f"4. Chốt đơn  : {row.get('script_chot', '')}",
-        f"5. Upsell    : {row.get('script_upsell', '')}",
+        f"1. Opening   : {row.get('script_opening', '') or nested_script.get('opening', '')}",
+        f"2. Khai thác : {row.get('script_khai_thac', '') or nested_script.get('khai_thac', '')}",
+        f"3. Gợi ý     : {row.get('script_goi_y', '') or nested_script.get('goi_y', '')}",
+        f"4. Chốt đơn  : {row.get('script_chot', '') or nested_script.get('chot', '')}",
+        f"5. Upsell    : {row.get('script_upsell', '') or nested_script.get('upsell', '')}",
     ])
     st.download_button(
         label="📥 Tải script (.txt)",
@@ -1400,6 +1716,8 @@ def _build_walkin_user_prompt(obs: dict) -> str:
     budget       = obs.get("budget", "Chưa rõ")
     purpose      = obs.get("purpose", "Chưa rõ")
     occasion     = obs.get("occasion", "Chưa hỏi được")
+    recipient_audience = obs.get("recipient_audience", "Chưa rõ")
+    recipient_gender   = obs.get("recipient_gender", "Chưa rõ")
 
     intent, nba_strategy = _classify_walkin_intent(obs)
     psych = PSYCHOLOGY_TRIGGER_MAP.get(intent, "No Pressure")
@@ -1433,6 +1751,10 @@ def _build_walkin_user_prompt(obs: dict) -> str:
     budget_known = budget != "Chưa rõ"
     if budget_known:
         collected_lines.append(f"• [ĐÃ BIẾT] Ngân sách: {budget}")
+    if recipient_audience != "Chưa rõ":
+        collected_lines.append(f"• [ĐÃ BIẾT] Người thụ hưởng: {recipient_audience}")
+    if recipient_gender != "Chưa rõ":
+        collected_lines.append(f"• [ĐÃ BIẾT] Giới tính người thụ hưởng: {recipient_gender}")
 
     # Xây danh sách cần khai thác
     needed: list[tuple[str, str, str]] = []  # (field, gợi ý hỏi gián tiếp, các lựa chọn)
@@ -1448,6 +1770,12 @@ def _build_walkin_user_prompt(obs: dict) -> str:
             f"Dùng câu hỏi về phong cách / mức độ nổi bật để suy ra tầm tiền — "
             f"không hỏi thẳng số tiền",
             " / ".join(budget_opts),
+        ))
+    if purpose in ["Mua tặng người thân", "Mua tặng bạn bè / người thân", "Quà cầu hôn / đính hôn"] and recipient_gender == "Chưa rõ":
+        needed.append((
+            "Người thụ hưởng",
+            f"Hỏi tự nhiên món này dành cho ai, người nhận là nam/nữ và người lớn hay trẻ em",
+            "Người lớn / Trẻ em · Nam / Nữ / Unisex",
         ))
 
     lines = [
@@ -1698,6 +2026,26 @@ def _walkin_fallback_script(obs: dict, intent: InstoreIntentType, nba_strategy: 
     return base
 
 
+def _attach_walkin_catalog_recs(script: dict, obs: dict) -> dict:
+    """Override walk-in product recs with real catalog matches when available."""
+    try:
+        recommender = get_product_recommender()
+        recs = recommender.recommend_for_walkin(
+            obs=obs,
+            purpose=str(obs.get("purpose", "")),
+            budget=str(obs.get("budget", "")),
+            style=str(obs.get("style", "")),
+            top_n=60,
+        )
+    except Exception:
+        recs = []
+    if recs:
+        script = dict(script)
+        script["product_recommendation_details"] = recs
+        script["product_recommendations"] = [recommendation_label(rec) for rec in recs[:3]]
+    return script
+
+
 def _generate_walkin_script(obs: dict, api_key: str = "") -> tuple[dict, str]:
     """Generate walk-in script via OpenAI API or fallback template."""
     intent, nba_strategy = _classify_walkin_intent(obs)
@@ -1726,11 +2074,14 @@ def _generate_walkin_script(obs: dict, api_key: str = "") -> tuple[dict, str]:
             parsed.setdefault("nba_strategy",       nba_strategy)
             parsed.setdefault("psychology_trigger", PSYCHOLOGY_TRIGGER_MAP.get(intent, ""))
             parsed.setdefault("intent_label",       intent.value)
-            return parsed, "llm"
+            return _attach_walkin_catalog_recs(parsed, obs), "llm"
         except Exception as exc:
             st.warning(f"GPT-4o gặp lỗi: {exc}. Chuyển sang fallback template.")
 
-    return _walkin_fallback_script(obs, intent, nba_strategy), "fallback"
+    return _attach_walkin_catalog_recs(
+        _walkin_fallback_script(obs, intent, nba_strategy),
+        obs,
+    ), "fallback"
 
 
 def render_walkin_result(obs: dict, script: dict, walkin_id: str, key_prefix: str = "walkin") -> None:
@@ -1766,6 +2117,8 @@ def render_walkin_result(obs: dict, script: dict, walkin_id: str, key_prefix: st
             ("Đến cùng",        obs.get("companion", "")),
             ("Mức độ hứng thú", obs.get("engagement", "")),
             ("Đang xem",        obs.get("product_type", "Chưa rõ")),
+            ("Người thụ hưởng", obs.get("recipient_audience", "Chưa rõ")),
+            ("GT thụ hưởng",    obs.get("recipient_gender", "Chưa rõ")),
         ]
         for label, value in items_obs:
             is_unknown = not value or value == "Chưa rõ"
@@ -1821,10 +2174,8 @@ def render_walkin_result(obs: dict, script: dict, walkin_id: str, key_prefix: st
 
     # ── Product recommendations ───────────────────────────────────────────────
     prods = [p for p in script.get("product_recommendations", []) if p]
-    if prods:
-        st.markdown("**📦 Sản phẩm gợi ý**")
-        for prod in prods:
-            st.markdown(f"- {prod}")
+    product_details = _coerce_product_details(script.get("product_recommendation_details", []))
+    prods = _render_product_recommendations("Sản phẩm gợi ý", product_details, prods)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -1835,6 +2186,11 @@ def render_walkin_result(obs: dict, script: dict, walkin_id: str, key_prefix: st
         _missing_fields.append("Mục đích mua")
     if obs.get("budget", "Chưa rõ") == "Chưa rõ":
         _missing_fields.append("Ngân sách")
+    if (
+        obs.get("purpose", "") in ["Mua tặng người thân", "Mua tặng bạn bè / người thân", "Quà cầu hôn / đính hôn"]
+        and obs.get("recipient_gender", "Chưa rõ") == "Chưa rõ"
+    ):
+        _missing_fields.append("Người thụ hưởng")
 
     st.markdown("**🗣️ Sales Script 5 Bước**")
     for key_name, label in SCRIPT_STEPS:
@@ -1865,61 +2221,92 @@ def render_walkin_result(obs: dict, script: dict, walkin_id: str, key_prefix: st
         'padding:12px 18px 8px 18px;margin-bottom:12px">'
         '<div style="font-size:13px;font-weight:700;color:#22c55e;'
         'text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px">'
-        '🎯 Bước 2 — Tick thông tin khai thác được → Nhận gợi ý sản phẩm ngay</div>'
+        '🎯 Bước 2 — Điền thông tin khai thác được → Nhấn nút để nhận gợi ý sản phẩm</div>'
         '<div style="font-size:12px;color:#4ade80;line-height:1.5">'
         'Sau khi hỏi được <strong>mục đích mua</strong> và <strong>ngân sách</strong>, '
-        'tick vào đây — sản phẩm phù hợp nhất cho khách này sẽ hiện ra tức thì.</div>'
+        'điền vào form bên dưới rồi nhấn <strong>Cập nhật gợi ý</strong> — '
+        'danh sách sản phẩm sẽ chỉ load khi nhấn nút, không load mỗi lần tick.</div>'
         '</div>',
         unsafe_allow_html=True,
     )
 
-    ip_c1, ip_c2, ip_c3 = st.columns(3)
-    with ip_c1:
-        ip_purpose = st.radio(
-            "Mục đích mua",
-            _IP_PURPOSE_OPTS,
-            key=f"{key_prefix}_ip_purpose",
-        )
-    with ip_c2:
-        ip_budget = st.radio(
-            "Ngân sách xác nhận",
-            _IP_BUDGET_OPTS,
-            key=f"{key_prefix}_ip_budget",
-        )
-    with ip_c3:
-        ip_style = st.radio(
-            "Phong cách ưa thích",
-            _IP_STYLE_OPTS,
-            key=f"{key_prefix}_ip_style",
+    _ip_result_key = f"{key_prefix}_ip_result_{walkin_id}"
+
+    with st.form(key=f"{key_prefix}_ip_form_{walkin_id}"):
+        ip_c1, ip_c2, ip_c3 = st.columns(3)
+        with ip_c1:
+            ip_purpose = st.radio("Mục đích mua", _IP_PURPOSE_OPTS)
+        with ip_c2:
+            ip_budget = st.radio("Ngân sách xác nhận", _IP_BUDGET_OPTS)
+        with ip_c3:
+            ip_style = st.radio("Phong cách ưa thích", _IP_STYLE_OPTS)
+        ip_r1, ip_r2 = st.columns(2)
+        with ip_r1:
+            ip_recipient_audience = st.radio("Người thụ hưởng", _IP_RECIPIENT_AUDIENCE, horizontal=True)
+        with ip_r2:
+            ip_recipient_gender = st.radio("Giới tính người thụ hưởng", _IP_RECIPIENT_GENDER, horizontal=True)
+
+        ip_submitted = st.form_submit_button(
+            "🎯 Cập nhật gợi ý sản phẩm",
+            use_container_width=True,
+            type="primary",
         )
 
-    has_ip_selection = (
-        ip_purpose != "Chưa xác định"
-        or ip_budget != "Chưa rõ"
-        or ip_style != "Chưa rõ"
-    )
-
-    if has_ip_selection:
+    if ip_submitted:
+        ip_obs = {
+            **obs,
+            "purpose": ip_purpose if ip_purpose != "Chưa xác định" else obs.get("purpose", ""),
+            "budget": ip_budget if ip_budget != "Chưa rõ" else obs.get("budget", ""),
+            "style": ip_style if ip_style != "Chưa rõ" else obs.get("style", ""),
+            "recipient_audience": ip_recipient_audience,
+            "recipient_gender": ip_recipient_gender,
+        }
         ip_recs, ip_advisory = _walkin_interactive_product_recs(
-            ip_purpose, ip_budget, ip_style, obs
+            ip_purpose, ip_budget, ip_style, ip_obs
         )
+        # Also get raw catalog recs for _render_product_recommendations
+        try:
+            ip_detail_recs = get_product_recommender().recommend_for_walkin(
+                obs=ip_obs,
+                purpose=ip_obs.get("purpose", ""),
+                budget=ip_obs.get("budget", ""),
+                style=ip_obs.get("style", ""),
+                top_n=60,
+            )
+        except Exception:
+            ip_detail_recs = []
+        st.session_state[_ip_result_key] = {
+            "simple_recs": ip_recs,
+            "detail_recs": ip_detail_recs,
+            "advisory": ip_advisory,
+        }
+
+    if _ip_result_key in st.session_state:
+        saved_ip = st.session_state[_ip_result_key]
         st.markdown("<br>", unsafe_allow_html=True)
-        st.markdown("**📦 Sản phẩm phù hợp nhất cho khách này**")
-        for prod_name, prod_desc in ip_recs:
+        detail_recs = saved_ip.get("detail_recs") or []
+        simple_recs = saved_ip.get("simple_recs") or []
+        ip_advisory = saved_ip.get("advisory", "")
+        if detail_recs:
+            _render_product_recommendations("📦 Sản phẩm phù hợp nhất cho khách này", detail_recs, [])
+        elif simple_recs:
+            st.markdown("**📦 Sản phẩm phù hợp nhất cho khách này**")
+            for prod_name, prod_desc in simple_recs:
+                st.markdown(
+                    f'<div style="background:#0d1a0d;border:1px solid #16a34a;border-radius:8px;'
+                    f'padding:10px 14px;margin-bottom:8px">'
+                    f'<div style="color:#4ade80;font-size:13px;font-weight:600">💎 {prod_name}</div>'
+                    f'<div style="color:#6b7280;font-size:12px;margin-top:3px">{prod_desc}</div>'
+                    f'</div>',
+                    unsafe_allow_html=True,
+                )
+        if ip_advisory:
             st.markdown(
-                f'<div style="background:#0d1a0d;border:1px solid #16a34a;border-radius:8px;'
-                f'padding:10px 14px;margin-bottom:8px">'
-                f'<div style="color:#4ade80;font-size:13px;font-weight:600">💎 {prod_name}</div>'
-                f'<div style="color:#6b7280;font-size:12px;margin-top:3px">{prod_desc}</div>'
-                f'</div>',
+                f'<div style="background:#162016;border:1px solid #22c55e;border-radius:8px;'
+                f'padding:10px 14px;color:#86efac;font-size:13px;line-height:1.6;margin-top:4px">'
+                f'💬 {ip_advisory}</div>',
                 unsafe_allow_html=True,
             )
-        st.markdown(
-            f'<div style="background:#162016;border:1px solid #22c55e;border-radius:8px;'
-            f'padding:10px 14px;color:#86efac;font-size:13px;line-height:1.6;margin-top:4px">'
-            f'💬 {ip_advisory}</div>',
-            unsafe_allow_html=True,
-        )
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -1942,6 +2329,8 @@ def render_walkin_result(obs: dict, script: dict, walkin_id: str, key_prefix: st
         f"  Mục đích  : {obs.get('purpose', '')}",
         f"  Dịp       : {obs.get('occasion', '')}",
         f"  Ngân sách : {obs.get('budget', '')}",
+        f"  Người hưởng: {obs.get('recipient_audience', '')}",
+        f"  GT người hưởng: {obs.get('recipient_gender', '')}",
         "",
         f"Key Insight : {key}",
         "",
@@ -1978,12 +2367,166 @@ _IP_PURPOSE_OPTS = [
 ]
 _IP_BUDGET_OPTS = ["Chưa rõ", "Dưới 5 triệu", "5–15 triệu", "15–30 triệu", "Trên 30 triệu"]
 _IP_STYLE_OPTS  = ["Chưa rõ", "Tối giản / Thanh lịch", "Trẻ trung / Năng động", "Sang trọng / Cá tính"]
+_IP_RECIPIENT_AUDIENCE = ["Chưa rõ", "Người lớn", "Trẻ em"]
+_IP_RECIPIENT_GENDER   = ["Chưa rõ", "Nữ", "Nam", "Unisex / chưa quan trọng"]
+
+
+def _render_recipient_form(row: pd.Series, key_prefix: str) -> None:
+    """Render TVV input form for recipient/beneficiary criteria in customer detail view.
+
+    When the customer (buyer) is NOT the person who will wear/use the product,
+    the buyer's profile data (style, preferred_type, gender) is irrelevant for
+    recommendations. This form lets the TVV collect recipient criteria on the spot.
+    Budget is taken from the buyer's profile — it's the only buyer signal that remains
+    valid regardless of who the beneficiary is.
+
+    Uses st.form so recommendations only refresh when TVV explicitly clicks submit,
+    not on every radio-button change.
+    """
+    cid = str(row.get("customer_id", "unknown"))
+    buyer_budget = str(row.get("budget", "Chưa rõ"))
+    lep_intent = str(row.get("lep_intent", "") or row.get("instore_intent", "")).lower()
+    is_likely_gift = any(k in lep_intent for k in ["engagement", "gift", "anniversary", "cầu hôn", "kỷ niệm"])
+    budget_display = buyer_budget if buyer_budget and buyer_budget not in ("Chưa rõ", "") else "chưa xác định"
+    result_key = f"rcpt_result_{key_prefix}_{cid}"
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    with st.expander(
+        "🎁 Gợi ý sản phẩm cho người thụ hưởng thật sự — TVV điền thêm",
+        expanded=is_likely_gift,
+    ):
+        st.markdown(
+            f'<div style="background:#0a1929;border-left:3px solid #3b82f6;border-radius:0 8px 8px 0;'
+            f'padding:10px 14px;color:#93c5fd;font-size:13px;line-height:1.65;margin-bottom:14px">'
+            f'<strong style="color:#60a5fa">Khi khách mua tặng người khác</strong>, hồ sơ cá nhân '
+            f'(phong cách, loại SP yêu thích) không phản ánh nhu cầu của người nhận. '
+            f'TVV khai thác thêm, điền thông tin bên dưới rồi nhấn '
+            f'<strong style="color:#60a5fa">Tìm sản phẩm</strong> — '
+            f'hệ thống sẽ gợi ý theo <em>người thụ hưởng thật sự</em>.<br>'
+            f'<span style="color:#fde68a">Ngân sách:</span> <strong style="color:#fde68a">'
+            f'{budget_display}</strong> (từ hồ sơ khách, không thay đổi).'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
+
+        with st.form(key=f"rcpt_form_{key_prefix}_{cid}"):
+            r1c1, r1c2 = st.columns(2)
+            with r1c1:
+                rcpt_gender = st.radio("Giới tính người nhận", _RCPT_GENDER_OPTS)
+            with r1c2:
+                rcpt_audience = st.radio("Nhóm tuổi người nhận", _RCPT_AUDIENCE_OPTS)
+
+            r2c1, r2c2 = st.columns(2)
+            with r2c1:
+                rcpt_product = st.radio("Loại trang sức", _RCPT_PRODUCT_OPTS)
+            with r2c2:
+                rcpt_material = st.radio("Chất liệu", _RCPT_MATERIAL_OPTS)
+
+            r3c1, r3c2 = st.columns(2)
+            with r3c1:
+                rcpt_purpose = st.radio("Mục đích mua", _RCPT_PURPOSE_OPTS)
+            with r3c2:
+                rcpt_occasion = st.radio("Dịp mua", _RCPT_OCCASION_OPTS)
+
+            rcpt_style = st.radio("Phong cách người nhận", _RCPT_STYLE_OPTS, horizontal=True)
+
+            submitted = st.form_submit_button(
+                "🔍 Tìm sản phẩm phù hợp người thụ hưởng",
+                use_container_width=True,
+                type="primary",
+            )
+
+        if submitted:
+            _UNSET = {"Chưa rõ", "Chưa hỏi được", ""}
+            has_selection = any([
+                rcpt_gender not in _UNSET,
+                rcpt_audience not in _UNSET,
+                rcpt_product not in _UNSET,
+                rcpt_material not in _UNSET,
+                rcpt_purpose not in _UNSET,
+                rcpt_occasion not in _UNSET,
+                rcpt_style not in _UNSET,
+            ])
+            if not has_selection:
+                st.session_state[result_key] = None
+            else:
+                profile_dict = row.to_dict()
+                _UNSET2 = {"Chưa rõ", "Chưa hỏi được", ""}
+                try:
+                    recs = get_product_recommender().recommend_for_recipient(
+                        profile=profile_dict,
+                        recipient_gender=rcpt_gender if rcpt_gender not in _UNSET2 else "",
+                        recipient_audience=rcpt_audience if rcpt_audience not in _UNSET2 else "",
+                        occasion=rcpt_occasion if rcpt_occasion not in _UNSET2 else "",
+                        product_type=rcpt_product if rcpt_product not in _UNSET2 else "",
+                        style=rcpt_style if rcpt_style not in _UNSET2 else "",
+                        material=rcpt_material if rcpt_material not in _UNSET2 else "",
+                        purpose=rcpt_purpose if rcpt_purpose not in _UNSET2 else "",
+                        top_n=24,
+                    )
+                except Exception:
+                    recs = []
+                st.session_state[result_key] = recs
+
+        # ── Hiển thị kết quả từ session_state (bền qua mọi rerun) ─────────────
+        if result_key not in st.session_state:
+            st.markdown(
+                '<div style="color:#475569;font-size:12px;font-style:italic;margin-top:8px">'
+                'Điền thông tin người nhận bên trên, rồi nhấn '
+                '<strong>Tìm sản phẩm</strong> để xem gợi ý.</div>',
+                unsafe_allow_html=True,
+            )
+        elif st.session_state[result_key] is None:
+            st.markdown(
+                '<div style="color:#475569;font-size:12px;font-style:italic;margin-top:8px">'
+                'Điền ít nhất một tiêu chí để nhận gợi ý theo người thụ hưởng.</div>',
+                unsafe_allow_html=True,
+            )
+        else:
+            recs = st.session_state[result_key]
+            st.markdown("<br>", unsafe_allow_html=True)
+            if recs:
+                _render_product_recommendations(
+                    "Sản phẩm phù hợp cho người thụ hưởng",
+                    recs,
+                    [],
+                )
+            else:
+                st.warning("Không tìm thấy sản phẩm phù hợp với tiêu chí trên. Thử nới lỏng một tiêu chí.")
 
 
 def _walkin_interactive_product_recs(
     purpose: str, budget: str, style: str, obs: dict,
 ) -> tuple[list[tuple[str, str]], str]:
     """Return ([(name, desc), ...], advisory_note) based on confirmed in-store info."""
+    try:
+        recs = get_product_recommender().recommend_for_walkin(
+            obs=obs,
+            purpose=purpose,
+            budget=budget,
+            style=style,
+            top_n=3,
+        )
+    except Exception:
+        recs = []
+    if recs:
+        items = []
+        for rec in recs:
+            evidence = rec.get("evidence") or rec.get("selling_points") or []
+            desc = " · ".join(
+                part for part in [
+                    rec.get("price_text", ""),
+                    "; ".join(str(e) for e in evidence[:2]),
+                ]
+                if part
+            )
+            items.append((recommendation_label(rec), desc))
+        return (
+            items,
+            "Các mẫu này được chọn từ catalog PNJ theo ngân sách, mục đích mua, "
+            "phong cách và độ phù hợp sản phẩm. TVV nên kiểm tra tồn kho thực tế tại quầy trước khi chốt.",
+        )
+
     gender    = obs.get("gender", "Nữ")
     pron      = "anh" if gender == "Nam" else "chị"
     companion = obs.get("companion", "")
@@ -2243,6 +2786,18 @@ def render_tab_walkin(api_key: str = "") -> None:
         budget_obs = st.radio("Ngân sách (hỏi hoặc ước tính)", _WALKIN_BUDGET, key="wk_budget")
         purpose    = st.radio("Mục đích", _WALKIN_PURPOSE, key="wk_purpose")
         occasion   = st.radio("Dịp đặc biệt", _WALKIN_OCCASION, key="wk_occasion")
+        recipient_audience = st.radio(
+            "Người thụ hưởng",
+            _WALKIN_RECIPIENT_AUDIENCE,
+            horizontal=True,
+            key="wk_recipient_audience",
+        )
+        recipient_gender = st.radio(
+            "Giới tính người thụ hưởng",
+            _WALKIN_RECIPIENT_GENDER,
+            horizontal=True,
+            key="wk_recipient_gender",
+        )
 
     st.divider()
 
@@ -2274,10 +2829,16 @@ def render_tab_walkin(api_key: str = "") -> None:
             "budget":       budget_obs,
             "purpose":      purpose,
             "occasion":     occasion,
+            "recipient_audience": recipient_audience,
+            "recipient_gender":   recipient_gender,
         }
         with st.spinner("Đang phân tích và tạo script..."):
             script_data, source = _generate_walkin_script(obs, api_key)
         walkin_id = f"WALKIN-{datetime.now().strftime('%H%M%S')}"
+        # Xóa kết quả Bước 2 cũ khi sinh script mới
+        for _k in list(st.session_state.keys()):
+            if _k.startswith("walkin_ip_result_"):
+                del st.session_state[_k]
         st.session_state["wk_result"] = {
             "obs":       obs,
             "script":    script_data,
@@ -2369,8 +2930,8 @@ def _regenerate_outbound_messages(api_key: str) -> tuple[bool, str]:
         df_profiles = sheets["profiles_enhanced"]
         df_ml       = sheets.get("ml_predictions", pd.DataFrame())
 
-        # Merge gender từ sheet profiles (profiles_enhanced không có cột gender)
-        if "profiles" in sheets:
+        # Merge gender từ sheet profiles chỉ khi profiles_enhanced chưa có cột gender
+        if "profiles" in sheets and "gender" not in df_profiles.columns:
             df_gender = sheets["profiles"][["customer_id", "gender"]].copy()
             df_profiles = df_profiles.merge(df_gender, on="customer_id", how="left")
             df_profiles["gender"] = df_profiles["gender"].fillna("F")
@@ -2985,6 +3546,169 @@ def build_nbo_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def _rfm_priority_rank(segment: str) -> int:
+    """Return business-defined rank for RFM segment priority ordering."""
+    key = str(segment or "").strip().replace(" ", "-").lower()
+    return RFM_PRIORITY_RANK.get(key, len(RFM_PRIORITY_RANK))
+
+
+def render_tab_priority_queue(df: pd.DataFrame) -> None:
+    """Tab: prioritize customers top-down using confidence, intent, then RFM."""
+    st.markdown("## 🏆 Khách hàng ưu tiên")
+    st.caption(
+        "Lọc theo 3 layer: LEP confidence, In-Store Intent, rồi xếp hạng theo thứ tự RFM."
+    )
+
+    if df.empty:
+        st.info("Chưa có dữ liệu phân tích. Hãy chạy pipeline trước.")
+        return
+
+    layer_1, layer_2, layer_3 = st.columns([1, 1.4, 1.2])
+
+    with layer_1:
+        min_conf_pct = st.number_input(
+            "Layer 1 · LEP confidence lớn hơn (%)",
+            min_value=0,
+            max_value=100,
+            value=70,
+            step=5,
+            help="Mặc định lấy khách có confidence > 70%. Đổi thành 60 để lấy khách > 60%.",
+            key="priority_min_conf_pct",
+        )
+
+    all_intents = sorted(df["instore_intent"].dropna().astype(str).unique().tolist())
+    with layer_2:
+        selected_intents = st.multiselect(
+            "Layer 2 · In-Store Intent",
+            options=all_intents,
+            default=all_intents,
+            format_func=lambda x: f"{INTENT_ICONS.get(x, '')} {x}",
+            key="priority_intents",
+        )
+
+    with layer_3:
+        st.markdown("**Layer 3 · RFM sort**")
+        st.caption(" → ".join(RFM_PRIORITY_ORDER[:3]))
+        st.caption("Gold-H → Gold-M → Gold-L → Silver-H → Silver-M → Silver-L")
+
+    threshold = min_conf_pct / 100
+    priority_df = df.copy()
+    priority_df["confidence"] = pd.to_numeric(priority_df["confidence"], errors="coerce").fillna(0)
+    priority_df["monetary"] = pd.to_numeric(priority_df["monetary"], errors="coerce").fillna(0)
+    priority_df["_rfm_rank"] = priority_df["segment_rfm_tier"].map(_rfm_priority_rank)
+
+    priority_df = priority_df[priority_df["confidence"] > threshold]
+    if selected_intents:
+        priority_df = priority_df[priority_df["instore_intent"].isin(selected_intents)]
+    else:
+        priority_df = priority_df.iloc[0:0]
+
+    priority_df = priority_df.sort_values(
+        ["_rfm_rank", "confidence", "monetary", "customer_id"],
+        ascending=[True, False, False, True],
+    ).reset_index(drop=True)
+    priority_df.insert(0, "rank", range(1, len(priority_df) + 1))
+    priority_df["confidence_pct"] = (priority_df["confidence"] * 100).round(0).astype(int)
+
+    c1, c2, c3, c4 = st.columns(4)
+    high_count = (priority_df["instore_intent"] == "High Purchase").sum()
+    premium_count = (priority_df["instore_intent"] == "Premium").sum()
+    top_segment = (
+        priority_df["segment_rfm_tier"].iloc[0]
+        if not priority_df.empty else "—"
+    )
+    metrics = [
+        (c1, len(priority_df), "Khách sau 3 layer"),
+        (c2, f">{min_conf_pct:.0f}%", "Ngưỡng confidence"),
+        (c3, high_count + premium_count, "High/Premium"),
+        (c4, top_segment, "Segment ưu tiên nhất"),
+    ]
+    for col, val, label in metrics:
+        with col:
+            st.markdown(
+                f'<div class="kpi-card">'
+                f'<div class="kpi-value">{val}</div>'
+                f'<div class="kpi-label">{label}</div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    if priority_df.empty:
+        st.warning("Không có khách nào khớp 3 layer hiện tại.")
+        return
+
+    display_cols = [
+        "rank", "customer_id", "segment_rfm_tier", "instore_intent",
+        "confidence_pct", "priority", "monetary", "urgency_signal", "key_insight",
+    ]
+    st.dataframe(
+        priority_df[[c for c in display_cols if c in priority_df.columns]],
+        use_container_width=True,
+        height=420,
+        column_config={
+            "rank": st.column_config.NumberColumn("Thứ tự", format="%d"),
+            "customer_id": "Khách",
+            "segment_rfm_tier": "RFM Segment",
+            "instore_intent": "Intent",
+            "confidence_pct": st.column_config.ProgressColumn(
+                "LEP confidence",
+                min_value=0,
+                max_value=100,
+                format="%d%%",
+            ),
+            "priority": "Priority",
+            "monetary": st.column_config.NumberColumn("Tổng chi tiêu", format="%d đ"),
+            "urgency_signal": "Urgency",
+            "key_insight": "Key Insight",
+        },
+    )
+
+    st.markdown("### Top khách cần ưu tiên")
+    for _, row in priority_df.head(10).iterrows():
+        intent = str(row.get("instore_intent", ""))
+        color = INTENT_COLORS.get(intent, "#64748b")
+        conf = float(row.get("confidence", 0))
+        segment = str(row.get("segment_rfm_tier", ""))
+        urgency = str(row.get("urgency_signal", "")).strip()
+        key = str(row.get("key_insight", "")).strip()
+        st.markdown(
+            f"""
+            <div style="background:#111827;border:1px solid {color}88;border-radius:8px;
+                        padding:12px 14px;margin-bottom:10px">
+                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                    <span style="color:#d4af37;font-size:18px;font-weight:800">#{int(row['rank'])}</span>
+                    <span style="color:#f8fafc;font-weight:800">{row.get('customer_id', '')}</span>
+                    <span style="background:#1f2937;border:1px solid #334155;border-radius:18px;
+                                 color:#cbd5e1;padding:2px 9px;font-size:12px">{segment}</span>
+                    <span style="background:{color}22;border:1px solid {color}66;border-radius:18px;
+                                 color:{color};padding:2px 9px;font-size:12px;font-weight:700">
+                        {INTENT_ICONS.get(intent, '')} {intent}
+                    </span>
+                    <span style="margin-left:auto;color:#fde68a;font-weight:800">{conf:.0%}</span>
+                </div>
+                <div style="color:#94a3b8;font-size:12.5px;line-height:1.6;margin-top:8px">
+                    {urgency}
+                </div>
+                <div style="color:#e2e8f0;font-size:13px;line-height:1.6;margin-top:5px">
+                    {key}
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    csv = priority_df.drop(columns=["_rfm_rank"], errors="ignore").to_csv(index=False).encode("utf-8-sig")
+    st.download_button(
+        "📥 Xuất danh sách ưu tiên CSV",
+        data=csv,
+        file_name="priority_customers.csv",
+        mime="text/csv",
+        key="priority_export_csv",
+    )
+
+
 def _offer_group_badge(group: str) -> str:
     color = OFFER_GROUP_COLORS.get(group, "#64748b")
     icon = OFFER_GROUP_ICONS.get(group, "")
@@ -3177,6 +3901,9 @@ def render_tab_next_best_offer(df: pd.DataFrame, filters: dict) -> None:
         ranked = build_next_best_offers(row)
         signals = _customer_offer_signals(row)
 
+        render_script_card(row, key_prefix="nbo")
+        st.divider()
+
         col_left, col_right = st.columns([1, 1])
         with col_left:
             st.markdown("**Insight khách hàng**")
@@ -3211,9 +3938,6 @@ def render_tab_next_best_offer(df: pd.DataFrame, filters: dict) -> None:
             st.markdown("**Top offer được đề xuất**")
             for i, offer in enumerate(ranked[:5], 1):
                 _render_offer_rank_card(offer, i)
-
-        st.divider()
-        render_script_card(row, key_prefix="nbo")
 
     with tab_library:
         st.markdown("### Nền tảng logic")
@@ -3646,7 +4370,7 @@ def render_tab_analysis(df: pd.DataFrame, filters: dict) -> None:
     df_page = df_sorted.iloc[start : start + page_size]
 
     # ── Expandable customer cards ──────────────────────────────────────────────
-    for _, row in df_page.iterrows():
+    for idx, row in df_page.iterrows():
         intent  = row.get("instore_intent", "")
         conf    = float(row.get("confidence", 0))
         urgency = str(row.get("urgency_signal", "")).strip()
@@ -3663,7 +4387,7 @@ def render_tab_analysis(df: pd.DataFrame, filters: dict) -> None:
         if cart > 0:
             label_parts.append(f"🛒×{cart}")
 
-        with st.expander(" · ".join(label_parts), expanded=False):
+        with st.expander(" · ".join(label_parts), expanded=(idx == df_page.index[0])):
             render_script_card(row, key_prefix="list")
 
     # ── Export buttons ─────────────────────────────────────────────────────────
@@ -3850,6 +4574,7 @@ def render_cache_banner(cache: Optional[dict], status: dict) -> bool:
 # ══════════════════════════════════════════════════════════════════════════════
 
 def main() -> None:
+    inject_global_styles()
     render_login_gate()
 
     # ── Header ────────────────────────────────────────────────────────────────
@@ -3898,9 +4623,10 @@ def main() -> None:
         df_analysis = cache_to_dataframe(cache)
 
     # ── Tabs ──────────────────────────────────────────────────────────────────
-    tab_raw, tab_analysis, tab_offer, tab_customer, tab_walkin, tab_guide = st.tabs([
+    tab_raw, tab_analysis, tab_priority, tab_offer, tab_customer, tab_walkin, tab_guide = st.tabs([
         "📂 Dữ liệu gốc",
         "🎯 Kết quả phân tích",
+        "🏆 Khách ưu tiên",
         "🎁 AI Next Best Offer",
         "👤 Tra cứu khách",
         "👁️ Khách Mới",
@@ -3912,6 +4638,9 @@ def main() -> None:
 
     with tab_analysis:
         render_tab_analysis(df_analysis, filters)
+
+    with tab_priority:
+        render_tab_priority_queue(df_analysis)
 
     with tab_offer:
         render_tab_next_best_offer(df_analysis, filters)

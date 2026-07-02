@@ -34,6 +34,35 @@ OPENAI_API_KEY=your_openai_api_key
 
 `OPENAI_API_KEY` có thể để trống nếu chỉ muốn chạy fallback template. Không commit file `.env`.
 
+## Gợi ý sản phẩm thật
+
+App đọc trực tiếp `data/catalog_production_enriched.json`, dùng các trường chuẩn như `product_type`, `gender`, `audience`, `material`, `primary_stone`, `secondary_stone`, `price_tier`, `style_tags`, `occasion_tags`, `display_image_url`, rồi chấm điểm sản phẩm theo thang 100. Logic không dùng LLM để rank.
+
+Rule chấm điểm:
+
+- Ngân sách `25`: loại sản phẩm vượt trần ngân sách, ưu tiên giá nằm đúng khung.
+- Loại SP `20`: khớp `product_type`; nhóm gần nhau như bracelet/bangle được điểm một phần.
+- Dịp mua `15`: khớp `occasion_tags` hoặc tín hiệu LEP/purpose như cầu hôn, sinh nhật, quà tặng, kỷ niệm.
+- Chất liệu/đá `15`: 8 điểm chất liệu/tuổi vàng, 7 điểm đá chính/phụ.
+- Style `8`: map style khách sang tag như minimal, youthful, elegant, luxury, bold.
+- Phân khúc `8`: RFM/monetary/budget quyết định `entry/mid/premium/luxury` có phù hợp không.
+- Bán chạy `6`: ưu tiên số bán/rating nếu catalog có; nếu chưa có thì dùng proxy từ daily/classic/giftable/brand.
+- Giới tính `3`: chấm theo người thụ hưởng thật sự, không mặc định theo người mua khi là mua tặng; gồm `gender` và `audience` adult/child.
+
+Với khách walk-in, nếu khách mua cho người khác, TVV cần nhập thêm người thụ hưởng là người lớn/trẻ em và nam/nữ để hệ thống chọn đúng sản phẩm cho người sẽ đeo.
+
+Test nhanh danh sách sản phẩm cho một khách:
+
+```bash
+python scripts/recommend_products_for_customer.py CUSTOMER_ID --top-n 5
+```
+
+Xuất JSON để kiểm tra hoặc dùng cho bước khác:
+
+```bash
+python scripts/recommend_products_for_customer.py CUSTOMER_ID --top-n 5 --json
+```
+
 ## Chạy bằng Docker Compose
 
 ```bash
